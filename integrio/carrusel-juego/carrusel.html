@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Integrio — Carrusel: jugar es aprender</title>
+<style>
+  @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url(fonts/Baloo2-800.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 300; src: url(fonts/Poppins-300.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 400; src: url(fonts/Poppins-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 500; src: url(fonts/Poppins-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 600; src: url(fonts/Poppins-600.woff2) format('woff2'); }
+
+  /* Paleta oficial (brandbook Integrio 2026) */
+  :root {
+    --terracota: #c07a5a;
+    --amarillo:  #f5bb4d;
+    --teal:      #538797;
+    --verde:     #bfd0b0;
+    --crema:     #fffcf8;
+    /* derivados para texto y fondos suaves */
+    --verde-txt: #94a883;
+    --texto:     #4a4846;
+    --rosa:      #d9b1a0;
+    --arena:     #f6e9df;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e9e4de; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+
+  .slide {
+    position: relative; width: 1080px; height: 1350px; overflow: hidden;
+    background: var(--crema); color: var(--texto);
+    font-family: 'Poppins', sans-serif;
+  }
+  .h { font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: .98; letter-spacing: -1px; }
+  .t { color: var(--terracota); }
+  .v { color: var(--verde-txt); }
+  .tl { color: var(--teal); }
+
+  .iso { position: absolute; top: 64px; right: 72px; width: 66px; }
+  .confetti { position: absolute; inset: 0; pointer-events: none; }
+
+  .body { font-size: 40px; line-height: 1.38; font-weight: 400; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 16px;
+    font-weight: 600; font-size: 28px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 12px 28px 10px; border-radius: 40px; color: #fff;
+  }
+  .tip {
+    position: relative; border: 2.5px solid var(--terracota); border-radius: 36px;
+    padding: 34px 40px 34px; font-size: 32px; line-height: 1.42; background: rgba(255,252,248,.92);
+  }
+  .tip b { display: block; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; color: var(--terracota); margin-bottom: 10px; }
+  .tip .dot { position: absolute; top: -26px; right: 38px; width: 52px; height: 52px; }
+</style>
+</head>
+<body>
+
+<!-- Símbolos reutilizables -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Isotipo: la "i" de bloques -->
+    <symbol id="iso" viewBox="0 0 100 150">
+      <circle cx="50" cy="21" r="20" fill="#f5bb4d"/>
+      <rect x="6" y="50" width="88" height="27" rx="3" fill="#bfd0b0"/>
+      <path d="M9 84h82a3 3 0 0 1 3 3v61H74a24 24 0 0 0-48 0H6V87a3 3 0 0 1 3-3z" fill="#538797"/>
+    </symbol>
+    <symbol id="iso-w" viewBox="0 0 100 150">
+      <circle cx="50" cy="21" r="20" fill="#fff"/>
+      <rect x="6" y="50" width="88" height="27" rx="3" fill="#fff"/>
+      <path d="M9 84h82a3 3 0 0 1 3 3v61H74a24 24 0 0 0-48 0H6V87a3 3 0 0 1 3-3z" fill="#fff"/>
+    </symbol>
+    <!-- Bloque arco -->
+    <symbol id="arch" viewBox="0 0 200 120">
+      <path d="M6 0h188a6 6 0 0 1 6 6v114h-50a50 50 0 0 0-100 0H0V6a6 6 0 0 1 6-6z"/>
+    </symbol>
+    <!-- Bloque con media luna (el "C" del brandbook) -->
+    <symbol id="cblock" viewBox="0 0 160 200">
+      <path d="M6 0h148a6 6 0 0 1 6 6v188a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V150a50 50 0 0 0 0-100V6a6 6 0 0 1 6-6z"/>
+    </symbol>
+    <symbol id="tri" viewBox="0 0 200 180">
+      <path d="M92 6a10 10 0 0 1 16 0l90 160a8 8 0 0 1-7 12H9a8 8 0 0 1-7-12z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section class="slide" id="s1">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="1010" cy="760" r="300" style="fill:var(--arena)"/>
+    <rect x="70" y="1180" width="90" height="90" rx="8" style="fill:var(--arena)" transform="rotate(14 115 1225)"/>
+    <circle cx="140" cy="140" r="26" style="fill:var(--arena)"/>
+    <rect x="300" y="1240" width="150" height="36" rx="6" style="fill:var(--arena)" transform="rotate(-8 375 1258)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:230px;width:900px">
+    <div class="h t" style="font-size:118px">¿Por qué jugar<br>es la mejor<br>forma de</div>
+    <div class="h v" style="font-size:118px">aprender?</div>
+    <p class="body" style="margin-top:44px;width:560px;font-size:38px">Mientras tu hijo juega, está construyendo mucho más de lo que se ve.</p>
+  </div>
+
+  <!-- Torre de bloques -->
+  <svg style="position:absolute;right:70px;bottom:120px" width="420" height="620" viewBox="0 0 420 620">
+    <use href="#arch" x="30" y="470" width="360" height="150" style="fill:var(--teal)"/>
+    <rect x="70" y="402" width="280" height="58" rx="8" style="fill:var(--verde)"/>
+    <rect x="125" y="250" width="150" height="142" rx="8" style="fill:var(--amarillo)" transform="rotate(-4 200 321)"/>
+    <circle cx="208" cy="305" r="28" style="fill:var(--terracota)"/>
+    <use href="#tri" x="105" y="92" width="200" height="150" style="fill:var(--terracota)" transform="rotate(5 205 167)"/>
+    <circle cx="214" cy="40" r="38" style="fill:var(--amarillo)"/>
+  </svg>
+
+  <div style="position:absolute;left:90px;bottom:96px;display:flex;align-items:center;gap:18px;font-weight:500;font-size:28px;color:var(--terracota);letter-spacing:2px">
+    DESLIZA
+    <svg width="64" height="24" viewBox="0 0 64 24"><path d="M2 12h56M46 2l12 10-12 10" style="stroke:var(--terracota)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ============ 2 · CAPA SOBRE CAPA ============ -->
+<section class="slide" id="s2">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="80" cy="1290" r="140" style="fill:var(--arena)"/>
+    <rect x="930" y="300" width="70" height="70" rx="8" style="fill:var(--arena)" transform="rotate(18 965 335)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:200px;width:900px">
+    <div class="h t" style="font-size:112px">Capa sobre capa</div>
+    <p class="body" style="margin-top:34px;width:820px">Como los bloques de madera, cada experiencia de juego suma. Así crece tu hijo, <b style="font-weight:600">como un todo:</b></p>
+  </div>
+
+  <!-- Pila de 4 dimensiones -->
+  <div style="position:absolute;left:90px;right:90px;top:640px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;align-items:center;gap:36px">
+      <svg width="200" height="110" viewBox="0 0 200 110"><rect x="40" y="2" width="120" height="106" rx="8" style="fill:var(--amarillo)"/></svg>
+      <div><div class="h" style="font-size:66px;color:#e0a32f">Cuerpo</div><div style="font-size:28px">moverse, equilibrar, coordinar</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:36px">
+      <svg width="200" height="110" viewBox="0 0 200 110"><use href="#arch" x="0" y="0" width="200" height="110" style="fill:var(--teal)"/></svg>
+      <div><div class="h tl" style="font-size:66px">Mente</div><div style="font-size:28px">explorar, probar, descubrir</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:36px">
+      <svg width="200" height="110" viewBox="0 0 200 110"><circle cx="100" cy="55" r="52" style="fill:var(--terracota)"/></svg>
+      <div><div class="h t" style="font-size:66px">Emoción</div><div style="font-size:28px">sentir, nombrar, regular</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:36px">
+      <svg width="200" height="110" viewBox="0 0 200 110"><rect x="10" y="22" width="180" height="66" rx="8" style="fill:var(--verde)"/></svg>
+      <div><div class="h v" style="font-size:66px">Vínculo</div><div style="font-size:28px">compartir, convivir, pertenecer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · CUERPO ============ -->
+<section class="slide" id="s3">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="1040" cy="1180" r="330" fill="#fdefd3"/>
+    <rect x="770" y="890" width="250" height="120" rx="10" style="fill:var(--amarillo)" transform="rotate(-10 895 950)"/>
+    <rect x="660" y="1040" width="170" height="170" rx="10" fill="#f9d58f" transform="rotate(8 745 1125)"/>
+    <circle cx="935" cy="800" r="54" style="fill:var(--terracota)"/>
+    <rect x="880" y="1150" width="60" height="150" rx="8" style="fill:var(--verde)" transform="rotate(-24 910 1225)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:170px;width:900px">
+    <span class="chip" style="background:var(--amarillo)">01 · Cuerpo</span>
+    <div class="h t" style="font-size:100px;margin-top:40px">Cuando apila,<br>encaja y trepa…</div>
+    <p class="body" style="margin-top:34px;width:820px">fortalece su motricidad fina y gruesa, su equilibrio y la confianza en su propio cuerpo.</p>
+  </div>
+  <div class="tip" style="position:absolute;left:90px;top:900px;width:560px">
+    <svg class="dot" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" style="fill:var(--amarillo)"/></svg>
+    <b>Para casa</b>Cajas, cucharas y recipientes también son grandes materiales de juego.
+  </div>
+</section>
+
+<!-- ============ 4 · MENTE ============ -->
+<section class="slide" id="s4">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="1060" cy="1200" r="320" fill="#e3edf0"/>
+    <use href="#cblock" x="800" y="880" width="170" height="212" style="fill:var(--teal)" transform="rotate(-28 885 986)"/>
+    <circle cx="745" cy="1150" r="44" style="fill:var(--amarillo)"/>
+    <use href="#tri" x="860" y="1130" width="170" height="150" style="fill:var(--terracota)" transform="rotate(-12 945 1205)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:170px;width:900px">
+    <span class="chip" style="background:var(--teal)">02 · Mente</span>
+    <div class="h t" style="font-size:100px;margin-top:40px">Cuando prueba,<br>se equivoca y<br>vuelve a intentar…</div>
+    <p class="body" style="margin-top:34px;width:820px">descubre formas, tamaños y causas. <span class="tl" style="font-weight:600">Cada error también enseña.</span></p>
+  </div>
+  <div class="tip" style="position:absolute;left:90px;top:960px;width:600px">
+    <svg class="dot" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" style="fill:var(--teal)"/></svg>
+    <b>Para casa</b>Antes de ayudar, espera unos segundos. Dale tiempo para encontrar su propia solución.
+  </div>
+</section>
+
+<!-- ============ 5 · EMOCIÓN ============ -->
+<section class="slide" id="s5">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="1060" cy="1190" r="330" style="fill:var(--arena)"/>
+    <circle cx="890" cy="960" r="110" style="fill:var(--terracota)"/>
+    <circle cx="730" cy="1170" r="58" style="fill:var(--rosa)"/>
+    <rect x="890" y="1120" width="130" height="130" rx="10" style="fill:var(--amarillo)" transform="rotate(12 955 1185)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:170px;width:900px">
+    <span class="chip" style="background:var(--terracota)">03 · Emoción</span>
+    <div class="h t" style="font-size:100px;margin-top:40px">Cuando juega<br>a ser otro…</div>
+    <p class="body" style="margin-top:34px;width:820px">pone en escena lo que siente, aprende a nombrarlo y a tolerar la espera y la frustración.</p>
+  </div>
+  <div class="tip" style="position:absolute;left:90px;top:900px;width:580px">
+    <svg class="dot" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" style="fill:var(--terracota)"/></svg>
+    <b>Para casa</b>Pon palabras a lo que ves: <i>“Te frustraste porque la torre se cayó”.</i> Acompañar también es nombrar.
+  </div>
+</section>
+
+<!-- ============ 6 · VÍNCULO ============ -->
+<section class="slide" id="s6">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <circle cx="1060" cy="1190" r="330" fill="#eaf1e4"/>
+    <use href="#arch" x="760" y="960" width="260" height="156" style="fill:var(--verde)"/>
+    <circle cx="890" cy="900" r="52" style="fill:var(--amarillo)"/>
+    <rect x="700" y="1150" width="200" height="54" rx="8" style="fill:var(--teal)" transform="rotate(-6 800 1177)"/>
+    <rect x="930" y="1160" width="100" height="100" rx="8" style="fill:var(--terracota)" transform="rotate(10 980 1210)"/>
+  </svg>
+  <svg class="iso"><use href="#iso"/></svg>
+
+  <div style="position:absolute;left:90px;top:170px;width:900px">
+    <span class="chip" style="background:var(--verde-txt)">04 · Vínculo</span>
+    <div class="h t" style="font-size:100px;margin-top:40px">Cuando juega<br>con otros…</div>
+    <p class="body" style="margin-top:34px;width:820px">aprende a esperar su turno, a compartir y a sentirse parte de un grupo.</p>
+  </div>
+  <div class="tip" style="position:absolute;left:90px;top:860px;width:580px">
+    <svg class="dot" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" style="fill:var(--verde)"/></svg>
+    <b>Para casa</b>Diez minutos de juego juntos, sin pantallas y a su ritmo, valen más que cualquier juguete.
+  </div>
+</section>
+
+<!-- ============ 7 · CIERRE ============ -->
+<section class="slide" id="s7" style="background:var(--terracota);color:#fff">
+  <svg class="confetti" viewBox="0 0 1080 1350">
+    <rect x="70" y="80" width="190" height="52" rx="8" fill="#f9d58f" transform="rotate(-18 165 106)"/>
+    <circle cx="430" cy="110" r="70" style="fill:var(--rosa)"/>
+    <use href="#cblock" x="640" y="40" width="120" height="150" style="fill:var(--teal)" transform="rotate(32 700 115)"/>
+    <use href="#tri" x="880" y="70" width="150" height="130" style="fill:var(--amarillo)" transform="rotate(-20 955 135)"/>
+    <circle cx="140" cy="300" r="22" style="fill:var(--amarillo)"/>
+    <rect x="960" y="380" width="54" height="130" rx="8" style="fill:var(--verde)" transform="rotate(-25 987 445)"/>
+    <use href="#arch" x="790" y="1210" width="200" height="132" style="fill:var(--verde)"/>
+    <circle cx="660" cy="1280" r="24" style="fill:var(--amarillo)"/>
+    <rect x="80" y="1210" width="100" height="100" rx="8" style="fill:var(--rosa)" transform="rotate(14 130 1260)"/>
+    <use href="#tri" x="300" y="1230" width="130" height="110" style="fill:var(--amarillo)" transform="rotate(-8 365 1285)"/>
+  </svg>
+
+  <div style="position:absolute;left:90px;right:90px;top:330px;text-align:center">
+    <svg width="74" height="111" viewBox="0 0 100 150"><use href="#iso-w"/></svg>
+    <div class="h" style="font-size:96px;margin-top:40px;line-height:1.02">Los primeros años importan, acompañarlos lo cambia todo.</div>
+    <p style="font-size:34px;line-height:1.45;margin:48px auto 0;width:760px;font-weight:400">Guarda este post y compártelo con quien acompaña a un niño.</p>
+    <p style="font-size:26px;letter-spacing:5px;font-weight:600;margin-top:56px;opacity:.95">INTEGRIO · CRECIENDO JUNTOS</p>
+  </div>
+</section>
+
+</body>
+</html>
