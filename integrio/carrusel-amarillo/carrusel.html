@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Integrio — Exploramos el amarillo</title>
 <style>
+  @font-face { font-family: 'Andes Rounded'; font-weight: 800; src: local('Andes Rounded Bold'), local('AndesRounded-Bold'), url(fonts/AndesRounded-Bold.woff2) format('woff2'), url(fonts/AndesRounded-Bold.otf) format('opentype'); }
   @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url(fonts/Baloo2-800.woff2) format('woff2'); }
   @font-face { font-family: 'Poppins'; font-weight: 300; src: url(fonts/Poppins-300.woff2) format('woff2'); }
   @font-face { font-family: 'Poppins'; font-weight: 400; src: url(fonts/Poppins-400.woff2) format('woff2'); }
@@ -26,7 +27,7 @@
 
   .slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--crema); color: var(--texto); font-family: 'Poppins', sans-serif; }
   .abs { position: absolute; }
-  .h { font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: .98; letter-spacing: -1px; }
+  .h { font-family: 'Andes Rounded', 'Baloo 2', sans-serif; font-weight: 800; line-height: .98; }
   .t { color: var(--terracota); }
   .v { color: var(--verde-txt); }
   .p { font-size: 34px; line-height: 1.45; font-weight: 400; }
@@ -45,14 +46,11 @@
   .sensorial { background-image: url(fotos/sensorial.webp); }
 
   /* Palabras clave */
-  .kw { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 25px; letter-spacing: 4.5px; color: var(--terracota); text-transform: uppercase; }
-  .kw i { width: 12px; height: 12px; border-radius: 50%; background: var(--amarillo); display: block; flex: none; }
-  .kw-v { display: flex; flex-direction: column; gap: 20px; font-weight: 600; font-size: 25px; letter-spacing: 4.5px; color: var(--terracota); text-transform: uppercase; }
-  .kw-v span { display: flex; align-items: center; gap: 18px; }
-  .kw-v span::before { content: ''; width: 34px; height: 12px; border-radius: 3px; background: var(--amarillo); flex: none; }
+  .kw, .kw-v { display: flex; gap: 14px; font-weight: 500; font-size: 27px; color: var(--terracota); }
+  .kw-v { flex-direction: column; align-items: flex-start; }
+  .kw span, .kw-v span { background: #f8eadf; border-radius: 40px; padding: 9px 26px 8px; }
 
   .iso { position: absolute; width: 50px; }
-  .num { position: absolute; font-weight: 500; font-size: 22px; letter-spacing: 4px; color: var(--terracota); }
 </style>
 </head>
 <body>
@@ -73,8 +71,8 @@
        clip-path:path('M0 0H1080V905C930 975 770 920 600 937C420 955 220 1000 0 935Z')"></div>
   <div class="abs" style="left:-60px;top:1040px;width:140px;height:140px;border-radius:50%;background:var(--amarillo)"></div>
   <div class="abs" style="left:150px;top:1035px">
-    <div class="h t" style="font-size:104px;letter-spacing:0">EXPLORAMOS</div>
-    <div class="h v" style="font-size:104px;letter-spacing:0;margin-top:-6px">EL AMARILLO</div>
+    <div class="h t" style="font-size:118px">Exploramos</div>
+    <div class="h v" style="font-size:118px">el amarillo</div>
     <p class="p" style="margin-top:16px;font-size:32px">Un color, muchas oportunidades para aprender.</p>
   </div>
   <svg class="iso" style="right:80px;top:1048px" viewBox="0 0 100 150"><use href="#iso"/></svg>
@@ -89,7 +87,7 @@
     <p class="p" style="margin-top:30px;width:860px">Al buscar y explorar elementos amarillos, comenzamos a reconocer, diferenciar y asociar el color con nuestro entorno.</p>
   </div>
   <div class="abs ph mural" style="--s:1;--ox:170;--oy:520;left:390px;top:650px;width:630px;height:700px;border-radius:315px 315px 0 0"></div>
-  <div class="kw-v abs" style="left:80px;top:1080px;font-size:22px;letter-spacing:4px">
+  <div class="kw-v abs" style="left:80px;top:1060px">
     <span>Reconocer</span><span>Diferenciar</span><span>Asociar</span>
   </div>
 </section>
@@ -98,11 +96,11 @@
 <section class="slide" id="s3">
   <div class="abs ph botella" style="--s:0.9;--ox:150;--oy:60;left:470px;top:0;width:610px;height:1350px;border-radius:300px 0 0 0"></div>
   <div class="abs" style="left:80px;top:150px;width:370px">
-    <div class="h t" style="font-size:84px">Pensamos</div>
-    <div class="h v" style="font-size:84px">mientras jugamos</div>
+    <div class="h t" style="font-size:78px">Pensamos</div>
+    <div class="h v" style="font-size:78px">mientras jugamos</div>
     <p class="p" style="margin-top:34px;font-size:31px">Apilar, encajar, introducir, sacar y volver a probar convierte el juego en pequeños desafíos.</p>
   </div>
-  <div class="kw-v abs" style="left:80px;top:1010px;font-size:23px">
+  <div class="kw-v abs" style="left:80px;top:990px">
     <span>Atención</span><span>Concentración</span><span>Resolución</span>
   </div>
   <svg class="iso" style="left:80px;top:70px;width:40px" viewBox="0 0 100 150"><use href="#iso"/></svg>
@@ -120,7 +118,7 @@
   <div class="abs ph torre" style="--s:1.25;--ox:160;--oy:470;left:80px;top:640px;width:540px;height:540px;border-radius:50%"></div>
   <div class="abs ph flores" style="--s:1.05;--ox:300;--oy:700;left:670px;top:585px;width:320px;height:320px;border-radius:50%"></div>
   <div class="abs ph botella" style="--s:1.05;--ox:400;--oy:810;left:660px;top:925px;width:270px;height:270px;border-radius:50%"></div>
-  <div class="kw abs" style="left:80px;top:1240px">Coordinación<i></i>Precisión<i></i>Motricidad</div>
+  <div class="kw abs" style="left:80px;top:1240px"><span>Coordinación</span><span>Precisión</span><span>Motricidad</span></div>
 </section>
 
 <!-- 5 · EXPLORACIÓN SENSORIAL -->
@@ -131,7 +129,7 @@
     <div class="h t" style="font-size:96px">Aprendemos</div><div class="h v" style="font-size:96px">con los sentidos</div>
     <p class="p" style="margin-top:20px;width:900px;font-size:31px">Texturas, tamaños, formas y materiales diferentes invitan a comparar, experimentar y descubrir.</p>
   </div>
-  <div class="kw abs" style="left:80px;top:1262px">Explorar<i></i>Comparar<i></i>Descubrir</div>
+  <div class="kw abs" style="left:80px;top:1262px"><span>Explorar</span><span>Comparar</span><span>Descubrir</span></div>
   <svg class="iso" style="right:70px;top:70px" viewBox="0 0 100 150"><use href="#iso"/></svg>
 </section>
 
@@ -142,7 +140,7 @@
     <div class="h"><span class="t" style="font-size:92px">También aprendemos</span><br><span class="v" style="font-size:92px">del otro</span></div>
     <p class="p" style="margin-top:22px;width:900px;font-size:31px">Compartir materiales, observar a otros y construir juntos favorece la comunicación y la cooperación.</p>
   </div>
-  <div class="kw abs" style="left:80px;top:1262px">Compartir<i></i>Comunicar<i></i>Cooperar</div>
+  <div class="kw abs" style="left:80px;top:1262px"><span>Compartir</span><span>Comunicar</span><span>Cooperar</span></div>
   <svg class="iso" style="right:80px;top:1240px;width:40px" viewBox="0 0 100 150"><use href="#iso"/></svg>
 </section>
 
@@ -157,7 +155,7 @@
   <div class="abs ph botella"   style="--s:0.9;--ox:250;--oy:200;left:80px;top:610px;width:290px;height:580px;border-radius:145px 145px 24px 24px"></div>
   <div class="abs ph mural"     style="--s:0.9;--ox:220;--oy:560;left:395px;top:610px;width:290px;height:580px;border-radius:145px 145px 24px 24px"></div>
   <div class="abs ph sensorial" style="--s:0.9;--ox:560;--oy:560;left:710px;top:610px;width:290px;height:580px;border-radius:145px 145px 24px 24px"></div>
-  <div class="kw abs" style="left:80px;top:1245px">Elegir<i></i>Probar<i></i>Resolver</div>
+  <div class="kw abs" style="left:80px;top:1245px"><span>Elegir</span><span>Probar</span><span>Resolver</span></div>
 </section>
 
 <!-- 8 · CIERRE -->
@@ -176,16 +174,16 @@
     <div style="width:80px;height:6px;border-radius:3px;background:var(--amarillo);margin:52px auto 0"></div>
     <div class="h v" style="font-size:62px;line-height:1.08;margin-top:44px">Así se ve el aprendizaje cuando nace de la experiencia.</div>
   </div>
-  <div class="abs" style="left:0;right:0;top:1085px;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:600;font-size:21px;letter-spacing:3px;color:var(--terracota)">
-    <span>JUEGA</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>EXPLORA</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>PIENSA</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>DESCUBRE</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span>APRENDE</span>
+  <div class="abs" style="left:0;right:0;top:1085px;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:500;font-size:26px;color:var(--terracota)">
+    <span>Juega</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Explora</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Piensa</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Descubre</span><svg width="26" height="14" viewBox="0 0 26 14"><path d="M1 7h21M16 1l6 6-6 6" stroke="#f5bb4d" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Aprende</span>
   </div>
   <div class="abs" style="left:0;right:0;bottom:80px;display:flex;align-items:center;justify-content:center;gap:16px">
     <svg width="28" height="42" viewBox="0 0 100 150"><use href="#iso"/></svg>
-    <span style="font-weight:600;font-size:21px;letter-spacing:4px;color:var(--terracota)">INTEGRIO · CRECIENDO JUNTOS</span>
+    <span style="font-weight:500;font-size:24px;color:var(--terracota)">Integrio · Creciendo juntos</span>
   </div>
 </section>
 

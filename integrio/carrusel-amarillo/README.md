@@ -19,7 +19,9 @@
 | 7 | Ellos deciden cómo explorar | Tríptico: tres niños, tres caminos | botella · mural · sensorial |
 | 8 | Cierre | Resumen en círculos + mensaje + JUEGA → APRENDE + firma | las 5 |
 
-Recursos comunes: titular terracota + verde salvia (como en los posts actuales), palabras clave en mayúsculas espaciadas con acentos amarillos, isotipo discreto y mucho espacio libre.
+Recursos comunes: titular terracota + verde salvia (como en los posts actuales), palabras clave como etiquetas suaves en minúscula, isotipo discreto y mucho espacio libre. Sin espaciado extra entre letras ni títulos en mayúsculas.
+
+**Tipografía:** los titulares usan **Andes Rounded** (fuente oficial). Para que se exporte con ella, copia `AndesRounded-Bold.woff2` u `.otf` en `carrusel-juego/fonts/`; mientras tanto se muestra *Baloo 2* como respaldo.
 
 ## Copy para la publicación
 

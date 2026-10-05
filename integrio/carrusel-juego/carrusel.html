@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Integrio — Carrusel: jugar es aprender</title>
 <style>
+  @font-face { font-family: 'Andes Rounded'; font-weight: 800; src: local('Andes Rounded Bold'), local('AndesRounded-Bold'), url(fonts/AndesRounded-Bold.woff2) format('woff2'), url(fonts/AndesRounded-Bold.otf) format('opentype'); }
   @font-face { font-family: 'Baloo 2'; font-weight: 800; src: url(fonts/Baloo2-800.woff2) format('woff2'); }
   @font-face { font-family: 'Poppins'; font-weight: 300; src: url(fonts/Poppins-300.woff2) format('woff2'); }
   @font-face { font-family: 'Poppins'; font-weight: 400; src: url(fonts/Poppins-400.woff2) format('woff2'); }
@@ -31,7 +32,7 @@
     background: var(--crema); color: var(--texto);
     font-family: 'Poppins', sans-serif;
   }
-  .h { font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: .98; letter-spacing: -1px; }
+  .h { font-family: 'Andes Rounded', 'Baloo 2', sans-serif; font-weight: 800; line-height: .98; }
   .t { color: var(--terracota); }
   .v { color: var(--verde-txt); }
   .tl { color: var(--teal); }
@@ -42,14 +43,14 @@
   .body { font-size: 40px; line-height: 1.38; font-weight: 400; }
   .chip {
     display: inline-flex; align-items: center; gap: 16px;
-    font-weight: 600; font-size: 28px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 600; font-size: 28px;
     padding: 12px 28px 10px; border-radius: 40px; color: #fff;
   }
   .tip {
     position: relative; border: 2.5px solid var(--terracota); border-radius: 36px;
     padding: 34px 40px 34px; font-size: 32px; line-height: 1.42; background: rgba(255,252,248,.92);
   }
-  .tip b { display: block; font-weight: 600; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; color: var(--terracota); margin-bottom: 10px; }
+  .tip b { display: block; font-weight: 600; font-size: 24px; color: var(--terracota); margin-bottom: 10px; }
   .tip .dot { position: absolute; top: -26px; right: 38px; width: 52px; height: 52px; }
 </style>
 </head>
@@ -109,8 +110,8 @@
     <circle cx="214" cy="40" r="38" style="fill:var(--amarillo)"/>
   </svg>
 
-  <div style="position:absolute;left:90px;bottom:96px;display:flex;align-items:center;gap:18px;font-weight:500;font-size:28px;color:var(--terracota);letter-spacing:2px">
-    DESLIZA
+  <div style="position:absolute;left:90px;bottom:96px;display:flex;align-items:center;gap:18px;font-weight:500;font-size:28px;color:var(--terracota);">
+    Desliza
     <svg width="64" height="24" viewBox="0 0 64 24"><path d="M2 12h56M46 2l12 10-12 10" style="stroke:var(--terracota)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 </section>
@@ -254,7 +255,7 @@
     <svg width="74" height="111" viewBox="0 0 100 150"><use href="#iso-w"/></svg>
     <div class="h" style="font-size:96px;margin-top:40px;line-height:1.02">Los primeros años importan, acompañarlos lo cambia todo.</div>
     <p style="font-size:34px;line-height:1.45;margin:48px auto 0;width:760px;font-weight:400">Guarda este post y compártelo con quien acompaña a un niño.</p>
-    <p style="font-size:26px;letter-spacing:5px;font-weight:600;margin-top:56px;opacity:.95">INTEGRIO · CRECIENDO JUNTOS</p>
+    <p style="font-size:26px;font-weight:600;margin-top:56px;opacity:.95">Integrio · Creciendo juntos</p>
   </div>
 </section>
 
