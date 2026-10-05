@@ -35,5 +35,5 @@ Carrusel de Instagram de 7 láminas en formato 4:5 (1080×1350), hecho con el br
 - **Personalidad:** cálido · innovador · confiable. Minimalismo emocional, paleta calmada, sensación de orden.
 - **Gráficos:** los bloques de madera del isotipo (círculo, barra, arco, bloque en "C", triángulo), como figuras sueltas tipo confeti o apiladas. En publicaciones va solo el isotipo, en la esquina superior derecha.
 - **Voz:** acompañar, no imponer. Se habla a las familias con empatía, sin juzgar ni usar diagnósticos. Frases cortas.
-- **Tipografía:** los titulares usan **Andes Rounded**, la fuente oficial. Mientras sus archivos no estén en `fonts/`, se muestra *Baloo 2* como respaldo. El texto usa *Poppins*.
+- **Tipografía:** los titulares usan **Andes Rounded Bold** (archivos en `integrio/fonts-marca/`, no versionados por licencia) y el texto usa *Poppins*.
 - **Estilo de texto:** sin espaciado extra entre letras y sin títulos en mayúsculas. Las etiquetas van en minúscula.

@@ -6,22 +6,22 @@
 - `render.js`: exporta las láminas a `png/` con `node render.js`.
 - `fotos/` y `png/` **no se suben al repositorio** porque contienen imágenes de menores. Para volver a exportar, coloca las 5 fotos en `fotos/` con estos nombres: `torre`, `mural`, `botella`, `flores`, `sensorial` (`.webp`).
 
-## Sistema visual
+## Sistema visual (basado en el carrusel "¿Qué es Integrio?")
 
 | # | Lámina | Composición | Foto |
 |---|--------|-------------|------|
-| 1 | Exploramos el amarillo | Foto dominante con corte orgánico y bloque editorial abajo | torre |
-| 2 | Aprendemos a identificar | Texto arriba + foto en arco (el bloque arco del isotipo) | mural |
-| 3 | Pensamos mientras jugamos | Columna editorial + foto vertical | botella |
-| 4 | Manos que descubren | 3 detalles de manos en círculos | torre · flores · botella |
-| 5 | Aprendemos con los sentidos | Foto a sangre que se funde en crema | sensorial |
-| 6 | También aprendemos del otro | Foto enmarcada + texto abajo | flores |
-| 7 | Ellos deciden cómo explorar | Tríptico: tres niños, tres caminos | botella · mural · sensorial |
-| 8 | Cierre | Resumen en círculos + mensaje + JUEGA → APRENDE + firma | las 5 |
+| 1 | Hoy exploramos el amarillo | Foto con velo claro y título a la izquierda | mural |
+| 2 | Aprendemos a identificar | Fondo con confeti de bloques, texto arriba, foto abajo sobre forma verde | sensorial |
+| 3 | Pensamos mientras jugamos | Foto arriba + pestañas + panel crema | torre |
+| 4 | Manos que descubren | Foto arriba + pestañas + panel terracota | botella (manos) |
+| 5 | Aprendemos con los sentidos | Foto arriba + pestañas + panel teal | mural (detalle) |
+| 6 | También aprendemos del otro | Espejo de la 2, forma crema | flores |
+| 7 | Ellos deciden cómo explorar | Tríptico en arcos | botella · flores · sensorial |
+| 8 | Hoy conocimos el amarillo | Mensaje sobre terracota con confeti, isotipo blanco | — |
 
-Recursos comunes: titular terracota + verde salvia (como en los posts actuales), palabras clave como etiquetas suaves en minúscula, isotipo discreto y mucho espacio libre. Sin espaciado extra entre letras ni títulos en mayúsculas.
+Las láminas 3 a 5 avanzan por las tres pestañas (crema → terracota → teal).
 
-**Tipografía:** los titulares usan **Andes Rounded** (fuente oficial). Para que se exporte con ella, copia `AndesRounded-Bold.woff2` u `.otf` en `carrusel-juego/fonts/`; mientras tanto se muestra *Baloo 2* como respaldo.
+**Tipografía:** titulares en Andes Rounded Bold y texto en Poppins Regular. No se usa espaciado extra entre letras ni títulos en mayúsculas. Los archivos de Andes Rounded van en `integrio/fonts-marca/` (no se suben al repositorio por licencia): `AndesRounded-Regular.otf`, `AndesRounded-Bold.otf` y `AndesRounded-Black.otf`.
 
 ## Copy para la publicación
 
