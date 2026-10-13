@@ -49,6 +49,7 @@
   --bar-quiet: #CFCADF;
   --track: #EEEBF6;
   --track-strong: #E4DEF5;
+  --paper: #FFFFFF;
   --seg: #D6CCF7;
   --badge-bg: #25283D;
   --badge-ink: #FFFFFF;
@@ -505,6 +506,213 @@ figure.fig { margin-top: clamp(32px, 4vw, 48px); }
   .plate__n { justify-self: start; }
 }
 
+/* ---------- Láminas sin fondo: filete superior, número y fuente ---------- */
+.plate { background: transparent; border-radius: 0; padding: 22px 0 0; border-top: 2px solid var(--ink); gap: clamp(20px, 2.6vw, 32px); }
+.plate__n { background: transparent; color: var(--accent); padding: 0; border-radius: 0; font-size: 0.8125rem; font-weight: 600; }
+.mx li { background: transparent; border: 1px solid var(--line); }
+.mx li.is-all { border-color: var(--bar-now); }
+.pf { background: var(--bg); border: 1px solid var(--line); }
+.pf__posts li { background: transparent; border-radius: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+.av img { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--lavender); }
+.av__rank { box-shadow: 0 0 0 3px var(--bg); }
+.db__dot { box-shadow: 0 0 0 3px var(--bg); }
+.kpi { background: transparent; border: 1px solid var(--line); }
+.cs { background: transparent; border: 1px solid var(--line); }
+.cs__photo img { box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--lavender); }
+.sc__seg.prev { box-shadow: 3px 0 0 var(--bg); }
+
+/* ---------- Cuerpo de capítulo: columna de lectura con piezas anchas ---------- */
+.cb { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); padding-block: clamp(56px, 7vw, 104px); }
+.cb > * { grid-column: 4 / span 7; min-width: 0; }
+.cb > * + * { margin-top: 1.15em; }
+.cb > .w { grid-column: 1 / -1; }
+.cb > .ww { grid-column: 4 / -1; }
+.cb > p { max-width: var(--measure); }
+.cb > h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.2; margin-top: clamp(48px, 6vw, 80px); padding-top: 24px; border-top: 1px solid var(--line); }
+.cb > h3 + p { margin-top: 20px; }
+.cb > .plate, .cb > .stats, .cb > .box, .cb > .ar, .cb > .vs-wrap, .cb > .steps, .cb > .purp { margin-top: clamp(32px, 4vw, 56px); }
+.cb > .plate + p, .cb > .stats + p, .cb > .box + p, .cb > .ar + p, .cb > .vs-wrap + p, .cb > .steps + p, .cb > .purp + section { margin-top: clamp(32px, 4vw, 56px); }
+.cb > .cta { margin-top: clamp(40px, 5vw, 64px); }
+.cb > .statement { margin-block: clamp(32px, 4vw, 56px) 8px; max-width: 24ch; }
+.cb > .coda { margin-top: clamp(48px, 6vw, 80px); }
+.cb__em { font-size: var(--fs-lead); line-height: 1.55; font-weight: 400; color: var(--ink); }
+.cb__link { font-weight: 500; }
+.chapter-open__lead.is-single { grid-template-columns: minmax(0, 1fr); max-width: 52ch; }
+.chapter-open__lead.is-single p:first-child { font-weight: 400; }
+.coda { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--col-gap); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--line); }
+.coda p.coda__a, .coda .statement { grid-column: auto; }
+
+/* 1.2 · Barras pareadas 2025/2026 */
+.pb { list-style: none; padding: 0; display: grid; gap: 22px; }
+.pb li { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 16px; align-items: center; }
+.pb__lab { font-size: var(--fs-small); font-weight: 600; }
+.pb__bars { display: grid; gap: 6px; }
+.pb__row { display: grid; grid-template-columns: minmax(0, 1fr) 3.5rem; gap: 12px; align-items: center; }
+.pb__track { height: 18px; background: var(--track); border-radius: 6px; overflow: hidden; }
+.pb__fill { height: 100%; width: calc(var(--v) * 1%); background: var(--bar-prev); border-radius: 6px; transform-origin: 0 50%; min-width: 3px; }
+.pb__row.is-now .pb__fill { background: var(--bar-now); }
+.pb__row b { font-size: var(--fs-small); font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.pb__row.is-now b { font-weight: 700; color: var(--ink); }
+
+/* Cuadrícula de puntos individual */
+.wf-solo { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: center; }
+.wf-solo .wf-num { color: var(--accent); }
+.wf-solo .wf-lab { max-width: 40ch; }
+
+/* Cifras destacadas de fuentes externas */
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--col-gap); border-top: 2px solid var(--ink); padding-top: 24px; }
+.stats--one { grid-template-columns: minmax(0, 1fr); }
+.stat { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; }
+.stat__n { font-size: clamp(3rem, 6vw, 5rem); font-weight: 600; line-height: 0.9; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stat__n span { font-size: 0.42em; font-weight: 500; }
+.stat__t { font-size: var(--fs-small); line-height: 1.55; color: var(--ink-2); max-width: 34ch; }
+.stat__src { grid-column: 1 / -1; font-size: var(--fs-note); color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; margin-top: 24px; }
+.stat__src b { color: var(--ink); font-weight: 500; }
+
+/* 4.1 · Barra con referencia */
+.ref__row { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 4rem; gap: 16px; align-items: center; }
+.ref__lab { font-size: var(--fs-small); font-weight: 500; }
+.ref__track { position: relative; height: 36px; background: var(--track); border-radius: 8px; }
+.ref__fill { height: 100%; width: calc(var(--v) * 1%); background: var(--bar-now); border-radius: 8px; transform-origin: 0 50%; }
+.ref__mark { position: absolute; top: -10px; bottom: -10px; width: 0; border-left: 2px dashed var(--ink); }
+.ref__mark em { position: absolute; top: -22px; left: 0; transform: translateX(-50%); font-style: normal; font-size: 0.75rem; white-space: nowrap; color: var(--ink-2); }
+.ref__row b { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 600; color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+.ref__axis { display: flex; justify-content: space-between; font-size: 0.6875rem; color: var(--muted); margin-left: calc(min(11rem, 30%) + 16px); margin-right: calc(4rem + 16px); }
+.ref { padding-top: 22px; }
+
+/* Propósitos: informar, movilizar, revelar */
+.purp { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.purp li { padding: 22px 22px 22px 0; font-size: var(--fs-small); line-height: 1.6; color: var(--ink-2); position: relative; }
+.purp li + li { padding-left: 22px; border-left: 1px solid var(--line); }
+.purp li b { display: block; font-size: 1.0625rem; line-height: 1.3; color: var(--ink); margin-bottom: 8px; font-weight: 600; }
+.purp li:last-child b { color: var(--accent); }
+
+/* Recuadro: la IA como oportunidad */
+.box { border: 1px solid var(--line); border-radius: 24px; padding: clamp(24px, 3.4vw, 48px); }
+.box h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.2; }
+.box__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 56px); margin-top: 28px; }
+.box__stat { display: grid; gap: 12px; align-content: start; }
+.box__stat .stat__src { border: 0; padding: 0; margin: 0; }
+.box__text { display: grid; gap: 1em; }
+.box__text p { font-size: var(--fs-small); line-height: 1.7; }
+.ticks { list-style: none; padding: 0; display: grid; gap: 10px; }
+.ticks li { position: relative; padding-left: 28px; font-size: var(--fs-small); line-height: 1.6; color: var(--ink-2); }
+.ticks li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 14px; height: 7px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+
+/* 4.2 · Tres preguntas */
+.q3 { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.q3 li { border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: grid; gap: 14px; align-content: start; }
+.q3__n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--bar-now); color: var(--on-accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+.q3__q { font-size: 1rem; line-height: 1.45; font-weight: 500; }
+.q3__a { font-size: var(--fs-small); line-height: 1.5; color: var(--accent); font-weight: 600; padding-top: 12px; border-top: 1px solid var(--line); }
+.q3__a { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; align-items: start; }
+.q3__a::before { content: ""; height: 2px; background: currentColor; margin-top: 0.7em; border-radius: 2px; }
+.ar-ic { width: 16px; height: 16px; flex: none; }
+.panel__nav button { display: inline-flex; align-items: center; gap: 8px; }
+.sc__big .arrow .ar-ic { width: 22px; height: 22px; }
+.q3__foot { font-size: var(--fs-small); color: var(--ink-2); }
+
+/* Tabla SEO / GEO */
+.vs-wrap { overflow-x: auto; }
+table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); line-height: 1.55; }
+.vs th, .vs td { text-align: left; vertical-align: top; padding: 18px 20px 18px 0; border-bottom: 1px solid var(--line); }
+.vs thead th { font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+.vs thead th.is-geo { color: var(--accent); }
+.vs tbody th { font-weight: 600; width: 22%; }
+.vs td.is-geo { font-weight: 500; color: var(--ink); }
+.vs td { width: 39%; color: var(--ink-2); }
+
+/* Pasos numerados */
+.steps { list-style: none; padding: 0; counter-reset: st; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--col-gap); border-top: 2px solid var(--ink); }
+.steps li { counter-increment: st; display: grid; grid-template-columns: 3.25rem minmax(0, 1fr); gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.steps li::before { content: counter(st, decimal-leading-zero); font-size: 1.5rem; font-weight: 600; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.steps li p { font-size: var(--fs-small); line-height: 1.65; color: var(--ink-2); }
+.steps li p b { display: block; color: var(--ink); font-size: 1rem; line-height: 1.4; margin-bottom: 6px; font-weight: 600; }
+
+/* Arquetipos con fichas */
+.ar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 24px; border-top: 1px solid var(--line); }
+.ar__text { font-size: var(--fs-lead); line-height: 1.5; max-width: 56ch; color: var(--ink); }
+.ar__text b { color: var(--accent); font-weight: 600; }
+.ar__note { font-size: var(--fs-note); color: var(--muted); }
+.pf__k { font-size: 0.75rem; font-weight: 600; color: var(--accent); }
+.tb--desc .tb__lab { display: grid; gap: 2px; }
+.tb--desc .tb__lab b { font-weight: 600; }
+.tb--desc .tb__lab small { font-size: var(--fs-note); color: var(--muted); }
+
+/* Cifras del Ranking (capítulo 6) */
+.facts { margin-top: clamp(40px, 5vw, 64px); background: var(--band); color: var(--band-ink); border-radius: 28px; padding: clamp(28px, 4vw, 56px); display: grid; gap: clamp(28px, 3.5vw, 44px); }
+.facts__intro { font-size: var(--fs-lead); line-height: 1.55; font-weight: 300; max-width: 60ch; color: var(--band-ink); }
+.facts__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--band-line); }
+.facts__grid li { display: grid; align-content: start; gap: 10px; padding: 24px 20px 0 0; }
+.facts__grid li + li { padding-left: 20px; border-left: 1px solid var(--band-line); }
+.facts__grid b { font-size: clamp(1.75rem, 2.8vw, 2.625rem); font-weight: 600; line-height: 1; color: var(--band-accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.facts__grid span { font-size: var(--fs-note); line-height: 1.45; color: var(--band-muted); max-width: 22ch; }
+
+/* Cierre */
+.closing { border-top: 1px solid var(--line); }
+.closing h2, .about h2 { font-size: var(--fs-h2); line-height: 1.08; max-width: 22ch; }
+.closing__lead { font-size: var(--fs-lead); line-height: 1.55; font-weight: 300; }
+.cb > h2 + p { margin-top: clamp(28px, 3vw, 40px); }
+
+/* CTA final */
+.final { padding-block: clamp(56px, 8vw, 112px); }
+.final__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+.final__main { display: grid; gap: 22px; }
+.final h2 { font-size: clamp(1.75rem, 3.4vw, 2.75rem); line-height: 1.12; max-width: 22ch; }
+.final__lead { font-size: var(--fs-lead); line-height: 1.55; font-weight: 300; color: var(--band-ink); max-width: 46ch; }
+.final__alt { margin-top: 12px; color: var(--band-muted); }
+.band .btn.is-pending { color: var(--band-muted); border-color: var(--band-muted); }
+.band .pending-tag { color: var(--band-muted); }
+.final__side { display: grid; gap: 20px; }
+.contact { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; align-items: center; }
+.contact img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--lavender); }
+.band .contact img { box-shadow: 0 0 0 3px var(--band), 0 0 0 5px var(--band-accent); }
+.contact__name { font-weight: 600; font-size: 1.125rem; line-height: 1.3; }
+.contact__role { font-size: var(--fs-note); color: var(--muted); margin-top: 2px; }
+.band .contact__role { color: var(--band-muted); }
+.contact__line { font-size: var(--fs-small); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.qr { border: 1.5px dashed var(--band-muted); border-radius: 20px; aspect-ratio: 1 / 1; max-width: 180px; display: grid; place-content: center; text-align: center; gap: 6px; padding: 16px; color: var(--band-ink); font-size: var(--fs-small); font-weight: 600; }
+.qr small { font-weight: 400; font-size: 0.75rem; color: var(--band-muted); }
+
+/* Sobre Verne */
+.logos { margin: 0; background: var(--paper); border-radius: 24px; border: 1px solid var(--line); padding: clamp(16px, 3vw, 40px); }
+.logos img { width: 100%; height: auto; }
+.cb > h3.ww { border-top: 0; padding-top: 0; }
+.people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--col-gap); margin-top: clamp(32px, 4vw, 48px) !important; }
+.about__web { font-weight: 600; }
+
+@media screen and (max-width: 1080px) {
+  .cb > *, .cb > .ww { grid-column: 1 / span 11; }
+  .final__grid, .box__grid { grid-template-columns: minmax(0, 1fr); }
+  .facts__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 24px; }
+  .facts__grid li:nth-child(4) { border-left: 0; padding-left: 0; }
+}
+@media screen and (max-width: 820px) {
+  .cb > *, .cb > .ww, .cb > .w { grid-column: 1 / -1; }
+  .stats, .purp, .q3, .steps, .people, .coda { grid-template-columns: minmax(0, 1fr); }
+  .purp li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .stats .stat + .stat { margin-top: 20px; }
+  .wf-solo { grid-template-columns: minmax(0, 140px) minmax(0, 1fr); }
+  .ref__row { grid-template-columns: minmax(0, 1fr) 3.5rem; }
+  .ref__lab { grid-column: 1 / -1; }
+  .ref__axis { margin-left: 0; margin-right: calc(3.5rem + 16px); }
+  .pb li { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .facts__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts__grid li:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .facts__grid li:nth-child(even) { border-left: 1px solid var(--band-line); padding-left: 20px; }
+  .vs thead { display: none; }
+  .vs, .vs tbody, .vs tr, .vs th, .vs td { display: block; width: auto !important; }
+  .vs tr { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .vs th, .vs td { border: 0; padding: 4px 0; }
+  .vs td::before { content: attr(data-label); display: block; font-size: 0.75rem; font-weight: 600; color: var(--muted); margin-top: 8px; }
+  .vs td.is-geo::before { color: var(--accent); }
+}
+@media screen and (max-width: 560px) {
+  .stat { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .contact { grid-template-columns: 72px minmax(0, 1fr); }
+  .contact img { width: 72px; height: 72px; }
+}
+
 /* ---------- Casos ---------- */
 .cases { padding-block: clamp(64px, 8vw, 112px); }
 .cases .grid { row-gap: 24px; }
@@ -798,25 +1006,14 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .block__body { grid-column: 5 / span 8; }
   .block__head h3, h2, h3 { break-after: avoid; }
   .block__head { break-after: avoid; break-inside: avoid; }
-  .plate, .pf, .ar > div:first-child, .coda, .so, .kpis, .cs, .method, .dt tr, .panel, .cycle { break-inside: avoid; }
+  .plate, .pf, .coda, .so, .kpis, .cs, .method, .dt tr, .panel, .cycle { break-inside: avoid; }
   .plate { padding: 6mm; border-radius: 4mm; margin-top: 6mm; gap: 4mm; }
   .wf-pair { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .wf-item { grid-template-columns: 30mm minmax(0, 1fr); }
   .wf-num { font-size: 30pt; }
   .wb__s { height: 16mm; font-size: 14pt; }
-  .ar-list { display: block; }
-  section[aria-labelledby="b-e"] > .wrap { display: block; }
-  section[aria-labelledby="b-e"] .block__body { margin-top: 4mm; }
   .ar { grid-template-columns: minmax(0, 1fr); break-inside: avoid; }
-  .ar > div:first-child { display: grid; grid-template-columns: 34mm minmax(0, 1fr); column-gap: 6mm; }
-  .ar > div:first-child > .ar__pct, .ar > div:first-child > .ar__k { grid-column: 1; }
-  .ar > div:first-child > :not(.ar__pct):not(.ar__k) { grid-column: 2; }
-  .ar > div:first-child > .ar__name { grid-row: 1; margin-top: 0; }
-  .ar__pct { font-size: 22pt; }
   .ar { padding-top: 4mm; margin-top: 4mm; gap: 3mm; }
-  .ar__name { font-size: 13pt; }
-  .ar__desc { font-size: 8.5pt; line-height: 1.5; margin-top: 1.5mm; max-width: none; }
-  .ar__people-t { margin-bottom: 2mm; }
   .pf__share { gap: 1.5mm; }
   .pf__posts { gap: 1.5mm; }
   .pf__posts li { padding: 1.5mm 3mm; }
@@ -832,7 +1029,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .kpi b { font-size: 16pt; }
   p { orphans: 3; widows: 3; }
   .gaps { background: #FFFFFF; }
-  .gaps .block, .gaps.block { break-before: page; }
   .statement { font-size: 18pt; }
   .so__k { grid-column: 1 / span 3; }
   .so .statement { grid-column: 4 / span 9; }
@@ -868,6 +1064,28 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .foot .wrap { padding-block: 6mm 0; }
   .foot__tools { display: none; }
   .foot .logo-on-band-c { height: 10mm; }
+}
+
+@media print {
+  .cb { display: block; padding-block: 6mm 0; }
+  .cb > p { max-width: none; }
+  .cb > h3 { margin-top: 8mm; padding-top: 4mm; }
+  .cb > .plate, .cb > .stats, .cb > .box, .cb > .ar, .cb > .vs-wrap, .cb > .steps, .cb > .purp, .cb > .cta, .cb > .coda { margin-top: 6mm; }
+  .plate { padding: 4mm 0 0; border-radius: 0; }
+  .ar, .stats, .box, .q3 li, .steps li, .purp, .vs tr, .facts, .final, .people, .logos, .pb li, .ref, .wf-solo, .contact, .closing__lead { break-inside: avoid; }
+  .ar { padding-top: 4mm; gap: 3mm; }
+  .ar__text { font-size: 10.5pt; }
+  .stat__n { font-size: 30pt; }
+  .facts { background: #FFFFFF; border: 1pt solid var(--line); border-radius: 4mm; padding: 6mm; }
+  .facts__grid b { font-size: 20pt; }
+  .closing { break-before: page; border: 0; }
+  .final { break-inside: avoid; padding-block: 8mm; border-top: 2pt solid var(--ink); }
+  .final__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .final h2 { font-size: 18pt; }
+  .about { break-before: page; }
+  .closing h2, .about h2 { font-size: 22pt; }
+  .q3 li { padding: 4mm; }
+  .box { padding: 6mm; border-radius: 4mm; }
 }
 </style>
 
@@ -914,14 +1132,15 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <ol class="toc-list" data-toc>
       <li><a href="#apertura" data-target="apertura"><span class="toc-n">—</span><span class="toc-t">Portada</span><span class="toc-s"></span></a></li>
       <li><a href="#introduccion" data-target="introduccion"><span class="toc-n">—</span><span class="toc-t">Introducción. La credibilidad cambió de dirección</span><span class="toc-s"></span></a></li>
-      <li><span class="toc-off"><span class="toc-n">01</span><span class="toc-t">De la marca corporativa a la marca directiva</span><span class="toc-s">Próxima entrega</span></span></li>
+      <li><a href="#capitulo-1" data-target="capitulo-1"><span class="toc-n">01</span><span class="toc-t">De la marca corporativa a la marca directiva</span><span class="toc-s"></span></a></li>
       <li><a href="#datos" data-target="datos"><span class="toc-n">02</span><span class="toc-t">¿Qué nos dicen los datos sobre la Marca Directiva?</span><span class="toc-s"></span></a></li>
-      <li><span class="toc-off"><span class="toc-n">03</span><span class="toc-t">La marca directiva en la era de la IA</span><span class="toc-s">Próxima entrega</span></span></li>
-      <li><span class="toc-off"><span class="toc-n">04</span><span class="toc-t">La IA amplifica al líder, no lo suplanta</span><span class="toc-s">Próxima entrega</span></span></li>
-      <li><span class="toc-off"><span class="toc-n">05</span><span class="toc-t">Del SEO al GEO: el nuevo posicionamiento del directivo</span><span class="toc-s">Próxima entrega</span></span></li>
+      <li><a href="#capitulo-3" data-target="capitulo-3"><span class="toc-n">03</span><span class="toc-t">La marca directiva en la era de la IA</span><span class="toc-s"></span></a></li>
+      <li><a href="#capitulo-4" data-target="capitulo-4"><span class="toc-n">04</span><span class="toc-t">La IA amplifica al líder, no lo suplanta</span><span class="toc-s"></span></a></li>
+      <li><a href="#capitulo-5" data-target="capitulo-5"><span class="toc-n">05</span><span class="toc-t">Del SEO al GEO: el nuevo posicionamiento del directivo</span><span class="toc-s"></span></a></li>
       <li><a href="#framework" data-target="framework"><span class="toc-n">06</span><span class="toc-t">Framework de Marca Directiva by Verne</span><span class="toc-s"></span></a></li>
+      <li><a href="#cierre" data-target="cierre"><span class="toc-n">—</span><span class="toc-t">¿Cómo sostienen los líderes la autenticidad de la marca corporativa en la era de la IA?</span><span class="toc-s"></span></a></li>
+      <li><a href="#sobre-verne" data-target="sobre-verne"><span class="toc-n">—</span><span class="toc-t">Sobre Verne</span><span class="toc-s"></span></a></li>
     </ol>
-    <p class="note">Primera propuesta: portada, introducción, capítulo 2 y capítulo 6. Los capítulos 1, 3, 4 y 5 se diagramarán en la siguiente entrega.</p>
   </div>
 </dialog>
 
@@ -962,16 +1181,14 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   <div class="wrap grid">
     <div class="contents__head">
       <h2 id="indice-t">Índice</h2>
-      <p class="note">Primera propuesta: portada, introducción, capítulo 2 y capítulo 6. Los capítulos restantes se diagramarán en la siguiente entrega.</p>
     </div>
     <nav class="contents__list" aria-labelledby="indice-t">
       <ol class="toc-list" data-toc>
-        <li><a href="#introduccion" data-target="introduccion"><span class="toc-n">—</span><span class="toc-t">Introducción. La credibilidad cambió de dirección</span><span class="toc-s"></span></a></li>
-        <li><span class="toc-off"><span class="toc-n">01</span><span class="toc-t">De la marca corporativa a la marca directiva</span><span class="toc-s">Próxima entrega</span></span></li>
+        <li><a href="#capitulo-1" data-target="capitulo-1"><span class="toc-n">01</span><span class="toc-t">De la marca corporativa a la marca directiva</span><span class="toc-s"></span></a></li>
         <li><a href="#datos" data-target="datos"><span class="toc-n">02</span><span class="toc-t">¿Qué nos dicen los datos sobre la Marca Directiva?</span><span class="toc-s"></span></a></li>
-        <li><span class="toc-off"><span class="toc-n">03</span><span class="toc-t">La marca directiva en la era de la IA</span><span class="toc-s">Próxima entrega</span></span></li>
-        <li><span class="toc-off"><span class="toc-n">04</span><span class="toc-t">La IA amplifica al líder, no lo suplanta</span><span class="toc-s">Próxima entrega</span></span></li>
-        <li><span class="toc-off"><span class="toc-n">05</span><span class="toc-t">Del SEO al GEO: el nuevo posicionamiento del directivo</span><span class="toc-s">Próxima entrega</span></span></li>
+        <li><a href="#capitulo-3" data-target="capitulo-3"><span class="toc-n">03</span><span class="toc-t">La marca directiva en la era de la IA</span><span class="toc-s"></span></a></li>
+        <li><a href="#capitulo-4" data-target="capitulo-4"><span class="toc-n">04</span><span class="toc-t">La IA amplifica al líder, no lo suplanta</span><span class="toc-s"></span></a></li>
+        <li><a href="#capitulo-5" data-target="capitulo-5"><span class="toc-n">05</span><span class="toc-t">Del SEO al GEO: el nuevo posicionamiento del directivo</span><span class="toc-s"></span></a></li>
         <li><a href="#framework" data-target="framework"><span class="toc-n">06</span><span class="toc-t">Framework de Marca Directiva by Verne</span><span class="toc-s"></span></a></li>
       </ol>
     </nav>
@@ -1016,364 +1233,280 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 </article>
 
 
-<!-- ======================= 2 · ESTADÍSTICAS ======================= -->
-<article class="chapter" id="datos" data-spy aria-labelledby="datos-t">
+<!-- ======================= CAPÍTULO 1 ======================= -->
+<article class="chapter" id="capitulo-1" data-spy aria-labelledby="c1-t">
   <header class="chapter-open">
+    <div class="wrap grid">
+      <p class="chapter-open__num" aria-hidden="true">01</p>
+      <div class="chapter-open__body">
+        <p class="chapter-open__label">Capítulo 1</p>
+        <h2 id="c1-t">De la marca corporativa a la marca directiva</h2>
+        <div class="chapter-open__lead is-single"><p>Según el Ranking de Directiv@s Digitales 2026, que realizamos en Verne, 96% de directivos digitales tienen un perfil en LinkedIn y solo un 8% alcanza una frecuencia óptima de cuatro o más publicaciones mensuales. Casi todos están. Casi ninguno construye.</p></div>
+      </div>
+    </div>
+  </header>
+  <div class="wrap cb">
+    <p class="cb__link"><a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Revisa el Ranking de Directiv@s Digitales 2026</a></p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 1.1</span><span class="plate__t">Perfil en LinkedIn y frecuencia óptima<span>De cada 100 directivos digitales. Cada punto representa a 1 %.</span></span></figcaption>
+          <div class="wf-pair">
+            <div class="wf-item"><div class="wf wf--ink" role="img" aria-label="96 de cada 100 directivos tienen perfil en LinkedIn"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><div><p class="wf-num">96<span>%</span></p><p class="wf-lab">tienen un perfil en LinkedIn</p></div></div>
+            <p class="wf-vs" aria-hidden="true">frente a</p>
+            <div class="wf-item is-key"><div class="wf wf--key" role="img" aria-label="8 de cada 100 directivos alcanzan una frecuencia óptima"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><p class="wf-num">8<span>%</span></p><p class="wf-lab">alcanza una frecuencia óptima de cuatro o más publicaciones mensuales</p></div></div>
+          </div>
+          <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
+        </figure>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 1.2</span><span class="plate__t">Activos Digitales que tienen los Directivos<span>% de directivos, 2025 y 2026 · escala de 0 a 100 %</span></span></figcaption>
+          <div class="legend" aria-hidden="true"><span><i></i>2025</span><span><i class="is-now"></i>2026</span></div>
+          <ul class="pb">
+            <li><span class="pb__lab">LinkedIn</span><div class="pb__bars"><div class="pb__row"><div class="pb__track"><div class="pb__fill grow" style="--v: 98"></div></div><b>98%</b></div><div class="pb__row is-now"><div class="pb__track"><div class="pb__fill grow" style="--v: 96"></div></div><b>96%</b></div></div></li>
+            <li><span class="pb__lab">X</span><div class="pb__bars"><div class="pb__row"><div class="pb__track"><div class="pb__fill grow" style="--v: 22"></div></div><b>22%</b></div><div class="pb__row is-now"><div class="pb__track"><div class="pb__fill grow" style="--v: 6"></div></div><b>6%</b></div></div></li>
+            <li><span class="pb__lab">Web o Blog</span><div class="pb__bars"><div class="pb__row"><div class="pb__track"><div class="pb__fill grow" style="--v: 2"></div></div><b>2%</b></div><div class="pb__row is-now"><div class="pb__track"><div class="pb__fill grow" style="--v: 3"></div></div><b>3%</b></div></div></li>
+          </ul>
+          <div class="sr-only"><table><caption>Activos digitales que tienen los directivos</caption><thead><tr><th scope="col">Activo</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead><tbody><tr><th scope="row">LinkedIn</th><td>98%</td><td>96%</td></tr><tr><th scope="row">X</th><td>22%</td><td>6%</td></tr><tr><th scope="row">Web o Blog</th><td>2%</td><td>3%</td></tr></tbody></table></div>
+          <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2025 y 2026, Verne.</p>
+        </figure>
+    <p>Estar es tener el perfil completo y la foto vigente. Tener presencia activa es publicar con regularidad algo que a alguien de tu sector le sirva. Lo primero se resuelve en una tarde. Lo segundo es trabajo constante y que toma tiempo. Existe presencia, pero no hay construcción estratégica. Los directivos están en la plataforma correcta, pero muchos la usan como una vitrina pasiva, no como un canal de autoridad.</p>
+    <p class="cb__em">La marca directiva es la reputación profesional y pública de un líder, que influye directamente en cómo se percibe a la organización que representa. No es vanidad digital ni la versión corporativa de ser influyente en redes. Es un activo con impacto medible en credibilidad, atracción de talento y oportunidades de negocio.</p>
+    <p>La diferencia con la marca personal genérica es importante. La marca directiva vive en la intersección entre quién es el líder, qué necesita proyectar la empresa y qué esperan las audiencias clave (clientes, inversionistas, talento, medios, y ahora también los sistemas de IA que consultan millones de personas cada día).</p>
+    <h3>Por qué dejó de ser opcional</h3>
+    <p>Fíjate cómo te presentan en un directorio, en un panel o en el resultado de una búsqueda. Nunca dice José Pérez. Dice José Pérez, de tal empresa. Ese apellido corporativo no lo pone el área de comunicaciones: lo pone el cargo, y no se saca al salir de la oficina. Mientras ocupas la posición, tu nombre y el de la organización son una sola unidad de sentido para quien te lee.</p>
+    <p>De ahí se sigue algo incómodo: no existe la opción de no tener marca directiva. Existe la de administrarla o dejarla al azar. Un directivo que no publica nada en dos años no proyecta neutralidad; proyecta una empresa sin criterio visible al frente. El silencio también se contabiliza en la cuenta de la organización.</p>
+    <p>Y la transferencia corre en los dos sentidos. Lo que el líder sostiene acredita a la empresa o la compromete; lo que la empresa hace acredita al líder o lo desmiente. Por eso la marca directiva no compite con la marca corporativa ni la reemplaza: es el canal por el que la corporativa se vuelve creíble, porque las audiencias dejaron de acreditar membretes y empezaron a acreditar personas con historial.</p>
+    <p>Nuestro <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a>, que analiza el desempeño de cientos de ejecutivos en la región, parte de una premisa que cada año se confirma con más fuerza, la reputación de las empresas ya no se construye únicamente desde el discurso oficial, sino desde la voz activa de quienes las lideran.</p>
+    <p>Lo nuevo no es el vínculo, un gerente siempre representó a su empresa; lo nuevo es quién lo procesa. Pregúntale a un modelo generativo quién lidera tu sector y te devolverá nombres de personas. Luego consulta por una de esas personas y te devolverá el nombre de la empresa. Para ese sistema, líder y organización son una sola entidad, y la respuesta se arma con el material disponible. Si tú no lo pusiste ahí, alguien más lo hizo o lo hará.</p>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">¿Estás listo ser tu quien gestione lo que dicen de tu marca?</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Te ayudamos a liderar la conversación</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+  </div>
+</article>
+
+<!-- ======================= CAPÍTULO 2 ======================= -->
+<article class="chapter" id="datos" data-spy aria-labelledby="datos-t">
+  <header class="chapter-open is-navy">
     <div class="wrap grid">
       <p class="chapter-open__num" aria-hidden="true">02</p>
       <div class="chapter-open__body">
         <p class="chapter-open__label">Capítulo 2</p>
         <h2 id="datos-t">¿Qué nos dicen los datos sobre la Marca Directiva?</h2>
-        <div class="chapter-open__lead">
-          <p>Hay una pregunta que casi nunca se hace en voz alta, cuando decimos que un directivo tiene buena presencia digital, ¿comparado con qué?</p>
-          <p>Sin un criterio explícito, la respuesta la da el número más visible, que casi siempre son los seguidores. Es la métrica más fácil de obtener y la más fácil de comprar.</p>
-        </div>
+        <div class="chapter-open__lead"><p>Hay una pregunta que casi nunca se hace en voz alta, cuando decimos que un directivo tiene buena presencia digital, ¿comparado con qué?</p><p>Sin un criterio explícito, la respuesta la da el número más visible, que casi siempre son los seguidores. Es la métrica más fácil de obtener y la más fácil de comprar.</p></div>
       </div>
     </div>
   </header>
-
-  <!-- A · Presencia frente a construcción -->
-  <section class="block" aria-labelledby="b-a">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Presencia y frecuencia</p>
-        <h3 id="b-a">Casi todos están. Casi ninguno construye.</h3>
-      </div>
-      <div class="block__body prose">
-        <p>Según el Ranking de Directiv@s Digitales 2026, que realizamos en Verne, 96% de directivos digitales tienen un perfil en LinkedIn y solo un 8% alcanza una frecuencia óptima de cuatro o más publicaciones mensuales.</p>
-        <p><a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Revisa el Ranking de Directiv@s Digitales 2026</a></p>
-      </div>
-      <figure class="plate block__wide">
-        <figcaption class="plate__head"><span class="plate__n">Fig. 2.1</span><span class="plate__t">De cada 100 directivos analizados<span>Cada punto representa a 1 % de los directivos.</span></span></figcaption>
-        <div class="wf-pair">
-          <div class="wf-item">
-            <div class="wf wf--ink" role="img" aria-label="96 de cada 100 directivos tienen perfil en LinkedIn"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
-            <div><p class="wf-num">96<span>%</span></p><p class="wf-lab">tiene un perfil en LinkedIn</p></div>
+  <div class="wrap cb">
+    <p>El Ranking Directivos Digitales 2026 de Verne ordena esa jerarquía al revés de como la ordena la intuición. Cuatro criterios: Presencia (15 %), Liderazgo y Consistencia de Marca (40 %), Conversación (30 %) y Comunidad (15 %). Presencia y Comunidad juntas —aparecer en buscadores y en plataformas de IA, tener seguidores— pesan 30 %. Menos que la consistencia sola.</p>
+    <p class="statement ww">Dicho de otro modo: el 40 % del puntaje no depende de cuánto publicas ni de cuántos te siguen. <em>Depende de si sostienes la misma línea.</em></p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.1</span><span class="plate__t">Framework para evaluar a Directivos Digitales – 2026<span>Peso de cada criterio en el puntaje del líder. La barra representa el 100 % del puntaje.</span></span></figcaption>
+          <div class="wb" aria-hidden="true"><span class="wb__s grow">15%</span><span class="wb__s grow is-key">40%</span><span class="wb__s grow">30%</span><span class="wb__s grow">15%</span></div>
+          <div class="wb-cols">
+            <div class="cr"><p class="cr__pct">15%</p><p class="cr__k">Criterio 1</p><p class="cr__name">Presencia</p><ul><li>Posicionamiento en Google (primera página, imágenes, noticias, videos y Modo AI)</li><li>Posicionamiento en videos YouTube y TikTok</li><li>Activos digitales (Web o Blog, LinkedIn, X, Wikipedia, columna de opinión)</li><li>Presencia en Plataformas de IA Gen: Google AI Overview, ChatGPT, Gemini y Claude</li></ul></div>
+            <div class="cr is-key"><p class="cr__pct">40%</p><p class="cr__k">Criterio 2</p><p class="cr__name">Liderazgo y Consistencia de Marca</p><ul><li>Contenido Propio</li><li>Consistencia</li><li>Directiv@ como embajador de marca</li><li>Perfil consistente</li></ul></div>
+            <div class="cr"><p class="cr__pct">30%</p><p class="cr__k">Criterio 3</p><p class="cr__name">Conversación</p><ul><li>Interacciones</li><li>Generación de conversación</li><li>Respuesta a comentarios</li></ul></div>
+            <div class="cr"><p class="cr__pct">15%</p><p class="cr__k">Criterio 4</p><p class="cr__name">Comunidad</p><ul><li>Constancia y frecuencia de publicaciones</li><li>Tamaño de comunidad</li></ul></div>
           </div>
-          <p class="wf-vs" aria-hidden="true">frente a</p>
-          <div class="wf-item is-key">
-            <div class="wf wf--key" role="img" aria-label="8 de cada 100 directivos alcanzan una frecuencia óptima"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div><p class="wf-num">8<span>%</span></p><p class="wf-lab">alcanza una frecuencia óptima de cuatro o más publicaciones mensuales</p></div>
-          </div>
-        </div>
-        <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne. Quinta edición: 524 directivos de las empresas más representativas del Perú, 12 meses, más de 8,000 publicaciones y 850 mil interacciones en LinkedIn.</p>
-      </figure>
-    </div>
-  </section>
+          <p class="formula">Puntaje del líder <span class="op">=</span> <span class="chip">Presencia 15%</span> <span class="op">+</span> <span class="chip is-key">Liderazgo 40%</span> <span class="op">+</span> <span class="chip">Conversación 30%</span> <span class="op">+</span> <span class="chip">Comunidad 15%</span></p>
+          <p class="plate__src"><b>Fuente:</b> Verne, Framework para evaluar a Directivos Digitales – 2026. Criterios 2, 3 y 4 medidos en LinkedIn.</p>
+        </figure>
 
-  <!-- B · Cuatro criterios -->
-  <section class="block" aria-labelledby="b-b">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Cómo se mide</p>
-        <h3 id="b-b">Cuatro criterios, ordenados al revés de la intuición</h3>
-      </div>
-      <div class="block__body prose">
-        <p>El Ranking Directivos Digitales 2026 de Verne ordena esa jerarquía al revés de como la ordena la intuición. Cuatro criterios: Presencia (15 %), Liderazgo y Consistencia de Marca (40 %), Conversación (30 %) y Comunidad (15 %). Presencia y Comunidad juntas —aparecer en buscadores y en plataformas de IA, tener seguidores— pesan 30 %. Menos que la consistencia sola.</p>
-      </div>
-      <figure class="plate block__wide">
-        <figcaption class="plate__head"><span class="plate__n">Fig. 2.2</span><span class="plate__t">Framework para evaluar a Directivos Digitales – 2026<span>Peso de cada criterio en el puntaje del líder. La barra representa el 100 % del puntaje.</span></span></figcaption>
-        <div class="wb" aria-hidden="true">
-          <span class="wb__s grow">15%</span><span class="wb__s grow is-key">40%</span><span class="wb__s grow">30%</span><span class="wb__s grow">15%</span>
-        </div>
-        <div class="wb-cols">
-          <div class="cr"><p class="cr__pct">15%</p><p class="cr__k">Criterio 1</p><p class="cr__name">Presencia</p>
-            <ul><li>Posicionamiento en Google (primera página, imágenes, noticias, videos y Modo AI)</li><li>Posicionamiento en videos YouTube y TikTok</li><li>Activos digitales (Web o Blog, LinkedIn, X, Wikipedia, columna de opinión)</li><li>Presencia en Plataformas de IA Gen: Google AI Overview, ChatGPT, Gemini y Claude</li></ul></div>
-          <div class="cr is-key"><p class="cr__pct">40%</p><p class="cr__k">Criterio 2</p><p class="cr__name">Liderazgo y Consistencia de Marca</p>
-            <ul><li>Contenido Propio</li><li>Consistencia</li><li>Directiv@ como embajador de marca</li><li>Perfil consistente</li></ul></div>
-          <div class="cr"><p class="cr__pct">30%</p><p class="cr__k">Criterio 3</p><p class="cr__name">Conversación</p>
-            <ul><li>Interacciones</li><li>Generación de conversación</li><li>Respuesta a comentarios</li></ul></div>
-          <div class="cr"><p class="cr__pct">15%</p><p class="cr__k">Criterio 4</p><p class="cr__name">Comunidad</p>
-            <ul><li>Constancia y frecuencia de publicaciones</li><li>Tamaño de comunidad</li></ul></div>
-        </div>
-        <p class="formula" aria-label="Puntaje del líder igual a Presencia 15 % más Liderazgo 40 % más Conversación 30 % más Comunidad 15 %">Puntaje del líder <span class="op">=</span> <span class="chip">Presencia 15%</span> <span class="op">+</span> <span class="chip is-key">Liderazgo 40%</span> <span class="op">+</span> <span class="chip">Conversación 30%</span> <span class="op">+</span> <span class="chip">Comunidad 15%</span></p>
-        <p class="plate__src"><b>Fuente:</b> Verne, Framework para evaluar a Directivos Digitales – 2026. Criterios 2, 3 y 4 medidos en LinkedIn.</p>
-      </figure>
-      <div class="so block__wide">
-        <p class="so__k">Dicho de otro modo</p>
-        <p class="statement">El 40 % del puntaje no depende de cuánto publicas ni de cuántos te siguen. <em>Depende de si sostienes la misma línea.</em></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- C · Consistencia -->
-  <section class="block" aria-labelledby="b-c">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Consistencia</p>
-        <h3 id="b-c">Qué se mide cuando se mide consistencia</h3>
-      </div>
-      <div class="block__body prose">
-        <p>Una publicación cuenta como consistente cuando cruza tres cosas a la vez: una opinión propia, un pilar de la organización y conocimiento del sector. Las tres. Un post que solo opina es una columna personal. Uno que solo repite la línea de la empresa es un comunicado con foto. Uno que solo explica el sector es un informe sin autor.</p>
-      </div>
-      <figure class="plate block__wide">
-        <figcaption class="plate__head"><span class="plate__n">Fig. 2.3</span><span class="plate__t">La publicación consistente<span>Solo cuenta cuando cruza las tres condiciones a la vez.</span></span></figcaption>
-        <div class="vn-wrap">
-          <svg class="vn" viewBox="0 0 420 390" role="img" aria-labelledby="vn-t">
-            <title id="vn-t">Tres círculos que se cruzan: opinión propia, pilar de la organización y conocimiento del sector. La publicación consistente está en la intersección de los tres.</title>
-            <defs>
-              <clipPath id="vn-a"><circle cx="150" cy="140" r="110"/></clipPath>
-              <clipPath id="vn-b"><circle cx="270" cy="140" r="110"/></clipPath>
-            </defs>
-            <circle class="c" cx="150" cy="140" r="110"/>
-            <circle class="c" cx="270" cy="140" r="110"/>
-            <circle class="c" cx="210" cy="245" r="110"/>
-            <g clip-path="url(#vn-a)"><g clip-path="url(#vn-b)"><circle class="core" cx="210" cy="245" r="110"/></g></g>
-            <text class="lab" x="100" y="105" text-anchor="middle">Opinión</text>
-            <text class="lab" x="100" y="125" text-anchor="middle">propia</text>
-            <text class="lab" x="320" y="105" text-anchor="middle">Pilar de la</text>
-            <text class="lab" x="320" y="125" text-anchor="middle">organización</text>
-            <text class="lab" x="210" y="310" text-anchor="middle">Conocimiento</text>
-            <text class="lab" x="210" y="330" text-anchor="middle">del sector</text>
-            <text class="core-lab" x="210" y="190" text-anchor="middle">Consistente</text>
-          </svg>
-          <ul class="mx" aria-label="Qué resulta de cada combinación">
-            <li><b>Solo opina</b><span>Columna personal</span></li>
-            <li><b>Solo repite la línea de la empresa</b><span>Comunicado con foto</span></li>
-            <li><b>Solo explica el sector</b><span>Informe sin autor</span></li>
-            <li class="is-all"><b>Cruza las tres a la vez</b><span>Publicación consistente</span></li>
-          </ul>
-        </div>
-        <p class="plate__src">Diagrama elaborado a partir de la definición de consistencia del Ranking Directiv@s Digitales 2026.</p>
-      </figure>
-    </div>
-  </section>
-
-  <!-- D · Temas e interacciones -->
-  <section class="block" aria-labelledby="b-d">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Temas</p>
-        <h3 id="b-d">Dónde se rompe el cruce</h3>
-      </div>
-      <div class="block__body prose">
-        <p>Nuestro <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a> muestra dónde se rompe ese cruce. Dos de cada tres publicaciones hablan de la empresa, y el tema más publicado son los proyectos corporativos (18,2 %). Marca personal aparece quinta, con 9,3 %. Y es, al mismo tiempo, el tema que más interacciones genera por publicación: 294, frente a 122 de sostenibilidad.</p>
-      </div>
-      <figure class="plate block__wide">
-        <figcaption class="plate__head"><span class="plate__n">Fig. 2.4</span><span class="plate__t">Lo que más se publica no es lo que más conversación genera</span></figcaption>
-        <div class="tb-pair">
-          <div>
-            <p class="tb-t">Temas más publicados<span>% del total de publicaciones · escala de 0 a 20 %</span></p>
-            <ul class="tb">
-              <li><span class="tb__lab"><span class="tb__rank">1.º</span>Proyectos corporativos</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 91"></div></div><span class="tb__val">18,2%</span></div></li>
-              <li class="is-key"><span class="tb__lab"><span class="tb__rank">5.º</span>Marca personal</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 46.5"></div></div><span class="tb__val">9,3%</span></div></li>
-            </ul>
-            <p class="scale-note">El documento no detalla los temas en las posiciones 2.ª a 4.ª.</p>
-          </div>
-          <div>
-            <p class="tb-t">Interacciones por publicación<span>Promedio por tema · escala de 0 a 300</span></p>
-            <ul class="tb">
-              <li class="is-key"><span class="tb__lab">Marca personal</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 98"></div></div><span class="tb__val">294</span></div></li>
-              <li><span class="tb__lab">Sostenibilidad</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 40.67"></div></div><span class="tb__val">122</span></div></li>
+    <h3>Qué se mide cuando se mide consistencia</h3>
+    <p>Una publicación cuenta como consistente cuando cruza tres cosas a la vez: una opinión propia, un pilar de la organización y conocimiento del sector. Las tres. Un post que solo opina es una columna personal. Uno que solo repite la línea de la empresa es un comunicado con foto. Uno que solo explica el sector es un informe sin autor.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.2</span><span class="plate__t">Cuándo una publicación cuenta como consistente<span>Cuando cruza las tres a la vez.</span></span></figcaption>
+          <div class="vn-wrap">
+            <svg class="vn" viewBox="0 0 420 390" role="img" aria-labelledby="vn-t">
+              <title id="vn-t">Tres círculos que se cruzan: opinión propia, pilar de la organización y conocimiento del sector. La publicación consistente está en la intersección de los tres.</title>
+              <defs><clipPath id="vn-a"><circle cx="150" cy="140" r="110"/></clipPath><clipPath id="vn-b"><circle cx="270" cy="140" r="110"/></clipPath></defs>
+              <circle class="c" cx="150" cy="140" r="110"/><circle class="c" cx="270" cy="140" r="110"/><circle class="c" cx="210" cy="245" r="110"/>
+              <g clip-path="url(#vn-a)"><g clip-path="url(#vn-b)"><circle class="core" cx="210" cy="245" r="110"/></g></g>
+              <text class="lab" x="100" y="105" text-anchor="middle">Opinión</text><text class="lab" x="100" y="125" text-anchor="middle">propia</text>
+              <text class="lab" x="320" y="105" text-anchor="middle">Pilar de la</text><text class="lab" x="320" y="125" text-anchor="middle">organización</text>
+              <text class="lab" x="210" y="310" text-anchor="middle">Conocimiento</text><text class="lab" x="210" y="330" text-anchor="middle">del sector</text>
+              <text class="core-lab" x="210" y="190" text-anchor="middle">Consistente</text>
+            </svg>
+            <ul class="mx">
+              <li><b>Solo opina</b><span>Columna personal</span></li>
+              <li><b>Solo repite la línea de la empresa</b><span>Comunicado con foto</span></li>
+              <li><b>Solo explica el sector</b><span>Informe sin autor</span></li>
+              <li class="is-all"><b>Cruza las tres a la vez</b><span>Consistente</span></li>
             </ul>
           </div>
-        </div>
-        <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
-      </figure>
-      <div class="block__body prose" style="margin-top: clamp(32px, 4vw, 48px)">
-        <p>Los directivos que combinan ambos registros son los que mejor posicionan simultáneamente su marca personal y la de su empresa.</p>
-      </div>
-      <aside class="cta block__body" style="margin-top: 40px" aria-label="Llamado a la acción">
-        <p class="cta__q">De los cuatro criterios, ¿cuál es hoy el más débil para ti?</p>
-        <div class="cta__row">
-          <a class="btn is-pending" aria-disabled="true">Conoce tu puntaje</a>
-          <span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- E · Arquetipos -->
-  <section class="block" aria-labelledby="b-e">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Arquetipos</p>
-        <h3 id="b-e">Los arquetipos que funcionan</h3>
-      </div>
-      <div class="block__body prose">
-        <p>En nuestro análisis del ecosistema peruano identificamos distintos arquetipos de directivo digital, cada uno con una lógica de valor distinta.</p>
-        <p>En 2026, dos de cada tres son embajadores (65,4 %): publican sobre los pilares y los proyectos de su organización. Les siguen el Activista (24,0 %), el Inspirador (6,5 %) y el Educador (4,1 %).</p>
-      </div>
-      <figure class="plate block__wide">
-        <figcaption class="plate__head"><span class="plate__n">Fig. 2.5</span><span class="plate__t">Arquetipos del CEO Digital Peruano, 2026<span>% de directivos según su arquetipo predominante · escala de 0 a 100 %</span></span></figcaption>
-        <ul class="tb">
-          <li class="is-key"><span class="tb__lab"><a href="#arquetipo-embajador">El Embajador</a></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 65.4"></div></div><span class="tb__val">65,4%</span></div></li>
-          <li><span class="tb__lab"><a href="#arquetipo-activista">El Activista</a></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 24"></div></div><span class="tb__val">24,0%</span></div></li>
-          <li><span class="tb__lab"><a href="#arquetipo-inspirador">El Inspirador</a></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 6.5"></div></div><span class="tb__val">6,5%</span></div></li>
-          <li><span class="tb__lab"><a href="#arquetipo-educador">El Educador</a></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 4.1"></div></div><span class="tb__val">4,1%</span></div></li>
-        </ul>
-        <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne. Cada directivo se asigna al arquetipo que corresponde al tipo de contenido que más publica, sobre la base de la clasificación de sus publicaciones en LinkedIn. Un mismo directivo puede ejercer más de un perfil: el arquetipo indica el predominante.</p>
-      </figure>
-      <div class="block__wide ar-list">
-        <section class="ar" id="arquetipo-inspirador" aria-labelledby="ar-inspirador">
-          <div>
-            <p class="ar__pct">6,5<small>%</small></p>
-            <p class="ar__k">de los directivos en 2026</p>
-            <h4 class="ar__name" id="ar-inspirador">El Inspirador</h4>
-            <p class="ar__desc">Construye su marca puenteando conocimiento especializado hacia su audiencia, ayudando a posicionar simultáneamente su expertise y la marca corporativa.</p>
-            <p class="ar__desc ar__focus">Publica sobre todo desde su opinión personal: reflexiones y aprendizajes.</p>
+          <p class="plate__src">Diagrama elaborado a partir del texto de este capítulo.</p>
+        </figure>
+    <p>Nuestro <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a> muestra dónde se rompe ese cruce. Dos de cada tres publicaciones hablan de la empresa, y el tema más publicado son los proyectos corporativos (18,2 %). Marca personal aparece quinta, con 9,3 %. Y es, al mismo tiempo, el tema que más interacciones genera por publicación: 294, frente a 122 de sostenibilidad.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.3</span><span class="plate__t">Temas: participación en las publicaciones e interacciones por publicación</span></figcaption>
+          <div class="tb-pair">
+            <div>
+              <p class="tb-t">% del total de publicaciones<span>Escala de 0 a 20 %</span></p>
+              <ul class="tb">
+                <li><span class="tb__lab"><span class="tb__rank">1.º</span>Proyectos corporativos</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 91"></div></div><span class="tb__val">18,2%</span></div></li>
+                <li class="is-key"><span class="tb__lab"><span class="tb__rank">5.º</span>Marca personal</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 46.5"></div></div><span class="tb__val">9,3%</span></div></li>
+              </ul>
+              <p class="scale-note">El documento no detalla los temas en las posiciones 2.ª a 4.ª.</p>
+            </div>
+            <div>
+              <p class="tb-t">Interacciones por publicación<span>Escala de 0 a 300</span></p>
+              <ul class="tb">
+                <li class="is-key"><span class="tb__lab">Marca personal</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 98"></div></div><span class="tb__val">294</span></div></li>
+                <li><span class="tb__lab">Sostenibilidad</span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 40.67"></div></div><span class="tb__val">122</span></div></li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <p class="ar__people-t">Directivos destacados · gerentes generales del Top 10 que más ejercen este perfil</p>
-            <div class="pf-pair">
+          <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
+        </figure>
+    <p>Los directivos que combinan ambos registros son los que mejor posicionan simultáneamente su marca personal y la de su empresa.</p>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">De los cuatro criterios, ¿cuál es hoy el más débil para ti?</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Conoce tu puntaje</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+
+    <h3>Los arquetipos que funcionan</h3>
+    <p>En nuestro análisis del ecosistema peruano identificamos distintos arquetipos de directivo digital, cada uno con una lógica de valor distinta:</p>
+    
+        <section class="ar w" id="arquetipo-inspirador" aria-label="El Inspirador">
+          <p class="ar__text"><b>El Inspirador,</b> que construye su marca puenteando conocimiento especializado hacia su audiencia, ayudando a posicionar simultáneamente su expertise y la marca corporativa.</p>
+          <div class="pf-pair">
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/fernando-eguiluz.jpg" alt="Retrato de Fernando Eguiluz" width="240" height="240"><span class="av__rank" aria-label="Puesto 1 del Top 10">#1</span></div>
+                <div class="av"><img src="assets/directivos/fernando-eguiluz.jpg" alt="Retrato de Fernando Eguiluz" width="240" height="240"><span class="av__rank">#1</span></div>
                 <div><p class="pf__name">Fernando Eguiluz</p><p class="pf__role">CEO BBVA Perú</p></div>
               </div>
               <div class="pf__share">
                 <p><b>29 publicaciones de opinión personal</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 52"></i></div><span>52% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Marca personal</span><span class="n">3 045<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">2 432<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Marca personal</span><span class="n">3 045<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">2 432<small>interacciones</small></span></li></ul>
             </article>
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/ruben-sanchez.jpg" alt="Retrato de Rubén Sánchez" width="240" height="240"><span class="av__rank" aria-label="Puesto 10 del Top 10">#10</span></div>
+                <div class="av"><img src="assets/directivos/ruben-sanchez.jpg" alt="Retrato de Rubén Sánchez" width="240" height="240"><span class="av__rank">#10</span></div>
                 <div><p class="pf__name">Rubén Sánchez</p><p class="pf__role">CEO Grupo San Antonio</p></div>
               </div>
               <div class="pf__share">
                 <p><b>42 publicaciones de opinión personal</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 84"></i></div><span>84% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Coyuntura nacional</span><span class="n">3 000<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">2 285<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Coyuntura nacional</span><span class="n">3 000<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">2 285<small>interacciones</small></span></li></ul>
             </article>
-            </div>
           </div>
+          <p class="ar__note">Gerentes generales del Top 10 que más ejercen este perfil.</p>
         </section>
-        <section class="ar" id="arquetipo-embajador" aria-labelledby="ar-embajador">
-          <div>
-            <p class="ar__pct">65,4<small>%</small></p>
-            <p class="ar__k">de los directivos en 2026</p>
-            <h4 class="ar__name" id="ar-embajador">El Embajador</h4>
-            <p class="ar__desc">Actúa como un activo difusor de las acciones de su organización y suele generar el mayor nivel de engagement, porque involucra a sus propios colaboradores en la conversación.</p>
-            <p class="ar__desc ar__focus">Publica sobre todo los pilares de su organización y los proyectos de la empresa.</p>
-          </div>
-          <div>
-            <p class="ar__people-t">Directivos destacados · gerentes generales del Top 10 que más ejercen este perfil</p>
-            <div class="pf-pair">
+        <section class="ar w" id="arquetipo-embajador" aria-label="El Embajador">
+          <p class="ar__text"><b>El Embajador,</b> que actúa como un activo difusor de las acciones de su organización y suele generar el mayor nivel de engagement, porque involucra a sus propios colaboradores en la conversación.</p>
+          <div class="pf-pair">
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/mario-potesta.jpg" alt="Retrato de Mario Potestá Martínez" width="240" height="240"><span class="av__rank" aria-label="Puesto 9 del Top 10">#9</span></div>
+                <div class="av"><img src="assets/directivos/mario-potesta.jpg" alt="Retrato de Mario Potestá Martínez" width="240" height="240"><span class="av__rank">#9</span></div>
                 <div><p class="pf__name">Mario Potestá Martínez</p><p class="pf__role">CEO Rimac Seguros</p></div>
               </div>
               <div class="pf__share">
                 <p><b>48 publicaciones sobre los pilares de la organización</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 86"></i></div><span>86% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">1 358<small>interacciones</small></span></li><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">1 161<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">1 358<small>interacciones</small></span></li><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">1 161<small>interacciones</small></span></li></ul>
             </article>
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/katerina-ananos.jpg" alt="Retrato de Katerina Añaños" width="240" height="240"><span class="av__rank" aria-label="Puesto 4 del Top 10">#4</span></div>
+                <div class="av"><img src="assets/directivos/katerina-ananos.jpg" alt="Retrato de Katerina Añaños" width="240" height="240"><span class="av__rank">#4</span></div>
                 <div><p class="pf__name">Katerina Añaños</p><p class="pf__role">Gerente General ISM</p></div>
               </div>
               <div class="pf__share">
                 <p><b>31 publicaciones sobre los pilares de la organización</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 63"></i></div><span>63% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Sostenibilidad</span><span class="n">1 457<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">667<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Sostenibilidad</span><span class="n">1 457<small>interacciones</small></span></li><li><span class="t">Marca personal</span><span class="n">667<small>interacciones</small></span></li></ul>
             </article>
-            </div>
           </div>
+          <p class="ar__note">Gerentes generales del Top 10 que más ejercen este perfil.</p>
         </section>
-        <section class="ar" id="arquetipo-educador" aria-labelledby="ar-educador">
-          <div>
-            <p class="ar__pct">4,1<small>%</small></p>
-            <p class="ar__k">de los directivos en 2026</p>
-            <h4 class="ar__name" id="ar-educador">El Educador</h4>
-            <p class="ar__desc">Transforma conceptos complejos de su industria en contenido accesible, posicionándose como referente de aprendizaje sectorial.</p>
-            <p class="ar__desc ar__focus">Publica sobre todo aportando conocimiento de su sector.</p>
-          </div>
-          <div>
-            <p class="ar__people-t">Directivos destacados · gerentes generales del Top 10 que más ejercen este perfil</p>
-            <div class="pf-pair">
+        <section class="ar w" id="arquetipo-educador" aria-label="El Educador">
+          <p class="ar__text"><b>El Educador,</b> que transforma conceptos complejos de su industria en contenido accesible, posicionándose como referente de aprendizaje sectorial.</p>
+          <div class="pf-pair">
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/javier-ichazo.jpg" alt="Retrato de Javier Ichazo" width="240" height="240"><span class="av__rank" aria-label="Puesto 7 del Top 10">#7</span></div>
+                <div class="av"><img src="assets/directivos/javier-ichazo.jpg" alt="Retrato de Javier Ichazo" width="240" height="240"><span class="av__rank">#7</span></div>
                 <div><p class="pf__name">Javier Ichazo</p><p class="pf__role">Gerente General Mibanco</p></div>
               </div>
               <div class="pf__share">
                 <p><b>12 publicaciones de conocimiento del sector</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 21"></i></div><span>21% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Innovación y tecnología</span><span class="n">168<small>interacciones</small></span></li><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">150<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Innovación y tecnología</span><span class="n">168<small>interacciones</small></span></li><li><span class="t">Gestión de equipo y liderazgo</span><span class="n">150<small>interacciones</small></span></li></ul>
             </article>
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/marco-fragale.jpg" alt="Retrato de Marco Fragale" width="240" height="240"><span class="av__rank" aria-label="Puesto 3 del Top 10">#3</span></div>
+                <div class="av"><img src="assets/directivos/marco-fragale.jpg" alt="Retrato de Marco Fragale" width="240" height="240"><span class="av__rank">#3</span></div>
                 <div><p class="pf__name">Marco Fragale</p><p class="pf__role">CEO Orygen</p></div>
               </div>
               <div class="pf__share">
                 <p><b>6 publicaciones de conocimiento del sector</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 12"></i></div><span>12% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Transición energética</span><span class="n">228<small>interacciones</small></span></li><li><span class="t">Transición energética</span><span class="n">144<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Transición energética</span><span class="n">228<small>interacciones</small></span></li><li><span class="t">Transición energética</span><span class="n">144<small>interacciones</small></span></li></ul>
             </article>
-            </div>
           </div>
+          <p class="ar__note">Gerentes generales del Top 10 que más ejercen este perfil.</p>
         </section>
-        <section class="ar" id="arquetipo-activista" aria-labelledby="ar-activista">
-          <div>
-            <p class="ar__pct">24,0<small>%</small></p>
-            <p class="ar__k">de los directivos en 2026</p>
-            <h4 class="ar__name" id="ar-activista">El Activista</h4>
-            <p class="ar__desc">Asume una postura visible frente a problemáticas sociales relevantes, siempre que exista consistencia entre lo que dice y lo que su organización efectivamente hace.</p>
-            <p class="ar__desc ar__focus">Los temas de coyuntura nacional, sostenibilidad y transición energética son los que más publica.</p>
-          </div>
-          <div>
-            <p class="ar__people-t">Directivos destacados · gerentes generales del Top 10 que más ejercen este perfil</p>
-            <div class="pf-pair">
+        <section class="ar w" id="arquetipo-activista" aria-label="El Activista">
+          <p class="ar__text"><b>El Activista,</b> que asume una postura visible frente a problemáticas sociales relevantes, siempre que exista consistencia entre lo que dice y lo que su organización efectivamente hace.</p>
+          <div class="pf-pair">
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/juan-stoessel.jpg" alt="Retrato de Juan Stoessel" width="240" height="240"><span class="av__rank" aria-label="Puesto 6 del Top 10">#6</span></div>
+                <div class="av"><img src="assets/directivos/juan-stoessel.jpg" alt="Retrato de Juan Stoessel" width="240" height="240"><span class="av__rank">#6</span></div>
                 <div><p class="pf__name">Juan Stoessel</p><p class="pf__role">CEO Casa Andina</p></div>
               </div>
               <div class="pf__share">
                 <p><b>24 publicaciones sobre coyuntura y sostenibilidad</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 48"></i></div><span>48% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Coyuntura nacional</span><span class="n">862<small>interacciones</small></span></li><li><span class="t">Coyuntura nacional</span><span class="n">772<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Coyuntura nacional</span><span class="n">862<small>interacciones</small></span></li><li><span class="t">Coyuntura nacional</span><span class="n">772<small>interacciones</small></span></li></ul>
             </article>
             <article class="pf">
+              <p class="pf__k">Directivo destacado</p>
               <div class="pf__id">
-                <div class="av"><img src="assets/directivos/diego-cavero.jpg" alt="Retrato de Diego Cavero Belaunde" width="240" height="240"><span class="av__rank" aria-label="Puesto 2 del Top 10">#2</span></div>
+                <div class="av"><img src="assets/directivos/diego-cavero.jpg" alt="Retrato de Diego Cavero Belaunde" width="240" height="240"><span class="av__rank">#2</span></div>
                 <div><p class="pf__name">Diego Cavero Belaunde</p><p class="pf__role">Gerente General BCP</p></div>
               </div>
               <div class="pf__share">
                 <p><b>23 publicaciones sobre coyuntura y sostenibilidad</b></p>
                 <div class="pf__meter"><div class="pf__bar" aria-hidden="true"><i class="grow" style="--v: 40"></i></div><span>40% de las suyas</span></div>
               </div>
-              <ul class="pf__posts" aria-label="Temas e interacciones"><li><span class="t">Coyuntura nacional</span><span class="n">520<small>interacciones</small></span></li><li><span class="t">Sostenibilidad</span><span class="n">433<small>interacciones</small></span></li></ul>
+              <ul class="pf__posts"><li><span class="t">Coyuntura nacional</span><span class="n">520<small>interacciones</small></span></li><li><span class="t">Sostenibilidad</span><span class="n">433<small>interacciones</small></span></li></ul>
             </article>
-            </div>
           </div>
+          <p class="ar__note">Gerentes generales del Top 10 que más ejercen este perfil.</p>
         </section>
-      </div>
-      <p class="src block__wide">Directivos destacados: gerentes generales del Top 10 que más ejercen cada perfil; # indica su puesto en el Top 10. En cada ficha, los temas con su número de interacciones. Fuente: láminas del Ranking Directiv@s Digitales 2026, Verne.</p>
-      <div class="block__body prose" style="margin-top: clamp(32px, 4vw, 48px)">
-        <p>Ningún arquetipo es intrínsecamente superior. El error más común que vemos en directivos que “lo intentan y no funciona” no es elegir mal el arquetipo, sino elegir uno que no corresponde a quién es esa persona realmente.</p>
-      </div>
-      <aside class="cta block__body" style="margin-top: 40px" aria-label="Llamado a la acción">
-        <p class="cta__q">¿Qué arquetipo eres?</p>
-        <div class="cta__row">
-          <a class="btn is-pending" aria-disabled="true">Te ayudamos a descubrirlo</a>
-          <span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span>
-        </div>
-      </aside>
-    </div>
-  </section>
+    <p>Ningún arquetipo es intrínsecamente superior. El error más común que vemos en directivos que “lo intentan y no funciona” no es elegir mal el arquetipo, sino elegir uno que no corresponde a quién es esa persona realmente.</p>
+    <p>En 2026, dos de cada tres son embajadores (65,4 %): publican sobre los pilares y los proyectos de su organización. Les siguen el Activista (24,0 %), el Inspirador (6,5 %) y el Educador (4,1 %).</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.4</span><span class="plate__t">Arquetipos del CEO Digital Peruano<span>% de directivos según su arquetipo predominante · escala de 0 a 100 %</span></span></figcaption>
+          <ul class="tb tb--desc">
+            <li class="is-key"><span class="tb__lab"><b>CEO Digital Embajador</b><small>Publica sobre todo los pilares de su organización y los proyectos de la empresa.</small></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 65.4"></div></div><span class="tb__val">65,4%</span></div></li>
+            <li><span class="tb__lab"><b>CEO Digital Activista</b><small>Los temas de coyuntura nacional, sostenibilidad y transición energética son los que más publica.</small></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 24"></div></div><span class="tb__val">24,0%</span></div></li>
+            <li><span class="tb__lab"><b>CEO Digital Inspirador</b><small>Publica sobre todo desde su opinión personal: reflexiones y aprendizajes.</small></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 6.5"></div></div><span class="tb__val">6,5%</span></div></li>
+            <li><span class="tb__lab"><b>CEO Digital Educador</b><small>Publica sobre todo aportando conocimiento de su sector.</small></span><div class="tb__row"><div class="tb__track" aria-hidden="true"><div class="tb__fill grow" style="--v: 4.1"></div></div><span class="tb__val">4,1%</span></div></li>
+          </ul>
+          <p class="plate__src">Cada directivo se asigna al arquetipo que corresponde al tipo de contenido que más publica, sobre la base de la clasificación de sus publicaciones en LinkedIn. Un mismo directivo puede ejercer más de un perfil: el arquetipo indica el predominante, y en cada lámina se destacan los gerentes generales del Top 10 que más ejercen ese perfil. <b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
+        </figure>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">¿Qué arquetipo eres?</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Te ayudamos a descubrirlo</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
 
-  <!-- F · Brechas -->
-  <section class="block gaps" aria-labelledby="b-f">
-    <div class="wrap grid">
-      <div class="block__head">
-        <p class="eyebrow">Brechas 2025 → 2026</p>
-        <h3 id="b-f">Donde el sistema todavía falla</h3>
-      </div>
-      <div class="block__wide gap-row">
-        <figure class="plate">
-          <figcaption class="plate__head"><span class="plate__n">Fig. 2.6</span><span class="plate__t">Frecuencia mensual de publicaciones en LinkedIn<span>% de directivos según cuántas veces publican al mes</span></span></figcaption>
+    <h3>Donde el sistema todavía falla</h3>
+    <p>La frecuencia retrocedió. En 2026 solo el 8 % de los directivos sostiene una frecuencia óptima de cuatro o más publicaciones mensuales, frente al 19 % de 2025. Más de la mitad publica menos de dos veces al mes y uno de cada cinco está inactivo.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.5</span><span class="plate__t">Frecuencia mensual de publicaciones en LinkedIn<span>% de directivos según cuántas veces publican al mes</span></span></figcaption>
           <div class="legend" aria-hidden="true"><span><i></i>2025</span><span><i class="is-now"></i>2026</span></div>
           <div class="fq" aria-hidden="true">
             <div class="fq__plot">
@@ -1385,84 +1518,193 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
             </div>
             <div class="fq__x"><span><b>0</b>publicaciones</span><span><b>1</b>publicación</span><span><b>2 a 3</b>publicaciones</span><span><b>4 a más</b>publicaciones</span></div>
           </div>
-          <div class="sr-only"><table>
-            <caption>Frecuencia mensual de publicaciones en LinkedIn, porcentaje de directivos</caption>
-            <thead><tr><th scope="col">Publicaciones al mes</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">0 publicaciones</th><td>24%</td><td>21%</td></tr>
-              <tr><th scope="row">1 publicación</th><td>33%</td><td>54%</td></tr>
-              <tr><th scope="row">2 a 3 publicaciones</th><td>24%</td><td>17%</td></tr>
-              <tr><th scope="row">4 a más publicaciones</th><td>19%</td><td>8%</td></tr>
-            </tbody>
-          </table></div>
+          <div class="sr-only"><table><caption>Frecuencia mensual de publicaciones en LinkedIn, porcentaje de directivos</caption><thead><tr><th scope="col">Publicaciones al mes</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead><tbody><tr><th scope="row">0 publicaciones</th><td>24%</td><td>21%</td></tr><tr><th scope="row">1 publicación</th><td>33%</td><td>54%</td></tr><tr><th scope="row">2 a 3 publicaciones</th><td>24%</td><td>17%</td></tr><tr><th scope="row">4 a más publicaciones</th><td>19%</td><td>8%</td></tr></tbody></table></div>
           <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2025 y 2026, Verne. Eje de 0 a 60 %.</p>
         </figure>
-        <div class="gap-note">
-          <p class="k-label">La frecuencia retrocedió</p>
-          <p class="k-text">En 2026 solo el 8 % de los directivos sostiene una frecuencia óptima de cuatro o más publicaciones mensuales, frente al 19 % de 2025. Más de la mitad publica menos de dos veces al mes y uno de cada cinco está inactivo.</p>
-        </div>
-      </div>
-
-      <div class="block__wide gap-pair">
-        <figure class="plate">
-          <figcaption class="plate__head"><span class="plate__n">Fig. 2.7</span><span class="plate__t">La conversación es esporádica<span>% de directivos, 2026</span></span></figcaption>
-          <p class="k-text">El 62 % respondió al menos un comentario, pero solo el 9 % lo hace de forma sostenida, en más del 40 % de sus publicaciones. Responder una vez no construye comunidad.</p>
+    <p>La conversación es esporádica. El 62 % respondió al menos un comentario, pero solo el 9 % lo hace de forma sostenida, en más del 40 % de sus publicaciones. Responder una vez no construye comunidad.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.6</span><span class="plate__t">Respuesta a comentarios, 2026<span>% de directivos</span></span></figcaption>
           <div class="dn-pair">
-            <div class="dn">
-              <div class="dn__ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="50"/><circle class="val" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="62 100"/></svg><b>62%</b></div>
-              <p>respondió al menos un comentario</p>
-            </div>
-            <div class="dn is-key">
-              <div class="dn__ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="50"/><circle class="val" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="9 100"/></svg><b>9%</b></div>
-              <p>responde de forma sostenida, en más del 40 % de sus publicaciones</p>
-            </div>
+            <div class="dn"><div class="dn__ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="50"/><circle class="val" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="62 100"/></svg><b>62%</b></div><p>respondió al menos un comentario</p></div>
+            <div class="dn is-key"><div class="dn__ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="50"/><circle class="val" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="9 100"/></svg><b>9%</b></div><p>lo hace de forma sostenida, en más del 40 % de sus publicaciones</p></div>
           </div>
           <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
         </figure>
-        <figure class="plate">
-          <figcaption class="plate__head"><span class="plate__n">Fig. 2.8</span><span class="plate__t">La IA generativa ya reconoce a los directivos peruanos<span>% de directivos en ChatGPT, Gemini, Claude y Google AI Overview</span></span></figcaption>
-          <p class="k-text">En 2026 el 60 % tiene presencia destacada en ChatGPT, Gemini, Claude y Google AI Overview, frente al 15 % de 2025, y solo el 3 % no aparece en ninguna, cuando el año anterior era el 16 %.</p>
+    <p>La novedad es que la IA generativa ya reconoce a los directivos peruanos. En 2026 el 60 % tiene presencia destacada en ChatGPT, Gemini, Claude y Google AI Overview, frente al 15 % de 2025, y solo el 3 % no aparece en ninguna, cuando el año anterior era el 16 %.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 2.7</span><span class="plate__t">Presencia en ChatGPT, Gemini, Claude y Google AI Overview<span>% de directivos, 2025 y 2026 · escala de 0 a 100 %</span></span></figcaption>
           <div class="legend" aria-hidden="true"><span><i></i>2025</span><span><i class="is-now"></i>2026</span></div>
           <ul class="db">
-            <li>
-              <p class="db__lab">Presencia destacada en plataformas de IA generativa</p>
-              <div class="db__track" aria-hidden="true">
-                <span class="db__span" style="left: 15%; width: 45%"></span>
-                <span class="db__dot" style="left: 15%"><b>15% <small>2025</small></b></span>
-                <span class="db__dot is-now" style="left: 60%"><b>60% <small>2026</small></b></span>
-              </div>
-              <p class="sr-only">15 % en 2025; 60 % en 2026.</p>
-            </li>
-            <li>
-              <p class="db__lab">No aparece en ninguna plataforma</p>
-              <div class="db__track" aria-hidden="true">
-                <span class="db__span" style="left: 3%; width: 13%"></span>
-                <span class="db__dot" style="left: 16%"><b>16% <small>2025</small></b></span>
-                <span class="db__dot is-now" style="left: 3%"><b>3% <small>2026</small></b></span>
-              </div>
-              <p class="sr-only">16 % en 2025; 3 % en 2026.</p>
-            </li>
+            <li><p class="db__lab">Presencia destacada</p><div class="db__track" aria-hidden="true"><span class="db__span" style="left: 15%; width: 45%"></span><span class="db__dot" style="left: 15%"><b>15% <small>2025</small></b></span><span class="db__dot is-now" style="left: 60%"><b>60% <small>2026</small></b></span></div><p class="sr-only">15 % en 2025; 60 % en 2026.</p></li>
+            <li><p class="db__lab">No aparece en ninguna</p><div class="db__track" aria-hidden="true"><span class="db__span" style="left: 3%; width: 13%"></span><span class="db__dot" style="left: 16%"><b>16% <small>2025</small></b></span><span class="db__dot is-now" style="left: 3%"><b>3% <small>2026</small></b></span></div><p class="sr-only">16 % en 2025; 3 % en 2026.</p></li>
           </ul>
           <div class="db__axis" aria-hidden="true"><span>0 %</span><span>50 %</span><span>100 %</span></div>
           <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2025 y 2026, Verne.</p>
         </figure>
-      </div>
-
-      <div class="coda block__wide">
-        <p class="coda__a">Eso reordena la pregunta. Ya no es si la IA habla de ti.</p>
-        <p class="statement">Es con qué material lo hace: <em>el que construiste o el que encontró.</em></p>
-        <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">¿Qué sabe la IA sobre ti?</p>
-          <div class="cta__row">
-            <a class="btn is-pending" aria-disabled="true">Revisa aquí</a>
-            <span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span>
-          </div>
-        </aside>
-      </div>
+    <div class="coda ww">
+      <p class="coda__a">Eso reordena la pregunta. Ya no es si la IA habla de ti.</p>
+      <p class="statement">Es con qué material lo hace: <em>el que construiste o el que encontró.</em></p>
     </div>
-  </section>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">¿Qué sabe la IA sobre ti?</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Revisa aquí</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+  </div>
 </article>
 
+<!-- ======================= CAPÍTULO 3 ======================= -->
+<article class="chapter" id="capitulo-3" data-spy aria-labelledby="c3-t">
+  <header class="chapter-open">
+    <div class="wrap grid">
+      <p class="chapter-open__num" aria-hidden="true">03</p>
+      <div class="chapter-open__body">
+        <p class="chapter-open__label">Capítulo 3</p>
+        <h2 id="c3-t">La marca directiva en la era de la IA</h2>
+        <div class="chapter-open__lead is-single"><p>Hasta hace pocos años, construir marca directiva significaba competir por espacio en el feed de LinkedIn o en los primeros resultados de Google. Hoy se compite por algo más difícil de ganar y más valioso de lograr y esto es tener un lugar en la narrativa que una inteligencia artificial construye cuando alguien le pregunta sobre tu industria, tu empresa o tu criterio como líder.</p></div>
+      </div>
+    </div>
+  </header>
+  <div class="wrap cb">
+    <p>Las compañías ya lo asumieron. Según el informe 2026 AI and Digital Trends in B2B Journey Orchestration, de Adobe, “el 67% considera que las plataformas conversacionales impulsadas por IA son cruciales para mantener la relevancia de su marca”. El mismo informe señala que “el 61% afirma que las futuras experiencias de sus clientes deberán diseñarse como conversaciones”.</p>
+    <div class="stats ww" role="group" aria-label="Cifras del informe de Adobe">
+      <div class="stat"><p class="stat__n">67<span>%</span></p><p class="stat__t">considera que las plataformas conversacionales impulsadas por IA son cruciales para mantener la relevancia de su marca</p></div>
+      <div class="stat"><p class="stat__n">61<span>%</span></p><p class="stat__t">afirma que las futuras experiencias de sus clientes deberán diseñarse como conversaciones</p></div>
+      <p class="stat__src"><b>Fuente:</b> Adobe, 2026 AI and Digital Trends in B2B Journey Orchestration.</p>
+    </div>
+    <h3>Más voces, más ruido, menos anclas</h3>
+    <p>La irrupción de la IA generativa no redujo el número de voces compitiendo por atención; lo multiplicó. Cualquiera puede hoy producir contenido pulido, artículos con apariencia de autoridad, publicaciones optimizadas semánticamente, en fracción del tiempo que tomaba antes. El resultado es un ecosistema saturado de contenido sintético indistinguible del que costó pensar.</p>
+    <p>En ese contexto, el valor de una voz humana reconocible, coherente y verificable no disminuye, por el contrario, se dispara. Cuando todo puede sonar igual de pulido, lo que diferencia no es la producción, sino la trayectoria. Años de declaraciones consistentes, un historial verificable de decisiones, una manera de pensar que el público, y el algoritmo, pueden rastrear y confirmar en el tiempo. Ese historial es exactamente lo que un contenido generado de la nada no puede fabricar de un día para otro.</p>
+    <p>La oportunidad se vuelve más evidente cuando se observa la brecha de calidad. El informe 2024 B2B Thought Leadership Impact Report, elaborado por Edelman y LinkedIn, indica que “solo el 15% de los decisores considera que el contenido de liderazgo de pensamiento que consume es muy bueno o excelente”. La abundancia de contenido no ha producido abundancia de autoridad. Una marca directiva con ideas propias, evidencia y experiencia real puede diferenciarse precisamente porque no compite solo en volumen.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 3.1</span><span class="plate__t">Decisores que consideran muy bueno o excelente el contenido de liderazgo de pensamiento que consumen<span>De cada 100 decisores. Cada punto representa a 1 %.</span></span></figcaption>
+          <div class="wf-solo"><div class="wf wf--key" role="img" aria-label="15 de cada 100 decisores"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><p class="wf-num">15<span>%</span></p><p class="wf-lab">de los decisores considera que el contenido de liderazgo de pensamiento que consume es muy bueno o excelente</p></div></div>
+          <p class="plate__src"><b>Fuente:</b> Edelman y LinkedIn, 2024 B2B Thought Leadership Impact Report.</p>
+        </figure>
+    <h3>Los algoritmos ya deciden qué historia se cuenta sobre tu empresa</h3>
+    <p>Conviene entender el mecanismo, cuando alguien consulta a una IA generativa sobre tu industria o directamente sobre tu empresa, el sistema recupera fuentes disponibles, las resume y las cita. No compites por el primer lugar de una lista de diez enlaces, compites por ser una de las tres o cuatro fuentes que sostienen una sola respuesta.</p>
+    <p>Si la información disponible sobre tu organización se limita a una queja antigua en un foro, una noticia negativa de hace tiempo o el comentario aislado de un exempleado frustrado, esa será, literalmente, la historia que la IA cuente sin importar que la realidad actual sea distinta, si esa realidad nunca fue documentada digitalmente de forma sólida.</p>
+    <p class="cb__em">Los sistemas de IA pueden incorporar en sus respuestas información proveniente de fuentes externas que la organización no controla directamente. Por eso, una presencia digital escasa o desactualizada puede favorecer una representación incompleta de la empresa.</p>
+    <p class="cb__em">Este fenómeno convierte la ausencia de una narrativa directiva sólida en un riesgo reputacional pasivo. No hace falta que ocurra una crisis para que la IA construya una imagen desactualizada o incompleta; basta con que nadie haya alimentado el ecosistema digital con una versión vigente, pública y verificable de la realidad.</p>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">Audita qué dicen las IA de tu empresa</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Hazlo aquí</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+    <h3>El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
+    <p>Hay un dato que lo sugiere. Según el artículo <i>How People Are Really Using Gen AI in 2025</i>, publicado por Harvard Business Review en abril de ese año, a partir del análisis de conversaciones en foros públicos, el principal uso de la IA generativa ese fue la terapia y la compañía, seguido de organizar la vida propia.</p>
+    <p>No significa que la gente confíe plenamente en esas respuestas; pero revela que ya incorpora estas herramientas a conversaciones personales y reflexivas. En un entorno así, el liderazgo que se sostiene en criterio propio y no en un discurso corporativo impecable conserva una ventaja que ninguna optimización algorítmica replica. La visibilidad cambió de reglas. La confianza sigue dependiendo de personas y de trayectorias que se pueden comprobar.</p>
+  </div>
+</article>
+
+<!-- ======================= CAPÍTULO 4 ======================= -->
+<article class="chapter" id="capitulo-4" data-spy aria-labelledby="c4-t">
+  <header class="chapter-open is-navy">
+    <div class="wrap grid">
+      <p class="chapter-open__num" aria-hidden="true">04</p>
+      <div class="chapter-open__body">
+        <p class="chapter-open__label">Capítulo 4</p>
+        <h2 id="c4-t">La IA amplifica al líder, no lo suplanta</h2>
+        <div class="chapter-open__lead"><p>En Her (Spike Jonze, 2013), Theodore Twombly se gana la vida escribiendo cartas íntimas por encargo. Cartas de aniversario, de disculpa, de amor, las firma otra persona y son mejores que las que esa persona habría escrito. Nadie que las recibe lo sabe.</p><p>Trece años después, la pregunta dejó de ser cinematográfica. Si la IA puede escribir en tu tono, resumir tus ideas y responder en tu nombre con notable fidelidad estilística, ¿dónde termina la herramienta y empieza la persona?</p></div>
+      </div>
+    </div>
+  </header>
+  <div class="wrap cb">
+    <p>La pregunta ya no es teórica. Un estudio de Harvard Business School puso a prueba un chatbot entrenado con correos electrónicos, mensajes de Slack y comunicaciones públicas de un CEO de una empresa tecnológica de más de 800 empleados. Cuando 105 trabajadores intentaron distinguir entre las respuestas del CEO y las generadas por el bot, acertaron el 59% de las veces: apenas por encima del 50% esperable por azar.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 4.1</span><span class="plate__t">Aciertos al distinguir las respuestas del CEO de las del chatbot<span>105 trabajadores · escala de 0 a 100 %</span></span></figcaption>
+          <div class="ref">
+            <div class="ref__row"><span class="ref__lab">Aciertos de los trabajadores</span><div class="ref__track"><div class="ref__fill grow" style="--v: 59"></div><span class="ref__mark" style="left: 50%"><em>50 % esperable por azar</em></span></div><b>59%</b></div>
+          </div>
+          <div class="ref__axis" aria-hidden="true"><span>0 %</span><span>50 %</span><span>100 %</span></div>
+          <p class="plate__src"><b>Fuente:</b> estudio de Harvard Business School citado en el texto.</p>
+        </figure>
+    <p>Pero cuando una respuesta era etiquetada como generada por IA, los empleados la calificaban sistemáticamente como menos útil y confiable que la misma respuesta atribuida al CEO humano, incluso cuando en realidad ambas respuestas eran idénticas. La tecnología, por tanto, puede imitar una voz directiva de manera sorprendentemente convincente, pero la aceptación social del mensaje cuenta una historia distinta.</p>
+    <p>Esto no significa que la IA no tenga un rol legítimo en la comunicación de un líder. Significa que ese rol tiene un límite claro, y ese límite se traza según el propósito de la comunicación:</p>
+    <ol class="purp ww">
+      <li><b>Cuando el objetivo es informar</b> decisiones, cifras, actualizaciones, la IA puede acelerar la redacción y estructuración sin fricción, porque lo que importa ahí es la exactitud, no la humanidad de la voz.</li>
+      <li><b>Cuando el objetivo es movilizar o persuadir</b> a un equipo o una audiencia, la IA puede ayudar a pulir el mensaje, pero el criterio y el tono deben seguir siendo del líder.</li>
+      <li><b>Cuando el objetivo es revelar algo genuinamente personal,</b> una convicción, un aprendizaje, una vulnerabilidad, ahí la sustitución algorítmica sin transparencia tiene el mayor costo reputacional posible.</li>
+    </ol>
+    <section class="box ww" aria-labelledby="box-t">
+      <h3 id="box-t">La IA como una oportunidad de eficiencia</h3>
+      <div class="box__grid">
+        <div class="box__stat"><p class="stat__n">24<span>%</span></p><p class="stat__t">de la jornada de los directores ejecutivos ocupaba la comunicación electrónica</p><p class="stat__src">Fuente: Michael Porter y Nitin Nohria, estudio sobre el uso del tiempo de veintisiete directores ejecutivos, Harvard Business Review, 2018.</p></div>
+        <div class="box__text">
+          <p>El atractivo del gemelo digital es real. El estudio de Michael Porter y Nitin Nohria sobre el uso del tiempo de veintisiete directores ejecutivos, publicado en Harvard Business Review en 2018, encontró que la comunicación electrónica ocupaba el 24 % de su jornada. Un sistema que ordene información, prepare borradores y resuelva preguntas rutinarias devuelve una porción de ese tiempo.</p>
+          <p>Sin embargo, el error estratégico que vemos con más frecuencia es tratar a la IA como un sustituto de presencia: “si publico con ayuda de IA, ya cumplí con estar activo digitalmente”. Es exactamente lo opuesto de lo que funciona. El uso correcto de la IA en la marca directiva es como amplificador del criterio del líder, no como su reemplazo:</p>
+          <ul class="ticks">
+            <li>Ayuda a estructurar y editar ideas que el directivo ya tiene, pero no genera el punto de vista desde cero.</li>
+            <li>Acelera el volumen de producción de contenido de bajo riesgo reputacional (resúmenes, actualizaciones, formatos), liberando tiempo del líder para la comunicación de mayor valor humano.</li>
+            <li>Sirve como copiloto de investigación y estructura para discursos, columnas o entrevistas, pero la validación final, la anécdota específica y el matiz humano deben venir del líder.</li>
+            <li>Nunca debe sustituir, sin decirlo explícitamente, comunicación que la audiencia entiende como directamente personal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <p class="cb__em">La regla es simple: la IA debe ayudar al líder a investigar, pensar, ordenar, editar y escalar sus ideas; no debe fingir que estuvo presente cuando no lo estuvo. La IA amplía las opciones; la dirección la sigue poniendo una persona.</p>
+    <figure class="plate w">
+          <figcaption class="plate__head"><span class="plate__n">Fig. 4.2</span><span class="plate__t">Tres preguntas antes de publicar</span></figcaption>
+          <ol class="q3">
+            <li><span class="q3__n">1</span><p class="q3__q">¿Estoy informando sobre algo que la IA puede estructurar con precisión?</p><p class="q3__a">Automatización amplia, con revisión humana.</p></li>
+            <li><span class="q3__n">2</span><p class="q3__q">¿Estoy intentando movilizar a una audiencia que necesita reconocer mi criterio?</p><p class="q3__a">La convicción y el juicio siguen siendo míos.</p></li>
+            <li><span class="q3__n">3</span><p class="q3__q">¿Estoy revelando algo personal que solo tiene valor porque proviene directamente de mí?</p><p class="q3__a">Presencia, autoría y transparencia.</p></li>
+          </ol>
+          <p class="q3__foot">Ninguna de las tres prohíbe usar la herramienta. Las tres definen quién responde por el resultado.</p>
+          <p class="plate__src"><b>Fuente:</b> elaboración de Verne, 2026.</p>
+        </figure>
+    <p>La herramienta puede multiplicar la eficiencia. La confianza, en cambio, sigue dependiendo de una persona que asuma su voz, su criterio y sus palabras.</p>
+    <p>A eso llama este libro autenticidad: no la ausencia de inteligencia artificial, sino que detrás de cada contenido siga reconociéndose el juicio real de quien lo firma. Lo contrario no es la máquina, es la marca directiva plástica: la que suena impecable pero no representa a nadie en particular.</p>
+    <aside class="cta" aria-label="Llamado a la acción">
+          
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Haz que la IA sea tu ayuda, no tu reemplazo</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+  </div>
+</article>
+
+<!-- ======================= CAPÍTULO 5 ======================= -->
+<article class="chapter" id="capitulo-5" data-spy aria-labelledby="c5-t">
+  <header class="chapter-open">
+    <div class="wrap grid">
+      <p class="chapter-open__num" aria-hidden="true">05</p>
+      <div class="chapter-open__body">
+        <p class="chapter-open__label">Capítulo 5</p>
+        <h2 id="c5-t">Del SEO al GEO: el nuevo posicionamiento del directivo</h2>
+        <div class="chapter-open__lead is-single"><p>Durante veinte años, existir digitalmente significó aparecer en la primera página de Google. Esa regla no ha desaparecido, pero ya no es suficiente. OpenAI reportó que ChatGPT alcanzó 700 millones de usuarios activos semanales en 2025. La búsqueda tradicional no ha desaparecido, pero las interfaces conversacionales se han convertido en una nueva puerta de entrada para investigar, comparar y tomar decisiones.</p></div>
+      </div>
+    </div>
+  </header>
+  <div class="wrap cb">
+    <div class="stats stats--one ww" role="group" aria-label="Cifra reportada por OpenAI">
+      <div class="stat"><p class="stat__n">700<span> millones</span></p><p class="stat__t">de usuarios activos semanales alcanzó ChatGPT en 2025</p></div>
+      <p class="stat__src"><b>Fuente:</b> OpenAI, citado en el texto.</p>
+    </div>
+    <p class="cb__em">A esta disciplina se le denomina Generative Engine Optimization o GEO: la optimización para motores generativos. El término fue formalizado por Aggarwal y colaboradores en 2024. GEO no sustituye al SEO tradicional; lo extiende hacia un entorno en el que el usuario puede recibir una respuesta sintetizada sin visitar cada una de las páginas originales.</p>
+    <h3>En qué se diferencia realmente el GEO del SEO</h3>
+    <div class="ww vs-wrap">
+      <table class="vs">
+        <thead><tr><th scope="col"><span class="sr-only">Aspecto</span></th><th scope="col">SEO</th><th scope="col" class="is-geo">GEO</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Objetivo</th><td data-label="SEO">Posicionar una página en los primeros resultados de búsqueda</td><td data-label="GEO" class="is-geo">Que la IA mencione o cite tu contenido dentro de su respuesta</td></tr>
+          <tr><th scope="row">Qué valora</th><td data-label="SEO">Palabras clave y volumen de enlaces</td><td data-label="GEO" class="is-geo">Comprensión semántica y autoridad contextual</td></tr>
+          <tr><th scope="row">Resultado para el usuario</th><td data-label="SEO">Un clic que lo lleva a tu sitio</td><td data-label="GEO" class="is-geo">Una respuesta completa, sin necesidad de visitar tu sitio</td></tr>
+          <tr><th scope="row">Qué construye credibilidad</th><td data-label="SEO">Backlinks de calidad</td><td data-label="GEO" class="is-geo">Menciones en contextos relevantes, aunque sean pocas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>En GEO no se trata de acumular menciones indiscriminadas. Se trata de producir información que pueda ser atribuida, verificada y contextualizada. Una mención en un estudio gremial, una universidad o un medio especializado pesa más que decenas de publicaciones genéricas.</p>
+    <h3>¿Qué tiene que hacer un directivo para existir en este ecosistema?</h3>
+    <ol class="steps ww">
+      <li><p><b>Anticipar preguntas conversacionales, no palabras clave.</b> Ya no basta pensar en “mejor gerente de innovación en el sector financiero”; hay que anticipar cómo alguien le preguntaría a una IA sobre ese tema de forma natural y conversacional, y asegurarse de que exista contenido propio que responda exactamente eso.</p></li>
+      <li><p><b>Construir autoridad contextual, no solo volumen.</b> Una mención en un estudio de un gremio sectorial, una universidad o un think tank regional tiene más peso algorítmico que decenas de publicaciones genéricas.</p></li>
+      <li><p><b>Mantener coherencia narrativa en el tiempo.</b> Los modelos generativos detectan inconsistencias con facilidad: si un directivo habló de sostenibilidad en 2023 pero no hay evidencia de acciones concretas después, esa brecha se refleja en cómo la IA lo presenta hoy.</p></li>
+      <li><p><b>Medir con los KPI correctos.</b> El tráfico directo ya no es la única métrica que importa. Las métricas emergentes de GEO incluyen la tasa de citación (con qué frecuencia tu nombre aparece en respuestas de IA), la calidad de las menciones (si son positivas y relevantes), el share of voice frente a otros líderes de tu sector, la precisión de la información que la IA repite sobre ti, y la velocidad de indexación con la que un contenido nuevo se incorpora a las respuestas.</p></li>
+    </ol>
+    <p class="cb__em">La ventana de oportunidad está abierta ahora mismo: quien construya presencia autorizada en este ecosistema antes de que se sature, entrará en el “mapa mental” que la IA consulta cada vez que alguien pregunte por su industria. Quien no lo haga, dejará que otros o que fuentes que no controla, cuenten su historia por él.</p>
+    <aside class="cta" aria-label="Llamado a la acción">
+          <p class="cta__q">Entra al mapa mental de la IA antes que se sature</p>
+          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Solicita tu reporte</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+        </aside>
+  </div>
+</article>
 
 <!-- ======================= 3 · FRAMEWORK ======================= -->
 <article class="chapter" id="framework" data-spy aria-labelledby="fw-t">
@@ -1517,7 +1759,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
               <li><b>¿Cómo me veo yo?</b> Definición honesta de la propuesta de valor personal desde los atributos que el líder cree representar, contrastados sin filtro con cómo lo describen colaboradores, pares y superiores.</li>
               <li><b>¿Dónde está la brecha?</b> El diagnóstico identifica puntos de diferenciación reales (lo que es único y creíble en ese líder), puntos de paridad (lo que comparte con otros líderes de su sector) y puntos de desventaja (vacíos que hoy debilitan su narrativa).</li>
             </ul>
-            <div class="panel__nav"><button type="button" data-go="0" disabled>← Anterior</button><button type="button" data-go="2">Fase 2 · Construcción →</button></div>
+            <div class="panel__nav"><button type="button" data-go="0" disabled><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Anterior</button><button type="button" data-go="2">Fase 2 · Construcción<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
           <section class="panel" id="fase-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0" hidden>
             <p class="panel__k">Fase 2</p>
@@ -1529,7 +1771,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
               <li>Diseño de la arquitectura de contenido pensada simultáneamente para audiencias humanas y para motores generativos: contenido que responde preguntas reales, con autoridad verificable y coherencia narrativa sostenida en el tiempo.</li>
               <li>Definición explícita del rol de la IA como herramienta de apoyo en redacción, estructura, research, nunca como sustituto de la voz o el criterio del líder, especialmente en comunicación de tipo personal o revelador.</li>
             </ul>
-            <div class="panel__nav"><button type="button" data-go="1">← Fase 1 · Diagnóstico</button><button type="button" data-go="3">Fase 3 · Activación →</button></div>
+            <div class="panel__nav"><button type="button" data-go="1"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 1 · Diagnóstico</button><button type="button" data-go="3">Fase 3 · Activación<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
           <section class="panel" id="fase-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0" hidden>
             <p class="panel__k">Fase 3</p>
@@ -1541,7 +1783,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
               <li>Activación de embajadores internos como el propio equipo del líder. Aprovechando que el contenido de colaboradores genera hasta ocho veces más engagement que el contenido puramente institucional.</li>
               <li>Presencia deliberada en los espacios que alimentan a los sistemas de IA generativa: menciones en estudios sectoriales, participación en medios especializados, contenido citable por su rigor, no solo por su alcance.</li>
             </ul>
-            <div class="panel__nav"><button type="button" data-go="2">← Fase 2 · Construcción</button><button type="button" data-go="4">Fase 4 · Medición →</button></div>
+            <div class="panel__nav"><button type="button" data-go="2"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 2 · Construcción</button><button type="button" data-go="4">Fase 4 · Medición<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
           <section class="panel" id="fase-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0" hidden>
             <p class="panel__k">Fase 4</p>
@@ -1552,7 +1794,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
               <li>Métricas emergentes de GEO: tasa de citación en IA, calidad y contexto de las menciones, autoridad conversacional, share of voice frente a otros líderes del sector, y precisión de la información que las plataformas de IA repiten sobre el directivo.</li>
               <li>Revisión periódica del diagnóstico inicial: la marca directiva no es un proyecto que se cierra, es un sistema que se recalibra, porque tanto las audiencias humanas como los modelos de IA actualizan constantemente su percepción con cada nueva pieza de información disponible.</li>
             </ul>
-            <div class="panel__nav"><button type="button" data-go="3">← Fase 3 · Activación</button><button type="button" data-go="1">Volver a Fase 1 · el ciclo continúa →</button></div>
+            <div class="panel__nav"><button type="button" data-go="3"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 3 · Activación</button><button type="button" data-go="1">Volver a Fase 1 · el ciclo continúa<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
         </div>
       </div>
@@ -1576,11 +1818,8 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     </div>
   </section>
 
-  <section class="cases" aria-labelledby="cs-t">
+  <section class="cases" aria-label="Casos de Marca Directiva">
     <div class="wrap grid">
-      <div class="cases__head">
-        <p class="eyebrow" id="cs-t">Casos</p>
-      </div>
       <article class="cs cs--a" aria-label="Caso Marco Fragale">
         <figure class="cs__photo">
           <img src="assets/directivos/marco-fragale.jpg" alt="Retrato de Marco Fragale" width="640" height="640">
@@ -1600,7 +1839,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <article class="cs cs--b" aria-label="Caso de una directora del sector energético">
         <p class="cs__lead">Directora legal y de relaciones institucionales<span>Empresa del sector energético en Perú</span></p>
         <div class="sc" role="img" aria-label="Puntaje general de marca digital: de 7.9 a 14.1 sobre 20 en 5 meses.">
-          <p class="sc__big"><span class="from">7.9</span><span class="arrow" aria-hidden="true">→</span><span class="to">14.1</span><span class="of">sobre 20 · puntaje general de marca digital</span></p>
+          <p class="sc__big"><span class="from">7.9</span><span class="arrow" aria-hidden="true"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="to">14.1</span><span class="of">sobre 20 · puntaje general de marca digital</span></p>
           <div class="sc__track" aria-hidden="true"><span class="sc__seg now grow"></span><span class="sc__seg prev"></span></div>
           <div class="sc__labels" aria-hidden="true"><span class="s0">0</span><span style="left: 39.5%">7.9</span><span style="left: 70.5%">14.1</span><span class="s20">20</span></div>
         </div>
@@ -1610,12 +1849,15 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         </div>
         <p class="cs__text">En uno de nuestros procesos de Marca Directiva, una directora legal y de relaciones institucionales de una empresa del sector energético en Perú llevó su puntaje general de marca digital de 7.9 a 14.1 sobre 20 (+77%) en solo 5 meses, con un salto de 250% en conversación y presencia confirmada en las cuatro plataformas de IA generativa que antes no la mencionaban.</p>
       </article>
-      <div class="method block__wide">
-        <p>Es la misma metodología que sostiene nuestro Ranking Directiv@s Digitales, el estudio anual de Verne que en su quinta edición analizó:</p>
-        <div><b>524</b><span>directivos de las empresas más representativas del Perú</span></div>
-        <div><b>12</b><span>meses de análisis</span></div>
-        <div><b>8,000+</b><span>publicaciones revisadas</span></div>
-        <div><b>850 mil</b><span>interacciones en LinkedIn</span></div>
+      <div class="facts block__wide">
+        <p class="facts__intro">Es la misma metodología que sostiene nuestro Ranking Directiv@s Digitales, el estudio anual de Verne que en su quinta edición analizó a 524 directivos de las empresas más representativas del Perú durante 12 meses, revisando más de 8,000 publicaciones y 850 mil interacciones en LinkedIn.</p>
+        <ul class="facts__grid" aria-label="Cifras de la quinta edición del Ranking">
+          <li><b>5.ª</b><span>edición del estudio anual</span></li>
+          <li><b>524</b><span>directivos de las empresas más representativas del Perú</span></li>
+          <li><b>12</b><span>meses de análisis</span></li>
+          <li><b>8,000+</b><span>publicaciones revisadas</span></li>
+          <li><b>850 mil</b><span>interacciones en LinkedIn</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1634,6 +1876,66 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   </section>
 </article>
 
+
+<!-- ======================= CIERRE ======================= -->
+<section class="closing" id="cierre" data-spy aria-labelledby="cierre-t">
+  <div class="wrap cb">
+    <h2 id="cierre-t" class="ww">¿Cómo sostienen los líderes la autenticidad de la marca corporativa en la era de la IA?</h2>
+    <p class="closing__lead">No delegando su voz, y tampoco ignorando la herramienta. La sostienen ocupando, con intención y disciplina, el espacio que solo un ser humano puede ocupar de forma creíble: el de una trayectoria coherente, verificable y genuinamente propia, que ninguna máquina puede fabricar de la noche a la mañana, pero que sí puede amplificar cuando el criterio de fondo sigue siendo del líder.</p>
+    <p>La inteligencia artificial no eliminó la necesidad de liderazgo humano visible. La hizo más urgente. En un mundo donde cualquiera puede generar contenido pulido en segundos, lo escaso —y por lo tanto lo más valioso— ya no es la producción. Es la autenticidad demostrada en el tiempo.</p>
+    <p>Imagina a una directora que le pregunta a una IA generativa quién es ella. La respuesta describe a alguien correcto y genérico: repite su cargo, cita un comunicado de prensa de hace tres años, no dice nada que ella reconozca como propio. No es una mentira. Es algo peor: es una versión plástica de ella, armada con lo poco que la IA encontró, no con lo que ella realmente piensa.</p>
+    <p>Puedes probarlo tú mismo, ahora, en diez minutos. Pregúntale a ChatGPT, Perplexity o Gemini quién eres y qué piensas sobre un tema central de tu sector. Después mira tres cosas: qué fuentes cita, de qué año es la información que usa, y qué de lo que tú considerarías más importante sobre tu criterio no aparece en ningún lado.</p>
+    <p class="cb__em">Si lo que viste no te representa, no estás solo. Solo el 8 % de los directivos sostiene una frecuencia óptima de publicación. Conoce tu nota y qué hacer para mejorarla.</p>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="band final" id="agenda" aria-labelledby="final-t">
+  <div class="wrap final__grid">
+    <div class="final__main">
+      <h2 id="final-t">¿Qué dice la IA de ti hoy? Descubre tu nota en el Ranking Directivos Digitales 2026.</h2>
+      <p class="final__lead">En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
+      <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Agenda y conoce tu nota (30 min)</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+      <p class="final__alt">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</p>
+      <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Escríbenos por WhatsApp</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace de WhatsApp</span></div>
+    </div>
+    <div class="final__side">
+      <div class="contact">
+        <img src="assets/directivos/julio-talledo.jpg" alt="Retrato de Julio Talledo" width="480" height="480">
+        <div>
+          <p class="contact__name">Julio Talledo</p>
+          <p class="contact__role">Director Comercial y de Marketing en Verne</p>
+          <p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a></p>
+          <p class="contact__line">966 050 678</p>
+        </div>
+      </div>
+      <div class="qr" role="img" aria-label="Espacio para el código QR al calendario, pendiente"><span>QR al calendario</span><small>Pendiente: requiere el enlace del calendario</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre Verne -->
+<section class="about" id="sobre-verne" data-spy aria-labelledby="about-t">
+  <div class="wrap cb">
+    <h2 id="about-t">Sobre Verne</h2>
+    <p class="closing__lead">Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.</p>
+    <h3 class="ww">Confían en nosotros</h3>
+    <figure class="logos ww">
+      <img src="assets/confian-en-nosotros.png" width="958" height="544" alt="Logos de clientes: Orygen, Farmacias Peruanas, Universidad Continental, Primax, Palmas, Fenix, Antapaccay, ISM Industrias San Miguel, TGP, Pacífico, Prima AFP, Repsol, ISA REP, Promperú, Universidad de Piura, UPN Universidad Privada del Norte, Laureate Perú, PetroTal, Interbank, HUB UDEP, Intursa Grupo Hotelero, Nexans, NTT Data, Universidad de Piura, SPH Sociedad Peruana de Hidrocarburos, Lima Expresa, Protecta Security, InRetail Pharma, Coltur, Pluz, Lima Airport, Enel, Cálidda, inLearning, Konecta, Bancom, Promigas, Alfaco y Engie.">
+    </figure>
+    <div class="people ww">
+      <div class="contact">
+        <img src="assets/directivos/julio-talledo.jpg" alt="Retrato de Julio Talledo" width="480" height="480">
+        <div><p class="contact__name">Julio Talledo</p><p class="contact__role">Director Comercial y de Marketing</p><p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a> · 966 050 678</p></div>
+      </div>
+      <div class="contact">
+        <img src="assets/directivos/victor-lozano.jpg" alt="Retrato de Víctor Lozano" width="480" height="480">
+        <div><p class="contact__name">Víctor Lozano</p><p class="contact__role">Director de Innovación</p><p class="contact__line"><a href="mailto:victor@verne.la">victor@verne.la</a> · 987 570 893</p></div>
+      </div>
+    </div>
+    <p class="ww about__web"><a href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
+  </div>
+</section>
 
 </main>
 
@@ -1658,14 +1960,15 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   <div class="wrap">
     <h2 id="prod-t">Notas de la propuesta (no forman parte del eBook)</h2>
     <ul>
-      <li>Los CTAs de agenda, formulario y WhatsApp no tienen destino en el Word («Link:» vacío). Se muestran desactivados hasta recibir las URLs (con UTM por CTA, según los comentarios del documento).</li>
-      <li>El único enlace real del documento es el del Ranking: verne.la/blog/ranking-directivos-digitales-2026. También se enlaza www.verne.la.</li>
-      <li>Fotografía de apertura: se usa la imagen incluida en la plantilla de presentación Verne. Se generó una fotografía editorial nueva en Magnific (ejecutiva latinoamericana junto a una ventana), pero el entorno de trabajo no pudo descargarla; queda pendiente de integrar.</li>
-      <li>Logo: versión oficial tomada de la plantilla Verne (morado #6D4ABE y blanco), sin alterar proporciones.</li>
-      <li>Fichas de «Directivo destacado»: fotos y datos tomados de las láminas del Ranking incluidas en el Word (fotos a baja resolución, unos 100 px; conviene recibir los retratos originales). Marco Fragale usa la foto en alta resolución enviada.</li>
-      <li>Revisar cargo de Marco Fragale: la lámina del Ranking dice «CEO Orygen» y el caso del capítulo 6 dice «Country Manager de Enel Perú». Se respetó cada texto tal como aparece en el Word.</li>
-      <li>Las cifras 2025/2026 de frecuencia (0, 1, 2 a 3, 4 a más publicaciones) y los subcriterios del Ranking provienen de los gráficos incluidos en el Word.</li>
-      <li>El documento no detalla los temas en las posiciones 2.ª a 4.ª del ranking de temas publicados; por eso solo se grafican el 1.º y el 5.º.</li>
+      <li>La publicación sigue el orden del Word: introducción, capítulos 1 a 6, cierre, CTA final y «Sobre Verne». Los textos son literales; solo se separaron párrafos y se destacaron fragmentos existentes.</li>
+      <li>CTAs sin destino en el Word («Link:» vacío): agenda, formulario, «Conoce tu puntaje», test de arquetipo, auditoría, reporte, calendario de 30 min y WhatsApp. Se muestran desactivados hasta recibir las URLs (con UTM por CTA, según los comentarios del documento). Falta también el QR al calendario.</li>
+      <li>Únicos enlaces reales del documento: verne.la/blog/ranking-directivos-digitales-2026 y www.verne.la.</li>
+      <li>Revisar redacción en el Word: CTA 2 «¿Estás listo ser tu quien gestione…?» y capítulo 3 «el principal uso de la IA generativa ese fue…». Se mantuvieron tal cual.</li>
+      <li>Revisar cargo de Marco Fragale: la lámina del Ranking dice «CEO Orygen» y el caso del capítulo 6 dice «Country Manager de Enel Perú».</li>
+      <li>Fotos de directivos destacados tomadas de las láminas del Word (unos 100 px): conviene recibir los retratos originales. Fotos de Julio Talledo y Víctor Lozano tomadas de la plantilla Verne.</li>
+      <li>La imagen «Confían en nosotros» del Word incluye dos veces el logo de la Universidad de Piura; se mantuvo como está.</li>
+      <li>Fotografía de apertura: imagen de la plantilla Verne. La fotografía generada en Magnific no pudo descargarse desde este entorno.</li>
+      <li>El documento no detalla los temas en las posiciones 2.ª a 4.ª del ranking de temas publicados; solo se grafican el 1.º y el 5.º.</li>
     </ul>
   </div>
 </section>

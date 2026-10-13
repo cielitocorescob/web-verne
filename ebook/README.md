@@ -1,6 +1,6 @@
 # eBook · Marca Directiva en la Era de la Inteligencia Artificial
 
-Primera propuesta (portada, introducción, capítulo 2 y capítulo 6).
+Publicación completa según el Word: introducción, capítulos 1 a 6, cierre, CTA final y «Sobre Verne».
 
 - `marca-directiva.html`: fuente de la publicación (fragmento que se publica como Artifact).
 - `index.html`: versión independiente para abrir en el navegador; se genera con `node ebook/build.mjs`.
