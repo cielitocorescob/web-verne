@@ -50,6 +50,10 @@
   --track: #EEEBF6;
   --track-strong: #E4DEF5;
   --paper: #FFFFFF;
+  --grad-a: #6D4ABE;
+  --grad-b: #25283D;
+  --btn-ink: #FFFFFF;
+  --btn-ring: rgba(37, 40, 61, 0);
   --fn-navy: #25283D;
   --fn-navy-ink: #FFFFFF;
   --fn-quiet: #B9B4CC;
@@ -84,7 +88,7 @@
     --muted: #BAB8CD; --line: #474B6B; --accent: #C0B0F4; --on-accent: #25283D; --accent-soft: #312E52;
     --focus: #C0B0F4; --band: #1B1D2E; --band-2: #26293F; --band-ink: #F2F0F8; --band-muted: #C6C3D9;
     --band-accent: #C0B0F4; --band-line: #3E4260; --chapter: #6D4ABE; --chapter-ink: #FFFFFF; --chapter-muted: #EEE9FF;
-    --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E;
+    --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35);
     --logo-color: none; --logo-white: block; color-scheme: dark;
   }
 }
@@ -93,7 +97,7 @@
   --muted: #BAB8CD; --line: #474B6B; --accent: #C0B0F4; --on-accent: #25283D; --accent-soft: #312E52;
   --focus: #C0B0F4; --band: #1B1D2E; --band-2: #26293F; --band-ink: #F2F0F8; --band-muted: #C6C3D9;
   --band-accent: #C0B0F4; --band-line: #3E4260; --chapter: #6D4ABE; --chapter-ink: #FFFFFF; --chapter-muted: #EEE9FF;
-  --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E;
+  --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35);
   --logo-color: none; --logo-white: block; color-scheme: dark;
 }
 
@@ -767,6 +771,66 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .stats .stat { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 }
 
+
+/* ---------- CTA: franjas editoriales y sistema de botones ---------- */
+.btn--cta {
+  min-height: 54px; padding: 0 26px 0 30px; gap: 14px; border: 0; border-radius: 999px;
+  background: linear-gradient(100deg, var(--grad-a) 0%, var(--grad-b) 100%); color: var(--btn-ink);
+  font: 600 1rem/1.25 var(--font); text-decoration: none; cursor: pointer;
+  box-shadow: 0 0 0 1px var(--btn-ring), 0 10px 24px -16px rgba(37, 40, 61, 0.7);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.btn--cta:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px var(--btn-ring), 0 16px 30px -16px rgba(109, 74, 190, 0.75); }
+.btn__ic { width: 18px; height: 18px; flex: none; transition: transform .25s ease; }
+.btn:hover .btn__ic { transform: translateX(3px); }
+.btn--light { min-height: 54px; padding: 0 26px 0 30px; gap: 14px; border: 0; border-radius: 999px; background: var(--paper); color: var(--navy); font: 600 1rem/1.25 var(--font); box-shadow: 0 10px 24px -16px rgba(27, 29, 46, 0.6); transition: transform .25s ease, box-shadow .25s ease; cursor: pointer; }
+.btn--light:hover { transform: translateY(-1px); box-shadow: 0 16px 30px -16px rgba(27, 29, 46, 0.7); }
+.btn--line { min-height: 50px; padding: 0 24px 0 26px; gap: 12px; border-radius: 999px; background: transparent; color: var(--band-ink); border: 1.5px solid var(--band-line); font: 500 0.9375rem/1.25 var(--font); cursor: pointer; transition: border-color .25s ease, color .25s ease; }
+.btn--line:hover { border-color: var(--band-accent); color: var(--band-accent); }
+.btn[aria-disabled="true"]:active { transform: none; }
+
+.ctab { position: relative; }
+.ctab__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--col-gap); row-gap: 24px; align-items: center; }
+.ctab__text { display: grid; gap: 12px; min-width: 0; }
+.ctab__k { font-size: var(--fs-lead); font-weight: 500; line-height: 1.3; color: var(--accent); }
+.ctab__q { font-size: clamp(1.625rem, 3.1vw, 2.5rem); font-weight: 600; line-height: 1.15; max-width: 24ch; text-wrap: balance; }
+.ctab__sub { font-size: var(--fs-lead); font-weight: 300; line-height: 1.5; max-width: 44ch; color: var(--muted); }
+.ctab__act { justify-self: end; }
+.ctab--white .ctab__grid { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: clamp(40px, 5vw, 64px); }
+.ctab--navy { background: var(--band); color: var(--band-ink); padding-block: clamp(56px, 7vw, 96px); --focus: var(--band-accent); --btn-ring: rgba(192, 176, 244, 0.35); }
+.ctab--navy .ctab__k { color: var(--band-accent); }
+.ctab--navy .ctab__sub { color: var(--band-muted); }
+.ctab--purple { background: var(--chapter); color: var(--chapter-ink); padding-block: clamp(56px, 7vw, 96px); --focus: #FFFFFF; }
+.ctab--purple .ctab__sub { color: var(--chapter-muted); }
+.ctab--solo .ctab__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.ctab--solo .ctab__act { grid-column: 4 / -1; justify-self: start; }
+.cb:has(+ .ctab--white) { padding-bottom: clamp(32px, 4vw, 56px); }
+.cb--cont { padding-top: clamp(40px, 5vw, 72px); }
+.cb--cont > h3:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+.intro:has(> .ctab:last-child), .chapter:has(> .ctab:last-child) { padding-bottom: 0; }
+.ctab--white + .cb--cont { padding-top: clamp(32px, 4vw, 56px); }
+.final .cta__row { display: flex; flex-wrap: wrap; gap: 12px; }
+@media screen and (max-width: 1080px) {
+  .ctab--solo .ctab__act { grid-column: 1 / -1; }
+}
+@media screen and (max-width: 820px) {
+  .ctab__grid { grid-template-columns: minmax(0, 1fr); }
+  .ctab__act { justify-self: start; }
+}
+@media screen and (max-width: 560px) {
+  .btn--cta, .btn--light { padding: 12px 22px 12px 24px; font-size: 0.9375rem; }
+}
+@media print {
+  :root:root:root { --btn-ring: rgba(37, 40, 61, 0); }
+  .ctab { break-inside: avoid; padding-block: 6mm; }
+  .ctab--navy, .ctab--purple { border-top: 2pt solid var(--ink); border-bottom: 1pt solid var(--line); margin-block: 6mm; }
+  .ctab--white .ctab__grid { padding-block: 6mm; }
+  .ctab__q { font-size: 15pt; }
+  .ctab__k, .ctab__sub { font-size: 10.5pt; }
+  .btn--cta, .btn--light { min-height: 0; padding: 2.6mm 5mm; font-size: 9.5pt; }
+  .btn--light { background: linear-gradient(100deg, var(--grad-a), var(--grad-b)); color: #FFFFFF; }
+}
+
 /* ---------- Casos ---------- */
 .cases { padding-block: clamp(64px, 8vw, 112px); }
 .cases .grid { row-gap: 24px; }
@@ -1214,7 +1278,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <p class="cover__dek">Cómo construir influencia, credibilidad y liderazgo cuando la IA avanza velozmente.</p>
       <p class="cover__audience">Para CEOs, gerentes generales y directores de comunicación.</p>
       <div class="cover__actions">
-        <a class="btn btn--primary" href="#introduccion">Empezar a leer
+        <a class="btn btn--cta" href="#introduccion">Empezar a leer
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#indice">Ver índice</a>
@@ -1276,14 +1340,12 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <p>No es una pregunta retórica. Es la pregunta que todo CEO, gerente general, director o fundador debería estar haciéndose hoy, porque la respuesta determinará quién construye influencia genuina en los próximos años y quién queda, simplemente, fuera del mapa.</p>
       <p>No se trata de que los líderes se conviertan en influencers. Se trata de entender que, en un mundo donde las máquinas construyen narrativas sobre nuestras empresas con o sin nuestro permiso, la persona al frente deja de ser un accesorio de la comunicación corporativa y se convierte en su ancla más confiable.</p>
     </div>
-    <aside class="cta cta--inline" aria-label="Llamado a la acción">
-      <p class="cta__q">Antes de seguir: ¿sabes qué le responde hoy una IA a quien pregunta por ti?</p>
-      <div class="cta__row">
-        <a class="btn is-pending" aria-disabled="true">Descubre qué dice la IA sobre ti</a>
-        <span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span>
-      </div>
-    </aside>
+
   </div>
+<!-- PENDIENTE · CTA 1: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--navy" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__k">Antes de seguir:</p><p class="ctab__q">¿sabes qué le responde hoy una IA a quien pregunta por ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 1">Descubre qué dice la IA sobre ti<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 
@@ -1329,11 +1391,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <p>Y la transferencia corre en los dos sentidos. Lo que el líder sostiene acredita a la empresa o la compromete; lo que la empresa hace acredita al líder o lo desmiente. Por eso la marca directiva no compite con la marca corporativa ni la reemplaza: es el canal por el que la corporativa se vuelve creíble, porque las audiencias dejaron de acreditar membretes y empezaron a acreditar personas con historial.</p>
     <p>Nuestro <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a>, que analiza el desempeño de cientos de ejecutivos en la región, parte de una premisa que cada año se confirma con más fuerza, la reputación de las empresas ya no se construye únicamente desde el discurso oficial, sino desde la voz activa de quienes las lideran.</p>
     <p>Lo nuevo no es el vínculo, un gerente siempre representó a su empresa; lo nuevo es quién lo procesa. Pregúntale a un modelo generativo quién lidera tu sector y te devolverá nombres de personas. Luego consulta por una de esas personas y te devolverá el nombre de la empresa. Para ese sistema, líder y organización son una sola entidad, y la respuesta se arma con el material disponible. Si tú no lo pusiste ahí, alguien más lo hizo o lo hará.</p>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">¿Estás listo ser tu quien gestione lo que dicen de tu marca?</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Te ayudamos a liderar la conversación</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
   </div>
+<!-- PENDIENTE · CTA 2: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--white" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Estás listo ser tu quien gestione lo que dicen de tu marca?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 2">Te ayudamos a liderar la conversación<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 <!-- ======================= CAPÍTULO 2 ======================= -->
@@ -1410,10 +1472,12 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
         </figure>
     <p>Los directivos que combinan ambos registros son los que mejor posicionan simultáneamente su marca personal y la de su empresa.</p>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">De los cuatro criterios, ¿cuál es hoy el más débil para ti?</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Conoce tu puntaje</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
+  </div>
+<!-- PENDIENTE · CTA 3: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--white" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">De los cuatro criterios, ¿cuál es hoy el más débil para ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 3">Conoce tu puntaje<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
+  <div class="wrap cb cb--cont">
 
     <h3>Los arquetipos que funcionan</h3>
     <p>En nuestro análisis del ecosistema peruano identificamos distintos arquetipos de directivo digital, cada uno con una lógica de valor distinta:</p>
@@ -1550,10 +1614,12 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           </ul>
           <p class="plate__src">Cada directivo se asigna al arquetipo que corresponde al tipo de contenido que más publica, sobre la base de la clasificación de sus publicaciones en LinkedIn. Un mismo directivo puede ejercer más de un perfil: el arquetipo indica el predominante, y en cada lámina se destacan los gerentes generales del Top 10 que más ejercen ese perfil. <b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
         </figure>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">¿Qué arquetipo eres?</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Te ayudamos a descubrirlo</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
+  </div>
+<!-- PENDIENTE · CTA 4: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--purple" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Qué arquetipo eres?</p></div><div class="ctab__act"><a class="btn btn--light" role="link" aria-disabled="true" data-pending="CTA 4">Te ayudamos a descubrirlo<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
+  <div class="wrap cb cb--cont">
 
     <h3>Donde el sistema todavía falla</h3>
     <p>La frecuencia retrocedió. En 2026 solo el 8 % de los directivos sostiene una frecuencia óptima de cuatro o más publicaciones mensuales, frente al 19 % de 2025. Más de la mitad publica menos de dos veces al mes y uno de cada cinco está inactivo.</p>
@@ -1597,11 +1663,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <p class="coda__a">Eso reordena la pregunta. Ya no es si la IA habla de ti.</p>
       <p class="statement">Es con qué material lo hace: <em>el que construiste o el que encontró.</em></p>
     </div>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">¿Qué sabe la IA sobre ti?</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Revisa aquí</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
   </div>
+<!-- PENDIENTE · CTA 5: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--navy" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Qué sabe la IA sobre ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 5">Revisa aquí<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 <!-- ======================= CAPÍTULO 3 ======================= -->
@@ -1655,10 +1721,12 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <p>Si la información disponible sobre tu organización se limita a una queja antigua en un foro, una noticia negativa de hace tiempo o el comentario aislado de un exempleado frustrado, esa será, literalmente, la historia que la IA cuente sin importar que la realidad actual sea distinta, si esa realidad nunca fue documentada digitalmente de forma sólida.</p>
     <p class="cb__em">Los sistemas de IA pueden incorporar en sus respuestas información proveniente de fuentes externas que la organización no controla directamente. Por eso, una presencia digital escasa o desactualizada puede favorecer una representación incompleta de la empresa.</p>
     <p class="cb__em">Este fenómeno convierte la ausencia de una narrativa directiva sólida en un riesgo reputacional pasivo. No hace falta que ocurra una crisis para que la IA construya una imagen desactualizada o incompleta; basta con que nadie haya alimentado el ecosistema digital con una versión vigente, pública y verificable de la realidad.</p>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">Audita qué dicen las IA de tu empresa</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Hazlo aquí</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
+  </div>
+<!-- PENDIENTE · CTA 6: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--white" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Audita qué dicen las IA de tu empresa</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 6">Hazlo aquí<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
+  <div class="wrap cb cb--cont">
     <h3>El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
     <p>Hay un dato que lo sugiere. Según el artículo <i>How People Are Really Using Gen AI in 2025</i>, publicado por Harvard Business Review en abril de ese año, a partir del análisis de conversaciones en foros públicos, el principal uso de la IA generativa ese fue la terapia y la compañía, seguido de organizar la vida propia.</p>
     <p>No significa que la gente confíe plenamente en esas respuestas; pero revela que ya incorpora estas herramientas a conversaciones personales y reflexivas. En un entorno así, el liderazgo que se sostiene en criterio propio y no en un discurso corporativo impecable conserva una ventaja que ninguna optimización algorítmica replica. La visibilidad cambió de reglas. La confianza sigue dependiendo de personas y de trayectorias que se pueden comprobar.</p>
@@ -1722,11 +1790,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         </figure>
     <p>La herramienta puede multiplicar la eficiencia. La confianza, en cambio, sigue dependiendo de una persona que asuma su voz, su criterio y sus palabras.</p>
     <p>A eso llama este libro autenticidad: no la ausencia de inteligencia artificial, sino que detrás de cada contenido siga reconociéndose el juicio real de quien lo firma. Lo contrario no es la máquina, es la marca directiva plástica: la que suena impecable pero no representa a nadie en particular.</p>
-    <aside class="cta" aria-label="Llamado a la acción">
-          
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Haz que la IA sea tu ayuda, no tu reemplazo</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
   </div>
+<!-- PENDIENTE · CTA 7: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--white ctab--solo" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 7">Haz que la IA sea tu ayuda, no tu reemplazo<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 <!-- ======================= CAPÍTULO 5 ======================= -->
@@ -1767,11 +1835,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <li><p><b>Medir con los KPI correctos.</b> El tráfico directo ya no es la única métrica que importa. Las métricas emergentes de GEO incluyen la tasa de citación (con qué frecuencia tu nombre aparece en respuestas de IA), la calidad de las menciones (si son positivas y relevantes), el share of voice frente a otros líderes de tu sector, la precisión de la información que la IA repite sobre ti, y la velocidad de indexación con la que un contenido nuevo se incorpora a las respuestas.</p></li>
     </ol>
     <p class="cb__em">La ventana de oportunidad está abierta ahora mismo: quien construya presencia autorizada en este ecosistema antes de que se sature, entrará en el “mapa mental” que la IA consulta cada vez que alguien pregunte por su industria. Quien no lo haga, dejará que otros o que fuentes que no controla, cuenten su historia por él.</p>
-    <aside class="cta" aria-label="Llamado a la acción">
-          <p class="cta__q">Entra al mapa mental de la IA antes que se sature</p>
-          <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Solicita tu reporte</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
-        </aside>
   </div>
+<!-- PENDIENTE · CTA 8: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--purple" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Entra al mapa mental de la IA antes que se sature</p></div><div class="ctab__act"><a class="btn btn--light" role="link" aria-disabled="true" data-pending="CTA 8">Solicita tu reporte<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 <!-- ======================= 3 · FRAMEWORK ======================= -->
@@ -1932,15 +2000,13 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   <section class="close" aria-label="Cierre del framework">
     <div class="wrap grid">
       <p class="close__text"><strong>Diagnóstico, construcción, activación y medición no son pasos que se ejecutan una sola vez. Son un ciclo.</strong> La marca directiva que se sostiene en el tiempo es la única que realmente protege la autenticidad de la marca corporativa en la era de la IA. Es la que se revisa y se ajusta con la misma disciplina con la que se revisa un plan de negocio.</p>
-      <aside class="cta" aria-label="Llamado a la acción">
-        <p class="cta__q">Agenda tu diagnóstico de Marca Directiva. Te mostramos dónde estás hoy frente a los directivos mejor evaluados del país.</p>
-        <div class="cta__row">
-          <a class="btn is-pending" aria-disabled="true">Solicita tu reporte</a>
-          <span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span>
-        </div>
-      </aside>
+
     </div>
   </section>
+<!-- PENDIENTE · CTA 9: el Word no incluye la URL de destino. No activar hasta recibirla. -->
+<section class="ctab ctab--navy" aria-label="Llamado a la acción">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Agenda tu diagnóstico de Marca Directiva.</p><p class="ctab__sub">Te mostramos dónde estás hoy frente a los directivos mejor evaluados del país.</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 9">Solicita tu reporte<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</section>
 </article>
 
 
@@ -1962,9 +2028,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <div class="final__main">
       <h2 id="final-t">¿Qué dice la IA de ti hoy? Descubre tu nota en el Ranking Directivos Digitales 2026.</h2>
       <p class="final__lead">En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
-      <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Agenda y conoce tu nota (30 min)</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace</span></div>
+      <!-- PENDIENTE · CTA 10: falta el enlace al calendario. -->
+      <div class="cta__row"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 10">Agenda y conoce tu nota (30 min)<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <p class="final__alt">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</p>
-      <div class="cta__row"><a class="btn is-pending" aria-disabled="true">Escríbenos por WhatsApp</a><span class="pending-tag">Destino pendiente: el Word no incluye el enlace de WhatsApp</span></div>
+      <!-- PENDIENTE · CTA 10: falta el enlace de WhatsApp. -->
+      <div class="cta__row"><a class="btn btn--line" role="link" aria-disabled="true" data-pending="CTA 10 · WhatsApp">Escríbenos por WhatsApp<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
     <div class="final__side">
       <div class="contact">
@@ -1976,7 +2044,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           <p class="contact__line">966 050 678</p>
         </div>
       </div>
-      <div class="qr" role="img" aria-label="Espacio para el código QR al calendario, pendiente"><span>QR al calendario</span><small>Pendiente: requiere el enlace del calendario</small></div>
+      <div class="qr" role="img" aria-label="Espacio para el código QR al calendario"><span>QR al calendario</span></div>
     </div>
   </div>
 </section>
