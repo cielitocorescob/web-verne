@@ -932,6 +932,62 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 .about .cb > .closing__lead { max-width: 60ch; }
 .about .people { grid-column: 1 / -1; }
 
+
+/* ---------- Separadores editoriales (sistema) ----------
+   Banda navy profunda · fotografía a sangre a la derecha que se funde con el navy ·
+   numeración monumental en lavanda · título y bajada sobre la retícula de 12 columnas. */
+.sep { position: relative; isolation: isolate; overflow: hidden; background: var(--band); color: var(--band-ink); --focus: var(--band-accent); }
+.sep__media { position: absolute; inset: 0 0 0 auto; width: 54%; margin: 0; z-index: -1; }
+.sep__media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--sep-focus, 50% 30%); }
+.sep__media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, var(--band) 0%, color-mix(in srgb, var(--band) 72%, transparent) 22%, transparent 58%),
+    linear-gradient(0deg, var(--band) 0%, transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--band) 55%, transparent) 0%, transparent 22%);
+}
+.sep__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr auto; column-gap: var(--col-gap); min-height: clamp(640px, 88vh, 860px); padding-block: clamp(36px, 4.5vw, 64px) clamp(56px, 7vw, 104px); }
+.sep__grid > * { min-width: 0; }
+.sep__top { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.sep__folio { font-size: 0.75rem; color: var(--band-muted); opacity: 0.8; }
+.sep__track { list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; align-items: center; }
+.sep__track li { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 500; color: var(--band-muted); font-variant-numeric: tabular-nums; opacity: 0.55; }
+.sep__track li + li::before { content: ""; width: clamp(16px, 2.2vw, 32px); height: 1px; background: var(--band-line); }
+.sep__track li.is-on { opacity: 1; color: var(--band-ink); }
+.sep__track li.is-on span { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--band-accent); color: var(--band-accent); }
+.sep__num { grid-column: 1 / span 6; align-self: center; font-size: clamp(8.5rem, 19vw, 18rem); font-weight: 300; line-height: 0.78; color: var(--band-accent); font-variant-numeric: tabular-nums lining-nums; margin: clamp(24px, 4vw, 48px) 0 clamp(28px, 3vw, 44px) -0.04em; }
+.sep__text { grid-column: 1 / span 7; display: grid; gap: clamp(18px, 2vw, 28px); }
+.sep__text::before { content: ""; width: 48px; height: 3px; border-radius: 2px; background: var(--band-accent); }
+.sep__text h2 { font-size: clamp(2.5rem, 4.6vw, 4.25rem); font-weight: 700; line-height: 1.04; max-width: 15ch; color: var(--band-ink); text-wrap: balance; }
+.sep__lead { font-size: var(--fs-lead); font-weight: 300; line-height: 1.55; max-width: 46ch; color: var(--band-muted); }
+@media screen and (max-width: 1080px) {
+  .sep__media { width: 62%; }
+  .sep__num { grid-column: 1 / span 7; }
+  .sep__text { grid-column: 1 / span 9; }
+}
+@media screen and (max-width: 720px) {
+  .sep__media { position: relative; inset: auto; width: 100%; aspect-ratio: 4 / 5; max-height: 72vh; z-index: 0; }
+  .sep__media::after { background: linear-gradient(0deg, var(--band) 0%, color-mix(in srgb, var(--band) 40%, transparent) 30%, transparent 55%), linear-gradient(180deg, color-mix(in srgb, var(--band) 65%, transparent) 0%, transparent 25%); }
+  .sep__grid { min-height: 0; grid-template-rows: auto; padding-block: 0 56px; position: static; }
+  .sep__top { position: absolute; top: 20px; left: var(--gutter); right: var(--gutter); }
+  .sep__folio { display: none; }
+  .sep__track { flex-wrap: wrap; }
+  .sep__num { grid-column: 1 / -1; position: relative; margin: -0.62em 0 24px; font-size: clamp(7rem, 34vw, 10rem); }
+  .sep__text { grid-column: 1 / -1; margin-top: 8px; }
+}
+@media print {
+  .sep { break-inside: avoid; background: #FFFFFF; color: var(--ink); }
+  .sep__media { position: relative; width: 100%; height: 80mm; inset: auto; }
+  .sep__media::after { display: none; }
+  .sep__grid { min-height: 0; padding-block: 6mm 8mm; grid-template-rows: auto; }
+  .sep__top { display: none; }
+  .sep__num { grid-column: 1 / span 3; font-size: 54pt; color: var(--accent); margin: 0; align-self: start; }
+  .sep__text { grid-column: 4 / -1; }
+  .sep__text::before { display: none; }
+  .sep__text h2 { font-size: 24pt; color: var(--ink); }
+  .sep__lead { font-size: 11pt; color: var(--ink-2); }
+}
+
 /* ---------- Casos ---------- */
 .cases { padding-block: clamp(64px, 8vw, 112px); }
 .cases .grid { row-gap: 24px; }
@@ -1477,12 +1533,16 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 
 <!-- ======================= CAPÍTULO 1 ======================= -->
 <article class="chapter" id="capitulo-1" data-spy aria-labelledby="c1-t">
-  <header class="chapter-open">
-    <div class="wrap grid">
-      <p class="chapter-open__num" aria-hidden="true">01</p>
-      <div class="chapter-open__body">
+  <header class="sep" style="--sep-focus: 50% 28%">
+    <figure class="sep__media">
+      <img src="assets/separadores/sep-01.jpg" alt="Directivo de pie en un espacio corporativo en penumbra, con luz violeta." width="1050" height="1312">
+    </figure>
+    <div class="wrap sep__grid">
+      <div class="sep__top"><ol class="sep__track" aria-label="Sección 1 de 6"><li class="is-on" aria-current="step"><span>01</span></li><li><span>02</span></li><li><span>03</span></li><li><span>04</span></li><li><span>05</span></li><li><span>06</span></li></ol><p class="sep__folio">Marca Directiva en la Era de la Inteligencia Artificial</p></div>
+      <p class="sep__num" aria-hidden="true">01</p>
+      <div class="sep__text">
         <h2 id="c1-t">De la marca corporativa a la marca directiva</h2>
-        <div class="chapter-open__lead is-single"><p>Según el Ranking de Directiv@s Digitales 2026, que realizamos en Verne, 96% de directivos digitales tienen un perfil en LinkedIn y solo un 8% alcanza una frecuencia óptima de cuatro o más publicaciones mensuales. Casi todos están. Casi ninguno construye.</p></div>
+        <p class="sep__lead">Según el Ranking de Directiv@s Digitales 2026, que realizamos en Verne, 96% de directivos digitales tienen un perfil en LinkedIn y solo un 8% alcanza una frecuencia óptima de cuatro o más publicaciones mensuales. Casi todos están. Casi ninguno construye.</p>
       </div>
     </div>
   </header>
