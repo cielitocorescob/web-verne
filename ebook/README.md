@@ -8,4 +8,4 @@ Publicación completa según el Word: introducción, capítulos 1 a 6, cierre, C
 - `marca-directiva-verne-borrador.pdf`: exportación de prueba generada con Chromium a partir de `index.html`.
 - `assets/`: logo oficial Verne (morado y blanco, tomado de la plantilla) y fotografía de apertura de la plantilla Verne.
 
-Pendientes: URLs de los CTAs (el Word no las incluye) y la fotografía generada en Magnific, que no se pudo descargar desde este entorno.
+Pendientes de enlaces, formularios y QR: ver `PENDIENTES.md`.

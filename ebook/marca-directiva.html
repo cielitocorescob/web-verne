@@ -54,6 +54,8 @@
   --grad-b: #25283D;
   --btn-ink: #FFFFFF;
   --btn-ring: rgba(37, 40, 61, 0);
+  --err: #B42318;
+  --field-bg: #FFFFFF;
   --fn-navy: #25283D;
   --fn-navy-ink: #FFFFFF;
   --fn-quiet: #B9B4CC;
@@ -88,7 +90,7 @@
     --muted: #BAB8CD; --line: #474B6B; --accent: #C0B0F4; --on-accent: #25283D; --accent-soft: #312E52;
     --focus: #C0B0F4; --band: #1B1D2E; --band-2: #26293F; --band-ink: #F2F0F8; --band-muted: #C6C3D9;
     --band-accent: #C0B0F4; --band-line: #3E4260; --chapter: #6D4ABE; --chapter-ink: #FFFFFF; --chapter-muted: #EEE9FF;
-    --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35);
+    --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35); --err: #FFB4A9; --field-bg: #2B2E47;
     --logo-color: none; --logo-white: block; color-scheme: dark;
   }
 }
@@ -97,7 +99,7 @@
   --muted: #BAB8CD; --line: #474B6B; --accent: #C0B0F4; --on-accent: #25283D; --accent-soft: #312E52;
   --focus: #C0B0F4; --band: #1B1D2E; --band-2: #26293F; --band-ink: #F2F0F8; --band-muted: #C6C3D9;
   --band-accent: #C0B0F4; --band-line: #3E4260; --chapter: #6D4ABE; --chapter-ink: #FFFFFF; --chapter-muted: #EEE9FF;
-  --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35);
+  --bar-now: #C0B0F4; --bar-prev: #7C7F9B; --bar-quiet: #5D6082; --track: #353954; --track-strong: #3B3F5C; --seg: #4D4A78; --badge-bg: #C0B0F4; --badge-ink: #25283D; --fn-navy: #4D4A78; --fn-navy-ink: #F2F0F8; --fn-quiet: #8E91AD; --fn-quiet-ink: #1B1D2E; --btn-ring: rgba(192, 176, 244, 0.35); --err: #FFB4A9; --field-bg: #2B2E47;
   --logo-color: none; --logo-white: block; color-scheme: dark;
 }
 
@@ -831,6 +833,83 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .btn--light { background: linear-gradient(100deg, var(--grad-a), var(--grad-b)); color: #FFFFFF; }
 }
 
+
+/* ---------- Revisión: estadística 700 millones ---------- */
+.stats--one { border-top: 0; padding-top: 0; }
+.stats--one .stat--big { grid-template-columns: auto minmax(0, 1fr); column-gap: clamp(24px, 4vw, 56px); align-items: center; padding-block: 8px 24px; }
+.stat--big .stat__n { font-size: clamp(4rem, 8vw, 6.5rem); line-height: 0.85; white-space: normal; }
+.stat__unit { display: block; font-size: 0.3em; font-weight: 500; line-height: 1.2; margin-top: 0.35em; }
+.stat--big .stat__t { font-size: var(--fs-lead); line-height: 1.45; max-width: 26ch; color: var(--ink); }
+@media screen and (max-width: 560px) {
+  .stats--one .stat--big { grid-template-columns: minmax(0, 1fr); row-gap: 14px; }
+}
+
+/* ---------- Revisión: fases del framework ---------- */
+.phase-tab__n { opacity: 0.7; transition: background-color .25s ease, color .25s ease, transform .25s ease, border-color .25s ease, box-shadow .25s ease, opacity .25s ease; }
+.phase-tab__t { color: var(--band-muted); transition: color .25s ease, border-color .25s ease; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+.phase-tab:hover .phase-tab__n { opacity: 1; }
+.phase-tab[aria-selected="true"] .phase-tab__n { opacity: 1; box-shadow: 0 0 0 4px var(--band), 0 0 0 6px var(--band-accent); }
+.phase-tab[aria-selected="true"] .phase-tab__t { border-bottom-color: var(--band-accent); }
+.cycle .arrow { stroke-opacity: 0.45; transition: stroke-opacity .25s ease, stroke-width .25s ease; }
+.cycle .arrow.is-on { stroke-opacity: 1; stroke-width: 3; }
+.phase-meter { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.phase-meter__n { font-size: var(--fs-small); color: var(--band-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.phase-meter__n b { color: var(--band-accent); font-weight: 600; }
+.phase-meter__bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; flex: 1; max-width: 280px; }
+.phase-meter__bar i { height: 4px; border-radius: 4px; background: var(--band-line); transition: background-color .25s ease; }
+.phase-meter__bar i.is-done { background: var(--band-muted); }
+.phase-meter__bar i.is-on { background: var(--band-accent); }
+
+/* ---------- Revisión: CTA ---------- */
+.ctab__q em { font-style: normal; color: var(--accent); }
+.ctab--navy .ctab__q em, .final h2 em { font-style: normal; color: var(--band-accent); }
+.final__alt { margin-top: 4px; font-size: var(--fs-small); }
+.final__wa { color: var(--band-ink); text-decoration: underline; text-decoration-color: var(--band-accent); text-underline-offset: 4px; cursor: pointer; }
+.final__wa:hover { color: var(--band-accent); }
+.qr { gap: 10px; }
+.qr svg { width: 44px; height: 44px; justify-self: center; color: var(--band-muted); }
+.qr span { font-weight: 500; font-size: var(--fs-note); color: var(--band-muted); }
+
+/* Formularios de descarga (CTA 1 y 8) */
+.ctab .lead { max-width: none; font-size: inherit; font-weight: 400; line-height: inherit; }
+.lead { grid-column: 1 / -1; margin-top: clamp(8px, 2vw, 16px); padding-top: clamp(24px, 3vw, 32px); border-top: 1px solid var(--line); }
+.ctab--navy .lead { border-top-color: var(--band-line); }
+.lead__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 20px; align-items: start; }
+.lead__f { display: grid; gap: 8px; min-width: 0; }
+.lead__f label { font-size: var(--fs-note); font-weight: 500; color: var(--ink); }
+.lead__f input { width: 100%; min-height: 52px; padding: 0 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--field-bg); color: var(--ink); font: 400 1rem/1.3 var(--font); transition: border-color .2s ease, box-shadow .2s ease; }
+.lead__f input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); }
+.lead__f input[aria-invalid="true"] { border-color: var(--err); }
+.lead__err { font-size: var(--fs-note); line-height: 1.4; color: var(--err); }
+.lead__f--send { align-self: end; }
+.lead__f--send .btn { justify-self: start; }
+.lead__status { margin-top: 16px; font-size: var(--fs-small); min-height: 1.4em; }
+.ctab--navy .lead__f label { color: var(--band-ink); }
+.ctab--navy .lead__f input { background: rgba(255, 255, 255, 0.06); border-color: var(--band-line); color: var(--band-ink); }
+.ctab--navy .lead__f input:focus { border-color: var(--band-accent); box-shadow: 0 0 0 3px rgba(192, 176, 244, 0.25); }
+.ctab--navy .lead__err { color: #FFB4A9; }
+.ctab--navy .lead__f input[aria-invalid="true"] { border-color: #FFB4A9; }
+.ctab--navy .lead__status { color: var(--band-ink); }
+@media screen and (max-width: 1080px) { .lead__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media screen and (max-width: 640px) { .lead__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Revisión: Confían en nosotros ---------- */
+.cb > .logos__t { grid-column: 1 / -1; margin-top: clamp(48px, 6vw, 72px); }
+.logos-grid { --cols: 6; --gap: clamp(12px, 2vw, 28px); list-style: none; padding: clamp(16px, 2.5vw, 32px); margin: 20px 0 0; background: var(--paper); border-radius: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px var(--gap); }
+.logos-grid li { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); min-width: 0; }
+.cb > .logos-grid { grid-column: 1 / -1; margin-top: 20px; }
+.logos-grid li { display: grid; place-items: center; height: clamp(64px, 7vw, 92px); }
+.logos-grid img { width: auto; height: auto; max-width: 86%; max-height: clamp(36px, 4.4vw, 56px); object-fit: contain; }
+@media screen and (max-width: 820px) { .logos-grid { --cols: 4; } }
+@media screen and (max-width: 560px) { .logos-grid { --cols: 3; padding: 14px; } .logos-grid li { height: 58px; } .logos-grid img { max-height: 34px; } }
+@media print {
+  .lead, [data-cta-open] { display: none !important; }
+  .logos-grid { --cols: 6; break-inside: avoid; padding: 0; }
+  .logos-grid li { height: 16mm; }
+  .logos-grid img { max-height: 10mm; }
+  .phase-meter { display: none; }
+}
+
 /* ---------- Casos ---------- */
 .cases { padding-block: clamp(64px, 8vw, 112px); }
 .cases .grid { row-gap: 24px; }
@@ -969,7 +1048,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .grow { transition: transform 0.9s cubic-bezier(.2, .7, .2, 1); }
   .grow.is-waiting { transform: scaleX(0); }
   .fq__c.grow.is-waiting { transform: scaleY(0); }
-  .panel.is-entering { animation: panelIn .35s ease both; }
+  .panel.is-entering { animation: panelIn .25s ease both; }
   @keyframes panelIn { from { opacity: 0.001; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -1342,9 +1421,34 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     </div>
 
   </div>
-<!-- PENDIENTE · CTA 1: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--navy" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__k">Antes de seguir:</p><p class="ctab__q">¿sabes qué le responde hoy una IA a quien pregunta por ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 1">Descubre qué dice la IA sobre ti<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<!-- CTA 1: ver ebook/PENDIENTES.md (destino o integración pendiente). -->
+<section class="ctab ctab--navy" id="cta-1" aria-labelledby="cta1-t">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q" id="cta1-t"><em>Antes de seguir,</em> ¿sabes qué le responde hoy una IA a quien pregunta por ti?</p></div><div class="ctab__act"><button class="btn btn--cta" type="button" aria-expanded="false" aria-controls="form-cta1" data-cta-open="cta1">Descarga la guía de 1 página<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><form class="lead" id="form-cta1" data-cta="cta1" novalidate hidden>
+          <div class="lead__grid"><div class="lead__f">
+            <label for="form-cta1-nombre">Nombre</label>
+            <input id="form-cta1-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="form-cta1-nombre-err">
+            <p class="lead__err" id="form-cta1-nombre-err" hidden>Escribe tu nombre.</p>
+          </div><div class="lead__f">
+            <label for="form-cta1-correo">Correo</label>
+            <input id="form-cta1-correo" name="correo" type="email" autocomplete="email" required aria-describedby="form-cta1-correo-err" inputmode="email">
+            <p class="lead__err" id="form-cta1-correo-err" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</p>
+          </div><div class="lead__f">
+            <label for="form-cta1-celular">Celular</label>
+            <input id="form-cta1-celular" name="celular" type="tel" autocomplete="tel" required aria-describedby="form-cta1-celular-err" inputmode="tel">
+            <p class="lead__err" id="form-cta1-celular-err" hidden>Escribe un número de celular válido, con al menos 9 dígitos.</p>
+          </div><div class="lead__f">
+            <label for="form-cta1-cargo">Cargo</label>
+            <input id="form-cta1-cargo" name="cargo" type="text" autocomplete="organization-title" required aria-describedby="form-cta1-cargo-err">
+            <p class="lead__err" id="form-cta1-cargo-err" hidden>Escribe tu cargo.</p>
+          </div><div class="lead__f">
+            <label for="form-cta1-empresa">Empresa</label>
+            <input id="form-cta1-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="form-cta1-empresa-err">
+            <p class="lead__err" id="form-cta1-empresa-err" hidden>Escribe el nombre de tu empresa.</p>
+          </div>
+            <div class="lead__f lead__f--send"><button class="btn btn--cta" type="submit">Recibir la guía<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+          <p class="lead__status" role="status" aria-live="polite"></p>
+        </form></div>
 </section>
 </article>
 
@@ -1392,10 +1496,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <p>Nuestro <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a>, que analiza el desempeño de cientos de ejecutivos en la región, parte de una premisa que cada año se confirma con más fuerza, la reputación de las empresas ya no se construye únicamente desde el discurso oficial, sino desde la voz activa de quienes las lideran.</p>
     <p>Lo nuevo no es el vínculo, un gerente siempre representó a su empresa; lo nuevo es quién lo procesa. Pregúntale a un modelo generativo quién lidera tu sector y te devolverá nombres de personas. Luego consulta por una de esas personas y te devolverá el nombre de la empresa. Para ese sistema, líder y organización son una sola entidad, y la respuesta se arma con el material disponible. Si tú no lo pusiste ahí, alguien más lo hizo o lo hará.</p>
   </div>
-<!-- PENDIENTE · CTA 2: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--white" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Estás listo ser tu quien gestione lo que dicen de tu marca?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 2">Te ayudamos a liderar la conversación<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-</section>
 </article>
 
 <!-- ======================= CAPÍTULO 2 ======================= -->
@@ -1472,12 +1572,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           <p class="plate__src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
         </figure>
     <p>Los directivos que combinan ambos registros son los que mejor posicionan simultáneamente su marca personal y la de su empresa.</p>
-  </div>
-<!-- PENDIENTE · CTA 3: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--white" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">De los cuatro criterios, ¿cuál es hoy el más débil para ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 3">Conoce tu puntaje<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-</section>
-  <div class="wrap cb cb--cont">
 
     <h3>Los arquetipos que funcionan</h3>
     <p>En nuestro análisis del ecosistema peruano identificamos distintos arquetipos de directivo digital, cada uno con una lógica de valor distinta:</p>
@@ -1615,9 +1709,9 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           <p class="plate__src">Cada directivo se asigna al arquetipo que corresponde al tipo de contenido que más publica, sobre la base de la clasificación de sus publicaciones en LinkedIn. Un mismo directivo puede ejercer más de un perfil: el arquetipo indica el predominante, y en cada lámina se destacan los gerentes generales del Top 10 que más ejercen ese perfil. <b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
         </figure>
   </div>
-<!-- PENDIENTE · CTA 4: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--purple" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Qué arquetipo eres?</p></div><div class="ctab__act"><a class="btn btn--light" role="link" aria-disabled="true" data-pending="CTA 4">Te ayudamos a descubrirlo<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<!-- CTA 4: ver ebook/PENDIENTES.md (destino o integración pendiente). -->
+<section class="ctab ctab--white" id="cta-4" aria-labelledby="cta4-t">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q" id="cta4-t">¿Qué arquetipo de directivo digital eres?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-cta-link="cta4">Haz el test (3 min)<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
 </section>
   <div class="wrap cb cb--cont">
 
@@ -1664,9 +1758,9 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <p class="statement">Es con qué material lo hace: <em>el que construiste o el que encontró.</em></p>
     </div>
   </div>
-<!-- PENDIENTE · CTA 5: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--navy" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">¿Qué sabe la IA sobre ti?</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 5">Revisa aquí<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<!-- CTA 5: ver ebook/PENDIENTES.md (destino o integración pendiente). -->
+<section class="ctab ctab--navy" id="cta-5" aria-labelledby="cta5-t">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q" id="cta5-t">Estas brechas ya se miden. <em>¿Cuáles son las tuyas?</em></p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-cta-link="cta5">Conoce tu nota (30 min)<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
 </section>
 </article>
 
@@ -1721,12 +1815,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <p>Si la información disponible sobre tu organización se limita a una queja antigua en un foro, una noticia negativa de hace tiempo o el comentario aislado de un exempleado frustrado, esa será, literalmente, la historia que la IA cuente sin importar que la realidad actual sea distinta, si esa realidad nunca fue documentada digitalmente de forma sólida.</p>
     <p class="cb__em">Los sistemas de IA pueden incorporar en sus respuestas información proveniente de fuentes externas que la organización no controla directamente. Por eso, una presencia digital escasa o desactualizada puede favorecer una representación incompleta de la empresa.</p>
     <p class="cb__em">Este fenómeno convierte la ausencia de una narrativa directiva sólida en un riesgo reputacional pasivo. No hace falta que ocurra una crisis para que la IA construya una imagen desactualizada o incompleta; basta con que nadie haya alimentado el ecosistema digital con una versión vigente, pública y verificable de la realidad.</p>
-  </div>
-<!-- PENDIENTE · CTA 6: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--white" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Audita qué dicen las IA de tu empresa</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 6">Hazlo aquí<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-</section>
-  <div class="wrap cb cb--cont">
     <h3>El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
     <p>Hay un dato que lo sugiere. Según el artículo <i>How People Are Really Using Gen AI in 2025</i>, publicado por Harvard Business Review en abril de ese año, a partir del análisis de conversaciones en foros públicos, el principal uso de la IA generativa ese fue la terapia y la compañía, seguido de organizar la vida propia.</p>
     <p>No significa que la gente confíe plenamente en esas respuestas; pero revela que ya incorpora estas herramientas a conversaciones personales y reflexivas. En un entorno así, el liderazgo que se sostiene en criterio propio y no en un discurso corporativo impecable conserva una ventaja que ninguna optimización algorítmica replica. La visibilidad cambió de reglas. La confianza sigue dependiendo de personas y de trayectorias que se pueden comprobar.</p>
@@ -1791,10 +1879,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     <p>La herramienta puede multiplicar la eficiencia. La confianza, en cambio, sigue dependiendo de una persona que asuma su voz, su criterio y sus palabras.</p>
     <p>A eso llama este libro autenticidad: no la ausencia de inteligencia artificial, sino que detrás de cada contenido siga reconociéndose el juicio real de quien lo firma. Lo contrario no es la máquina, es la marca directiva plástica: la que suena impecable pero no representa a nadie en particular.</p>
   </div>
-<!-- PENDIENTE · CTA 7: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--white ctab--solo" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 7">Haz que la IA sea tu ayuda, no tu reemplazo<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-</section>
 </article>
 
 <!-- ======================= CAPÍTULO 5 ======================= -->
@@ -1810,7 +1894,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   </header>
   <div class="wrap cb">
     <div class="stats stats--one ww" role="group" aria-label="Cifra reportada por OpenAI">
-      <div class="stat"><p class="stat__n">700<span> millones</span></p><p class="stat__t">de usuarios activos semanales alcanzó ChatGPT en 2025</p></div>
+      <div class="stat stat--big"><p class="stat__n">700<span class="stat__unit">millones</span></p><p class="stat__t">de usuarios activos semanales alcanzó ChatGPT en 2025</p></div>
       <p class="stat__src"><b>Fuente:</b> OpenAI, citado en el texto.</p>
     </div>
     <p class="cb__em">A esta disciplina se le denomina Generative Engine Optimization o GEO: la optimización para motores generativos. El término fue formalizado por Aggarwal y colaboradores en 2024. GEO no sustituye al SEO tradicional; lo extiende hacia un entorno en el que el usuario puede recibir una respuesta sintetizada sin visitar cada una de las páginas originales.</p>
@@ -1836,9 +1920,34 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     </ol>
     <p class="cb__em">La ventana de oportunidad está abierta ahora mismo: quien construya presencia autorizada en este ecosistema antes de que se sature, entrará en el “mapa mental” que la IA consulta cada vez que alguien pregunte por su industria. Quien no lo haga, dejará que otros o que fuentes que no controla, cuenten su historia por él.</p>
   </div>
-<!-- PENDIENTE · CTA 8: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--purple" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Entra al mapa mental de la IA antes que se sature</p></div><div class="ctab__act"><a class="btn btn--light" role="link" aria-disabled="true" data-pending="CTA 8">Solicita tu reporte<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+<!-- CTA 8: ver ebook/PENDIENTES.md (destino o integración pendiente). -->
+<section class="ctab ctab--white" id="cta-8" aria-labelledby="cta8-t">
+  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q" id="cta8-t"><em>La ventana está abierta.</em> Estos 4 pasos te ponen en el mapa mental de la IA antes de que se sature.</p></div><div class="ctab__act"><button class="btn btn--cta" type="button" aria-expanded="false" aria-controls="form-cta8" data-cta-open="cta8">Descarga el checklist GEO (1 hoja)<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><form class="lead" id="form-cta8" data-cta="cta8" novalidate hidden>
+          <div class="lead__grid"><div class="lead__f">
+            <label for="form-cta8-nombre">Nombre</label>
+            <input id="form-cta8-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="form-cta8-nombre-err">
+            <p class="lead__err" id="form-cta8-nombre-err" hidden>Escribe tu nombre.</p>
+          </div><div class="lead__f">
+            <label for="form-cta8-correo">Correo</label>
+            <input id="form-cta8-correo" name="correo" type="email" autocomplete="email" required aria-describedby="form-cta8-correo-err" inputmode="email">
+            <p class="lead__err" id="form-cta8-correo-err" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</p>
+          </div><div class="lead__f">
+            <label for="form-cta8-celular">Celular</label>
+            <input id="form-cta8-celular" name="celular" type="tel" autocomplete="tel" required aria-describedby="form-cta8-celular-err" inputmode="tel">
+            <p class="lead__err" id="form-cta8-celular-err" hidden>Escribe un número de celular válido, con al menos 9 dígitos.</p>
+          </div><div class="lead__f">
+            <label for="form-cta8-cargo">Cargo</label>
+            <input id="form-cta8-cargo" name="cargo" type="text" autocomplete="organization-title" required aria-describedby="form-cta8-cargo-err">
+            <p class="lead__err" id="form-cta8-cargo-err" hidden>Escribe tu cargo.</p>
+          </div><div class="lead__f">
+            <label for="form-cta8-empresa">Empresa</label>
+            <input id="form-cta8-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="form-cta8-empresa-err">
+            <p class="lead__err" id="form-cta8-empresa-err" hidden>Escribe el nombre de tu empresa.</p>
+          </div>
+            <div class="lead__f lead__f--send"><button class="btn btn--cta" type="submit">Recibir el checklist<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </div>
+          <p class="lead__status" role="status" aria-live="polite"></p>
+        </form></div>
 </section>
 </article>
 
@@ -1869,10 +1978,10 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
               </defs>
               <circle class="ring" cx="200" cy="200" r="200"/>
               <!-- Arcos entre fases (sentido horario) -->
-              <path class="arrow" marker-end="url(#ah)" d="M 268.4 12.0 A 200 200 0 0 1 388.0 131.6"/>
-              <path class="arrow" marker-end="url(#ah)" d="M 388.0 268.4 A 200 200 0 0 1 268.4 388.0"/>
-              <path class="arrow" marker-end="url(#ah)" d="M 131.6 388.0 A 200 200 0 0 1 12.0 268.4"/>
-              <path class="arrow" marker-end="url(#ah)" d="M 12.0 131.6 A 200 200 0 0 1 131.6 12.0"/>
+              <path class="arrow" data-arc="0" marker-end="url(#ah)" d="M 268.4 12.0 A 200 200 0 0 1 388.0 131.6"/>
+              <path class="arrow" data-arc="1" marker-end="url(#ah)" d="M 388.0 268.4 A 200 200 0 0 1 268.4 388.0"/>
+              <path class="arrow" data-arc="2" marker-end="url(#ah)" d="M 131.6 388.0 A 200 200 0 0 1 12.0 268.4"/>
+              <path class="arrow is-on" data-arc="3" marker-end="url(#ah)" d="M 12.0 131.6 A 200 200 0 0 1 131.6 12.0"/>
             </svg>
             <div class="cycle__center"><b>Un ciclo</b>no pasos que se ejecutan una sola vez</div>
             <ol class="phase-tabs" role="tablist" aria-label="Fases del framework">
@@ -1885,6 +1994,8 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         </div>
 
         <div class="panels">
+          <div class="phase-meter" aria-hidden="true"><span class="phase-meter__n"><b>01</b> / 04</span><span class="phase-meter__bar"><i class="is-on"></i><i></i><i></i><i></i></span></div>
+          <p class="sr-only" id="phase-live" aria-live="polite"></p>
           <section class="panel" id="fase-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
             <p class="panel__k">Fase 1</p>
             <h3>Diagnóstico</h3>
@@ -2003,10 +2114,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 
     </div>
   </section>
-<!-- PENDIENTE · CTA 9: el Word no incluye la URL de destino. No activar hasta recibirla. -->
-<section class="ctab ctab--navy" aria-label="Llamado a la acción">
-  <div class="wrap ctab__grid"><div class="ctab__text"><p class="ctab__q">Agenda tu diagnóstico de Marca Directiva.</p><p class="ctab__sub">Te mostramos dónde estás hoy frente a los directivos mejor evaluados del país.</p></div><div class="ctab__act"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 9">Solicita tu reporte<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-</section>
 </article>
 
 
@@ -2026,13 +2133,11 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 <section class="band final" id="agenda" aria-labelledby="final-t">
   <div class="wrap final__grid">
     <div class="final__main">
-      <h2 id="final-t">¿Qué dice la IA de ti hoy? Descubre tu nota en el Ranking Directivos Digitales 2026.</h2>
+      <h2 id="final-t">¿Qué nota sacarías en el <em>Ranking Directivos Digitales 2026</em>?</h2>
       <p class="final__lead">En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
-      <!-- PENDIENTE · CTA 10: falta el enlace al calendario. -->
-      <div class="cta__row"><a class="btn btn--cta" role="link" aria-disabled="true" data-pending="CTA 10">Agenda y conoce tu nota (30 min)<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <p class="final__alt">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</p>
-      <!-- PENDIENTE · CTA 10: falta el enlace de WhatsApp. -->
-      <div class="cta__row"><a class="btn btn--line" role="link" aria-disabled="true" data-pending="CTA 10 · WhatsApp">Escríbenos por WhatsApp<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <!-- CTA 10: calendario de Julio Talledo o Víctor Lozano y WhatsApp de Julio Talledo pendientes (ver ebook/PENDIENTES.md). -->
+      <div class="cta__row"><a class="btn btn--cta" role="link" aria-disabled="true" data-cta-link="cta10">Agenda y conoce tu nota<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <p class="final__alt"><a class="final__wa" role="link" aria-disabled="true" data-cta-link="whatsapp">¿Prefieres algo más directo? Escríbenos por WhatsApp.</a></p>
     </div>
     <div class="final__side">
       <div class="contact">
@@ -2044,7 +2149,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
           <p class="contact__line">966 050 678</p>
         </div>
       </div>
-      <div class="qr" role="img" aria-label="Espacio para el código QR al calendario"><span>QR al calendario</span></div>
+      <div class="qr" data-cta-qr="cta10" role="img" aria-label="Código QR al calendario de reservas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM18 14h3M14 18v3"/></svg><span>QR al calendario de reservas</span></div>
     </div>
   </div>
 </section>
@@ -2054,10 +2159,8 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   <div class="wrap cb">
     <h2 id="about-t">Sobre Verne</h2>
     <p class="closing__lead">Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.</p>
-    <h3 class="ww">Confían en nosotros</h3>
-    <figure class="logos ww">
-      <img src="assets/confian-en-nosotros.png" width="958" height="544" alt="Logos de clientes: Orygen, Farmacias Peruanas, Universidad Continental, Primax, Palmas, Fenix, Antapaccay, ISM Industrias San Miguel, TGP, Pacífico, Prima AFP, Repsol, ISA REP, Promperú, Universidad de Piura, UPN Universidad Privada del Norte, Laureate Perú, PetroTal, Interbank, HUB UDEP, Intursa Grupo Hotelero, Nexans, NTT Data, Universidad de Piura, SPH Sociedad Peruana de Hidrocarburos, Lima Expresa, Protecta Security, InRetail Pharma, Coltur, Pluz, Lima Airport, Enel, Cálidda, inLearning, Konecta, Bancom, Promigas, Alfaco y Engie.">
-    </figure>
+    <h3 class="w logos__t">Confían en nosotros</h3>
+    <ul class="logos-grid w" aria-label="Empresas que confían en Verne"><li><img src="assets/logos/orygen.png" alt="Orygen" width="171" height="41" loading="eager"></li><li><img src="assets/logos/farmacias-peruanas.png" alt="Farmacias Peruanas" width="136" height="41" loading="eager"></li><li><img src="assets/logos/universidad-continental.png" alt="Universidad Continental" width="137" height="36" loading="eager"></li><li><img src="assets/logos/primax.png" alt="Primax" width="134" height="45" loading="eager"></li><li><img src="assets/logos/palmas.png" alt="Palmas" width="116" height="50" loading="eager"></li><li><img src="assets/logos/fenix.png" alt="Fenix" width="120" height="56" loading="eager"></li><li><img src="assets/logos/antapaccay.png" alt="Antapaccay" width="108" height="64" loading="eager"></li><li><img src="assets/logos/ism.png" alt="ISM Industrias San Miguel" width="102" height="68" loading="eager"></li><li><img src="assets/logos/tgp.png" alt="TGP" width="141" height="66" loading="eager"></li><li><img src="assets/logos/pacifico.png" alt="Pacífico" width="134" height="36" loading="eager"></li><li><img src="assets/logos/prima-afp.png" alt="Prima AFP" width="123" height="30" loading="eager"></li><li><img src="assets/logos/repsol.png" alt="Repsol" width="143" height="38" loading="eager"></li><li><img src="assets/logos/isa-rep.png" alt="ISA REP" width="99" height="48" loading="eager"></li><li><img src="assets/logos/promperu.png" alt="Promperú" width="94" height="53" loading="eager"></li><li><img src="assets/logos/universidad-de-piura.png" alt="Universidad de Piura" width="139" height="57" loading="eager"></li><li><img src="assets/logos/upn.png" alt="UPN Universidad Privada del Norte" width="91" height="57" loading="eager"></li><li><img src="assets/logos/laureate.png" alt="Laureate Perú" width="133" height="41" loading="eager"></li><li><img src="assets/logos/petrotal.png" alt="PetroTal" width="134" height="48" loading="eager"></li><li><img src="assets/logos/interbank.png" alt="Interbank" width="135" height="33" loading="eager"></li><li><img src="assets/logos/hub-udep.png" alt="HUB UDEP" width="94" height="61" loading="eager"></li><li><img src="assets/logos/intursa.png" alt="Intursa Grupo Hotelero" width="138" height="48" loading="eager"></li><li><img src="assets/logos/nexans.png" alt="Nexans" width="110" height="39" loading="eager"></li><li><img src="assets/logos/ntt-data.png" alt="NTT Data" width="129" height="27" loading="eager"></li><li><img src="assets/logos/universidad-de-piura-2.png" alt="Universidad de Piura" width="136" height="56" loading="eager"></li><li><img src="assets/logos/sph.png" alt="SPH Sociedad Peruana de Hidrocarburos" width="95" height="65" loading="eager"></li><li><img src="assets/logos/lima-expresa.png" alt="Lima Expresa" width="109" height="64" loading="eager"></li><li><img src="assets/logos/protecta-security.png" alt="Protecta Security" width="140" height="36" loading="eager"></li><li><img src="assets/logos/inretail-pharma.png" alt="InRetail Pharma" width="135" height="51" loading="eager"></li><li><img src="assets/logos/coltur.png" alt="Coltur" width="140" height="44" loading="eager"></li><li><img src="assets/logos/pluz.png" alt="Pluz" width="100" height="55" loading="eager"></li><li><img src="assets/logos/lima-airport.png" alt="Lima Airport" width="133" height="45" loading="eager"></li><li><img src="assets/logos/enel.png" alt="Enel" width="104" height="44" loading="eager"></li><li><img src="assets/logos/calidda.png" alt="Cálidda" width="131" height="47" loading="eager"></li><li><img src="assets/logos/inlearning.png" alt="inLearning" width="118" height="40" loading="eager"></li><li><img src="assets/logos/konecta.png" alt="Konecta" width="120" height="27" loading="eager"></li><li><img src="assets/logos/bancom.png" alt="Bancom" width="133" height="30" loading="eager"></li><li><img src="assets/logos/promigas.png" alt="Promigas" width="104" height="56" loading="eager"></li><li><img src="assets/logos/alfaco.png" alt="Alfaco" width="132" height="27" loading="eager"></li><li><img src="assets/logos/engie.png" alt="Engie" width="95" height="41" loading="eager"></li></ul>
     <div class="people ww">
       <div class="contact">
         <img src="assets/directivos/julio-talledo.jpg" alt="Retrato de Julio Talledo" width="480" height="480">
@@ -2091,22 +2194,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   </div>
 </footer>
 
-<section class="prod no-print" aria-labelledby="prod-t">
-  <div class="wrap">
-    <h2 id="prod-t">Notas de la propuesta (no forman parte del eBook)</h2>
-    <ul>
-      <li>La publicación sigue el orden del Word: introducción, secciones 1 a 6, cierre, CTA final y «Sobre Verne». Los textos son literales; solo se separaron párrafos y se destacaron fragmentos existentes.</li>
-      <li>CTAs sin destino en el Word («Link:» vacío): agenda, formulario, «Conoce tu puntaje», test de arquetipo, auditoría, reporte, calendario de 30 min y WhatsApp. Se muestran desactivados hasta recibir las URLs (con UTM por CTA, según los comentarios del documento). Falta también el QR al calendario.</li>
-      <li>Únicos enlaces reales del documento: verne.la/blog/ranking-directivos-digitales-2026 y www.verne.la.</li>
-      <li>Revisar redacción en el Word: CTA 2 «¿Estás listo ser tu quien gestione…?» y sección 3 «el principal uso de la IA generativa ese fue…». Se mantuvieron tal cual.</li>
-      <li>Revisar cargo de Marco Fragale: la lámina del Ranking dice «CEO Orygen» y el caso de la sección 6 dice «Country Manager de Enel Perú».</li>
-      <li>Fotos de directivos destacados tomadas de las láminas del Word (unos 100 px): conviene recibir los retratos originales. Fotos de Julio Talledo y Víctor Lozano tomadas de la plantilla Verne.</li>
-      <li>La imagen «Confían en nosotros» del Word incluye dos veces el logo de la Universidad de Piura; se mantuvo como está.</li>
-      <li>Fotografía de apertura: imagen de la plantilla Verne. La fotografía generada en Magnific no pudo descargarse desde este entorno.</li>
-      <li>El documento no detalla los temas en las posiciones 2.ª a 4.ª del ranking de temas publicados; solo se grafican el 1.º y el 5.º.</li>
-    </ul>
-  </div>
-</section>
+<!-- Pendientes de implementación: ver ebook/PENDIENTES.md -->
 
 <script>
 (function () {
@@ -2211,6 +2299,73 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
     }
   }
 
+
+  /* ---- CTA: destinos configurables. null = pendiente (ver ebook/PENDIENTES.md). ---- */
+  var CTA_CONFIG = {
+    cta1:     { formEndpoint: null, recurso: null },  /* Guía de 1 página: envío del formulario y archivo */
+    cta4:     { url: null },                          /* Test de arquetipos en la web de Verne (enlace de Nuria Peláez) */
+    cta5:     { url: null },                          /* Calendario de reservas (Julio Talledo o Víctor Lozano) */
+    cta8:     { formEndpoint: null, recurso: null },  /* Checklist GEO (1 hoja): envío del formulario y archivo */
+    cta10:    { url: null },                          /* Calendario de reservas (Julio Talledo o Víctor Lozano) */
+    whatsapp: { url: null },                          /* WhatsApp de Julio Talledo */
+    qr:       { url: null }                           /* Destino del QR: calendario de reservas */
+  };
+  document.querySelectorAll('[data-cta-link]').forEach(function (a) {
+    var cfg = CTA_CONFIG[a.getAttribute('data-cta-link')];
+    if (cfg && cfg.url) {
+      a.setAttribute('href', cfg.url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
+      a.removeAttribute('aria-disabled'); a.removeAttribute('role');
+    } else {
+      a.addEventListener('click', function (e) { e.preventDefault(); });
+    }
+  });
+
+  /* ---- Formularios de descarga (CTA 1 y 8) ---- */
+  document.querySelectorAll('[data-cta-open]').forEach(function (b) {
+    var f = document.getElementById(b.getAttribute('aria-controls'));
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', open ? 'false' : 'true');
+      f.hidden = open;
+      if (!open) { var first = f.querySelector('input'); if (first) first.focus(); }
+    });
+  });
+  var CHECKS = {
+    nombre: function (v) { return v.trim().length >= 2; },
+    correo: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
+    celular: function (v) { var d = v.replace(/[^0-9]/g, ''); return /^[+0-9\s().-]+$/.test(v.trim()) && d.length >= 9 && d.length <= 15; },
+    cargo: function (v) { return v.trim().length >= 2; },
+    empresa: function (v) { return v.trim().length >= 2; }
+  };
+  function checkField(inp) {
+    var ok = (CHECKS[inp.name] || function () { return true; })(inp.value);
+    var err = document.getElementById(inp.getAttribute('aria-describedby'));
+    inp.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    if (err) err.hidden = ok;
+    return ok;
+  }
+  document.querySelectorAll('form.lead').forEach(function (f) {
+    var status = f.querySelector('.lead__status');
+    f.querySelectorAll('input').forEach(function (inp) {
+      inp.addEventListener('blur', function () { if (inp.value) checkField(inp); });
+      inp.addEventListener('input', function () { if (inp.getAttribute('aria-invalid') === 'true') checkField(inp); });
+    });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstBad = null;
+      f.querySelectorAll('input').forEach(function (inp) { if (!checkField(inp) && !firstBad) firstBad = inp; });
+      if (firstBad) { status.textContent = 'Revisa los campos marcados.'; firstBad.focus(); return; }
+      var cfg = CTA_CONFIG[f.getAttribute('data-cta')] || {};
+      if (cfg.formEndpoint) {
+        /* Integración pendiente: enviar los datos a cfg.formEndpoint y, si la respuesta es correcta, entregar cfg.recurso. */
+        return;
+      }
+      /* Sin integración todavía: no se envía ni se guarda nada, y no se simula una descarga. */
+      var nombre = (f.querySelector('[name="nombre"]').value || '').trim().split(' ')[0];
+      status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Tus datos están completos. La descarga estará disponible muy pronto.';
+    });
+  });
+
   /* ---- Framework interactivo (patrón de pestañas accesible) ---- */
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.phase-tab'));
   var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
@@ -2224,6 +2379,17 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         panels[j].classList.remove('is-entering'); void panels[j].offsetWidth; panels[j].classList.add('is-entering');
       }
     });
+    document.querySelectorAll('.cycle .arrow').forEach(function (a) {
+      a.classList.toggle('is-on', +a.getAttribute('data-arc') === (i + tabs.length - 1) % tabs.length);
+    });
+    document.querySelectorAll('.phase-meter__bar i').forEach(function (b, j) {
+      b.classList.toggle('is-on', j === i); b.classList.toggle('is-done', j < i);
+    });
+    var meterN = document.querySelector('.phase-meter__n b');
+    if (meterN) meterN.textContent = '0' + (i + 1);
+    var live = document.getElementById('phase-live');
+    var name = tabs[i].querySelector('.phase-tab__t');
+    if (live && name) live.textContent = 'Fase ' + (i + 1) + ' de ' + tabs.length + ': ' + name.textContent;
     if (focus) tabs[i].focus();
   }
   tabs.forEach(function (t, i) {
