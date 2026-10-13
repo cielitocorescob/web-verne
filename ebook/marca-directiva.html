@@ -652,7 +652,7 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 /* Cifras del Ranking (capítulo 6) */
 .facts { margin-top: clamp(40px, 5vw, 64px); background: var(--band); color: var(--band-ink); border-radius: 28px; padding: clamp(28px, 4vw, 56px); display: grid; gap: clamp(28px, 3.5vw, 44px); }
 .facts__intro { font-size: var(--fs-lead); line-height: 1.55; font-weight: 300; max-width: 60ch; color: var(--band-ink); }
-.facts__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--band-line); }
+.facts__grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--band-line); }
 .facts__grid li { display: grid; align-content: start; gap: 10px; padding: 24px 20px 0 0; }
 .facts__grid li + li { padding-left: 20px; border-left: 1px solid var(--band-line); }
 .facts__grid b { font-size: clamp(1.75rem, 2.8vw, 2.625rem); font-weight: 600; line-height: 1; color: var(--band-accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -694,8 +694,8 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 @media screen and (max-width: 1080px) {
   .cb > *, .cb > .ww { grid-column: 1 / span 11; }
   .final__grid, .box__grid { grid-template-columns: minmax(0, 1fr); }
-  .facts__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 24px; }
-  .facts__grid li:nth-child(4) { border-left: 0; padding-left: 0; }
+  .facts__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+  .facts__grid li:nth-child(3) { border-left: 0; padding-left: 0; }
 }
 @media screen and (max-width: 820px) {
   .cb > *, .cb > .ww, .cb > .w { grid-column: 1 / -1; }
@@ -894,7 +894,7 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 @media screen and (max-width: 640px) { .lead__grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Revisión: Confían en nosotros ---------- */
-.cb > .logos__t { grid-column: 1 / -1; margin-top: clamp(48px, 6vw, 72px); }
+.cb > .logos__t { grid-column: 1 / -1; margin-top: clamp(48px, 6vw, 72px); border-top: 0; padding-top: 0; }
 .logos-grid { --cols: 6; --gap: clamp(12px, 2vw, 28px); list-style: none; padding: clamp(16px, 2.5vw, 32px); margin: 20px 0 0; background: var(--paper); border-radius: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px var(--gap); }
 .logos-grid li { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); min-width: 0; }
 .cb > .logos-grid { grid-column: 1 / -1; margin-top: 20px; }
@@ -909,6 +909,27 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
   .logos-grid img { max-height: 10mm; }
   .phase-meter { display: none; }
 }
+
+
+/* ---------- Ajustes 2: legibilidad de fases ---------- */
+.panels .panel h3 { margin-top: 6px; line-height: 1.1; }
+.panels .panel__intro { font-size: var(--fs-lead); line-height: 1.55; margin-top: 18px; max-width: 46ch; color: var(--band-ink); }
+.panels .panel ul { margin-top: 28px; }
+.panels .panel li { font-size: 1rem; line-height: 1.75; padding: 20px 0; max-width: 60ch; color: var(--band-muted); }
+.panels .panel li b { color: var(--band-ink); font-weight: 600; }
+.panels .panel--questions li b { display: block; color: var(--band-accent); font-size: 1.0625rem; line-height: 1.4; margin-bottom: 6px; }
+.panels .panel li + li { margin-top: 0; }
+
+/* ---------- Ajustes 2: titular de la introducción ---------- */
+@media screen and (min-width: 1081px) {
+  .intro h2 { max-width: none; font-size: clamp(2.5rem, 4.1vw, 3.75rem); }
+  .intro h2 .ln { display: block; white-space: nowrap; }
+}
+
+/* ---------- Ajustes 2: Sobre Verne alineada a la retícula completa ---------- */
+.about .cb > * { grid-column: 1 / -1; }
+.about .cb > .closing__lead { max-width: 60ch; }
+.about .people { grid-column: 1 / -1; }
 
 /* ---------- Casos ---------- */
 .cases { padding-block: clamp(64px, 8vw, 112px); }
@@ -1400,7 +1421,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
       <p class="note">Fuente citada en el texto: <strong>Edelman Trust Barometer</strong>.</p>
     </div>
     <div class="intro__main">
-      <h2 id="intro-t">La credibilidad cambió de dirección</h2>
+      <h2 id="intro-t"><span class="ln">La credibilidad</span> <span class="ln">cambió de dirección</span></h2>
       <div class="prose">
         <p>Durante décadas, la confianza fluyó de arriba hacia abajo. Las instituciones como los bancos, gobiernos, universidades, grandes corporaciones eran la fuente. Las personas, el destino. Bastaba con que una empresa tuviera un buen producto, un logo reconocido y un departamento de comunicaciones prolijo para que esa confianza institucional se transfiriera, casi por inercia, a quienes trabajaban ahí.</p>
         <p>Ese flujo se invirtió. Hoy la confianza corre de abajo hacia arriba. Primero se confía en una persona, y a través de esa persona, se confía o se desconfía en la institución que representa. La consultora de comunicaciones, Edelman Trust Barometer lleva años documentando esta migración. Los ciudadanos confían más en los empleados de una empresa que en cualquier otra fuente corporativa, y ese mismo estudio revela que un empleado recibe el doble de confianza que un CEO cuando ambos hablan de la misma organización. La confianza ya no vive en el membrete. Vive en la persona.</p>
@@ -1996,7 +2017,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         <div class="panels">
           <div class="phase-meter" aria-hidden="true"><span class="phase-meter__n"><b>01</b> / 04</span><span class="phase-meter__bar"><i class="is-on"></i><i></i><i></i><i></i></span></div>
           <p class="sr-only" id="phase-live" aria-live="polite"></p>
-          <section class="panel" id="fase-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+          <section class="panel panel--questions" id="fase-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
             <p class="panel__k">Fase 1</p>
             <h3>Diagnóstico</h3>
             <p class="panel__intro">Antes de construir, hay que medir con honestidad dónde está parado el líder hoy. Esta fase responde tres preguntas:</p>
@@ -2012,10 +2033,10 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
             <h3>Construcción</h3>
             <p class="panel__intro">Con el diagnóstico en mano, se diseña la arquitectura de la marca:</p>
             <ul>
-              <li>Selección del arquetipo de liderazgo digital más auténtico para esa persona como inspirador, embajador, educador o activista, evitando forzar un tono que no corresponde a su forma real de liderar.</li>
-              <li>Definición de los ejes temáticos: el equilibrio entre marca personal, liderazgo sectorial y rol de embajador de la organización que representa.</li>
-              <li>Diseño de la arquitectura de contenido pensada simultáneamente para audiencias humanas y para motores generativos: contenido que responde preguntas reales, con autoridad verificable y coherencia narrativa sostenida en el tiempo.</li>
-              <li>Definición explícita del rol de la IA como herramienta de apoyo en redacción, estructura, research, nunca como sustituto de la voz o el criterio del líder, especialmente en comunicación de tipo personal o revelador.</li>
+              <li><b>Selección del arquetipo de liderazgo digital</b> más auténtico para esa persona como inspirador, embajador, educador o activista, evitando forzar un tono que no corresponde a su forma real de liderar.</li>
+              <li><b>Definición de los ejes temáticos:</b> el equilibrio entre marca personal, liderazgo sectorial y rol de embajador de la organización que representa.</li>
+              <li><b>Diseño de la arquitectura de contenido</b> pensada simultáneamente para audiencias humanas y para motores generativos: contenido que responde preguntas reales, con autoridad verificable y coherencia narrativa sostenida en el tiempo.</li>
+              <li><b>Definición explícita del rol de la IA</b> como herramienta de apoyo en redacción, estructura, research, nunca como sustituto de la voz o el criterio del líder, especialmente en comunicación de tipo personal o revelador.</li>
             </ul>
             <div class="panel__nav"><button type="button" data-go="1"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 1 · Diagnóstico</button><button type="button" data-go="3">Fase 3 · Activación<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
@@ -2024,10 +2045,10 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
             <h3>Activación</h3>
             <p class="panel__intro">La estrategia se pone en movimiento con disciplina, no con entusiasmo esporádico:</p>
             <ul>
-              <li>Calendario de publicación con la frecuencia mínima que la evidencia respalda: al menos dos publicaciones semanales, muy por encima del promedio actual de directivos en la región.</li>
-              <li>Bidireccionalidad real: tiempo dedicado a responder comentarios y participar en conversaciones, no solo a publicar.</li>
-              <li>Activación de embajadores internos como el propio equipo del líder. Aprovechando que el contenido de colaboradores genera hasta ocho veces más engagement que el contenido puramente institucional.</li>
-              <li>Presencia deliberada en los espacios que alimentan a los sistemas de IA generativa: menciones en estudios sectoriales, participación en medios especializados, contenido citable por su rigor, no solo por su alcance.</li>
+              <li><b>Calendario de publicación con la frecuencia mínima que la evidencia respalda:</b> al menos dos publicaciones semanales, muy por encima del promedio actual de directivos en la región.</li>
+              <li><b>Bidireccionalidad real:</b> tiempo dedicado a responder comentarios y participar en conversaciones, no solo a publicar.</li>
+              <li><b>Activación de embajadores internos</b> como el propio equipo del líder. Aprovechando que el contenido de colaboradores genera hasta ocho veces más engagement que el contenido puramente institucional.</li>
+              <li><b>Presencia deliberada en los espacios que alimentan a los sistemas de IA generativa:</b> menciones en estudios sectoriales, participación en medios especializados, contenido citable por su rigor, no solo por su alcance.</li>
             </ul>
             <div class="panel__nav"><button type="button" data-go="2"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 2 · Construcción</button><button type="button" data-go="4">Fase 4 · Medición<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
@@ -2036,9 +2057,9 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
             <h3>Medición</h3>
             <p class="panel__intro">Ningún sistema es completo sin métricas que permitan ajustar el rumbo:</p>
             <ul>
-              <li>Métricas tradicionales de reputación digital: presencia, liderazgo y consistencia de marca, conversación y comunidad. Los cuatro criterios que sostienen nuestro Ranking Directivos Digitales.</li>
-              <li>Métricas emergentes de GEO: tasa de citación en IA, calidad y contexto de las menciones, autoridad conversacional, share of voice frente a otros líderes del sector, y precisión de la información que las plataformas de IA repiten sobre el directivo.</li>
-              <li>Revisión periódica del diagnóstico inicial: la marca directiva no es un proyecto que se cierra, es un sistema que se recalibra, porque tanto las audiencias humanas como los modelos de IA actualizan constantemente su percepción con cada nueva pieza de información disponible.</li>
+              <li><b>Métricas tradicionales de reputación digital:</b> presencia, liderazgo y consistencia de marca, conversación y comunidad. Los cuatro criterios que sostienen nuestro Ranking Directivos Digitales.</li>
+              <li><b>Métricas emergentes de GEO:</b> tasa de citación en IA, calidad y contexto de las menciones, autoridad conversacional, share of voice frente a otros líderes del sector, y precisión de la información que las plataformas de IA repiten sobre el directivo.</li>
+              <li><b>Revisión periódica del diagnóstico inicial:</b> la marca directiva no es un proyecto que se cierra, es un sistema que se recalibra, porque tanto las audiencias humanas como los modelos de IA actualizan constantemente su percepción con cada nueva pieza de información disponible.</li>
             </ul>
             <div class="panel__nav"><button type="button" data-go="3"><svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Fase 3 · Activación</button><button type="button" data-go="1">Volver a Fase 1 · el ciclo continúa<svg class="ar-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           </section>
@@ -2096,9 +2117,8 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         <p class="cs__text">En uno de nuestros procesos de Marca Directiva, una directora legal y de relaciones institucionales de una empresa del sector energético en Perú llevó su puntaje general de marca digital de 7.9 a 14.1 sobre 20 (+77%) en solo 5 meses, con un salto de 250% en conversación y presencia confirmada en las cuatro plataformas de IA generativa que antes no la mencionaban.</p>
       </article>
       <div class="facts block__wide">
-        <p class="facts__intro">Es la misma metodología que sostiene nuestro Ranking Directiv@s Digitales, el estudio anual de Verne que en su quinta edición analizó a 524 directivos de las empresas más representativas del Perú durante 12 meses, revisando más de 8,000 publicaciones y 850 mil interacciones en LinkedIn.</p>
-        <ul class="facts__grid" aria-label="Cifras de la quinta edición del Ranking">
-          <li><b>5.ª</b><span>edición del estudio anual</span></li>
+        <p class="facts__intro">Es la misma metodología que sostiene nuestro Ranking Directiv@s Digitales, el estudio anual de Verne que en su V edición analizó a 524 directivos de las empresas más representativas del Perú durante 12 meses, revisando más de 8,000 publicaciones y 850 mil interacciones en LinkedIn.</p>
+        <ul class="facts__grid" aria-label="Cifras de la V edición del Ranking">
           <li><b>524</b><span>directivos de las empresas más representativas del Perú</span></li>
           <li><b>12</b><span>meses de análisis</span></li>
           <li><b>8,000+</b><span>publicaciones revisadas</span></li>
@@ -2133,7 +2153,7 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 <section class="band final" id="agenda" aria-labelledby="final-t">
   <div class="wrap final__grid">
     <div class="final__main">
-      <h2 id="final-t">¿Qué nota sacarías en el <em>Ranking Directivos Digitales 2026</em>?</h2>
+      <h2 id="final-t">¿Qué nota sacarías en el <em>Ranking Directivos Digitales 2026?</em></h2>
       <p class="final__lead">En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
       <!-- CTA 10: calendario de Julio Talledo o Víctor Lozano y WhatsApp de Julio Talledo pendientes (ver ebook/PENDIENTES.md). -->
       <div class="cta__row"><a class="btn btn--cta" role="link" aria-disabled="true" data-cta-link="cta10">Agenda y conoce tu nota<svg class="btn__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
@@ -2171,7 +2191,6 @@ table.dt { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
         <div><p class="contact__name">Víctor Lozano</p><p class="contact__role">Director de Innovación</p><p class="contact__line"><a href="mailto:victor@verne.la">victor@verne.la</a> · 987 570 893</p></div>
       </div>
     </div>
-    <p class="ww about__web"><a href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
   </div>
 </section>
 
