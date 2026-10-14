@@ -850,7 +850,22 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 .phase-tab__t { color: var(--band-muted); transition: color .25s ease, border-color .25s ease; padding-bottom: 3px; border-bottom: 2px solid transparent; }
 .phase-tab:hover .phase-tab__n { opacity: 1; }
 .phase-tab[aria-selected="true"] .phase-tab__n { opacity: 1; box-shadow: 0 0 0 4px var(--band), 0 0 0 6px var(--band-accent); }
-.phase-tab[aria-selected="true"] .phase-tab__t { border-bottom-color: var(--band-accent); }
+.phase-tab[aria-selected="true"] .phase-tab__t { border-bottom-color: transparent; }
+/* Etiquetas del ciclo: el centro del círculo se apoya sobre el anillo y el nombre queda debajo, a 14 px del borde */
+.cycle { width: calc(100% - 9rem); margin: 4.5rem auto 5.5rem; }
+.cycle .phase-tabs li { transform: translate(-50%, -32px); }
+.cycle .phase-tab { padding: 0; gap: 14px; align-content: start; }
+.cycle .phase-tab[aria-selected="true"] .phase-tab__t { transform: translateY(5px); }
+.cycle .phase-tab__t { transition: color .25s ease, transform .25s ease; padding: 2px 10px; border: 0; border-radius: 999px; background: var(--band); line-height: 1.3; }
+@media screen and (max-width: 560px) {
+  .cycle .phase-tabs li { transform: none; }
+  .cycle .phase-tab { gap: 12px; padding: 6px 2px; }
+  .cycle .phase-tab__t { padding: 0; }
+}
+@media print {
+  .cycle .phase-tabs li { transform: translate(-50%, -6.5mm); }
+  .cycle .phase-tab__t { background: #FFFFFF; }
+}
 .cycle .arrow { stroke-opacity: 0.45; transition: stroke-opacity .25s ease, stroke-width .25s ease; }
 .cycle .arrow.is-on { stroke-opacity: 1; stroke-width: 3; }
 .phase-meter { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
@@ -1024,6 +1039,7 @@ table.vs { width: 100%; border-collapse: collapse; font-size: var(--fs-small); l
 .fw { background: var(--band); color: var(--band-ink); --focus: var(--band-accent); }
 .fw .wrap { padding-block: 0 clamp(64px, 8vw, 112px); }
 .fw__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; border-top: 1px solid var(--band-line); padding-top: clamp(40px, 5vw, 64px); }
+@media screen and (max-width: 1080px) { .fw__grid { grid-template-columns: minmax(0, 1fr); } .fw__grid .cycle { max-width: 440px; } }
 .fw__hint { font-size: var(--fs-note); color: var(--band-muted); max-width: 40ch; }
 .cycle { position: relative; width: calc(100% - 8rem); max-width: 420px; aspect-ratio: 1 / 1; margin: 4.5rem auto 4rem; }
 .cycle svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
