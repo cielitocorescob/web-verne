@@ -376,7 +376,7 @@
 .about__head p { font-size: 18px; line-height: 1.65; color: var(--ink-2); }
 .logos-t { font-size: 15px; font-weight: 600; margin-top: clamp(40px, 5vw, 64px); display: flex; align-items: center; gap: 10px; }
 .logos-t .mod { color: var(--purple); }
-.logos-grid { list-style: none; margin-top: 16px; padding: clamp(16px, 2.5vw, 32px); border-radius: var(--r-lg); background: var(--tint); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px clamp(12px, 2vw, 28px); }
+.logos-grid { list-style: none; margin-top: 16px; padding: clamp(16px, 2.5vw, 32px); border-radius: var(--r-lg); background: #FFFFFF; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px clamp(12px, 2vw, 28px); }
 .logos-grid li { display: grid; place-items: center; height: clamp(64px, 7vw, 92px); }
 .logos-grid img { width: auto; height: auto; max-width: 86%; max-height: clamp(36px, 4.4vw, 56px); object-fit: contain; mix-blend-mode: multiply; }
 .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) auto; gap: 16px; margin-top: 24px; align-items: stretch; }

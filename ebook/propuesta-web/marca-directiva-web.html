@@ -702,7 +702,7 @@ a { color: inherit; }
 .about__head p { font-size: 18px; line-height: 1.65; color: var(--ink-2); }
 .logos-t { font-size: 15px; font-weight: 600; margin-top: clamp(40px, 5vw, 64px); display: flex; align-items: center; gap: 10px; }
 .logos-t .mod { color: var(--purple); }
-.logos-grid { list-style: none; margin-top: 16px; padding: clamp(16px, 2.5vw, 32px); border-radius: var(--r-lg); background: var(--tint); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px clamp(12px, 2vw, 28px); }
+.logos-grid { list-style: none; margin-top: 16px; padding: clamp(16px, 2.5vw, 32px); border-radius: var(--r-lg); background: #FFFFFF; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px clamp(12px, 2vw, 28px); }
 .logos-grid li { display: grid; place-items: center; height: clamp(64px, 7vw, 92px); }
 .logos-grid img { width: auto; height: auto; max-width: 86%; max-height: clamp(36px, 4.4vw, 56px); object-fit: contain; mix-blend-mode: multiply; }
 .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) auto; gap: 16px; margin-top: 24px; align-items: stretch; }
@@ -875,7 +875,8 @@ a { color: inherit; }
 /* Ajustes del modo oscuro que no se resuelven solo con tokens */
 .cta:not(.cta--light), .quote, .fw__panel, .opener, .foot, .box .stat, .kpi--dark, .stat--dark, .case--photo, .purp li:nth-child(3), .mx li.all, .fn__src li:nth-child(1) { box-shadow: inset 0 0 0 1px var(--panel-ring); }
 [data-theme="dark"] .hero { box-shadow: inset 0 -1px 0 var(--panel-ring); }
-[data-theme="dark"] .logos-grid img { filter: grayscale(1) invert(1) brightness(1.15); mix-blend-mode: screen; }
+/* «Confían en nosotros»: siempre logos originales sobre fondo blanco */
+:root:not([data-theme="dark"]) .logos-grid { padding-inline: 0; border-radius: 0; }
 [data-theme="dark"] .fig, [data-theme="dark"] .card { background: var(--surface); }
 [data-theme="dark"] .crit-seg { color: var(--ink); }
 [data-theme="dark"] .crit-seg[aria-selected="true"] { color: var(--white); }
@@ -1071,6 +1072,7 @@ a { color: inherit; }
   [data-theme="dark"] .cta--light .cta__mods i { background: var(--purple); }
   .theme-sw { display: none !important; }
 }
+@media print { .key, .statement, .try { break-inside: avoid; } }
 </style>
 
 <a class="sr-only" href="#introduccion">Saltar al contenido</a>

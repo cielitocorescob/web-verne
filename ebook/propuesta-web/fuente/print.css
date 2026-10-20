@@ -147,3 +147,4 @@
   [data-theme="dark"] .cta--light .cta__mods i { background: var(--purple); }
   .theme-sw { display: none !important; }
 }
+@media print { .key, .statement, .try { break-inside: avoid; } }

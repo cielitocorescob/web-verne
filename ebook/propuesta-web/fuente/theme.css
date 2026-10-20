@@ -57,7 +57,8 @@
 /* Ajustes del modo oscuro que no se resuelven solo con tokens */
 .cta:not(.cta--light), .quote, .fw__panel, .opener, .foot, .box .stat, .kpi--dark, .stat--dark, .case--photo, .purp li:nth-child(3), .mx li.all, .fn__src li:nth-child(1) { box-shadow: inset 0 0 0 1px var(--panel-ring); }
 [data-theme="dark"] .hero { box-shadow: inset 0 -1px 0 var(--panel-ring); }
-[data-theme="dark"] .logos-grid img { filter: grayscale(1) invert(1) brightness(1.15); mix-blend-mode: screen; }
+/* «Confían en nosotros»: siempre logos originales sobre fondo blanco */
+:root:not([data-theme="dark"]) .logos-grid { padding-inline: 0; border-radius: 0; }
 [data-theme="dark"] .fig, [data-theme="dark"] .card { background: var(--surface); }
 [data-theme="dark"] .crit-seg { color: var(--ink); }
 [data-theme="dark"] .crit-seg[aria-selected="true"] { color: var(--white); }
