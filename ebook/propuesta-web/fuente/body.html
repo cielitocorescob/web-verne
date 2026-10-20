@@ -8,6 +8,7 @@
       <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
     </button>
+    <a class="btn pdf-btn" href="marca-directiva-verne.pdf" download="Marca-Directiva-Verne.pdf" data-pdf aria-label="Descargar PDF del eBook"><svg class="dl-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span>Descargar PDF</span></a>
     <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">{{MOD}}Índice</button>
     <nav class="menu" id="menu" aria-label="Índice del eBook" hidden>
       <ol>
@@ -97,7 +98,7 @@
 <article class="intro" id="introduccion" data-chap="Introducción" aria-labelledby="t-intro">
   <div class="wrap">
     <div class="read" style="padding-top:0">
-      <aside class="read__side" aria-label="En esta sección"><p class="eyebrow">{{MOD}}Introducción</p></aside>
+      <div class="read__side" aria-hidden="true"></div>
       <div class="flow">
         <p class="eyebrow">{{MOD}}Introducción</p>
         <h2 class="intro-h" id="t-intro">La credibilidad cambió de dirección</h2>
@@ -120,10 +121,9 @@
         <aside class="cta rv" id="cta-1" aria-labelledby="t-cta1">
           {{CTAMODS}}
           <div>
-            <p class="cta__k">{{MOD}}Antes de seguir</p>
             <h3 id="t-cta1"><em>Antes de seguir,</em> ¿sabes qué le responde hoy una IA a quien pregunta por ti?</h3>
           </div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta1" data-cta-open>Descarga la guía de 1 página {{BTNI}}</button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20la%20gu%C3%ADa%20de%201%20p%C3%A1gina%3A%20qu%C3%A9%20responde%20la%20IA%20sobre%20m%C3%AD" role="button" aria-expanded="false" aria-controls="form-cta1" data-cta-open>Descarga la guía de 1 página {{BTNI}}</a></div>
           {{FORM:cta1:Recibir la guía:descarga}}
         </aside>
       </div>
@@ -186,9 +186,8 @@
 
         <!-- CTA 2 · formulario (destino pendiente: ver PENDIENTES.md) -->
         <aside class="cta cta--light rv" id="cta-2" aria-labelledby="t-cta2">
-          {{CTAMODS}}
           <div><h3 id="t-cta2">¿Estás listo para ser tú quien gestione <span>lo que dicen de tu marca?</span></h3></div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta2" data-cta-open>Te ayudamos a liderar la conversación {{BTNI}}</button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20que%20me%20ayuden%20a%20liderar%20la%20conversaci%C3%B3n%20sobre%20mi%20marca" role="button" aria-expanded="false" aria-controls="form-cta2" data-cta-open>Te ayudamos a liderar la conversación {{BTNI}}</a></div>
           {{FORM:cta2:Enviar:contacto}}
         </aside>
       </div>
@@ -309,9 +308,8 @@
 
         <!-- CTA 3 · agenda (enlace pendiente) -->
         <aside class="cta cta--light rv" id="cta-3" aria-labelledby="t-cta3">
-          {{CTAMODS}}
           <div><h3 id="t-cta3">De los cuatro criterios, <span>¿cuál es hoy el más débil para ti?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta3">Conoce tu puntaje {{BTNI}}</a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20conocer%20mi%20puntaje%20en%20el%20Ranking%20Directivos%20Digitales%202026" data-cta-link="cta3">Conoce tu puntaje {{BTNI}}</a></div>
         </aside>
 
         <h3 id="c2-arquetipos">Los arquetipos que funcionan</h3>
@@ -381,9 +379,8 @@
 
         <!-- CTA 4 · test (enlace pendiente) -->
         <aside class="cta cta--light rv" id="cta-4" aria-labelledby="t-cta4">
-          {{CTAMODS}}
           <div><h3 id="t-cta4">¿Qué arquetipo de <span>directivo digital eres?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta4">Haz el test (3 min) {{BTNI}}</a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20hacer%20el%20test%20de%20arquetipos%20de%20directivo%20digital" data-cta-link="cta4">Haz el test (3 min) {{BTNI}}</a></div>
         </aside>
 
         <h3 id="c2-falla">Donde el sistema todavía falla</h3>
@@ -442,7 +439,7 @@
         <aside class="cta rv" id="cta-5" aria-labelledby="t-cta5">
           {{CTAMODS}}
           <div><h3 id="t-cta5">Estas brechas ya se miden. <span>¿Cuáles son las tuyas?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta5">Conoce tu nota (30 min) {{BTNI}}</a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20conocer%20mi%20nota%20en%20el%20Ranking%20Directivos%20Digitales%202026" data-cta-link="cta5">Conoce tu nota (30 min) {{BTNI}}</a></div>
         </aside>
       </div>
     </div>
@@ -509,7 +506,7 @@
         <aside class="cta rv" id="cta-6" aria-labelledby="t-cta6">
           {{CTAMODS}}
           <div><h3 id="t-cta6">Audita qué dicen las IA <span>de tu empresa</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta6">Hazlo aquí {{BTNI}}</a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20auditar%20qu%C3%A9%20dicen%20las%20IA%20de%20mi%20empresa" data-cta-link="cta6">Hazlo aquí {{BTNI}}</a></div>
         </aside>
 
         <h3 id="c3-intimo">El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
@@ -590,8 +587,7 @@
 
         <!-- CTA 7 · solo botón en el documento (enlace pendiente) -->
         <aside class="cta-inline rv" id="cta-7" aria-label="Llamado a la acción">
-          <p>{{MOD}}Verne · Marca Directiva</p>
-          <a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta7">Haz que la IA sea tu ayuda, no tu reemplazo {{BTNI}}</a>
+          <a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20que%20la%20IA%20sea%20mi%20ayuda%2C%20no%20mi%20reemplazo" data-cta-link="cta7">Haz que la IA sea tu ayuda, no tu reemplazo {{BTNI}}</a>
         </aside>
       </div>
     </div>
@@ -648,9 +644,8 @@
 
         <!-- CTA 8 · formulario de descarga (envío y archivo pendientes) -->
         <aside class="cta cta--light rv" id="cta-8" aria-labelledby="t-cta8">
-          {{CTAMODS}}
           <div><h3 id="t-cta8"><span>La ventana está abierta.</span> Estos 4 pasos te ponen en el mapa mental de la IA antes de que se sature.</h3></div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta8" data-cta-open>Descarga el checklist GEO (1 hoja) {{BTNI}}</button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20el%20checklist%20GEO%20%281%20hoja%29" role="button" aria-expanded="false" aria-controls="form-cta8" data-cta-open>Descarga el checklist GEO (1 hoja) {{BTNI}}</a></div>
           {{FORM:cta8:Recibir el checklist:descarga}}
         </aside>
       </div>
@@ -750,7 +745,7 @@
             <h3 id="t-cta9">Agenda tu diagnóstico de <span>Marca Directiva.</span></h3>
             <p>Te mostramos dónde estás hoy frente a los directivos mejor evaluados del país.</p>
           </div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta9">Solicita tu reporte {{BTNI}}</a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20agendar%20mi%20diagn%C3%B3stico%20de%20Marca%20Directiva" data-cta-link="cta9">Solicita tu reporte {{BTNI}}</a></div>
         </aside>
       </div>
     </div>
@@ -761,7 +756,7 @@
 <section class="chap" id="cierre" data-chap="Cierre" aria-labelledby="t-cierre">
   <div class="wrap">
     <div class="read" style="padding-top:0">
-      <aside class="read__side" aria-label="En esta sección"><p class="eyebrow">{{MOD}}Cierre</p></aside>
+      <div class="read__side" aria-hidden="true"></div>
       <div class="flow">
         <p class="eyebrow">{{MOD}}Cierre</p>
         <h2 class="closing-h" id="t-cierre">¿Cómo sostienen los líderes la autenticidad de la marca corporativa en la era de la IA?</h2>
@@ -781,20 +776,12 @@
         <aside class="cta final rv" id="cta-10" aria-labelledby="t-cta10">
           {{CTAMODS}}
           <div>
-            <p class="cta__k">{{MOD}}Ranking Directivos Digitales 2026</p>
             <h3 id="t-cta10">¿Qué nota sacarías en el <span>Ranking Directivos Digitales 2026?</span></h3>
             <p>En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
-            <div class="cta__act" style="justify-self:start"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta10">Agenda y conoce tu nota (30 min) {{BTNI}}</a></div>
-            <p class="final__alt"><a role="link" aria-disabled="true" data-cta-link="whatsapp">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</a></p>
+            <div class="cta__act" style="justify-self:start"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20agendar%20y%20conocer%20mi%20nota%20en%20el%20Ranking%20%2830%20min%29" data-cta-link="cta10">Agenda y conoce tu nota (30 min) {{BTNI}}</a></div>
+            <p class="final__alt"><a href="https://wa.me/51966050678" target="_blank" rel="noopener" data-cta-link="whatsapp">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</a></p>
           </div>
-          <div class="contact">
-            <img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="240" height="240" loading="lazy">
-            <div>
-              <p class="contact__name">Julio Talledo</p>
-              <p class="contact__role">Director Comercial y de Marketing en Verne</p>
-              <p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a> · <span class="nw">966 050 678</span></p>
-            </div>
-          </div>
+          <div class="final__person"><div class="person"><img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="320" height="320" loading="lazy"><div><p class="person__name">Julio Talledo</p><p class="person__role">Director Comercial y de Marketing en Verne</p><p class="person__links"><a href="mailto:julio@verne.la">julio@verne.la</a><a href="tel:+51966050678">966 050 678</a></p></div></div></div>
         </aside>
       </div>
     </div>
@@ -805,24 +792,15 @@
 <section class="about" id="sobre-verne" data-chap="Sobre Verne" aria-labelledby="t-about">
   <div class="wrap">
     <header class="about__head rv">
-      <div>
-        <p class="eyebrow">{{MOD}}Verne · Comunicación e Innovación</p>
-        <h2 id="t-about">Sobre Verne</h2>
-      </div>
-      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.</p>
+      <h2 id="t-about">Sobre Verne</h2>
+      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.<a class="about__web" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
     </header>
     <h3 class="logos-t">{{MOD}}Confían en nosotros</h3>
     <ul class="logos-grid rv" aria-label="Empresas que confían en Verne">{{LOGOS}}</ul>
+    <h3 class="logos-t">{{MOD}}Contacto</h3>
     <div class="people">
-      <div class="contact">
-        <img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="240" height="240" loading="lazy">
-        <div><p class="contact__name">Julio Talledo</p><p class="contact__role">Director Comercial y de Marketing</p><p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a> · <span class="nw">966 050 678</span></p></div>
-      </div>
-      <div class="contact">
-        <img src="assets/directivos/victor-lozano.png" alt="Retrato de Víctor Lozano" width="240" height="240" loading="lazy">
-        <div><p class="contact__name">Víctor Lozano</p><p class="contact__role">Director de Innovación</p><p class="contact__line"><a href="mailto:victor@verne.la">victor@verne.la</a> · <span class="nw">987 570 893</span></p></div>
-      </div>
-      <a class="btn btn--secondary web-pill" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la {{BTNI}}</a>
+      <div class="person"><img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="320" height="320" loading="lazy"><div><p class="person__name">Julio Talledo</p><p class="person__role">Director Comercial y de Marketing</p><p class="person__links"><a href="mailto:julio@verne.la">julio@verne.la</a><a href="tel:+51966050678">966 050 678</a></p></div></div>
+      <div class="person"><img src="assets/directivos/victor-lozano.png" alt="Retrato de Víctor Lozano" width="320" height="320" loading="lazy"><div><p class="person__name">Víctor Lozano</p><p class="person__role">Director de Innovación</p><p class="person__links"><a href="mailto:victor@verne.la">victor@verne.la</a><a href="tel:+51987570893">987 570 893</a></p></div></div>
     </div>
   </div>
 </section>
@@ -831,6 +809,7 @@
 <footer class="foot dark">
   <div class="wrap">
     <img src="assets/logo-verne-blanco.svg" alt="Verne" width="96" height="24">
-    <span>Marca Directiva en la Era de la Inteligencia Artificial · Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span>
+    <p>Marca Directiva en la Era de la Inteligencia Artificial<span>Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span></p>
+    <a class="btn btn--primary" href="marca-directiva-verne.pdf" download="Marca-Directiva-Verne.pdf" data-pdf><svg class="dl-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>Descargar el eBook en PDF</a>
   </div>
 </footer>

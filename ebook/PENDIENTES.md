@@ -19,6 +19,8 @@ Los botones y formularios están preparados, pero varios destinos aún no se han
 
 > La propuesta web (`propuesta-web/marca-directiva-web.html`) restituye los diez CTA del Word. En ella el QR no se muestra hasta tener el calendario.
 
+> **Estado en la propuesta web (revisión final).** Ningún botón queda inactivo: mientras no exista el destino definitivo, los CTA 3, 4, 5, 6, 7, 9 y 10 abren un correo a julio@verne.la con el asunto del pedido; los formularios 1, 2 y 8 validan y abren ese correo con los datos completos; «WhatsApp» abre wa.me/51966050678 (número del Word). Al completar `url` o `formEndpoint` en `CTA_CONFIG`, el destino definitivo reemplaza al correo. El QR sigue sin mostrarse hasta tener el calendario. El PDF descargable (`propuesta-web/marca-directiva-verne.pdf`) se regenera desde la propia página.
+
 ## Comportamiento actual de los formularios (CTA 1, 2 y 8)
 
 - Validan los cinco campos: nombre y cargo/empresa con al menos 2 caracteres, correo con formato válido y celular con 9 a 15 dígitos.

@@ -2,7 +2,10 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- Destinos configurables de los diez CTA. null = pendiente (ver ebook/PENDIENTES.md). ---- */
+  /* ---- Destinos de los diez CTA.
+     Mientras no exista el destino definitivo (calendario, test, formulario), cada CTA abre un correo
+     a julio@verne.la (contacto indicado en el Word) con el asunto del pedido. Al completar `url` o
+     `formEndpoint`, ese destino reemplaza al correo. Ver ebook/PENDIENTES.md. ---- */
   var CTA_CONFIG = {
     cta1:  { formEndpoint: null, recurso: null }, /* Guía de 1 página */
     cta2:  { formEndpoint: null },                /* Formulario «Te ayudamos a liderar la conversación» */
@@ -14,22 +17,21 @@
     cta8:  { formEndpoint: null, recurso: null }, /* Checklist GEO (1 hoja) */
     cta9:  { url: null },                         /* «Solicita tu reporte» */
     cta10: { url: null },                         /* Calendario de reservas */
-    whatsapp: { url: null }                       /* WhatsApp de Julio Talledo */
+    whatsapp: { url: null }                       /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
   };
   document.querySelectorAll('[data-cta-link]').forEach(function (a) {
     var cfg = CTA_CONFIG[a.getAttribute('data-cta-link')];
     if (cfg && cfg.url) {
       a.setAttribute('href', cfg.url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
-      a.removeAttribute('aria-disabled'); a.removeAttribute('role');
-    } else {
-      a.addEventListener('click', function (e) { e.preventDefault(); });
     }
   });
 
-  /* ---- Formularios (CTA 1, 2 y 8): validación; sin integración no se envía ni se simula nada ---- */
+  /* ---- Formularios (CTA 1, 2 y 8). El botón es un enlace mailto (útil en el PDF); en la web abre el formulario. ---- */
   document.querySelectorAll('[data-cta-open]').forEach(function (b) {
     var f = document.getElementById(b.getAttribute('aria-controls'));
-    b.addEventListener('click', function () {
+    b.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); b.click(); } });
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
       var open = b.getAttribute('aria-expanded') === 'true';
       b.setAttribute('aria-expanded', open ? 'false' : 'true');
       f.hidden = open;
@@ -63,9 +65,44 @@
       if (firstBad) { status.textContent = 'Revisa los campos marcados.'; firstBad.focus(); return; }
       var cfg = CTA_CONFIG[f.getAttribute('data-cta')] || {};
       if (cfg.formEndpoint) { /* Integración pendiente: enviar a cfg.formEndpoint y, si corresponde, entregar cfg.recurso. */ return; }
+      /* Sin integración: se arma el correo con los datos para que la persona lo envíe a Verne. */
+      var opener = document.querySelector('[aria-controls="' + f.id + '"]');
+      var subject = decodeURIComponent((opener.getAttribute('href').split('subject=')[1] || '').replace(/\+/g, ' '));
+      var lines = Array.prototype.map.call(f.querySelectorAll('input'), function (inp) {
+        return f.querySelector('label[for="' + inp.id + '"]').textContent + ': ' + inp.value.trim();
+      });
       var nombre = (f.querySelector('[name="nombre"]').value || '').trim().split(' ')[0];
-      status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Tus datos están completos. ' +
-        (f.getAttribute('data-kind') === 'descarga' ? 'La descarga estará disponible muy pronto.' : 'El envío estará disponible muy pronto.');
+      status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Abrimos tu correo con la solicitud para Verne; solo tienes que enviarlo. Si no se abre, escríbenos a julio@verne.la.';
+      window.location.href = 'mailto:julio@verne.la?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+
+
+  /* ---- Descargar PDF: en claude.ai usa la capacidad «downloads»; fuera de ella, el enlace descarga el archivo ---- */
+  var pdfLinks = document.querySelectorAll('[data-pdf]');
+  var pdfNote = null;
+  function pdfStatus(msg) {
+    if (!pdfNote) { pdfNote = document.createElement('p'); pdfNote.className = 'sr-only'; pdfNote.setAttribute('role', 'status'); document.body.appendChild(pdfNote); }
+    pdfNote.textContent = msg;
+  }
+  pdfLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (!window.claude || typeof window.claude.use !== 'function') return; /* página independiente: descarga normal */
+      e.preventDefault();
+      if (a.getAttribute('aria-busy') === 'true') return;
+      a.setAttribute('aria-busy', 'true');
+      var href = a.getAttribute('href');
+      Promise.all([window.claude.use('downloads'), fetch(href).then(function (r) { if (!r.ok) throw new Error('pdf'); return r.blob(); })])
+        .then(function (res) {
+          var dl = res[0], blob = res[1];
+          if (!dl) { window.open(href, '_blank', 'noopener'); return; }
+          return dl.save({ filename: 'Marca-Directiva-Verne.pdf', data: blob }).then(function () { pdfStatus('PDF descargado.'); });
+        })
+        .catch(function (err) {
+          if (err && err.code === 'declined') return;
+          window.open(href, '_blank', 'noopener');
+        })
+        .then(function () { a.removeAttribute('aria-busy'); });
     });
   });
 

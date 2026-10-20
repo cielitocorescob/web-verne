@@ -1,0 +1,127 @@
+
+/* ══════════ Revisión editorial: menos tarjetas, más ritmo de lectura ══════════ */
+
+/* Figuras como láminas editoriales: filete superior, sin caja */
+.fig, [data-theme="dark"] .fig { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 28px 0 0; background: transparent; }
+.flow > .fig, .flow > .stats, .flow > .box, .flow > .cases { margin-top: 44px; }
+.flow > .fig + *, .flow > .stats + *, .flow > .box + *, .flow > .cases + * { margin-top: 40px; }
+.fig .src { margin-top: 4px; }
+
+/* Párrafos clave: cápsula vertical en lugar de recuadro */
+.key { position: relative; background: none; border-radius: 0; padding: 2px 0 2px 28px; }
+.key::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 4px; border-radius: 4px; background: var(--grad); }
+[data-theme="dark"] .key::before { background: linear-gradient(180deg, var(--lavender), #7F5FD8); }
+
+/* Listas con filetes, sin cajas */
+.ticks li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 14px 0; }
+.ticks li:last-child { border-bottom: 1px solid var(--line); }
+.q3 li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 18px 0; }
+.mx li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 12px 2px; }
+.mx li.all { border-radius: 999px; border-top: 0; margin-top: 8px; padding: 12px 18px; }
+.pf__posts li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 9px 0; }
+.dn { background: none; padding: 0; }
+
+/* Propósitos: tres columnas con filete; la tercera se destaca con el acento */
+.purp li, .purp li:nth-child(3) { background: none; border-radius: 0; border-top: 2px solid var(--line); padding: 18px 0 0; color: var(--ink-2); box-shadow: none; }
+.purp li:nth-child(3) { border-top-color: var(--purple); }
+.purp li:nth-child(3) b { color: var(--ink); }
+.purp li::before, .purp li:nth-child(3)::before { background: var(--tint-2); color: var(--purple); }
+
+/* «Pruébalo»: misma lógica que las cifras del Ranking */
+.try li { background: none; box-shadow: none; border-radius: 0; border-top: 2px solid var(--purple); padding: 16px 0 0; }
+.try li::before { width: auto; height: auto; background: none; border-radius: 0; display: block; font-size: 13px; color: var(--purple); }
+
+/* Casos: indicadores con protagonismo, sin celdas */
+.case__k { gap: 0 20px; }
+.case__k div { background: none; border-radius: 0; border-top: 1px solid var(--on-dark-line); padding: 14px 0 10px; }
+.case__k b { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.1; }
+.case__k2 { gap: 0 20px; }
+.case__k2 div { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 14px 0 0; }
+.case__k2 b { font-size: clamp(26px, 2.6vw, 32px); line-height: 1.1; }
+.case__id { grid-template-columns: 96px minmax(0, 1fr); gap: 18px; }
+.case__id img { width: 96px; height: 96px; border-radius: 50%; }
+.case { gap: 22px; }
+
+/* ── Contactos editoriales: retrato integrado, sin tarjeta ── */
+.person { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 22px; align-items: center; min-width: 0; }
+.person img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.person__name { font-size: 20px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.person__role { font-size: 14px; line-height: 1.45; color: var(--muted); margin-top: 2px; }
+.person__links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font-size: 15px; }
+.person__links a { color: var(--purple); text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .25s var(--ease); white-space: nowrap; padding-block: 4px; }
+.person__links a:hover, .person__links a:focus-visible { background-size: 100% 1px; }
+[data-theme="dark"] .person__links a { color: var(--lavender); }
+.people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 18px; padding-top: 32px; border-top: 1px solid var(--line); }
+.people .person + .person { padding-left: clamp(24px, 4vw, 56px); margin-left: clamp(24px, 4vw, 56px); border-left: 1px solid var(--line); }
+.people .person { background: none; box-shadow: none; }
+.final__person { padding-top: 24px; border-top: 1px solid var(--on-dark-line); }
+.final__person .person__name { color: var(--white); }
+.final__person .person__role { color: var(--on-dark-2); }
+.final__person .person__links a { color: var(--white); background-size: 100% 1px; background-image: linear-gradient(var(--lavender), var(--lavender)); }
+.final__person .person__links a:hover, .final__person .person__links a:focus-visible { color: var(--lavender); }
+.final__alt a { cursor: pointer; }
+
+/* Sobre Verne: título + texto institucional + web, sin antetítulo */
+.about__head { align-items: start; }
+.about__head h2 { margin-top: 0; }
+.about__web { display: block; width: fit-content; margin-top: 14px; font-size: 15px; font-weight: 500; color: var(--purple); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+[data-theme="dark"] .about__web { color: var(--lavender); }
+
+/* CTA en línea (CTA 7): solo el botón, alineado a la columna de lectura */
+.cta-inline { padding: 0; border-radius: 0; box-shadow: none; justify-content: flex-start; }
+
+/* ── Botón «Descargar PDF» en la cabecera ── */
+.pdf-btn { --h: 40px; padding: 0 16px 0 13px; gap: 8px; font-size: 13px; color: var(--white); background: transparent; box-shadow: inset 0 0 0 1.5px var(--on-dark-line); white-space: nowrap; }
+.pdf-btn:hover, .pdf-btn:focus-visible { box-shadow: inset 0 0 0 1.5px var(--lavender); }
+.pdf-btn:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
+.pdf-btn:active { transform: translateY(1px); }
+.dl-i { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pdf-btn .dl-i { color: var(--lavender); transition: transform .25s var(--ease); }
+.pdf-btn:hover .dl-i, .foot .btn:hover .dl-i { transform: translateY(2px); }
+.dl-i { transition: transform .25s var(--ease); }
+[aria-busy="true"] { cursor: progress; opacity: .8; }
+
+/* Pie con segunda descarga */
+.foot .wrap { padding-block: 36px; gap: 20px 32px; }
+.foot p { flex: 1 1 280px; font-size: 14px; color: var(--white); font-weight: 500; }
+.foot p span { display: block; font-weight: 400; font-size: 13px; color: var(--on-dark-2); margin-top: 2px; }
+
+/* Objetivos táctiles de 44 px en pantallas táctiles */
+@media (pointer: coarse) {
+  .chip, .menu-btn, .pdf-btn { min-height: 44px; }
+  .theme-sw { height: 44px; }
+  .theme-sw__k { top: 7px; }
+  .menu a { padding-block: 13px; }
+  .read__side a { padding-block: 10px; }
+}
+
+/* Responsivo de lo nuevo */
+@media screen and (max-width: 1180px) {
+  .top__now { display: none; }
+  .top .wrap { justify-content: flex-start; }
+  .top .wrap > a:first-child { margin-right: auto; }
+}
+@media screen and (max-width: 860px) {
+  .people { grid-template-columns: minmax(0, 1fr); padding-top: 8px; }
+  .people .person { padding-block: 22px; }
+  .people .person + .person { padding-left: 0; margin-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media screen and (max-width: 560px) {
+  .top .wrap { gap: 8px; }
+  .pdf-btn { width: 40px; padding: 0; justify-content: center; }
+  .pdf-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .person { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+  .person img { width: 72px; height: 72px; }
+  .person__name { font-size: 18px; }
+  .person__links { flex-direction: column; gap: 0; }
+  .case__id { grid-template-columns: 80px minmax(0, 1fr); }
+  .case__id img { width: 80px; height: 80px; }
+  .foot .btn { width: 100%; }
+  .key { padding-left: 22px; }
+}
+@media screen and (max-width: 380px) {
+  .menu-btn { padding: 0 12px 0 10px; }
+  .theme-sw { width: 60px; padding: 0 6px; }
+  .theme-sw[aria-checked="true"] { --k-x: 20px; }
+}
+@media (pointer: coarse) and (max-width: 560px) { .pdf-btn { width: 44px; } }

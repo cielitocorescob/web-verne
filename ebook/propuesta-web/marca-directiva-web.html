@@ -924,6 +924,133 @@ a { color: inherit; }
 .case__badge { color: #D2C6F9; }
 .pf__posts small { font-size: 12px; }
 
+/* ══════════ Revisión editorial: menos tarjetas, más ritmo de lectura ══════════ */
+
+/* Figuras como láminas editoriales: filete superior, sin caja */
+.fig, [data-theme="dark"] .fig { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 28px 0 0; background: transparent; }
+.flow > .fig, .flow > .stats, .flow > .box, .flow > .cases { margin-top: 44px; }
+.flow > .fig + *, .flow > .stats + *, .flow > .box + *, .flow > .cases + * { margin-top: 40px; }
+.fig .src { margin-top: 4px; }
+
+/* Párrafos clave: cápsula vertical en lugar de recuadro */
+.key { position: relative; background: none; border-radius: 0; padding: 2px 0 2px 28px; }
+.key::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 4px; border-radius: 4px; background: var(--grad); }
+[data-theme="dark"] .key::before { background: linear-gradient(180deg, var(--lavender), #7F5FD8); }
+
+/* Listas con filetes, sin cajas */
+.ticks li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 14px 0; }
+.ticks li:last-child { border-bottom: 1px solid var(--line); }
+.q3 li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 18px 0; }
+.mx li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 12px 2px; }
+.mx li.all { border-radius: 999px; border-top: 0; margin-top: 8px; padding: 12px 18px; }
+.pf__posts li { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 9px 0; }
+.dn { background: none; padding: 0; }
+
+/* Propósitos: tres columnas con filete; la tercera se destaca con el acento */
+.purp li, .purp li:nth-child(3) { background: none; border-radius: 0; border-top: 2px solid var(--line); padding: 18px 0 0; color: var(--ink-2); box-shadow: none; }
+.purp li:nth-child(3) { border-top-color: var(--purple); }
+.purp li:nth-child(3) b { color: var(--ink); }
+.purp li::before, .purp li:nth-child(3)::before { background: var(--tint-2); color: var(--purple); }
+
+/* «Pruébalo»: misma lógica que las cifras del Ranking */
+.try li { background: none; box-shadow: none; border-radius: 0; border-top: 2px solid var(--purple); padding: 16px 0 0; }
+.try li::before { width: auto; height: auto; background: none; border-radius: 0; display: block; font-size: 13px; color: var(--purple); }
+
+/* Casos: indicadores con protagonismo, sin celdas */
+.case__k { gap: 0 20px; }
+.case__k div { background: none; border-radius: 0; border-top: 1px solid var(--on-dark-line); padding: 14px 0 10px; }
+.case__k b { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.1; }
+.case__k2 { gap: 0 20px; }
+.case__k2 div { background: none; border-radius: 0; border-top: 1px solid var(--line); padding: 14px 0 0; }
+.case__k2 b { font-size: clamp(26px, 2.6vw, 32px); line-height: 1.1; }
+.case__id { grid-template-columns: 96px minmax(0, 1fr); gap: 18px; }
+.case__id img { width: 96px; height: 96px; border-radius: 50%; }
+.case { gap: 22px; }
+
+/* ── Contactos editoriales: retrato integrado, sin tarjeta ── */
+.person { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 22px; align-items: center; min-width: 0; }
+.person img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.person__name { font-size: 20px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.person__role { font-size: 14px; line-height: 1.45; color: var(--muted); margin-top: 2px; }
+.person__links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font-size: 15px; }
+.person__links a { color: var(--purple); text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .25s var(--ease); white-space: nowrap; padding-block: 4px; }
+.person__links a:hover, .person__links a:focus-visible { background-size: 100% 1px; }
+[data-theme="dark"] .person__links a { color: var(--lavender); }
+.people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 18px; padding-top: 32px; border-top: 1px solid var(--line); }
+.people .person + .person { padding-left: clamp(24px, 4vw, 56px); margin-left: clamp(24px, 4vw, 56px); border-left: 1px solid var(--line); }
+.people .person { background: none; box-shadow: none; }
+.final__person { padding-top: 24px; border-top: 1px solid var(--on-dark-line); }
+.final__person .person__name { color: var(--white); }
+.final__person .person__role { color: var(--on-dark-2); }
+.final__person .person__links a { color: var(--white); background-size: 100% 1px; background-image: linear-gradient(var(--lavender), var(--lavender)); }
+.final__person .person__links a:hover, .final__person .person__links a:focus-visible { color: var(--lavender); }
+.final__alt a { cursor: pointer; }
+
+/* Sobre Verne: título + texto institucional + web, sin antetítulo */
+.about__head { align-items: start; }
+.about__head h2 { margin-top: 0; }
+.about__web { display: block; width: fit-content; margin-top: 14px; font-size: 15px; font-weight: 500; color: var(--purple); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+[data-theme="dark"] .about__web { color: var(--lavender); }
+
+/* CTA en línea (CTA 7): solo el botón, alineado a la columna de lectura */
+.cta-inline { padding: 0; border-radius: 0; box-shadow: none; justify-content: flex-start; }
+
+/* ── Botón «Descargar PDF» en la cabecera ── */
+.pdf-btn { --h: 40px; padding: 0 16px 0 13px; gap: 8px; font-size: 13px; color: var(--white); background: transparent; box-shadow: inset 0 0 0 1.5px var(--on-dark-line); white-space: nowrap; }
+.pdf-btn:hover, .pdf-btn:focus-visible { box-shadow: inset 0 0 0 1.5px var(--lavender); }
+.pdf-btn:focus-visible, .menu-btn:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
+.pdf-btn:active { transform: translateY(1px); }
+.dl-i { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pdf-btn .dl-i { color: var(--lavender); transition: transform .25s var(--ease); }
+.pdf-btn:hover .dl-i, .foot .btn:hover .dl-i { transform: translateY(2px); }
+.dl-i { transition: transform .25s var(--ease); }
+[aria-busy="true"] { cursor: progress; opacity: .8; }
+
+/* Pie con segunda descarga */
+.foot .wrap { padding-block: 36px; gap: 20px 32px; }
+.foot p { flex: 1 1 280px; font-size: 14px; color: var(--white); font-weight: 500; }
+.foot p span { display: block; font-weight: 400; font-size: 13px; color: var(--on-dark-2); margin-top: 2px; }
+
+/* Objetivos táctiles de 44 px en pantallas táctiles */
+@media (pointer: coarse) {
+  .chip, .menu-btn, .pdf-btn { min-height: 44px; }
+  .theme-sw { height: 44px; }
+  .theme-sw__k { top: 7px; }
+  .menu a { padding-block: 13px; }
+  .read__side a { padding-block: 10px; }
+}
+
+/* Responsivo de lo nuevo */
+@media screen and (max-width: 1180px) {
+  .top__now { display: none; }
+  .top .wrap { justify-content: flex-start; }
+  .top .wrap > a:first-child { margin-right: auto; }
+}
+@media screen and (max-width: 860px) {
+  .people { grid-template-columns: minmax(0, 1fr); padding-top: 8px; }
+  .people .person { padding-block: 22px; }
+  .people .person + .person { padding-left: 0; margin-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media screen and (max-width: 560px) {
+  .top .wrap { gap: 8px; }
+  .pdf-btn { width: 40px; padding: 0; justify-content: center; }
+  .pdf-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .person { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+  .person img { width: 72px; height: 72px; }
+  .person__name { font-size: 18px; }
+  .person__links { flex-direction: column; gap: 0; }
+  .case__id { grid-template-columns: 80px minmax(0, 1fr); }
+  .case__id img { width: 80px; height: 80px; }
+  .foot .btn { width: 100%; }
+  .key { padding-left: 22px; }
+}
+@media screen and (max-width: 380px) {
+  .menu-btn { padding: 0 12px 0 10px; }
+  .theme-sw { width: 60px; padding: 0 6px; }
+  .theme-sw[aria-checked="true"] { --k-x: 20px; }
+}
+@media (pointer: coarse) and (max-width: 560px) { .pdf-btn { width: 44px; } }
+
 /* ── PDF (A4 vertical, composición clara; todo el contenido interactivo visible) ── */
 @page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
 @page :first { margin: 10mm; @bottom-right { content: none; } }
@@ -963,7 +1090,7 @@ a { color: inherit; }
   .flow > p, .prose p { font-size: 10.5pt; line-height: 1.65; max-width: none; }
   .flow h3 { font-size: 15pt; }
   .intro-h, .closing-h { font-size: 24pt; }
-  .key { padding: 4mm 5mm; font-size: 11pt !important; max-width: none; }
+  .key { padding: 1mm 0 1mm 6mm; font-size: 11pt !important; max-width: none; }
   .statement { font-size: 15pt !important; max-width: none !important; }
   .eyebrow { font-size: 9pt; }
 
@@ -977,7 +1104,7 @@ a { color: inherit; }
 
   /* Figuras, tarjetas y CTA sin cortes */
   .fig, .kpi, .stat, .stats, .cta, .cta-inline, .crit-panel, .ph-panel, .pf, .case, .box, .quote, .purp li, .q3 li, .acc details, .dt tr, .vs tr, .facts, .try, .contact, .logos-grid, .mx, .dn { break-inside: avoid; }
-  .fig { padding: 5mm; gap: 4mm; }
+  .fig { padding: 4mm 0 0; gap: 4mm; }
   .fig__t { font-size: 11pt; }
   .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3mm; }
   .kpi { padding: 4mm; }
@@ -1047,7 +1174,7 @@ a { color: inherit; }
   .opener__img { position: absolute; }
   .fig.fig--flow { break-inside: auto; }
   .ar-panel { break-inside: avoid; }
-  #cierre { break-before: page; }
+  #cierre { break-before: auto; }
   .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .web-pill { justify-self: start; }
 }
@@ -1073,6 +1200,25 @@ a { color: inherit; }
   .theme-sw { display: none !important; }
 }
 @media print { .key, .statement, .try { break-inside: avoid; } }
+
+@media print {
+  .pdf-btn, .foot { display: none !important; }
+  .flow > .fig, .flow > .stats, .flow > .box, .flow > .cases { margin-top: 7mm; }
+  .flow > .fig + *, .flow > .stats + *, .flow > .box + *, .flow > .cases + * { margin-top: 6mm; }
+  .person img { width: 20mm; height: 20mm; }
+  .person { grid-template-columns: 20mm minmax(0, 1fr); gap: 5mm; }
+  .person__name { font-size: 13pt; }
+  .person__links { font-size: 10pt; }
+  .people { padding-top: 6mm; }
+  .final__person .person__links a { color: var(--white); }
+}
+@media print {
+  .logos-grid li { height: 12mm; }
+  .logos-grid img { max-height: 8mm; }
+  .people, .about__head { break-inside: avoid; }
+  .person__links { flex-wrap: nowrap; font-size: 9.5pt; }
+  .closing-h { break-before: auto; }
+}
 </style>
 
 <a class="sr-only" href="#introduccion">Saltar al contenido</a>
@@ -1085,6 +1231,7 @@ a { color: inherit; }
       <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
     </button>
+    <a class="btn pdf-btn" href="marca-directiva-verne.pdf" download="Marca-Directiva-Verne.pdf" data-pdf aria-label="Descargar PDF del eBook"><svg class="dl-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg><span>Descargar PDF</span></a>
     <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="mod" aria-hidden="true"><i></i><i></i></span>Índice</button>
     <nav class="menu" id="menu" aria-label="Índice del eBook" hidden>
       <ol>
@@ -1174,7 +1321,7 @@ a { color: inherit; }
 <article class="intro" id="introduccion" data-chap="Introducción" aria-labelledby="t-intro">
   <div class="wrap">
     <div class="read" style="padding-top:0">
-      <aside class="read__side" aria-label="En esta sección"><p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Introducción</p></aside>
+      <div class="read__side" aria-hidden="true"></div>
       <div class="flow">
         <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Introducción</p>
         <h2 class="intro-h" id="t-intro">La credibilidad cambió de dirección</h2>
@@ -1197,10 +1344,9 @@ a { color: inherit; }
         <aside class="cta rv" id="cta-1" aria-labelledby="t-cta1">
           <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div>
-            <p class="cta__k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Antes de seguir</p>
             <h3 id="t-cta1"><em>Antes de seguir,</em> ¿sabes qué le responde hoy una IA a quien pregunta por ti?</h3>
           </div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta1" data-cta-open>Descarga la guía de 1 página <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20la%20gu%C3%ADa%20de%201%20p%C3%A1gina%3A%20qu%C3%A9%20responde%20la%20IA%20sobre%20m%C3%AD" role="button" aria-expanded="false" aria-controls="form-cta1" data-cta-open>Descarga la guía de 1 página <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
           <form class="lead" id="form-cta1" data-cta="cta1" data-kind="descarga" novalidate hidden><div class="lead__grid"><div class="lead__f"><label for="form-cta1-nombre">Nombre</label><input id="form-cta1-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="form-cta1-nombre-err"><p class="lead__err" id="form-cta1-nombre-err" hidden>Escribe tu nombre.</p></div><div class="lead__f"><label for="form-cta1-correo">Correo</label><input id="form-cta1-correo" name="correo" type="email" autocomplete="email" required aria-describedby="form-cta1-correo-err" inputmode="email"><p class="lead__err" id="form-cta1-correo-err" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</p></div><div class="lead__f"><label for="form-cta1-celular">Celular</label><input id="form-cta1-celular" name="celular" type="tel" autocomplete="tel" required aria-describedby="form-cta1-celular-err" inputmode="tel"><p class="lead__err" id="form-cta1-celular-err" hidden>Escribe un número de celular válido, con al menos 9 dígitos.</p></div><div class="lead__f"><label for="form-cta1-cargo">Cargo</label><input id="form-cta1-cargo" name="cargo" type="text" autocomplete="organization-title" required aria-describedby="form-cta1-cargo-err"><p class="lead__err" id="form-cta1-cargo-err" hidden>Escribe tu cargo.</p></div><div class="lead__f"><label for="form-cta1-empresa">Empresa</label><input id="form-cta1-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="form-cta1-empresa-err"><p class="lead__err" id="form-cta1-empresa-err" hidden>Escribe el nombre de tu empresa.</p></div><div class="lead__f lead__f--send"><button class="btn btn--primary" type="submit">Recibir la guía <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div></div><p class="lead__status" role="status" aria-live="polite"></p></form>
         </aside>
       </div>
@@ -1263,9 +1409,8 @@ a { color: inherit; }
 
         <!-- CTA 2 · formulario (destino pendiente: ver PENDIENTES.md) -->
         <aside class="cta cta--light rv" id="cta-2" aria-labelledby="t-cta2">
-          <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta2">¿Estás listo para ser tú quien gestione <span>lo que dicen de tu marca?</span></h3></div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta2" data-cta-open>Te ayudamos a liderar la conversación <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20que%20me%20ayuden%20a%20liderar%20la%20conversaci%C3%B3n%20sobre%20mi%20marca" role="button" aria-expanded="false" aria-controls="form-cta2" data-cta-open>Te ayudamos a liderar la conversación <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
           <form class="lead" id="form-cta2" data-cta="cta2" data-kind="contacto" novalidate hidden><div class="lead__grid"><div class="lead__f"><label for="form-cta2-nombre">Nombre</label><input id="form-cta2-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="form-cta2-nombre-err"><p class="lead__err" id="form-cta2-nombre-err" hidden>Escribe tu nombre.</p></div><div class="lead__f"><label for="form-cta2-correo">Correo</label><input id="form-cta2-correo" name="correo" type="email" autocomplete="email" required aria-describedby="form-cta2-correo-err" inputmode="email"><p class="lead__err" id="form-cta2-correo-err" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</p></div><div class="lead__f"><label for="form-cta2-celular">Celular</label><input id="form-cta2-celular" name="celular" type="tel" autocomplete="tel" required aria-describedby="form-cta2-celular-err" inputmode="tel"><p class="lead__err" id="form-cta2-celular-err" hidden>Escribe un número de celular válido, con al menos 9 dígitos.</p></div><div class="lead__f"><label for="form-cta2-cargo">Cargo</label><input id="form-cta2-cargo" name="cargo" type="text" autocomplete="organization-title" required aria-describedby="form-cta2-cargo-err"><p class="lead__err" id="form-cta2-cargo-err" hidden>Escribe tu cargo.</p></div><div class="lead__f"><label for="form-cta2-empresa">Empresa</label><input id="form-cta2-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="form-cta2-empresa-err"><p class="lead__err" id="form-cta2-empresa-err" hidden>Escribe el nombre de tu empresa.</p></div><div class="lead__f lead__f--send"><button class="btn btn--primary" type="submit">Enviar <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div></div><p class="lead__status" role="status" aria-live="polite"></p></form>
         </aside>
       </div>
@@ -1386,9 +1531,8 @@ a { color: inherit; }
 
         <!-- CTA 3 · agenda (enlace pendiente) -->
         <aside class="cta cta--light rv" id="cta-3" aria-labelledby="t-cta3">
-          <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta3">De los cuatro criterios, <span>¿cuál es hoy el más débil para ti?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta3">Conoce tu puntaje <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20conocer%20mi%20puntaje%20en%20el%20Ranking%20Directivos%20Digitales%202026" data-cta-link="cta3">Conoce tu puntaje <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
         </aside>
 
         <h3 id="c2-arquetipos">Los arquetipos que funcionan</h3>
@@ -1458,9 +1602,8 @@ a { color: inherit; }
 
         <!-- CTA 4 · test (enlace pendiente) -->
         <aside class="cta cta--light rv" id="cta-4" aria-labelledby="t-cta4">
-          <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta4">¿Qué arquetipo de <span>directivo digital eres?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta4">Haz el test (3 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20hacer%20el%20test%20de%20arquetipos%20de%20directivo%20digital" data-cta-link="cta4">Haz el test (3 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
         </aside>
 
         <h3 id="c2-falla">Donde el sistema todavía falla</h3>
@@ -1519,7 +1662,7 @@ a { color: inherit; }
         <aside class="cta rv" id="cta-5" aria-labelledby="t-cta5">
           <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta5">Estas brechas ya se miden. <span>¿Cuáles son las tuyas?</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta5">Conoce tu nota (30 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20conocer%20mi%20nota%20en%20el%20Ranking%20Directivos%20Digitales%202026" data-cta-link="cta5">Conoce tu nota (30 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
         </aside>
       </div>
     </div>
@@ -1586,7 +1729,7 @@ a { color: inherit; }
         <aside class="cta rv" id="cta-6" aria-labelledby="t-cta6">
           <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta6">Audita qué dicen las IA <span>de tu empresa</span></h3></div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta6">Hazlo aquí <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20auditar%20qu%C3%A9%20dicen%20las%20IA%20de%20mi%20empresa" data-cta-link="cta6">Hazlo aquí <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
         </aside>
 
         <h3 id="c3-intimo">El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
@@ -1667,8 +1810,7 @@ a { color: inherit; }
 
         <!-- CTA 7 · solo botón en el documento (enlace pendiente) -->
         <aside class="cta-inline rv" id="cta-7" aria-label="Llamado a la acción">
-          <p><span class="mod" aria-hidden="true"><i></i><i></i></span>Verne · Marca Directiva</p>
-          <a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta7">Haz que la IA sea tu ayuda, no tu reemplazo <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
+          <a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20que%20la%20IA%20sea%20mi%20ayuda%2C%20no%20mi%20reemplazo" data-cta-link="cta7">Haz que la IA sea tu ayuda, no tu reemplazo <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
         </aside>
       </div>
     </div>
@@ -1725,9 +1867,8 @@ a { color: inherit; }
 
         <!-- CTA 8 · formulario de descarga (envío y archivo pendientes) -->
         <aside class="cta cta--light rv" id="cta-8" aria-labelledby="t-cta8">
-          <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div><h3 id="t-cta8"><span>La ventana está abierta.</span> Estos 4 pasos te ponen en el mapa mental de la IA antes de que se sature.</h3></div>
-          <div class="cta__act"><button class="btn btn--primary" type="button" aria-expanded="false" aria-controls="form-cta8" data-cta-open>Descarga el checklist GEO (1 hoja) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20el%20checklist%20GEO%20%281%20hoja%29" role="button" aria-expanded="false" aria-controls="form-cta8" data-cta-open>Descarga el checklist GEO (1 hoja) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
           <form class="lead" id="form-cta8" data-cta="cta8" data-kind="descarga" novalidate hidden><div class="lead__grid"><div class="lead__f"><label for="form-cta8-nombre">Nombre</label><input id="form-cta8-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="form-cta8-nombre-err"><p class="lead__err" id="form-cta8-nombre-err" hidden>Escribe tu nombre.</p></div><div class="lead__f"><label for="form-cta8-correo">Correo</label><input id="form-cta8-correo" name="correo" type="email" autocomplete="email" required aria-describedby="form-cta8-correo-err" inputmode="email"><p class="lead__err" id="form-cta8-correo-err" hidden>Escribe un correo válido, por ejemplo nombre@empresa.com.</p></div><div class="lead__f"><label for="form-cta8-celular">Celular</label><input id="form-cta8-celular" name="celular" type="tel" autocomplete="tel" required aria-describedby="form-cta8-celular-err" inputmode="tel"><p class="lead__err" id="form-cta8-celular-err" hidden>Escribe un número de celular válido, con al menos 9 dígitos.</p></div><div class="lead__f"><label for="form-cta8-cargo">Cargo</label><input id="form-cta8-cargo" name="cargo" type="text" autocomplete="organization-title" required aria-describedby="form-cta8-cargo-err"><p class="lead__err" id="form-cta8-cargo-err" hidden>Escribe tu cargo.</p></div><div class="lead__f"><label for="form-cta8-empresa">Empresa</label><input id="form-cta8-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="form-cta8-empresa-err"><p class="lead__err" id="form-cta8-empresa-err" hidden>Escribe el nombre de tu empresa.</p></div><div class="lead__f lead__f--send"><button class="btn btn--primary" type="submit">Recibir el checklist <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></button></div></div><p class="lead__status" role="status" aria-live="polite"></p></form>
         </aside>
       </div>
@@ -1892,7 +2033,7 @@ a { color: inherit; }
             <h3 id="t-cta9">Agenda tu diagnóstico de <span>Marca Directiva.</span></h3>
             <p>Te mostramos dónde estás hoy frente a los directivos mejor evaluados del país.</p>
           </div>
-          <div class="cta__act"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta9">Solicita tu reporte <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+          <div class="cta__act"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20agendar%20mi%20diagn%C3%B3stico%20de%20Marca%20Directiva" data-cta-link="cta9">Solicita tu reporte <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
         </aside>
       </div>
     </div>
@@ -1903,7 +2044,7 @@ a { color: inherit; }
 <section class="chap" id="cierre" data-chap="Cierre" aria-labelledby="t-cierre">
   <div class="wrap">
     <div class="read" style="padding-top:0">
-      <aside class="read__side" aria-label="En esta sección"><p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Cierre</p></aside>
+      <div class="read__side" aria-hidden="true"></div>
       <div class="flow">
         <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Cierre</p>
         <h2 class="closing-h" id="t-cierre">¿Cómo sostienen los líderes la autenticidad de la marca corporativa en la era de la IA?</h2>
@@ -1923,20 +2064,12 @@ a { color: inherit; }
         <aside class="cta final rv" id="cta-10" aria-labelledby="t-cta10">
           <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
           <div>
-            <p class="cta__k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Ranking Directivos Digitales 2026</p>
             <h3 id="t-cta10">¿Qué nota sacarías en el <span>Ranking Directivos Digitales 2026?</span></h3>
             <p>En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
-            <div class="cta__act" style="justify-self:start"><a class="btn btn--primary" role="link" aria-disabled="true" data-cta-link="cta10">Agenda y conoce tu nota (30 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
-            <p class="final__alt"><a role="link" aria-disabled="true" data-cta-link="whatsapp">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</a></p>
+            <div class="cta__act" style="justify-self:start"><a class="btn btn--primary" href="mailto:julio@verne.la?subject=Quiero%20agendar%20y%20conocer%20mi%20nota%20en%20el%20Ranking%20%2830%20min%29" data-cta-link="cta10">Agenda y conoce tu nota (30 min) <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a></div>
+            <p class="final__alt"><a href="https://wa.me/51966050678" target="_blank" rel="noopener" data-cta-link="whatsapp">¿Prefieres algo más directo? Escríbenos por WhatsApp y te respondemos al toque.</a></p>
           </div>
-          <div class="contact">
-            <img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="240" height="240" loading="lazy">
-            <div>
-              <p class="contact__name">Julio Talledo</p>
-              <p class="contact__role">Director Comercial y de Marketing en Verne</p>
-              <p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a> · <span class="nw">966 050 678</span></p>
-            </div>
-          </div>
+          <div class="final__person"><div class="person"><img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="320" height="320" loading="lazy"><div><p class="person__name">Julio Talledo</p><p class="person__role">Director Comercial y de Marketing en Verne</p><p class="person__links"><a href="mailto:julio@verne.la">julio@verne.la</a><a href="tel:+51966050678">966 050 678</a></p></div></div></div>
         </aside>
       </div>
     </div>
@@ -1947,24 +2080,15 @@ a { color: inherit; }
 <section class="about" id="sobre-verne" data-chap="Sobre Verne" aria-labelledby="t-about">
   <div class="wrap">
     <header class="about__head rv">
-      <div>
-        <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Verne · Comunicación e Innovación</p>
-        <h2 id="t-about">Sobre Verne</h2>
-      </div>
-      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.</p>
+      <h2 id="t-about">Sobre Verne</h2>
+      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.<a class="about__web" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
     </header>
     <h3 class="logos-t"><span class="mod" aria-hidden="true"><i></i><i></i></span>Confían en nosotros</h3>
     <ul class="logos-grid rv" aria-label="Empresas que confían en Verne"><li><img src="assets/logos/orygen.png" alt="Orygen" width="171" height="41" loading="lazy"></li><li><img src="assets/logos/farmacias-peruanas.png" alt="Farmacias Peruanas" width="136" height="41" loading="lazy"></li><li><img src="assets/logos/universidad-continental.png" alt="Universidad Continental" width="137" height="36" loading="lazy"></li><li><img src="assets/logos/primax.png" alt="Primax" width="134" height="45" loading="lazy"></li><li><img src="assets/logos/palmas.png" alt="Palmas" width="116" height="50" loading="lazy"></li><li><img src="assets/logos/fenix.png" alt="Fenix" width="120" height="56" loading="lazy"></li><li><img src="assets/logos/antapaccay.png" alt="Antapaccay" width="108" height="64" loading="lazy"></li><li><img src="assets/logos/ism.png" alt="ISM Industrias San Miguel" width="102" height="68" loading="lazy"></li><li><img src="assets/logos/tgp.png" alt="TGP" width="141" height="66" loading="lazy"></li><li><img src="assets/logos/pacifico.png" alt="Pacífico" width="134" height="36" loading="lazy"></li><li><img src="assets/logos/prima-afp.png" alt="Prima AFP" width="123" height="30" loading="lazy"></li><li><img src="assets/logos/repsol.png" alt="Repsol" width="143" height="38" loading="lazy"></li><li><img src="assets/logos/isa-rep.png" alt="ISA REP" width="99" height="48" loading="lazy"></li><li><img src="assets/logos/promperu.png" alt="Promperú" width="94" height="53" loading="lazy"></li><li><img src="assets/logos/universidad-de-piura.png" alt="Universidad de Piura" width="139" height="57" loading="lazy"></li><li><img src="assets/logos/upn.png" alt="UPN Universidad Privada del Norte" width="91" height="57" loading="lazy"></li><li><img src="assets/logos/laureate.png" alt="Laureate Perú" width="133" height="41" loading="lazy"></li><li><img src="assets/logos/petrotal.png" alt="PetroTal" width="134" height="48" loading="lazy"></li><li><img src="assets/logos/interbank.png" alt="Interbank" width="135" height="33" loading="lazy"></li><li><img src="assets/logos/hub-udep.png" alt="HUB UDEP" width="94" height="61" loading="lazy"></li><li><img src="assets/logos/intursa.png" alt="Intursa Grupo Hotelero" width="138" height="48" loading="lazy"></li><li><img src="assets/logos/nexans.png" alt="Nexans" width="110" height="39" loading="lazy"></li><li><img src="assets/logos/ntt-data.png" alt="NTT Data" width="129" height="27" loading="lazy"></li><li><img src="assets/logos/universidad-de-piura-2.png" alt="Universidad de Piura" width="136" height="56" loading="lazy"></li><li><img src="assets/logos/sph.png" alt="SPH Sociedad Peruana de Hidrocarburos" width="95" height="65" loading="lazy"></li><li><img src="assets/logos/lima-expresa.png" alt="Lima Expresa" width="109" height="64" loading="lazy"></li><li><img src="assets/logos/protecta-security.png" alt="Protecta Security" width="140" height="36" loading="lazy"></li><li><img src="assets/logos/inretail-pharma.png" alt="InRetail Pharma" width="135" height="51" loading="lazy"></li><li><img src="assets/logos/coltur.png" alt="Coltur" width="140" height="44" loading="lazy"></li><li><img src="assets/logos/pluz.png" alt="Pluz" width="100" height="55" loading="lazy"></li><li><img src="assets/logos/lima-airport.png" alt="Lima Airport" width="133" height="45" loading="lazy"></li><li><img src="assets/logos/enel.png" alt="Enel" width="104" height="44" loading="lazy"></li><li><img src="assets/logos/calidda.png" alt="Cálidda" width="131" height="47" loading="lazy"></li><li><img src="assets/logos/inlearning.png" alt="inLearning" width="118" height="40" loading="lazy"></li><li><img src="assets/logos/konecta.png" alt="Konecta" width="120" height="27" loading="lazy"></li><li><img src="assets/logos/bancom.png" alt="Bancom" width="133" height="30" loading="lazy"></li><li><img src="assets/logos/promigas.png" alt="Promigas" width="104" height="56" loading="lazy"></li><li><img src="assets/logos/alfaco.png" alt="Alfaco" width="132" height="27" loading="lazy"></li><li><img src="assets/logos/engie.png" alt="Engie" width="95" height="41" loading="lazy"></li></ul>
+    <h3 class="logos-t"><span class="mod" aria-hidden="true"><i></i><i></i></span>Contacto</h3>
     <div class="people">
-      <div class="contact">
-        <img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="240" height="240" loading="lazy">
-        <div><p class="contact__name">Julio Talledo</p><p class="contact__role">Director Comercial y de Marketing</p><p class="contact__line"><a href="mailto:julio@verne.la">julio@verne.la</a> · <span class="nw">966 050 678</span></p></div>
-      </div>
-      <div class="contact">
-        <img src="assets/directivos/victor-lozano.png" alt="Retrato de Víctor Lozano" width="240" height="240" loading="lazy">
-        <div><p class="contact__name">Víctor Lozano</p><p class="contact__role">Director de Innovación</p><p class="contact__line"><a href="mailto:victor@verne.la">victor@verne.la</a> · <span class="nw">987 570 893</span></p></div>
-      </div>
-      <a class="btn btn--secondary web-pill" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
+      <div class="person"><img src="assets/directivos/julio-talledo.png" alt="Retrato de Julio Talledo" width="320" height="320" loading="lazy"><div><p class="person__name">Julio Talledo</p><p class="person__role">Director Comercial y de Marketing</p><p class="person__links"><a href="mailto:julio@verne.la">julio@verne.la</a><a href="tel:+51966050678">966 050 678</a></p></div></div>
+      <div class="person"><img src="assets/directivos/victor-lozano.png" alt="Retrato de Víctor Lozano" width="320" height="320" loading="lazy"><div><p class="person__name">Víctor Lozano</p><p class="person__role">Director de Innovación</p><p class="person__links"><a href="mailto:victor@verne.la">victor@verne.la</a><a href="tel:+51987570893">987 570 893</a></p></div></div>
     </div>
   </div>
 </section>
@@ -1973,7 +2097,8 @@ a { color: inherit; }
 <footer class="foot dark">
   <div class="wrap">
     <img src="assets/logo-verne-blanco.svg" alt="Verne" width="96" height="24">
-    <span>Marca Directiva en la Era de la Inteligencia Artificial · Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span>
+    <p>Marca Directiva en la Era de la Inteligencia Artificial<span>Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span></p>
+    <a class="btn btn--primary" href="marca-directiva-verne.pdf" download="Marca-Directiva-Verne.pdf" data-pdf><svg class="dl-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>Descargar el eBook en PDF</a>
   </div>
 </footer>
 
@@ -1981,7 +2106,10 @@ a { color: inherit; }
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- Destinos configurables de los diez CTA. null = pendiente (ver ebook/PENDIENTES.md). ---- */
+  /* ---- Destinos de los diez CTA.
+     Mientras no exista el destino definitivo (calendario, test, formulario), cada CTA abre un correo
+     a julio@verne.la (contacto indicado en el Word) con el asunto del pedido. Al completar `url` o
+     `formEndpoint`, ese destino reemplaza al correo. Ver ebook/PENDIENTES.md. ---- */
   var CTA_CONFIG = {
     cta1:  { formEndpoint: null, recurso: null }, /* Guía de 1 página */
     cta2:  { formEndpoint: null },                /* Formulario «Te ayudamos a liderar la conversación» */
@@ -1993,22 +2121,21 @@ a { color: inherit; }
     cta8:  { formEndpoint: null, recurso: null }, /* Checklist GEO (1 hoja) */
     cta9:  { url: null },                         /* «Solicita tu reporte» */
     cta10: { url: null },                         /* Calendario de reservas */
-    whatsapp: { url: null }                       /* WhatsApp de Julio Talledo */
+    whatsapp: { url: null }                       /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
   };
   document.querySelectorAll('[data-cta-link]').forEach(function (a) {
     var cfg = CTA_CONFIG[a.getAttribute('data-cta-link')];
     if (cfg && cfg.url) {
       a.setAttribute('href', cfg.url); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener');
-      a.removeAttribute('aria-disabled'); a.removeAttribute('role');
-    } else {
-      a.addEventListener('click', function (e) { e.preventDefault(); });
     }
   });
 
-  /* ---- Formularios (CTA 1, 2 y 8): validación; sin integración no se envía ni se simula nada ---- */
+  /* ---- Formularios (CTA 1, 2 y 8). El botón es un enlace mailto (útil en el PDF); en la web abre el formulario. ---- */
   document.querySelectorAll('[data-cta-open]').forEach(function (b) {
     var f = document.getElementById(b.getAttribute('aria-controls'));
-    b.addEventListener('click', function () {
+    b.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); b.click(); } });
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
       var open = b.getAttribute('aria-expanded') === 'true';
       b.setAttribute('aria-expanded', open ? 'false' : 'true');
       f.hidden = open;
@@ -2042,9 +2169,44 @@ a { color: inherit; }
       if (firstBad) { status.textContent = 'Revisa los campos marcados.'; firstBad.focus(); return; }
       var cfg = CTA_CONFIG[f.getAttribute('data-cta')] || {};
       if (cfg.formEndpoint) { /* Integración pendiente: enviar a cfg.formEndpoint y, si corresponde, entregar cfg.recurso. */ return; }
+      /* Sin integración: se arma el correo con los datos para que la persona lo envíe a Verne. */
+      var opener = document.querySelector('[aria-controls="' + f.id + '"]');
+      var subject = decodeURIComponent((opener.getAttribute('href').split('subject=')[1] || '').replace(/\+/g, ' '));
+      var lines = Array.prototype.map.call(f.querySelectorAll('input'), function (inp) {
+        return f.querySelector('label[for="' + inp.id + '"]').textContent + ': ' + inp.value.trim();
+      });
       var nombre = (f.querySelector('[name="nombre"]').value || '').trim().split(' ')[0];
-      status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Tus datos están completos. ' +
-        (f.getAttribute('data-kind') === 'descarga' ? 'La descarga estará disponible muy pronto.' : 'El envío estará disponible muy pronto.');
+      status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Abrimos tu correo con la solicitud para Verne; solo tienes que enviarlo. Si no se abre, escríbenos a julio@verne.la.';
+      window.location.href = 'mailto:julio@verne.la?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+
+
+  /* ---- Descargar PDF: en claude.ai usa la capacidad «downloads»; fuera de ella, el enlace descarga el archivo ---- */
+  var pdfLinks = document.querySelectorAll('[data-pdf]');
+  var pdfNote = null;
+  function pdfStatus(msg) {
+    if (!pdfNote) { pdfNote = document.createElement('p'); pdfNote.className = 'sr-only'; pdfNote.setAttribute('role', 'status'); document.body.appendChild(pdfNote); }
+    pdfNote.textContent = msg;
+  }
+  pdfLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (!window.claude || typeof window.claude.use !== 'function') return; /* página independiente: descarga normal */
+      e.preventDefault();
+      if (a.getAttribute('aria-busy') === 'true') return;
+      a.setAttribute('aria-busy', 'true');
+      var href = a.getAttribute('href');
+      Promise.all([window.claude.use('downloads'), fetch(href).then(function (r) { if (!r.ok) throw new Error('pdf'); return r.blob(); })])
+        .then(function (res) {
+          var dl = res[0], blob = res[1];
+          if (!dl) { window.open(href, '_blank', 'noopener'); return; }
+          return dl.save({ filename: 'Marca-Directiva-Verne.pdf', data: blob }).then(function () { pdfStatus('PDF descargado.'); });
+        })
+        .catch(function (err) {
+          if (err && err.code === 'declined') return;
+          window.open(href, '_blank', 'noopener');
+        })
+        .then(function () { a.removeAttribute('aria-busy'); });
     });
   });
 

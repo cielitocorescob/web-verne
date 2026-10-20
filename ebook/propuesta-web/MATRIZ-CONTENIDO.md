@@ -1,7 +1,7 @@
 # Matriz comparativa · Word original vs. eBook web y PDF
 
 Fuente: `EBook_Marca_Directiva_en_la_Era_de_la_Inteligencia_Artificial_v3_con_CTAs_7rev.docx`.
-Web: `ebook/propuesta-web/marca-directiva-web.html`. PDF: `ebook/propuesta-web/marca-directiva-web-borrador.pdf` (38 páginas A4).
+Web: `ebook/propuesta-web/marca-directiva-web.html`. PDF: `ebook/propuesta-web/marca-directiva-verne.pdf` (35 páginas A4, descargable desde la cabecera y el pie).
 
 «Estado inicial» es la propuesta web anterior (3 maquetas). «Estado final» es esta versión.
 Las páginas del PDF corresponden a la exportación actual y pueden moverse si cambia el contenido.
