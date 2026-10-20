@@ -1,0 +1,149 @@
+
+/* ── PDF (A4 vertical, composición clara; todo el contenido interactivo visible) ── */
+@page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
+@page :first { margin: 10mm; @bottom-right { content: none; } }
+@media print {
+  html { scroll-behavior: auto; }
+  body { font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js-reveal .rv, .js-reveal .grow .hb__f { opacity: 1 !important; transform: none !important; }
+  .top, .menu, .read__side, .chips, .loop, .ph-nav, .lead, .hero__actions, .hero__mods, .synapse, .ar-tabs, .crit-names, .foot, .opener__mods { display: none !important; }
+  .wrap { max-width: none; padding-inline: 0; }
+  a { text-decoration: none; }
+  h2, h3, h4 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+
+  /* Portada: página completa */
+  .hero { border-radius: 6mm; min-height: 277mm; display: grid; align-items: center; break-after: page; }
+  .hero .wrap { padding: 16mm 12mm; grid-template-columns: minmax(0, 1fr); gap: 10mm; }
+  .hero h1 { font-size: 34pt; }
+  .hero__lead { font-size: 13pt; max-width: none; }
+  .hero__media { max-width: 120mm; }
+  .hero__photo { aspect-ratio: 16 / 10; }
+
+  /* Índice */
+  .sec { padding-block: 0 6mm; }
+  #indice { break-after: page; }
+  .sec__head { margin-bottom: 6mm; }
+  .toc { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm; }
+  .toc a { min-height: 0; padding: 5mm; gap: 4mm; }
+  .toc__go { display: none; }
+  .toc__t { font-size: 12pt; }
+
+  /* Lectura */
+  .chap { padding-top: 0; }
+  .read { grid-template-columns: minmax(0, 1fr); padding-top: 8mm; gap: 0; }
+  .flow > * + * { margin-top: 4.5mm; }
+  .flow > h3 { margin-top: 9mm; }
+  .flow > p, .prose p { font-size: 10.5pt; line-height: 1.65; max-width: none; }
+  .flow h3 { font-size: 15pt; }
+  .intro-h, .closing-h { font-size: 24pt; }
+  .key { padding: 4mm 5mm; font-size: 11pt !important; max-width: none; }
+  .statement { font-size: 15pt !important; max-width: none !important; }
+  .eyebrow { font-size: 9pt; }
+
+  /* Aperturas de capítulo: nueva página, fotografía conservada */
+  .opener, .fw__panel { break-before: page; }
+  .opener { min-height: 112mm; border-radius: 6mm; }
+  .opener__body { padding: 9mm; max-width: 140mm; gap: 3mm; }
+  .opener h2 { font-size: 24pt; }
+  .opener__lead p { font-size: 10.5pt; }
+  #framework .opener__n { background: var(--tint-2); box-shadow: none; color: var(--purple); }
+
+  /* Figuras, tarjetas y CTA sin cortes */
+  .fig, .kpi, .stat, .stats, .cta, .cta-inline, .crit-panel, .ph-panel, .pf, .case, .box, .quote, .purp li, .q3 li, .acc details, .dt tr, .vs tr, .facts, .try, .contact, .logos-grid, .mx, .dn { break-inside: avoid; }
+  .fig { padding: 5mm; gap: 4mm; }
+  .fig__t { font-size: 11pt; }
+  .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3mm; }
+  .kpi { padding: 4mm; }
+  .kpi b { font-size: 22pt; }
+  .kpi span { font-size: 8.5pt; }
+
+  /* Pestañas: todas visibles */
+  .crit-panel[hidden], .ph-panel[hidden], .ar-panel[hidden] { display: grid !important; }
+  .crit-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3mm; }
+  .crit-panel { grid-template-columns: minmax(0, 1fr); padding: 4mm; gap: 2mm; }
+  .crit-panel h4 { font-size: 11pt; }
+  .crit-panel li { font-size: 9pt; }
+  .crit-seg[aria-selected="true"] { background: var(--tint-2); color: var(--ink); }
+  .crit-seg { min-height: 12mm; font-size: 13pt; }
+  .crit-bar { grid-template-columns: 15fr 40fr 30fr 15fr !important; }
+  .crit-seg::before { content: none !important; }
+  .ar-panel { gap: 3mm; padding-top: 4mm; border-top: 1px solid var(--line); }
+  .ar-h { display: block; }
+  .ar-text { font-size: 10pt; }
+  .pf { padding: 4mm; gap: 3mm; }
+  .fq[data-show] .y25, .fq[data-show] .y26 { flex-grow: 1 !important; max-width: 56px !important; opacity: 1 !important; }
+  .fq[data-show] .y25 b, .fq[data-show] .y26 b { display: block !important; }
+  .fq { height: 52mm; }
+
+  /* Acordeón: todo abierto */
+  .acc details > .acc__body { display: block !important; }
+  .acc details::details-content { content-visibility: visible; display: contents; }
+  .acc__i { display: none; }
+  .acc summary { padding: 3mm 4mm; }
+  .acc__body { padding: 0 4mm 4mm 18mm; font-size: 10pt; }
+
+  /* Framework en composición clara */
+  .fw__panel { background: var(--white); color: var(--ink); padding: 0; border-radius: 0; overflow: visible; --on-dark: var(--ink); --on-dark-2: var(--ink-2); --on-dark-line: var(--line); }
+  .fw__panel h2 { font-size: 24pt; }
+  .fw__panel h2, .fw__panel .ph-panel h3, .fw__panel .ph-list li b { color: var(--ink); }
+  .fw__panel .sec__head p, .fw__panel .ph-intro { color: var(--ink-2); }
+  .fw__panel .ph-k { color: var(--purple); }
+  .fw__panel .ph-panel { background: var(--white); box-shadow: inset 0 0 0 1px var(--line); }
+  .ph-panels { display: grid; gap: 4mm; }
+  .ph-panel { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); padding: 5mm; }
+  .ph-panel h3 { font-size: 16pt; }
+  .ph-meta { display: none; }
+  .ph-list li { font-size: 9.5pt; padding: 2mm 0; }
+  .track::before { background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 14px); }
+  .track__fill { display: none; }
+  .phase, .phase small { color: var(--ink-2); }
+  .phase__n, .phase[aria-selected="true"] .phase__n { background: var(--white); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--purple); height: 12mm; font-size: 13pt; }
+  .phase[aria-selected="true"] { color: var(--ink-2); }
+
+  /* CTA: se conservan los diez, compactos */
+  .cta { padding: 7mm 8mm; gap: 4mm 8mm; border-radius: 5mm; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .cta h3 { font-size: 15pt; }
+  .cta p { font-size: 9.5pt; }
+  .cta .btn, .cta-inline .btn { --h: 11mm; font-size: 9.5pt; padding: 0 6mm; }
+  .cta__mods { display: none; }
+  .final { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+
+  /* Otros componentes */
+  .cases { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm; }
+  .case { padding: 6mm; gap: 4mm; }
+  .case__t { font-size: 9.5pt !important; }
+  .about { padding-block: 0; break-before: page; }
+  .logos-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); padding: 4mm; }
+  .logos-grid li { height: 15mm; }
+  .logos-grid img { max-height: 9mm; }
+  .people { grid-template-columns: repeat(2, minmax(0, 1fr)) auto; }
+  .opener__img { position: absolute; }
+  .fig.fig--flow { break-inside: auto; }
+  .ar-panel { break-inside: avoid; }
+  #cierre { break-before: page; }
+  .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .web-pill { justify-self: start; }
+}
+
+/* El PDF siempre en composición editorial clara, sin importar el tema elegido en la web */
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #FFFFFF; --surface: #FFFFFF; --tint: #F6F4FB; --tint-2: #EFEBFA; --line: #E7E4F0;
+    --ink: #25283D; --ink-2: #4A4D63; --muted: #65677D; --navy: #25283D; --purple: #6D4ABE;
+    --bar-25: #C9C3DD; --seg-hover: #E3DCF8; --dot-ink: #25283D; --chip-on-bg: #25283D; --chip-on-fg: #FFFFFF;
+    --bar: var(--grad); --bar-v: linear-gradient(180deg, hsl(263 45% 52%), hsl(250 35% 34%)); --bar-blend: multiply;
+    --err: #B42318; --focus: #6D4ABE; --panel-ring: transparent; color-scheme: light;
+  }
+  [data-theme="dark"] .logos-grid img { filter: none; mix-blend-mode: multiply; }
+  [data-theme="dark"] .crit-seg { color: var(--ink); }
+  [data-theme="dark"] .dn__ring .val { stroke: #9C8BD3; }
+  [data-theme="dark"] .dn.key .dn__ring .val { stroke: var(--purple); }
+  [data-theme="dark"] .vn .c { fill: rgba(109, 74, 190, .07); stroke: var(--purple); }
+  [data-theme="dark"] .fn__lines path { stroke: var(--purple); }
+  [data-theme="dark"] .facts li { border-top-color: var(--purple); }
+  [data-theme="dark"] .people .contact__line a, [data-theme="dark"] .flow > p a, [data-theme="dark"] .prose a { color: var(--purple); }
+  [data-theme="dark"] .cta--light .cta__mods i { background: var(--purple); }
+  .theme-sw { display: none !important; }
+}
