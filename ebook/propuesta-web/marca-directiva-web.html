@@ -1051,6 +1051,11 @@ a { color: inherit; }
 }
 @media (pointer: coarse) and (max-width: 560px) { .pdf-btn { width: 44px; } }
 
+/* Dirección web: solo en el pie, discreta */
+.foot .foot__web { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 400; color: var(--on-dark-2); text-decoration: underline; text-decoration-color: hsl(252 74% 82% / .5); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
+.foot .foot__web:hover, .foot .foot__web:focus-visible { color: var(--lavender); text-decoration-color: var(--lavender); }
+.foot .foot__web:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
+
 /* ── PDF (A4 vertical, composición clara; todo el contenido interactivo visible) ── */
 @page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
 @page :first { margin: 10mm; @bottom-right { content: none; } }
@@ -1218,6 +1223,16 @@ a { color: inherit; }
   .people, .about__head { break-inside: avoid; }
   .person__links { flex-wrap: nowrap; font-size: 9.5pt; }
   .closing-h { break-before: auto; }
+}
+
+/* PDF: la dirección web solo en el cierre editorial final */
+@media print {
+  .foot { display: block !important; margin: 10mm 0 0; border-radius: 0; background: none !important; box-shadow: none !important; color: var(--ink); border-top: 1px solid var(--line); break-inside: avoid; }
+  .foot .wrap { padding: 5mm 0 0; display: flex; align-items: center; gap: 6mm; }
+  .foot img, .foot .btn { display: none !important; }
+  .foot p { color: var(--ink); font-size: 9pt; }
+  .foot p span { color: var(--muted); font-size: 8.5pt; }
+  .foot .foot__web { color: var(--purple); font-size: 9pt; text-decoration-color: var(--purple); }
 }
 </style>
 
@@ -2081,7 +2096,7 @@ a { color: inherit; }
   <div class="wrap">
     <header class="about__head rv">
       <h2 id="t-about">Sobre Verne</h2>
-      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.<a class="about__web" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
+      <p>Somos una consultora de Comunicación e Innovación que acompaña a empresas, directivos y personas a mejorar sus resultados de posicionamiento y reputación, impulsados por la inteligencia artificial.</p>
     </header>
     <h3 class="logos-t"><span class="mod" aria-hidden="true"><i></i><i></i></span>Confían en nosotros</h3>
     <ul class="logos-grid rv" aria-label="Empresas que confían en Verne"><li><img src="assets/logos/orygen.png" alt="Orygen" width="171" height="41" loading="lazy"></li><li><img src="assets/logos/farmacias-peruanas.png" alt="Farmacias Peruanas" width="136" height="41" loading="lazy"></li><li><img src="assets/logos/universidad-continental.png" alt="Universidad Continental" width="137" height="36" loading="lazy"></li><li><img src="assets/logos/primax.png" alt="Primax" width="134" height="45" loading="lazy"></li><li><img src="assets/logos/palmas.png" alt="Palmas" width="116" height="50" loading="lazy"></li><li><img src="assets/logos/fenix.png" alt="Fenix" width="120" height="56" loading="lazy"></li><li><img src="assets/logos/antapaccay.png" alt="Antapaccay" width="108" height="64" loading="lazy"></li><li><img src="assets/logos/ism.png" alt="ISM Industrias San Miguel" width="102" height="68" loading="lazy"></li><li><img src="assets/logos/tgp.png" alt="TGP" width="141" height="66" loading="lazy"></li><li><img src="assets/logos/pacifico.png" alt="Pacífico" width="134" height="36" loading="lazy"></li><li><img src="assets/logos/prima-afp.png" alt="Prima AFP" width="123" height="30" loading="lazy"></li><li><img src="assets/logos/repsol.png" alt="Repsol" width="143" height="38" loading="lazy"></li><li><img src="assets/logos/isa-rep.png" alt="ISA REP" width="99" height="48" loading="lazy"></li><li><img src="assets/logos/promperu.png" alt="Promperú" width="94" height="53" loading="lazy"></li><li><img src="assets/logos/universidad-de-piura.png" alt="Universidad de Piura" width="139" height="57" loading="lazy"></li><li><img src="assets/logos/upn.png" alt="UPN Universidad Privada del Norte" width="91" height="57" loading="lazy"></li><li><img src="assets/logos/laureate.png" alt="Laureate Perú" width="133" height="41" loading="lazy"></li><li><img src="assets/logos/petrotal.png" alt="PetroTal" width="134" height="48" loading="lazy"></li><li><img src="assets/logos/interbank.png" alt="Interbank" width="135" height="33" loading="lazy"></li><li><img src="assets/logos/hub-udep.png" alt="HUB UDEP" width="94" height="61" loading="lazy"></li><li><img src="assets/logos/intursa.png" alt="Intursa Grupo Hotelero" width="138" height="48" loading="lazy"></li><li><img src="assets/logos/nexans.png" alt="Nexans" width="110" height="39" loading="lazy"></li><li><img src="assets/logos/ntt-data.png" alt="NTT Data" width="129" height="27" loading="lazy"></li><li><img src="assets/logos/universidad-de-piura-2.png" alt="Universidad de Piura" width="136" height="56" loading="lazy"></li><li><img src="assets/logos/sph.png" alt="SPH Sociedad Peruana de Hidrocarburos" width="95" height="65" loading="lazy"></li><li><img src="assets/logos/lima-expresa.png" alt="Lima Expresa" width="109" height="64" loading="lazy"></li><li><img src="assets/logos/protecta-security.png" alt="Protecta Security" width="140" height="36" loading="lazy"></li><li><img src="assets/logos/inretail-pharma.png" alt="InRetail Pharma" width="135" height="51" loading="lazy"></li><li><img src="assets/logos/coltur.png" alt="Coltur" width="140" height="44" loading="lazy"></li><li><img src="assets/logos/pluz.png" alt="Pluz" width="100" height="55" loading="lazy"></li><li><img src="assets/logos/lima-airport.png" alt="Lima Airport" width="133" height="45" loading="lazy"></li><li><img src="assets/logos/enel.png" alt="Enel" width="104" height="44" loading="lazy"></li><li><img src="assets/logos/calidda.png" alt="Cálidda" width="131" height="47" loading="lazy"></li><li><img src="assets/logos/inlearning.png" alt="inLearning" width="118" height="40" loading="lazy"></li><li><img src="assets/logos/konecta.png" alt="Konecta" width="120" height="27" loading="lazy"></li><li><img src="assets/logos/bancom.png" alt="Bancom" width="133" height="30" loading="lazy"></li><li><img src="assets/logos/promigas.png" alt="Promigas" width="104" height="56" loading="lazy"></li><li><img src="assets/logos/alfaco.png" alt="Alfaco" width="132" height="27" loading="lazy"></li><li><img src="assets/logos/engie.png" alt="Engie" width="95" height="41" loading="lazy"></li></ul>
@@ -2097,7 +2112,7 @@ a { color: inherit; }
 <footer class="foot dark">
   <div class="wrap">
     <img src="assets/logo-verne-blanco.svg" alt="Verne" width="96" height="24">
-    <p>Marca Directiva en la Era de la Inteligencia Artificial<span>Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span></p>
+    <p>Marca Directiva en la Era de la Inteligencia Artificial<span>Reenvíaselo a tu CEO o a tu equipo de comunicaciones.</span><a class="foot__web" href="https://www.verne.la" target="_blank" rel="noopener">www.verne.la</a></p>
     <a class="btn btn--primary" href="marca-directiva-verne.pdf" download="Marca-Directiva-Verne.pdf" data-pdf><svg class="dl-i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>Descargar el eBook en PDF</a>
   </div>
 </footer>

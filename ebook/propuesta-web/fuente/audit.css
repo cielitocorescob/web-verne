@@ -125,3 +125,8 @@
   .theme-sw[aria-checked="true"] { --k-x: 20px; }
 }
 @media (pointer: coarse) and (max-width: 560px) { .pdf-btn { width: 44px; } }
+
+/* Dirección web: solo en el pie, discreta */
+.foot .foot__web { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 400; color: var(--on-dark-2); text-decoration: underline; text-decoration-color: hsl(252 74% 82% / .5); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
+.foot .foot__web:hover, .foot .foot__web:focus-visible { color: var(--lavender); text-decoration-color: var(--lavender); }
+.foot .foot__web:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }

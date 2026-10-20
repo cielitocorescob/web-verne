@@ -167,3 +167,13 @@
   .person__links { flex-wrap: nowrap; font-size: 9.5pt; }
   .closing-h { break-before: auto; }
 }
+
+/* PDF: la dirección web solo en el cierre editorial final */
+@media print {
+  .foot { display: block !important; margin: 10mm 0 0; border-radius: 0; background: none !important; box-shadow: none !important; color: var(--ink); border-top: 1px solid var(--line); break-inside: avoid; }
+  .foot .wrap { padding: 5mm 0 0; display: flex; align-items: center; gap: 6mm; }
+  .foot img, .foot .btn { display: none !important; }
+  .foot p { color: var(--ink); font-size: 9pt; }
+  .foot p span { color: var(--muted); font-size: 8.5pt; }
+  .foot .foot__web { color: var(--purple); font-size: 9pt; text-decoration-color: var(--purple); }
+}
