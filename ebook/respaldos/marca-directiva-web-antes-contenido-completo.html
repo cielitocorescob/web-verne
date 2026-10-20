@@ -1,0 +1,737 @@
+<title>Marca Directiva · Verne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<style>
+/* Sistema de la web de Verne: secciones blancas, bloques navy con luz morada difusa,
+   módulos de marca (punto u y cápsulas 2u/3u/5u) como sinapsis, botón cápsula con degradado
+   morado → navy. Una sola apariencia (como la web): colores explícitos, sin modo oscuro. */
+:root {
+  --navy: #25283D;
+  --navy-deep: #1B1D2E;
+  --navy-2: #2B2E48;
+  --purple: #6D4ABE;
+  --lavender: #C0B0F4;
+  --white: #FFFFFF;
+  --ink: #25283D;
+  --ink-2: #4A4D63;
+  --muted: #6E7086;
+  --line: #E7E4F0;
+  --tint: #F6F4FB;
+  --tint-2: #EFEBFA;
+  --on-dark: #FFFFFF;
+  --on-dark-2: hsl(0 0% 100% / .74);
+  --on-dark-line: hsl(0 0% 100% / .12);
+  --grad: linear-gradient(90deg, hsl(263 45% 52%), hsl(232 24% 19%));
+  --font: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --wrap: 1200px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; letter-spacing: normal; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 6px; }
+.dark :focus-visible { outline-color: var(--white); }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; border: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+
+/* ── Módulos de marca ── */
+.mod { display: inline-flex; align-items: center; gap: 4px; flex: none; }
+.mod i { display: block; height: 6px; border-radius: 6px; background: currentColor; }
+.mod i:first-child { width: 6px; }
+.mod i:last-child { width: 14px; }
+
+/* ── Eyebrow (como «•▬ Ranking» de la web) ── */
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--purple); }
+.dark .eyebrow { color: var(--lavender); }
+
+/* ── Botones ── */
+.btn { --h: 54px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: var(--h); padding: 0 26px 0 30px; border-radius: 999px; border: 0; font: 500 15px/1.2 var(--font); text-decoration: none; cursor: pointer; transition: filter .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .2s ease; -webkit-tap-highlight-color: transparent; }
+.btn--primary { background: var(--grad); color: var(--white); box-shadow: inset 0 0 0 1px hsl(252 74% 82% / .35); }
+.btn--primary:hover, .btn--primary:focus-visible { filter: brightness(1.1); }
+.btn--primary:active { transform: translateY(1px); filter: brightness(.96); }
+.btn--secondary { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); padding: 0 24px; }
+.btn--secondary:hover { box-shadow: inset 0 0 0 1.5px var(--purple); color: var(--purple); }
+.dark .btn--secondary { color: var(--white); box-shadow: inset 0 0 0 1.5px var(--on-dark-line); }
+.dark .btn--secondary:hover { box-shadow: inset 0 0 0 1.5px var(--lavender); color: var(--lavender); }
+.btn[aria-disabled="true"] { cursor: not-allowed; }
+.btn--primary[aria-disabled="true"]:hover { filter: none; }
+.btn-i { flex: none; width: 26px; height: 14px; overflow: visible; }
+.btn-i .d, .btn-i .c { fill: currentColor; transition: transform .28s var(--ease), opacity .22s ease; transform-box: fill-box; }
+.btn-i .c { transform-origin: 50% 50%; }
+.btn-i .h { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 14; stroke-dashoffset: 14; opacity: 0; transition: stroke-dashoffset .28s var(--ease) .04s, opacity .15s ease; }
+.btn:hover .d, .btn:focus-visible .d { transform: translateX(12px); opacity: 0; }
+.btn:hover .c, .btn:focus-visible .c { transform: translateX(-4px) scaleX(1.25) scaleY(.34); }
+.btn:hover .h, .btn:focus-visible .h { stroke-dashoffset: 0; opacity: 1; }
+@media (hover: none) {
+  .btn .d { transform: translateX(12px); opacity: 0; }
+  .btn .c { transform: translateX(-4px) scaleX(1.25) scaleY(.34); }
+  .btn .h { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* ── Filtros cápsula (como «Todos · eBooks · Ranking» de la web) ── */
+.chips { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink-2); font: 500 13px/1 var(--font); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.chip:hover { border-color: var(--purple); color: var(--purple); }
+.chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.chip .mod { color: var(--lavender); }
+
+/* ── Cabecera ── */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: hsl(232 24% 15% / .82); backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--on-dark-line); }
+.top .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.top__logo { width: 72px; height: auto; }
+.top nav { display: flex; gap: 4px; }
+.top nav a { font-size: 13px; color: var(--on-dark-2); text-decoration: none; padding: 8px 14px; border-radius: 999px; transition: color .2s ease, background-color .2s ease; }
+.top nav a:hover { color: var(--white); }
+.top nav a[aria-current="true"] { color: var(--white); background: hsl(0 0% 100% / .08); }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--grad); }
+
+/* ── 01 · Portada ── */
+.hero { position: relative; overflow: hidden; isolation: isolate; color: var(--on-dark);
+  background:
+    radial-gradient(ellipse 50% 42% at 72% 46%, rgba(109,74,190,.45) 0%, rgba(109,74,190,.14) 48%, rgba(109,74,190,0) 76%),
+    radial-gradient(ellipse 80% 60% at 30% 40%, rgba(192,176,244,.06) 0%, rgba(192,176,244,0) 70%),
+    linear-gradient(180deg, #343858 0%, #2B2E48 30%, #25283D 58%, #1B1D2E 100%); }
+.hero__mods { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+@media screen and (max-width: 640px) { .hero__mods { display: none; } }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(64px, 9vw, 120px) clamp(56px, 8vw, 104px); }
+.hero__text { display: grid; gap: 24px; }
+.hero h1 { font-size: clamp(38px, 5.2vw, 68px); line-height: 1.06; font-weight: 600; }
+.hero h1 span { color: var(--lavender); }
+.hero__lead { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.6; color: hsl(0 0% 100% / .84); max-width: 34ch; }
+.hero__aud { font-size: 14px; color: var(--on-dark-2); margin-top: -8px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.hero__seal { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 16px; padding-top: 24px; border-top: 1px solid var(--on-dark-line); max-width: 520px; }
+.hero__seal b { font-size: clamp(44px, 5vw, 60px); font-weight: 600; line-height: 1; color: var(--lavender); }
+.hero__seal p { font-size: 14px; line-height: 1.55; color: var(--on-dark-2); }
+.hero__seal a { color: var(--white); text-decoration-color: var(--lavender); text-underline-offset: 3px; }
+.hero__media { position: relative; }
+.hero__photo { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .6), inset 0 0 0 1px hsl(0 0% 100% / .08); }
+.hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 66% 30%; }
+.hero__photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(27,29,46,.75) 0%, rgba(27,29,46,0) 42%); }
+.hero__tag { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--white); }
+.hero__tag .mod { color: var(--lavender); }
+/* sinapsis: módulos que salen del retrato hacia el texto */
+.synapse { position: absolute; left: -64px; top: 18%; display: grid; gap: 10px; z-index: 2; }
+.synapse span { display: flex; gap: 8px; }
+.synapse i { display: block; height: 12px; border-radius: 12px; background: var(--lavender); }
+.synapse i.w { background: var(--white); }
+.synapse i.p { background: var(--purple); }
+
+/* ── Secciones de lectura ── */
+.sec { padding-block: clamp(72px, 9vw, 128px); }
+.sec__head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(40px, 5vw, 64px); }
+.sec__head h2 { font-size: clamp(30px, 3.6vw, 46px); line-height: 1.12; font-weight: 600; margin-top: 14px; }
+.sec__head p { font-size: 17px; line-height: 1.65; color: var(--ink-2); max-width: 46ch; }
+.dark .sec__head p { color: var(--on-dark-2); }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.kpi { border-radius: var(--r-md); padding: 26px 24px 24px; background: var(--tint); display: grid; gap: 10px; align-content: start; min-width: 0; }
+.kpi b { font-size: clamp(40px, 4.4vw, 56px); line-height: 1; font-weight: 600; color: var(--purple); }
+.kpi b small { font-size: .5em; font-weight: 500; }
+.kpi span { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.kpi--dark { background: var(--navy); }
+.kpi--dark b { color: var(--lavender); }
+.kpi--dark span { color: var(--on-dark-2); }
+
+/* Módulos (tarjetas de contenido) */
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.card { border: 1px solid var(--line); border-radius: var(--r-md); padding: clamp(22px, 2.6vw, 32px); background: var(--white); min-width: 0; display: grid; gap: 22px; align-content: start; }
+.card--wide { grid-column: 1 / -1; }
+.card__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 24px; }
+.card h3 { font-size: 19px; font-weight: 600; line-height: 1.3; }
+.card h3 small { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.src { font-size: 12px; line-height: 1.5; color: var(--muted); padding-top: 14px; border-top: 1px solid var(--line); }
+.src b { color: var(--ink-2); font-weight: 500; }
+
+/* Criterios: barra cápsula segmentada e interactiva */
+.crit-bar { display: grid; grid-template-columns: 15fr 40fr 30fr 15fr; gap: 6px; }
+.crit-seg { min-height: 72px; border: 0; border-radius: 999px; background: var(--tint-2); color: var(--ink); font: 600 clamp(16px, 2vw, 24px)/1 var(--font); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-color .25s ease, color .25s ease, transform .25s var(--ease); min-width: 0; }
+.crit-seg:hover { background: #E3DCF8; }
+.crit-seg[aria-selected="true"] { background: var(--grad); color: var(--white); }
+.crit-names { display: grid; grid-template-columns: 15fr 40fr 30fr 15fr; gap: 6px; }
+.crit-names span { font-size: 13px; line-height: 1.35; color: var(--muted); text-align: center; padding-inline: 4px; min-width: 0; }
+.crit-panel { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 24px; background: var(--tint); border-radius: var(--r-md); padding: 24px; }
+.crit-panel[hidden] { display: none; }
+.crit-panel h4 { font-size: 22px; font-weight: 600; line-height: 1.25; }
+.crit-panel h4 small { display: block; font-size: 13px; font-weight: 500; color: var(--purple); margin-bottom: 6px; }
+.crit-panel ul { list-style: none; padding: 0; display: grid; gap: 10px; }
+.crit-panel li { display: flex; gap: 12px; align-items: baseline; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.crit-panel li .mod { color: var(--purple); transform: translateY(-2px); }
+.formula { font-size: 14px; color: var(--ink-2); }
+.formula b { color: var(--ink); font-weight: 600; }
+
+/* Frecuencia: barras con filtro */
+.fq { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 2vw, 28px); align-items: end; height: 260px; border-bottom: 1px solid var(--ink); position: relative; }
+.fq::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(to top, var(--line) 0 1px, transparent 1px calc(100% / 3)); pointer-events: none; }
+.fq__g { position: relative; height: 100%; display: flex; gap: 6px; align-items: flex-end; justify-content: center; }
+.fq__b { position: relative; flex: 1 1 0; max-width: 56px; height: calc(var(--v) / 60 * 100%); border-radius: 14px 14px 4px 4px; background: #C9C3DD; transition: height .6s var(--ease), opacity .3s ease, flex-grow .4s var(--ease), max-width .4s var(--ease); }
+.fq__b.y26 { background: var(--grad); background: linear-gradient(180deg, hsl(263 45% 52%), hsl(250 35% 34%)); }
+.fq__b b { position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 600; white-space: nowrap; color: var(--ink); }
+.fq__b.y25 b { font-weight: 500; color: var(--muted); }
+.fq[data-show="2025"] .y26, .fq[data-show="2026"] .y25 { flex-grow: 0; max-width: 0; opacity: 0; }
+.fq[data-show="2025"] .y26 b, .fq[data-show="2026"] .y25 b { display: none; }
+.fq__x { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 2vw, 28px); text-align: center; font-size: 13px; line-height: 1.35; color: var(--ink-2); }
+.fq__x b { display: block; font-size: 15px; color: var(--ink); }
+.fq__opt { position: absolute; inset: auto 0 auto auto; }
+.legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend i { width: 14px; height: 8px; border-radius: 8px; background: #C9C3DD; }
+.legend i.y26 { background: var(--purple); }
+.note { font-size: 15px; line-height: 1.6; color: var(--ink-2); max-width: 60ch; }
+.note b { color: var(--purple); font-weight: 600; }
+
+/* Barras cápsula horizontales */
+.hb { list-style: none; padding: 0; display: grid; gap: 18px; }
+.hb li { display: grid; gap: 8px; }
+.hb__lab { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 1.4; }
+.hb__lab b { font-weight: 600; white-space: nowrap; }
+.hb__lab small { display: block; font-size: 12px; color: var(--muted); }
+.hb__t { height: 12px; border-radius: 12px; background: var(--tint-2); overflow: hidden; }
+.hb__f { height: 100%; width: calc(var(--v) * 1%); border-radius: 12px; background: #C9C3DD; transform-origin: 0 50%; transition: transform .9s var(--ease); }
+.hb li.on .hb__f { background: var(--grad); }
+.hb li.on .hb__lab b { color: var(--purple); }
+
+/* Antes / después */
+.db { list-style: none; padding: 0; display: grid; gap: 30px; }
+.db__lab { font-size: 14px; font-weight: 500; margin-bottom: 14px; }
+.db__t { position: relative; height: 40px; margin-inline: 14px; }
+.db__t::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 8px; margin-top: -4px; border-radius: 8px; background: var(--tint-2); }
+.db__s { position: absolute; top: 50%; height: 8px; margin-top: -4px; border-radius: 8px; background: var(--lavender); }
+.db__d { position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: #C9C3DD; box-shadow: 0 0 0 3px var(--white); }
+.db__d.now { width: 26px; height: 26px; margin: -13px 0 0 -13px; background: var(--purple); }
+.db__d b { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; font-weight: 500; color: var(--muted); }
+.db__d.now b { bottom: auto; top: 32px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.db__axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin: 22px 14px 0; }
+
+/* CTA en banda (como «¿Tienes un desafío de comunicación?» de la web) */
+.cta { position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-lg); margin-top: clamp(48px, 6vw, 80px); padding: clamp(32px, 5vw, 64px); color: var(--white);
+  background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(109,74,190,.42), rgba(109,74,190,0) 70%), linear-gradient(180deg, #2B2E48, #1B1D2E);
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 48px; align-items: center; }
+.cta h3 { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.18; font-weight: 600; }
+.cta h3 span { color: var(--lavender); }
+.cta p { font-size: 15px; color: var(--on-dark-2); margin-top: 12px; max-width: 48ch; }
+.cta__act { justify-self: end; }
+.cta__mods { position: absolute; right: -20px; top: 18px; display: grid; gap: 10px; opacity: .22; z-index: -1; }
+.cta__mods span { display: flex; gap: 10px; justify-content: flex-end; }
+.cta__mods i { display: block; height: 18px; border-radius: 18px; background: var(--lavender); }
+
+/* ── 03 · Framework ── */
+.fw { background: var(--white); }
+.fw__panel { position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-lg); color: var(--on-dark); padding: clamp(32px, 5vw, 72px);
+  background: radial-gradient(ellipse 50% 60% at 80% 20%, rgba(109,74,190,.4), rgba(109,74,190,0) 70%), linear-gradient(180deg, #2B2E48 0%, #25283D 50%, #1B1D2E 100%); }
+.fw__panel .sec__head { margin-bottom: clamp(32px, 4vw, 48px); }
+/* recorrido de fases: nodos cápsula unidos por una sinapsis */
+.track { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; }
+.track::before { content: ""; position: absolute; left: 6%; right: 6%; top: 36px; height: 2px; background: repeating-linear-gradient(90deg, hsl(0 0% 100% / .28) 0 6px, transparent 6px 14px); z-index: 0; }
+.track__fill { position: absolute; left: 6%; top: 36px; height: 2px; width: calc(var(--p, 0) * 88%); background: var(--lavender); transition: width .45s var(--ease); z-index: 0; }
+.phase { position: relative; z-index: 1; width: 100%; display: grid; justify-items: center; gap: 14px; padding: 0 0 18px; border: 0; border-radius: var(--r-md); background: transparent; color: var(--on-dark-2); font: 500 15px/1.3 var(--font); cursor: pointer; text-align: center; transition: color .25s ease; }
+.phase__n { display: grid; place-items: center; width: 100%; max-width: 132px; height: 72px; border-radius: 999px; background: var(--navy); box-shadow: inset 0 0 0 1.5px hsl(0 0% 100% / .2); font-size: 20px; font-weight: 500; color: var(--white); transition: background .25s ease, box-shadow .25s ease, color .25s ease, transform .25s var(--ease); }
+.phase:hover .phase__n { box-shadow: inset 0 0 0 1.5px var(--lavender); }
+.phase[aria-selected="true"] { color: var(--white); }
+.phase[aria-selected="true"] .phase__n { background: var(--lavender); color: var(--navy); font-weight: 600; box-shadow: 0 0 0 6px hsl(252 74% 82% / .16); }
+.phase small { display: block; font-size: 12px; font-weight: 400; color: var(--on-dark-2); }
+.loop { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 6px; font-size: 12px; color: var(--on-dark-2); }
+.loop svg { width: 18px; height: 18px; color: var(--lavender); }
+.ph-panels { margin-top: clamp(24px, 3vw, 36px); }
+.ph-panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); padding: clamp(24px, 3vw, 40px); border-radius: var(--r-md); background: hsl(0 0% 100% / .04); box-shadow: inset 0 0 0 1px var(--on-dark-line); }
+.ph-panel[hidden] { display: none; }
+.ph-panel.enter { animation: phIn .3s var(--ease) both; }
+@keyframes phIn { from { opacity: .001; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.ph-k { font-size: 13px; font-weight: 500; color: var(--lavender); display: flex; align-items: center; gap: 10px; }
+.ph-panel h3 { font-size: clamp(30px, 3.4vw, 42px); font-weight: 600; line-height: 1.1; margin-top: 10px; }
+.ph-intro { font-size: 17px; line-height: 1.6; color: hsl(0 0% 100% / .86); margin-top: 16px; }
+.ph-meta { display: grid; gap: 12px; margin-top: 24px; }
+.ph-meta div { padding: 14px 16px; border-radius: var(--r-sm); background: hsl(0 0% 100% / .05); }
+.ph-meta dt { font-size: 12px; color: var(--lavender); }
+.ph-meta dd { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--white); }
+.ph-list { list-style: none; padding: 0; display: grid; gap: 0; }
+.ph-list li { padding: 18px 0; border-bottom: 1px solid var(--on-dark-line); font-size: 15px; line-height: 1.7; color: var(--on-dark-2); }
+.ph-list li:first-child { padding-top: 0; }
+.ph-list li b { color: var(--white); font-weight: 600; }
+.ph-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; }
+.ph-nav .btn { --h: 46px; font-size: 14px; }
+.ph-nav .btn[disabled] { visibility: hidden; }
+
+/* ── Pie ── */
+.foot { margin: 0 clamp(8px, 1.4vw, 16px) clamp(8px, 1.4vw, 16px); border-radius: var(--r-lg); background: linear-gradient(180deg, #2B2E48, #1B1D2E); color: var(--on-dark-2); }
+.foot .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; font-size: 13px; }
+.foot img { width: 96px; }
+.foot a { color: var(--white); }
+
+/* ── Revelado al hacer scroll (visible por defecto; solo se oculta si la animación puede ejecutarse) ── */
+.js-reveal .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.js-reveal .rv.in { opacity: 1; transform: none; }
+.js-reveal .grow .hb__f { transform: scaleX(0); }
+.js-reveal .grow.in .hb__f { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+/* ── Laptop / tablet ── */
+@media screen and (max-width: 1080px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .synapse { left: -40px; }
+}
+@media screen and (max-width: 860px) {
+  .top nav a { padding: 8px 10px; font-size: 12px; }
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero__media { max-width: 520px; width: 100%; justify-self: center; }
+  .hero__photo { aspect-ratio: 5 / 4; }
+  .synapse { left: auto; right: 16px; top: -18px; }
+  .sec__head { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 16px; }
+  .grid2 { grid-template-columns: minmax(0, 1fr); }
+  .crit-panel { grid-template-columns: minmax(0, 1fr); }
+  .cta { grid-template-columns: minmax(0, 1fr); }
+  .cta__act { justify-self: start; }
+  .ph-panel { grid-template-columns: minmax(0, 1fr); }
+}
+/* ── Móvil ── */
+@media screen and (max-width: 560px) {
+  .top nav { display: none; }
+  .hero__actions .btn { width: 100%; }
+  .hero__photo { aspect-ratio: 4 / 5; }
+  .kpis { gap: 10px; }
+  .kpi { padding: 20px 18px; }
+  .crit-bar { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .crit-seg { min-height: 52px; justify-content: space-between; padding: 0 20px; font-size: 18px; }
+  .crit-seg::before { content: attr(data-name); font-size: 14px; font-weight: 500; }
+  .crit-names { display: none; }
+  .fq { height: 220px; }
+  .fq__x { font-size: 11px; }
+  .fq__x b { font-size: 13px; }
+  .fq__b b { font-size: 11px; }
+  .track { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
+  .track::before, .track__fill { display: none; }
+  .phase__n { height: 56px; font-size: 17px; }
+  .ph-nav .btn { flex: 1; padding: 0 14px; }
+  .cta__act .btn { width: 100%; }
+}
+
+/* ── PDF (A4 vertical, composición clara) ── */
+@page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
+@media print {
+  body { font-size: 10pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .top, .ph-nav, .chips, .loop { display: none !important; }
+  .wrap { max-width: none; padding-inline: 0; }
+  .js-reveal .rv, .js-reveal .grow .hb__f { opacity: 1 !important; transform: none !important; }
+  .hero { break-after: page; border-radius: 6mm; }
+  .hero .wrap { padding: 14mm 12mm; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+  .hero h1 { font-size: 30pt; }
+  .synapse { display: none; }
+  .sec { padding-block: 0 8mm; }
+  .fw { break-before: page; }
+  .card, .kpi, .cta, .crit-panel, .ph-panel, .db, .fq { break-inside: avoid; }
+  .crit-panel[hidden], .ph-panel[hidden] { display: grid !important; }
+  .crit-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3mm; }
+  .crit-panel { grid-template-columns: minmax(0, 1fr); padding: 4mm; gap: 2mm; }
+  .crit-panel h4 { font-size: 12pt; }
+  .crit-panel li { font-size: 9pt; }
+  .fq[data-show] .y25, .fq[data-show] .y26 { flex-grow: 1 !important; max-width: 56px !important; opacity: 1 !important; }
+  .fq[data-show] .y25 b, .fq[data-show] .y26 b { display: block !important; }
+  .fw__panel { padding: 10mm; }
+  .ph-panels { display: grid; gap: 4mm; }
+  .ph-panel { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); padding: 5mm; }
+  .ph-panel h3 { font-size: 18pt; }
+  .ph-list li { font-size: 9pt; padding: 2mm 0; }
+  .foot { break-inside: avoid; }
+  /* Framework en composición clara para el PDF */
+  .fw__panel { background: var(--white); color: var(--ink); padding: 0; border-radius: 0; overflow: visible;
+    --on-dark: var(--ink); --on-dark-2: var(--ink-2); --on-dark-line: var(--line); }
+  .fw__panel h2, .fw__panel .ph-panel h3, .fw__panel .ph-list li b, .fw__panel .ph-meta dd { color: var(--ink); }
+  .fw__panel .ph-intro { color: var(--ink-2); }
+  .fw__panel .ph-k, .fw__panel .ph-meta dt, .fw__panel .eyebrow { color: var(--purple); }
+  .fw__panel .ph-meta div { background: var(--tint); }
+  .fw__panel .ph-panel { background: var(--white); box-shadow: inset 0 0 0 1px var(--line); break-inside: avoid; }
+  .track::before { background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 14px); }
+  .track__fill { display: none; }
+  .phase, .phase small { color: var(--ink-2); }
+  .phase__n, .phase[aria-selected="true"] .phase__n { background: var(--white); color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--purple); height: 44px; font-size: 14pt; }
+  .phase[aria-selected="true"] { color: var(--ink-2); }
+  .fw__panel > * { position: relative; }
+  .fw__panel::before, .fw__panel::after { display: none !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .hero__actions, .hero__mods, .foot { display: none !important; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#portada" aria-label="Verne · ir a la portada"><img class="top__logo" src="assets/logo-verne-blanco.svg" alt="Verne" width="72" height="18"></a>
+    <nav aria-label="Secciones del eBook">
+      <a href="#portada" data-spy="portada">Portada</a>
+      <a href="#datos" data-spy="datos">Los datos</a>
+      <a href="#framework" data-spy="framework">Framework</a>
+    </nav>
+    <span class="progress" aria-hidden="true"></span>
+  </div>
+</header>
+
+<main>
+<!-- ═════════════ 01 · PORTADA ═════════════ -->
+<section class="hero dark" id="portada" aria-labelledby="t-portada">
+  <svg class="hero__mods" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="#FFFFFF" opacity=".22">
+      <rect x="64" y="96" width="13" height="13" rx="6.5"/><rect x="116" y="148" width="39" height="13" rx="6.5"/>
+      <rect x="48" y="460" width="13" height="13" rx="6.5"/><rect x="92" y="616" width="26" height="13" rx="6.5"/>
+      <rect x="560" y="64" width="13" height="13" rx="6.5"/><rect x="612" y="664" width="65" height="13" rx="6.5"/>
+      <rect x="1136" y="88" width="13" height="13" rx="6.5"/><rect x="1110" y="612" width="39" height="13" rx="6.5"/>
+    </g>
+    <g fill="#C0B0F4" opacity=".34">
+      <rect x="40" y="252" width="26" height="13" rx="6.5"/><rect x="520" y="620" width="13" height="13" rx="6.5"/>
+      <rect x="700" y="96" width="39" height="13" rx="6.5"/><rect x="1150" y="356" width="13" height="13" rx="6.5"/>
+      <rect x="168" y="680" width="13" height="13" rx="6.5"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero__text">
+      <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>eBook · Verne Insights</p>
+      <h1 id="t-portada">Marca Directiva en la Era de la <span>Inteligencia Artificial</span></h1>
+      <p class="hero__lead">Cómo construir influencia, credibilidad y liderazgo cuando la IA avanza velozmente.</p>
+      <p class="hero__aud">Para CEOs, gerentes generales y directores de comunicación.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#datos">Empezar a leer
+          <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
+        <a class="btn btn--secondary" href="#framework">Ver el framework</a>
+      </div>
+      <div class="hero__seal">
+        <b class="num">8%</b>
+        <p>Basado en el <a href="https://verne.la/blog/ranking-directivos-digitales-2026" target="_blank" rel="noopener">Ranking Directiv@s Digitales 2026</a> de Verne: solo el 8% de los directivos publica con frecuencia óptima.</p>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div class="synapse" aria-hidden="true">
+        <span><i class="w" style="width:12px"></i><i style="width:36px"></i></span>
+        <span style="margin-left:22px"><i class="p" style="width:60px"></i><i class="w" style="width:12px"></i></span>
+        <span style="margin-left:8px"><i style="width:12px"></i><i class="w" style="width:24px"></i></span>
+      </div>
+      <figure class="hero__photo">
+        <img src="assets/portada.jpg" alt="Directivo peruano escucha con atención en un auditorio." width="2000" height="1125">
+        <figcaption class="hero__tag"><span class="mod" aria-hidden="true"><i></i><i></i></span>Liderazgo humano, amplificado por la IA</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ 02 · ESTADÍSTICAS ═════════════ -->
+<section class="sec" id="datos" aria-labelledby="t-datos">
+  <div class="wrap">
+    <header class="sec__head rv">
+      <div>
+        <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Ranking Directiv@s Digitales 2026</p>
+        <h2 id="t-datos">¿Qué nos dicen los datos sobre la Marca Directiva?</h2>
+      </div>
+      <p>Hay una pregunta que casi nunca se hace en voz alta, cuando decimos que un directivo tiene buena presencia digital, ¿comparado con qué?</p>
+    </header>
+
+    <div class="kpis">
+      <div class="kpi kpi--dark rv"><b class="num">524</b><span>directivos de las empresas más representativas del Perú, analizados durante 12 meses</span></div>
+      <div class="kpi rv"><b class="num">96<small>%</small></b><span>tiene un perfil en LinkedIn</span></div>
+      <div class="kpi rv"><b class="num">8<small>%</small></b><span>alcanza una frecuencia óptima de cuatro o más publicaciones mensuales</span></div>
+      <div class="kpi rv"><b class="num">60<small>%</small></b><span>tiene presencia destacada en ChatGPT, Gemini, Claude y Google AI Overview</span></div>
+    </div>
+
+    <div class="grid2">
+      <!-- Criterios -->
+      <article class="card card--wide rv" aria-labelledby="t-crit">
+        <div class="card__head">
+          <h3 id="t-crit">Cómo se mide: cuatro criterios<small>Peso de cada criterio en el puntaje del líder. Selecciona uno para ver qué evalúa.</small></h3>
+          <p class="formula">Presencia y Comunidad juntas pesan <b>30 %</b>. Menos que la consistencia sola.</p>
+        </div>
+        <div>
+          <div class="crit-bar" role="tablist" aria-label="Criterios del Ranking">
+            <button class="crit-seg num" role="tab" id="ct-1" aria-controls="cp-1" aria-selected="false" tabindex="-1" data-name="Presencia">15%</button>
+            <button class="crit-seg num" role="tab" id="ct-2" aria-controls="cp-2" aria-selected="true" data-name="Liderazgo y Consistencia">40%</button>
+            <button class="crit-seg num" role="tab" id="ct-3" aria-controls="cp-3" aria-selected="false" tabindex="-1" data-name="Conversación">30%</button>
+            <button class="crit-seg num" role="tab" id="ct-4" aria-controls="cp-4" aria-selected="false" tabindex="-1" data-name="Comunidad">15%</button>
+          </div>
+          <div class="crit-names" aria-hidden="true" style="margin-top:10px"><span>Presencia</span><span>Liderazgo y Consistencia de Marca</span><span>Conversación</span><span>Comunidad</span></div>
+        </div>
+        <div class="crit-panels">
+          <div class="crit-panel" id="cp-1" role="tabpanel" aria-labelledby="ct-1" hidden>
+            <h4><small>Criterio 1 · 15%</small>Presencia</h4>
+            <ul><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Posicionamiento en Google (primera página, imágenes, noticias, videos y Modo AI)</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Posicionamiento en videos YouTube y TikTok</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Activos digitales (Web o Blog, LinkedIn, X, Wikipedia, columna de opinión)</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Presencia en Plataformas de IA Gen: Google AI Overview, ChatGPT, Gemini y Claude</li></ul>
+          </div>
+          <div class="crit-panel" id="cp-2" role="tabpanel" aria-labelledby="ct-2">
+            <h4><small>Criterio 2 · 40% · medido en LinkedIn</small>Liderazgo y Consistencia de Marca</h4>
+            <ul><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Contenido Propio</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Consistencia</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Directiv@ como embajador de marca</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Perfil consistente</li></ul>
+          </div>
+          <div class="crit-panel" id="cp-3" role="tabpanel" aria-labelledby="ct-3" hidden>
+            <h4><small>Criterio 3 · 30% · medido en LinkedIn</small>Conversación</h4>
+            <ul><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Interacciones</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Generación de conversación</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Respuesta a comentarios</li></ul>
+          </div>
+          <div class="crit-panel" id="cp-4" role="tabpanel" aria-labelledby="ct-4" hidden>
+            <h4><small>Criterio 4 · 15% · medido en LinkedIn</small>Comunidad</h4>
+            <ul><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Constancia y frecuencia de publicaciones</li><li><span class="mod" aria-hidden="true"><i></i><i></i></span>Tamaño de comunidad</li></ul>
+          </div>
+        </div>
+        <p class="src"><b>Fuente:</b> Verne, Framework para evaluar a Directivos Digitales – 2026.</p>
+      </article>
+
+      <!-- Frecuencia -->
+      <article class="card card--wide rv" aria-labelledby="t-fq">
+        <div class="card__head">
+          <h3 id="t-fq">Frecuencia mensual de publicaciones en LinkedIn<small>% de directivos según cuántas veces publican al mes</small></h3>
+          <div class="chips" role="group" aria-label="Año">
+            <button class="chip" type="button" aria-pressed="true" data-show="both"><span class="mod" aria-hidden="true"><i></i><i></i></span>Comparar</button>
+            <button class="chip" type="button" aria-pressed="false" data-show="2025">2025</button>
+            <button class="chip" type="button" aria-pressed="false" data-show="2026">2026</button>
+          </div>
+        </div>
+        <div>
+          <div class="legend" aria-hidden="true" style="margin-bottom:28px"><span><i></i>2025</span><span><i class="y26"></i>2026</span></div>
+          <div class="fq" data-show="both" aria-hidden="true">
+            <div class="fq__g"><div class="fq__b y25" style="--v:24"><b>24%</b></div><div class="fq__b y26" style="--v:21"><b>21%</b></div></div>
+            <div class="fq__g"><div class="fq__b y25" style="--v:33"><b>33%</b></div><div class="fq__b y26" style="--v:54"><b>54%</b></div></div>
+            <div class="fq__g"><div class="fq__b y25" style="--v:24"><b>24%</b></div><div class="fq__b y26" style="--v:17"><b>17%</b></div></div>
+            <div class="fq__g"><div class="fq__b y25" style="--v:19"><b>19%</b></div><div class="fq__b y26" style="--v:8"><b>8%</b></div></div>
+          </div>
+          <div class="fq__x" aria-hidden="true" style="margin-top:10px"><span><b>0</b>publicaciones</span><span><b>1</b>publicación</span><span><b>2 a 3</b>publicaciones</span><span><b>4 a más</b>publicaciones</span></div>
+          <div class="sr-only"><table><caption>Frecuencia mensual de publicaciones en LinkedIn, % de directivos</caption><thead><tr><th scope="col">Publicaciones al mes</th><th scope="col">2025</th><th scope="col">2026</th></tr></thead><tbody><tr><th scope="row">0</th><td>24%</td><td>21%</td></tr><tr><th scope="row">1</th><td>33%</td><td>54%</td></tr><tr><th scope="row">2 a 3</th><td>24%</td><td>17%</td></tr><tr><th scope="row">4 a más</th><td>19%</td><td>8%</td></tr></tbody></table></div>
+        </div>
+        <p class="note">La frecuencia retrocedió. En 2026 solo el <b>8 %</b> de los directivos sostiene una frecuencia óptima de cuatro o más publicaciones mensuales, frente al 19 % de 2025.</p>
+        <p class="src"><b>Fuente:</b> Ranking Directiv@s Digitales 2025 y 2026, Verne. Eje de 0 a 60 %.</p>
+      </article>
+
+      <!-- Arquetipos -->
+      <article class="card rv grow" aria-labelledby="t-ar">
+        <h3 id="t-ar">Arquetipos del CEO Digital Peruano<small>% de directivos según su arquetipo predominante</small></h3>
+        <ul class="hb">
+          <li class="on"><div class="hb__lab"><span>El Embajador<small>Publica sobre todo los pilares de su organización.</small></span><b class="num">65,4%</b></div><div class="hb__t"><div class="hb__f" style="--v:65.4"></div></div></li>
+          <li><div class="hb__lab"><span>El Activista<small>Coyuntura nacional, sostenibilidad y transición energética.</small></span><b class="num">24,0%</b></div><div class="hb__t"><div class="hb__f" style="--v:24"></div></div></li>
+          <li><div class="hb__lab"><span>El Inspirador<small>Opinión personal: reflexiones y aprendizajes.</small></span><b class="num">6,5%</b></div><div class="hb__t"><div class="hb__f" style="--v:6.5"></div></div></li>
+          <li><div class="hb__lab"><span>El Educador<small>Aporta conocimiento de su sector.</small></span><b class="num">4,1%</b></div><div class="hb__t"><div class="hb__f" style="--v:4.1"></div></div></li>
+        </ul>
+        <p class="src"><b>Fuente:</b> Ranking Directiv@s Digitales 2026, Verne.</p>
+      </article>
+
+      <!-- IA -->
+      <article class="card rv" aria-labelledby="t-ia">
+        <h3 id="t-ia">La IA generativa ya reconoce a los directivos peruanos<small>% de directivos en ChatGPT, Gemini, Claude y Google AI Overview</small></h3>
+        <ul class="db">
+          <li><p class="db__lab">Presencia destacada</p><div class="db__t" aria-hidden="true"><span class="db__s" style="left:15%;width:45%"></span><span class="db__d" style="left:15%"><b>2025 · 15%</b></span><span class="db__d now" style="left:60%"><b>60%</b></span></div><p class="sr-only">15 % en 2025; 60 % en 2026.</p></li>
+          <li><p class="db__lab">No aparece en ninguna</p><div class="db__t" aria-hidden="true"><span class="db__s" style="left:3%;width:13%"></span><span class="db__d" style="left:16%"><b>2025 · 16%</b></span><span class="db__d now" style="left:3%"><b>3%</b></span></div><p class="sr-only">16 % en 2025; 3 % en 2026.</p></li>
+        </ul>
+        <div class="db__axis" aria-hidden="true"><span>0 %</span><span>50 %</span><span>100 %</span></div>
+        <p class="note">Ya no es si la IA habla de ti. Es con qué material lo hace: <b>el que construiste o el que encontró.</b></p>
+        <p class="src"><b>Fuente:</b> Ranking Directiv@s Digitales 2025 y 2026, Verne.</p>
+      </article>
+    </div>
+
+    <aside class="cta rv" aria-labelledby="t-cta5">
+      <div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>
+      <div>
+        <h3 id="t-cta5">Estas brechas ya se miden. <span>¿Cuáles son las tuyas?</span></h3>
+      </div>
+      <div class="cta__act">
+        <!-- Pendiente: URL del calendario de reservas. Sin destino, el botón no navega. -->
+        <a class="btn btn--primary" role="link" aria-disabled="true" data-pending="calendario">Conoce tu nota (30 min)
+          <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ═════════════ 03 · FRAMEWORK ═════════════ -->
+<section class="sec fw" id="framework" aria-labelledby="t-fw">
+  <div class="wrap">
+    <div class="fw__panel dark rv">
+      <header class="sec__head">
+        <div>
+          <p class="eyebrow"><span class="mod" aria-hidden="true"><i></i><i></i></span>Framework de Marca Directiva by Verne</p>
+          <h2 id="t-fw">Un sistema de cuatro fases que se recalibra</h2>
+        </div>
+        <p>Toda la evidencia anterior converge en un modelo operativo. En Verne trabajamos la marca directiva como un sistema de cuatro fases. Este es nuestro framework.</p>
+      </header>
+
+      <div>
+        <ol class="track" role="tablist" aria-label="Fases del framework" style="--p:0">
+          <span class="track__fill" aria-hidden="true"></span>
+          <li role="presentation"><button class="phase" role="tab" id="pt-1" aria-controls="pp-1" aria-selected="true" type="button"><span class="phase__n num">01</span>Diagnóstico<small>2 semanas</small></button></li>
+          <li role="presentation"><button class="phase" role="tab" id="pt-2" aria-controls="pp-2" aria-selected="false" tabindex="-1" type="button"><span class="phase__n num">02</span>Construcción<small>3 a 4 semanas</small></button></li>
+          <li role="presentation"><button class="phase" role="tab" id="pt-3" aria-controls="pp-3" aria-selected="false" tabindex="-1" type="button"><span class="phase__n num">03</span>Activación<small>Ciclo continuo</small></button></li>
+          <li role="presentation"><button class="phase" role="tab" id="pt-4" aria-controls="pp-4" aria-selected="false" tabindex="-1" type="button"><span class="phase__n num">04</span>Medición<small>Reporte mensual</small></button></li>
+        </ol>
+        <p class="loop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>No son pasos que se ejecutan una sola vez. Son un ciclo.</p>
+      </div>
+
+      <div class="ph-panels">
+        <section class="ph-panel" id="pp-1" role="tabpanel" aria-labelledby="pt-1" tabindex="0">
+          <div>
+            <p class="ph-k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Fase 1</p>
+            <h3>Diagnóstico</h3>
+            <p class="ph-intro">Antes de construir, hay que medir con honestidad dónde está parado el líder hoy. Esta fase responde tres preguntas:</p>
+            <dl class="ph-meta"><div><dt>¿Qué incluye?</dt><dd>Informe de diagnóstico (auditoría de presencia digital y en plataformas de IA generativa) + sesión de presentación de resultados (60 min)</dd></div><div><dt>Duración estimada · ¿Para quién?</dt><dd>2 semanas · El directivo y su equipo de comunicación</dd></div></dl>
+          </div>
+          <div>
+            <ul class="ph-list">
+              <li><b>¿Cómo me ve el mundo hoy?</b> Auditoría de presencia digital tradicional (LinkedIn, medios, buscadores) y, cada vez más importante, auditoría de presencia en plataformas de IA generativa: qué dicen ChatGPT, Perplexity y Gemini cuando se les pregunta por el líder y su empresa, y qué tan preciso es lo que dicen.</li>
+              <li><b>¿Cómo me veo yo?</b> Definición honesta de la propuesta de valor personal desde los atributos que el líder cree representar, contrastados sin filtro con cómo lo describen colaboradores, pares y superiores.</li>
+              <li><b>¿Dónde está la brecha?</b> El diagnóstico identifica puntos de diferenciación reales (lo que es único y creíble en ese líder), puntos de paridad (lo que comparte con otros líderes de su sector) y puntos de desventaja (vacíos que hoy debilitan su narrativa).</li>
+            </ul>
+            <div class="ph-nav"><button class="btn btn--secondary" type="button" data-go="0" disabled>Anterior</button><button class="btn btn--secondary" type="button" data-go="2">Fase 2 · Construcción</button></div>
+          </div>
+        </section>
+        <section class="ph-panel" id="pp-2" role="tabpanel" aria-labelledby="pt-2" tabindex="0" hidden>
+          <div>
+            <p class="ph-k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Fase 2</p>
+            <h3>Construcción</h3>
+            <p class="ph-intro">Con el diagnóstico en mano, se diseña la arquitectura de la marca:</p>
+            <dl class="ph-meta"><div><dt>¿Qué incluye?</dt><dd>Arquitectura de marca: arquetipo de liderazgo digital, ejes temáticos y lineamientos de contenido para audiencias humanas y motores de IA</dd></div><div><dt>Duración estimada · ¿Para quién?</dt><dd>3 a 4 semanas · El directivo y su equipo de comunicación (o agencia)</dd></div></dl>
+          </div>
+          <div>
+            <ul class="ph-list">
+              <li><b>Selección del arquetipo de liderazgo digital</b> más auténtico para esa persona como inspirador, embajador, educador o activista, evitando forzar un tono que no corresponde a su forma real de liderar.</li>
+              <li><b>Definición de los ejes temáticos:</b> el equilibrio entre marca personal, liderazgo sectorial y rol de embajador de la organización que representa.</li>
+              <li><b>Diseño de la arquitectura de contenido</b> pensada simultáneamente para audiencias humanas y para motores generativos: contenido que responde preguntas reales, con autoridad verificable y coherencia narrativa sostenida en el tiempo.</li>
+              <li><b>Definición explícita del rol de la IA</b> como herramienta de apoyo en redacción, estructura, research, nunca como sustituto de la voz o el criterio del líder, especialmente en comunicación de tipo personal o revelador.</li>
+            </ul>
+            <div class="ph-nav"><button class="btn btn--secondary" type="button" data-go="1">Fase 1 · Diagnóstico</button><button class="btn btn--secondary" type="button" data-go="3">Fase 3 · Activación</button></div>
+          </div>
+        </section>
+        <section class="ph-panel" id="pp-3" role="tabpanel" aria-labelledby="pt-3" tabindex="0" hidden>
+          <div>
+            <p class="ph-k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Fase 3</p>
+            <h3>Activación</h3>
+            <p class="ph-intro">La estrategia se pone en movimiento con disciplina, no con entusiasmo esporádico:</p>
+            <dl class="ph-meta"><div><dt>¿Qué incluye?</dt><dd>Calendario editorial y acompañamiento en la producción y publicación de contenido</dd></div><div><dt>Duración estimada · ¿Para quién?</dt><dd>Ciclo continuo, con seguimiento mensual · El directivo y su equipo interno</dd></div></dl>
+          </div>
+          <div>
+            <ul class="ph-list">
+              <li><b>Calendario de publicación con la frecuencia mínima que la evidencia respalda:</b> al menos dos publicaciones semanales, muy por encima del promedio actual de directivos en la región.</li>
+              <li><b>Bidireccionalidad real:</b> tiempo dedicado a responder comentarios y participar en conversaciones, no solo a publicar.</li>
+              <li><b>Activación de embajadores internos</b> como el propio equipo del líder. Aprovechando que el contenido de colaboradores genera hasta ocho veces más engagement que el contenido puramente institucional.</li>
+              <li><b>Presencia deliberada en los espacios que alimentan a los sistemas de IA generativa:</b> menciones en estudios sectoriales, participación en medios especializados, contenido citable por su rigor, no solo por su alcance.</li>
+            </ul>
+            <div class="ph-nav"><button class="btn btn--secondary" type="button" data-go="2">Fase 2 · Construcción</button><button class="btn btn--secondary" type="button" data-go="4">Fase 4 · Medición</button></div>
+          </div>
+        </section>
+        <section class="ph-panel" id="pp-4" role="tabpanel" aria-labelledby="pt-4" tabindex="0" hidden>
+          <div>
+            <p class="ph-k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Fase 4</p>
+            <h3>Medición</h3>
+            <p class="ph-intro">Ningún sistema es completo sin métricas que permitan ajustar el rumbo:</p>
+            <dl class="ph-meta"><div><dt>¿Qué incluye?</dt><dd>Reporte de resultados (métricas de marca y de GEO) y recalibración del diagnóstico</dd></div><div><dt>Duración estimada · ¿Para quién?</dt><dd>Reporte mensual; revisión de diagnóstico cada 6 meses · El directivo y la alta dirección</dd></div></dl>
+          </div>
+          <div>
+            <ul class="ph-list">
+              <li><b>Métricas tradicionales de reputación digital:</b> presencia, liderazgo y consistencia de marca, conversación y comunidad. Los cuatro criterios que sostienen nuestro Ranking Directivos Digitales.</li>
+              <li><b>Métricas emergentes de GEO:</b> tasa de citación en IA, calidad y contexto de las menciones, autoridad conversacional, share of voice frente a otros líderes del sector, y precisión de la información que las plataformas de IA repiten sobre el directivo.</li>
+              <li><b>Revisión periódica del diagnóstico inicial:</b> la marca directiva no es un proyecto que se cierra, es un sistema que se recalibra, porque tanto las audiencias humanas como los modelos de IA actualizan constantemente su percepción con cada nueva pieza de información disponible.</li>
+            </ul>
+            <div class="ph-nav"><button class="btn btn--secondary" type="button" data-go="3">Fase 3 · Activación</button><button class="btn btn--secondary" type="button" data-go="1">Volver a Fase 1</button></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <aside class="cta rv" aria-labelledby="t-cta10">
+      <div class="cta__mods" aria-hidden="true"><span><i style="width:36px"></i><i style="width:18px"></i></span><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i></span></div>
+      <div>
+        <h3 id="t-cta10">¿Qué nota sacarías en el <span>Ranking Directivos Digitales 2026?</span></h3>
+        <p>En 30 minutos y sin costo, te mostramos tu nota en los cuatro criterios del Ranking y los próximos pasos para seguir construyendo tu marca y tu reputación profesional.</p>
+      </div>
+      <div class="cta__act">
+        <!-- Pendiente: URL del calendario de reservas. -->
+        <a class="btn btn--primary" role="link" aria-disabled="true" data-pending="calendario">Agenda y conoce tu nota
+          <svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg></a>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="foot dark">
+  <div class="wrap">
+    <img src="assets/logo-verne-blanco.svg" alt="Verne" width="96" height="24">
+    <span>Comunicación e innovación impulsada por inteligencia artificial</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Progreso de lectura y sección actual */
+  var bar = document.querySelector('.progress');
+  function onScroll() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var links = document.querySelectorAll('.top nav a');
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { a.toggleAttribute('aria-current', a.dataset.spy === e.target.id); if (a.dataset.spy === e.target.id) a.setAttribute('aria-current', 'true'); }); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['portada', 'datos', 'framework'].forEach(function (id) { spy.observe(document.getElementById(id)); });
+
+    /* Revelado discreto: solo se activa si hay observador y movimiento permitido */
+    if (!reduce) {
+      document.documentElement.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.rv').forEach(function (el) {
+        if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); else io.observe(el);
+      });
+      addEventListener('beforeprint', function () { document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); }); });
+    }
+  }
+
+  /* Pestañas accesibles (criterios y fases) */
+  function tabs(sel, onChange) {
+    var t = Array.prototype.slice.call(document.querySelectorAll(sel));
+    var p = t.map(function (b) { return document.getElementById(b.getAttribute('aria-controls')); });
+    function select(i, focus) {
+      t.forEach(function (b, j) {
+        var on = i === j;
+        b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; p[j].hidden = !on;
+        if (on && !reduce) { p[j].classList.remove('enter'); void p[j].offsetWidth; p[j].classList.add('enter'); }
+      });
+      if (focus) t[i].focus();
+      if (onChange) onChange(i);
+    }
+    t.forEach(function (b, i) {
+      b.addEventListener('click', function () { select(i); });
+      b.addEventListener('keydown', function (e) {
+        var n = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: t.length - 1 }[e.key];
+        if (n === undefined) return; e.preventDefault(); select((n + t.length) % t.length, true);
+      });
+    });
+    return select;
+  }
+  tabs('.crit-seg');
+  var track = document.querySelector('.track');
+  var selectPhase = tabs('.phase', function (i) { track.style.setProperty('--p', i / 3); });
+  document.querySelectorAll('.ph-nav [data-go]').forEach(function (b) {
+    b.addEventListener('click', function () { var i = +b.dataset.go - 1; if (i >= 0) selectPhase(i, true); });
+  });
+
+  /* Filtro de años del gráfico de frecuencia */
+  var fq = document.querySelector('.fq');
+  document.querySelectorAll('.chips .chip').forEach(function (c, _, all) {
+    c.addEventListener('click', function () {
+      all.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      fq.dataset.show = c.dataset.show;
+    });
+  });
+
+  /* Botones con destino pendiente: no navegan */
+  document.querySelectorAll('[data-pending]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+})();
+</script>
