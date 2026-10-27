@@ -2339,8 +2339,8 @@ sup.cite a:hover, sup.cite a:focus-visible { text-decoration: underline; }
     cta8:  { formEndpoint: null, recurso: null }, /* Checklist GEO (1 hoja) */
     cta9:  { url: null },                         /* «Solicita tu reporte» */
     cta10: { url: null },                         /* Calendario de reservas */
-    whatsapp: { url: null },
-    privacidad: { url: null }                     /* URL de las políticas de privacidad de Verne */                       /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
+    whatsapp: { url: null },                      /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
+    privacidad: { url: "https://verne-preview.pages.dev/Politicas%20de%20Privacidad" } /* Políticas de privacidad de Verne */
   };
   document.querySelectorAll('[data-cta-link]').forEach(function (a) {
     var cfg = CTA_CONFIG[a.getAttribute('data-cta-link')];
