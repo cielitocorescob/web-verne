@@ -1,6 +1,7 @@
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!document.documentElement.lang) document.documentElement.lang = 'es';
 
   /* ---- Destinos de los diez CTA.
      Mientras no exista el destino definitivo (calendario, test, formulario), cada CTA abre un correo

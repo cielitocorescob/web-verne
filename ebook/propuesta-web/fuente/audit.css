@@ -305,3 +305,33 @@ sup.cite a:hover, sup.cite a:focus-visible { text-decoration: underline; }
   .lead .lead__f .btn { width: 100%; }
 }
 .lead .lead__err { padding-left: 2px; margin-top: -2px; }
+
+/* ══════════ Auditoría responsive y accesibilidad ══════════ */
+/* Enlace «Saltar al contenido»: visible al recibir foco */
+.skip { position: fixed; left: 12px; top: -60px; z-index: 60; padding: 10px 18px; border-radius: 999px; background: var(--white); color: #25283D; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.25); transition: top .2s ease; }
+.skip:focus { top: 12px; outline: 2px solid var(--purple); outline-offset: 2px; }
+/* Logo de cabecera: área táctil de 44 px */
+.top .wrap > a:first-child { display: inline-flex; align-items: center; min-height: 44px; padding-right: 8px; }
+/* Superíndices de referencia legibles */
+sup.cite { font-size: max(.7em, 11px); }
+/* Comparador SEO/GEO en móvil: etiqueta de fila en una línea */
+@media screen and (max-width: 860px) { .vs tbody th { width: auto; } }
+@media screen and (max-width: 560px) {
+  /* Paneles oscuros: menos relleno anidado para ganar ancho de lectura */
+  .cta { padding: 26px 20px; border-radius: var(--r-md); }
+  .fw__panel { padding: 26px 16px; border-radius: var(--r-md); }
+  .fw__panel .sec__head { margin-bottom: 24px; }
+  .ph-panel { padding: 20px 16px; gap: 18px; }
+  .ph-list li { font-size: 15px; }
+  .box { padding: 22px 18px; }
+  .gen__ans { padding: 18px; }
+  .final .contact, .final__person .person { gap: 14px; }
+}
+@media screen and (max-width: 400px) {
+  .kpis { grid-template-columns: minmax(0, 1fr); }
+  .kpi { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 16px; }
+  .kpi b { font-size: 40px; }
+  .case__k, .case__k2, .facts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .person { grid-template-columns: 60px minmax(0, 1fr); }
+  .person img { width: 60px; height: 60px; }
+}

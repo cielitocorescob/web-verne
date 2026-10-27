@@ -63,7 +63,7 @@
   .crit-panel[hidden], .ph-panel[hidden], .ar-panel[hidden] { display: grid !important; }
   .crit-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3mm; }
   .crit-panel { grid-template-columns: minmax(0, 1fr); padding: 4mm; gap: 2mm; }
-  .crit-panel h4 { font-size: 11pt; }
+  .crit-panel .crit-h { font-size: 11pt; }
   .crit-panel li { font-size: 9pt; }
   .crit-seg[aria-selected="true"] { background: var(--tint-2); color: var(--ink); }
   .crit-seg { min-height: 12mm; font-size: 13pt; }

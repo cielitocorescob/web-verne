@@ -3,7 +3,7 @@ S=sys.argv[1]; E='/home/user/web-verne/ebook'
 old=open(E+'/respaldos/marca-directiva-web-antes-contenido-completo.html',encoding='utf8').read()
 main_eb=open(E+'/marca-directiva.html',encoding='utf8').read()
 head=old[:old.index('<style>')]
-head=head.replace('<title>Marca Directiva · Verne</title>','<title>Marca Directiva · Verne</title>\n<meta name="color-scheme" content="light dark">\n<script>(function(){var t;try{t=localStorage.getItem("verne-ebook-tema")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})();</script>')+'<style>'
+head=head.replace('<title>Marca Directiva · Verne</title>','<title>Marca Directiva · Verne</title>\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<meta name="color-scheme" content="light dark">\n<script>(function(){var t;try{t=localStorage.getItem("verne-ebook-tema")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})();</script>')+'<style>'
 css_old=open(S+'/base.css').read()
 css=css_old+open(S+'/new.css').read()+open(S+'/theme.css').read()+open(S+'/audit.css').read()+open(S+'/print.css').read()+'</style>\n\n'
 body=open(S+'/body.html').read()

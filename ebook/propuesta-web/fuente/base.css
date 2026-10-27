@@ -161,8 +161,8 @@ a { color: inherit; }
 .crit-names span { font-size: 13px; line-height: 1.35; color: var(--muted); text-align: center; padding-inline: 4px; min-width: 0; }
 .crit-panel { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 24px; background: var(--tint); border-radius: var(--r-md); padding: 24px; }
 .crit-panel[hidden] { display: none; }
-.crit-panel h4 { font-size: 22px; font-weight: 600; line-height: 1.25; }
-.crit-panel h4 small { display: block; font-size: 13px; font-weight: 500; color: var(--purple); margin-bottom: 6px; }
+.crit-panel .crit-h { font-size: 22px; font-weight: 600; line-height: 1.25; }
+.crit-panel .crit-h small { display: block; font-size: 13px; font-weight: 500; color: var(--purple); margin-bottom: 6px; }
 .crit-panel ul { list-style: none; padding: 0; display: grid; gap: 10px; }
 .crit-panel li { display: flex; gap: 12px; align-items: baseline; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
 .crit-panel li .mod { color: var(--purple); transform: translateY(-2px); }
