@@ -273,3 +273,35 @@ sup.cite a:hover, sup.cite a:focus-visible { text-decoration: underline; }
 .gen[data-active] .gen__cites li { opacity: .25; transform: scale(.9); }
 .gen[data-active="1"] .gen__cites [data-cite="1"], .gen[data-active="2"] .gen__cites [data-cite="2"], .gen[data-active="3"] .gen__cites [data-cite="3"] { opacity: 1; transform: scale(1.18); box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--g1); }
 .gen[data-active="1"] .gen__txt i:nth-child(1), .gen[data-active="2"] .gen__txt i:nth-child(2), .gen[data-active="3"] .gen__txt i:nth-child(3) { background: var(--g2); opacity: .55; }
+
+/* ── Formularios: mismos campos que la web de Verne ── */
+.lead__note { font-size: 13px !important; color: var(--on-dark-2) !important; margin: 0 0 14px !important; }
+.cta--light .lead__note { color: var(--muted) !important; }
+.lead .lead__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 18px; }
+.lead__f--wide { grid-column: 1 / -1; }
+.lead__f label { font-size: 13px; font-weight: 500; }
+.lead__f input, .lead__f select, .lead__f textarea { width: 100%; min-height: 50px; padding: 0 16px; border-radius: var(--r-sm); border: 0; box-shadow: inset 0 0 0 1.5px var(--line); background: var(--surface); color: var(--ink); font: 400 15px/1.4 var(--font); transition: box-shadow .2s ease; }
+.lead__f textarea { min-height: 116px; padding: 14px 16px; resize: vertical; }
+.lead__sel { position: relative; }
+.lead__sel select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer; }
+.lead__sel::after { content: ""; position: absolute; right: 18px; top: 50%; width: 7px; height: 7px; margin-top: -6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); opacity: .6; pointer-events: none; }
+.lead__f select:has(option[value=""]:checked) { color: var(--muted); }
+.cta:not(.cta--light) .lead__f select:has(option[value=""]:checked) { color: var(--on-dark-2); }
+.lead__f input:focus, .lead__f select:focus, .lead__f textarea:focus { outline: none; box-shadow: inset 0 0 0 2px var(--purple), 0 0 0 4px hsl(263 45% 52% / .18); }
+.cta:not(.cta--light) .lead__f input, .cta:not(.cta--light) .lead__f select, .cta:not(.cta--light) .lead__f textarea { background: hsl(0 0% 100% / .05); box-shadow: inset 0 0 0 1.5px var(--on-dark-line); color: var(--white); }
+.cta:not(.cta--light) .lead__f select option { color: #25283D; background: #FFFFFF; }
+.cta:not(.cta--light) .lead__f input:focus, .cta:not(.cta--light) .lead__f select:focus, .cta:not(.cta--light) .lead__f textarea:focus { box-shadow: inset 0 0 0 2px var(--lavender), 0 0 0 4px hsl(252 74% 82% / .2); }
+.cta:not(.cta--light) .lead__f label { color: var(--on-dark-2); }
+.lead__check { grid-template-columns: 22px minmax(0, 1fr); column-gap: 12px; align-items: start; }
+.lead__check input[type=checkbox] { width: 20px; height: 20px; min-height: 0; padding: 0; margin: 2px 0 0; accent-color: var(--purple); cursor: pointer; box-shadow: none; }
+.lead__check label { font-size: 13px; font-weight: 400; line-height: 1.55; cursor: pointer; }
+.lead__check label a, .lead__check [data-privacy] { text-decoration: underline; text-underline-offset: 3px; }
+.lead__check .lead__err { grid-column: 2; padding-left: 0; }
+.cta:not(.cta--light) .lead__check input[type=checkbox] { accent-color: var(--lavender); }
+.lead__f input[aria-invalid="true"] { box-shadow: inset 0 0 0 2px var(--err); }
+.lead .lead__f .btn { justify-self: start; width: auto; }
+@media screen and (max-width: 560px) {
+  .lead .lead__grid { grid-template-columns: minmax(0, 1fr); }
+  .lead .lead__f .btn { width: 100%; }
+}
+.lead .lead__err { padding-left: 2px; margin-top: -2px; }

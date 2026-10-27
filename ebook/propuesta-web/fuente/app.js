@@ -17,7 +17,8 @@
     cta8:  { formEndpoint: null, recurso: null }, /* Checklist GEO (1 hoja) */
     cta9:  { url: null },                         /* «Solicita tu reporte» */
     cta10: { url: null },                         /* Calendario de reservas */
-    whatsapp: { url: null }                       /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
+    whatsapp: { url: null },
+    privacidad: { url: null }                     /* URL de las políticas de privacidad de Verne */                       /* Por defecto: wa.me/51966050678 (número de Julio Talledo en el Word) */
   };
   document.querySelectorAll('[data-cta-link]').forEach(function (a) {
     var cfg = CTA_CONFIG[a.getAttribute('data-cta-link')];
@@ -39,14 +40,18 @@
     });
   });
   var CHECKS = {
-    nombre: function (v) { return v.trim().length >= 2; },
+    nombres: function (v) { return v.trim().length >= 2; },
+    apellidos: function (v) { return v.trim().length >= 2; },
     correo: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
-    celular: function (v) { var d = v.replace(/[^0-9]/g, ''); return /^[+0-9\s().-]+$/.test(v.trim()) && d.length >= 9 && d.length <= 15; },
-    cargo: function (v) { return v.trim().length >= 2; },
+    celular: function (v) { if (!v.trim()) return true; var d = v.replace(/[^0-9]/g, ''); return /^[+0-9\s().-]+$/.test(v.trim()) && d.length >= 9 && d.length <= 15; },
     empresa: function (v) { return v.trim().length >= 2; }
   };
+  /* Enlace a políticas de privacidad: solo si existe la URL */
+  if (CTA_CONFIG.privacidad.url) document.querySelectorAll('[data-privacy]').forEach(function (s) {
+    var a = document.createElement('a'); a.href = CTA_CONFIG.privacidad.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = s.textContent; s.replaceWith(a);
+  });
   function checkField(inp) {
-    var ok = (CHECKS[inp.name] || function () { return true; })(inp.value);
+    var ok = inp.type === 'checkbox' ? inp.checked : (CHECKS[inp.name] || function () { return true; })(inp.value);
     var err = document.getElementById(inp.getAttribute('aria-describedby'));
     inp.setAttribute('aria-invalid', ok ? 'false' : 'true');
     if (err) err.hidden = ok;
@@ -55,8 +60,8 @@
   document.querySelectorAll('form.lead').forEach(function (f) {
     var status = f.querySelector('.lead__status');
     f.querySelectorAll('input').forEach(function (inp) {
-      inp.addEventListener('blur', function () { if (inp.value) checkField(inp); });
-      inp.addEventListener('input', function () { if (inp.getAttribute('aria-invalid') === 'true') checkField(inp); });
+      inp.addEventListener('blur', function () { if (inp.value && inp.type !== 'checkbox') checkField(inp); });
+      inp.addEventListener(inp.type === 'checkbox' ? 'change' : 'input', function () { if (inp.getAttribute('aria-invalid') === 'true') checkField(inp); });
     });
     f.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -68,10 +73,13 @@
       /* Sin integración: se arma el correo con los datos para que la persona lo envíe a Verne. */
       var opener = document.querySelector('[aria-controls="' + f.id + '"]');
       var subject = decodeURIComponent((opener.getAttribute('href').split('subject=')[1] || '').replace(/\+/g, ' '));
-      var lines = Array.prototype.map.call(f.querySelectorAll('input'), function (inp) {
-        return f.querySelector('label[for="' + inp.id + '"]').textContent + ': ' + inp.value.trim();
+      var lines = [];
+      f.querySelectorAll('input:not([type=checkbox]), select, textarea').forEach(function (el) {
+        var v = el.value.trim(); if (!v) return;
+        lines.push(f.querySelector('label[for="' + el.id + '"]').textContent.replace(/\s*\*$/, '') + ': ' + v);
       });
-      var nombre = (f.querySelector('[name="nombre"]').value || '').trim().split(' ')[0];
+      lines.push('Acepta las políticas de privacidad: sí');
+      var nombre = (f.querySelector('[name="nombres"]').value || '').trim().split(' ')[0];
       status.textContent = 'Gracias' + (nombre ? ', ' + nombre : '') + '. Abrimos tu correo con la solicitud para Verne; solo tienes que enviarlo. Si no se abre, escríbenos a julio@verne.la.';
       window.location.href = 'mailto:julio@verne.la?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
     });

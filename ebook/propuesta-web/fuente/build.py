@@ -14,14 +14,36 @@ body=body.replace('{{MOD}}',MOD).replace('{{BTNI}}',BTNI)
 body=body.replace('{{CTAMODS}}','<div class="cta__mods" aria-hidden="true"><span><i style="width:18px"></i><i style="width:90px"></i></span><span><i style="width:54px"></i><i style="width:18px"></i><i style="width:36px"></i></span><span><i style="width:18px"></i><i style="width:54px"></i></span></div>')
 body=body.replace('{{OPMODS}}','<div class="opener__mods" aria-hidden="true"><span><i class="w" style="width:12px"></i><i style="width:36px"></i></span><span><i style="width:60px"></i><i class="w" style="width:12px"></i></span><span><i style="width:12px"></i><i class="w" style="width:24px"></i></span></div>')
 body=re.sub(r'\{\{DOTS:(\d+)\}\}',lambda m:'<i class="on"></i>'*int(m.group(1))+'<i></i>'*(100-int(m.group(1))),body)
+PUESTOS=['Directorio o presidencia','CEO o gerente general','Gerente o director de área','Comunicación, marketing o asuntos corporativos','Recursos humanos o talento','Otro']
+TEMAS=['Marca Directiva y reputación del líder','Comunicación corporativa y marca de la empresa','Visibilidad en buscadores e IA','Adopción de Inteligencia Artificial en mi empresa','Capacitación para mi equipo','Asuntos públicos y entorno regulatorio','Aún no sé, quiero conversarlo']
 def form(m):
     cid,label,kind=m.group(1),m.group(2),m.group(3)
-    fields=[('nombre','Nombre','text','name','Escribe tu nombre.',''),('correo','Correo','email','email','Escribe un correo válido, por ejemplo nombre@empresa.com.',' inputmode="email"'),('celular','Celular','tel','tel','Escribe un número de celular válido, con al menos 9 dígitos.',' inputmode="tel"'),('cargo','Cargo','text','organization-title','Escribe tu cargo.',''),('empresa','Empresa','text','organization','Escribe el nombre de tu empresa.','')]
-    out=f'<form class="lead" id="form-{cid}" data-cta="{cid}" data-kind="{kind}" novalidate hidden><div class="lead__grid">'
-    for n,l,t,ac,err,extra in fields:
-        i=f'form-{cid}-{n}'
-        out+=f'<div class="lead__f"><label for="{i}">{l}</label><input id="{i}" name="{n}" type="{t}" autocomplete="{ac}" required aria-describedby="{i}-err"{extra}><p class="lead__err" id="{i}-err" hidden>{err}</p></div>'
-    out+=f'<div class="lead__f lead__f--send"><button class="btn btn--primary" type="submit">{label} {BTNI}</button></div></div><p class="lead__status" role="status" aria-live="polite"></p></form>'
+    I=lambda n: f'form-{cid}-{n}'
+    def inp(n,l,t,ac,err,req=True,extra='',wide=False):
+        star=' <span aria-hidden="true">*</span>' if req else ''
+        return (f'<div class="lead__f{" lead__f--wide" if wide else ""}"><label for="{I(n)}">{l}{star}</label>'
+                f'<input id="{I(n)}" name="{n}" type="{t}" autocomplete="{ac}"{" required" if req else ""} aria-describedby="{I(n)}-err"{extra}>'
+                f'<p class="lead__err" id="{I(n)}-err" hidden>{err}</p></div>')
+    def sel(n,l,opts):
+        o=''.join(f'<option>{x}</option>' for x in opts)
+        return (f'<div class="lead__f"><label for="{I(n)}">{l}</label><div class="lead__sel">'
+                f'<select id="{I(n)}" name="{n}"><option value="">Selecciona una opción</option>{o}</select></div></div>')
+    out=f'<form class="lead" id="form-{cid}" data-cta="{cid}" data-kind="{kind}" novalidate hidden>'
+    out+='<p class="lead__note">Los campos marcados con * son obligatorios.</p><div class="lead__grid">'
+    out+=inp('nombres','Nombres','text','given-name','Escribe tus nombres.')
+    out+=inp('apellidos','Apellidos','text','family-name','Escribe tus apellidos.')
+    out+=inp('correo','Correo corporativo','email','email','Escribe un correo válido, por ejemplo nombre@empresa.com.',extra=' inputmode="email"',wide=True)
+    out+=inp('celular','Celular','tel','tel','Escribe un número válido, con al menos 9 dígitos.',req=False,extra=' inputmode="tel"')
+    out+=inp('empresa','Empresa','text','organization','Escribe el nombre de tu empresa.')
+    out+=sel('puesto','Puesto en la empresa',PUESTOS)
+    out+=sel('tema','Tema de interés',TEMAS)
+    out+=(f'<div class="lead__f lead__f--wide"><label for="{I("reto")}">Cuéntanos tu reto (opcional)</label>'
+          f'<textarea id="{I("reto")}" name="reto" rows="4"></textarea></div>')
+    out+=(f'<div class="lead__f lead__f--wide lead__check"><input id="{I("acepto")}" name="acepto" type="checkbox" required aria-describedby="{I("acepto")}-err">'
+          f'<label for="{I("acepto")}">Acepto las <span data-privacy>políticas de privacidad</span> y el tratamiento de mis datos personales. <span aria-hidden="true">*</span></label>'
+          f'<p class="lead__err" id="{I("acepto")}-err" hidden>Debes aceptar las políticas de privacidad para continuar.</p></div>')
+    out+=f'<div class="lead__f lead__f--wide"><button class="btn btn--primary" type="submit">{label} {BTNI}</button></div>'
+    out+='</div><p class="lead__status" role="status" aria-live="polite"></p></form>'
     return out
 body=re.sub(r'\{\{FORM:(\w+):([^:]+):(\w+)\}\}',form,body)
 def pf(m):
