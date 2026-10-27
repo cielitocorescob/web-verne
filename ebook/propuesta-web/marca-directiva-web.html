@@ -1057,10 +1057,10 @@ a { color: inherit; }
 .foot .foot__web:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
 
 /* Referencias numeradas */
-sup.ref { font-size: .62em; line-height: 0; margin-left: 2px; vertical-align: super; }
-sup.ref a { color: var(--purple); text-decoration: none; font-weight: 600; padding: 0 2px; }
-sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
-[data-theme="dark"] sup.ref a { color: var(--lavender); }
+sup.cite { font-size: .62em; line-height: 0; margin-left: 2px; vertical-align: super; }
+sup.cite a { color: var(--purple); text-decoration: none; font-weight: 600; padding: 0 2px; }
+sup.cite a:hover, sup.cite a:focus-visible { text-decoration: underline; }
+[data-theme="dark"] sup.cite a { color: var(--lavender); }
 .refs { padding-top: clamp(48px, 6vw, 80px); }
 .refs .read { padding-top: 0; }
 .refs__h { font-size: clamp(24px, 2.4vw, 30px); font-weight: 600; line-height: 1.2; }
@@ -1125,6 +1125,79 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
 .cta .quiz .quiz__privacy { font-size: 12px; color: var(--muted); }
 .cta .quiz .quiz__err { font-size: 13px; color: var(--err); }
 [data-theme="dark"] .cta .quiz .quiz__name, [data-theme="dark"] .cta .quiz .quiz__k { color: var(--lavender); }
+
+/* ── Fig. 3.2 · Respuesta generativa: fuentes → sinapsis → respuesta ── */
+.gen__map { display: grid; grid-template-columns: minmax(0, 5fr) minmax(48px, 2fr) minmax(0, 5fr); align-items: stretch; }
+.gen__src { list-style: none; padding: 0; display: grid; grid-template-rows: repeat(3, 1fr); gap: 10px; }
+.gen__s { width: 100%; height: 100%; display: grid; grid-template-columns: 14px minmax(0, 1fr); column-gap: 12px; align-content: center; text-align: left; padding: 14px 16px; border: 0; border-radius: var(--r-sm); background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font: inherit; cursor: pointer; transition: box-shadow .25s ease, background-color .25s ease, opacity .25s ease; }
+.gen__s b { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.gen__s span:not(.gen__dot) { grid-column: 2; font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 2px; }
+.gen__dot { grid-row: 1 / 3; align-self: start; margin-top: 4px; width: 12px; height: 12px; border-radius: 50%; }
+.gen__s[data-src="1"] .gen__dot, .gen__cites [data-cite="1"] { background: var(--purple); }
+.gen__s[data-src="2"] .gen__dot, .gen__cites [data-cite="2"] { background: #9C87E8; }
+.gen__s[data-src="3"] .gen__dot, .gen__cites [data-cite="3"] { background: var(--bar-25); }
+.gen__s:hover { box-shadow: inset 0 0 0 1.5px var(--purple); }
+.gen__s[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--purple); background: var(--tint); }
+.gen__lines { width: 100%; height: 100%; overflow: visible; }
+.gen__lines path { fill: none; stroke: var(--purple); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-dasharray: 2 9; opacity: .55; transition: opacity .25s ease, stroke-width .25s ease; }
+.gen__ans { align-self: center; display: grid; gap: 12px; padding: 22px; border-radius: var(--r-md); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), 0 24px 48px -32px rgba(37, 40, 61, .45); }
+.gen__ans-k { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--ink); }
+.gen__ans-k .mod { color: var(--purple); }
+.gen__q { font-size: 13px; line-height: 1.45; color: var(--muted); padding: 8px 12px; border-radius: var(--r-sm); background: var(--tint); }
+.gen__txt { display: grid; gap: 8px; padding-top: 2px; }
+.gen__txt i { display: block; height: 8px; border-radius: 8px; background: var(--tint-2); }
+.gen__cites-k { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.gen__cites { list-style: none; padding: 0; display: flex; gap: 8px; }
+.gen__cites li { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 600; color: var(--white); transition: transform .25s var(--ease), box-shadow .25s ease, opacity .25s ease; }
+.gen__cites [data-cite="3"] { color: var(--navy-deep); }
+/* estado activo */
+.gen[data-active] .gen__s:not([aria-pressed="true"]) { opacity: .55; }
+.gen[data-active] .gen__lines path { opacity: .18; }
+.gen[data-active="1"] .gen__lines [data-path="1"], .gen[data-active="2"] .gen__lines [data-path="2"], .gen[data-active="3"] .gen__lines [data-path="3"] { opacity: 1; stroke-width: 3; }
+.gen[data-active] .gen__cites li { opacity: .35; }
+.gen[data-active="1"] [data-cite="1"], .gen[data-active="2"] [data-cite="2"], .gen[data-active="3"] [data-cite="3"] { opacity: 1; transform: scale(1.15); box-shadow: 0 0 0 4px var(--tint-2); }
+/* movimiento: la sinapsis fluye hacia la respuesta */
+@media (prefers-reduced-motion: no-preference) {
+  .gen.in .gen__lines path { animation: genFlow 1.6s linear infinite; }
+  .gen.in .gen__txt i { animation: genType .9s var(--ease) both; transform-origin: 0 50%; }
+  .gen.in .gen__txt i:nth-child(2) { animation-delay: .15s; } .gen.in .gen__txt i:nth-child(3) { animation-delay: .3s; } .gen.in .gen__txt i:nth-child(4) { animation-delay: .45s; }
+}
+@keyframes genFlow { to { stroke-dashoffset: -22; } }
+@keyframes genType { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+[data-theme="dark"] .gen__lines path { stroke: var(--lavender); }
+[data-theme="dark"] .gen__s[data-src="1"] .gen__dot, [data-theme="dark"] .gen__cites [data-cite="1"] { background: var(--lavender); color: var(--navy-deep); }
+[data-theme="dark"] .gen__s:hover, [data-theme="dark"] .gen__s[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--lavender); }
+[data-theme="dark"] .gen__ans { box-shadow: inset 0 0 0 1px var(--line), 0 24px 48px -32px rgba(0, 0, 0, .7); }
+[data-theme="dark"] .gen__ans-k .mod { color: var(--lavender); }
+@media screen and (max-width: 860px) {
+  .gen__map { grid-template-columns: minmax(0, 1fr); }
+  .gen__src { grid-template-rows: none; }
+  .gen__lines { display: none; }
+  .gen__ans { position: relative; margin-top: 48px; }
+  .gen__ans::before { content: ""; position: absolute; left: 50%; top: -40px; width: 2px; height: 32px; margin-left: -1px; background: repeating-linear-gradient(180deg, var(--purple) 0 3px, transparent 3px 10px); background-size: 2px 10px; }
+  [data-theme="dark"] .gen__ans::before { background-image: repeating-linear-gradient(180deg, var(--lavender) 0 3px, transparent 3px 10px); }
+}
+@media print {
+  .gen__map { grid-template-columns: minmax(0, 5fr) 18mm minmax(0, 5fr); }
+  .gen__lines path { animation: none !important; opacity: .6; stroke: #6D4ABE !important; }
+  .gen__txt i { animation: none !important; }
+  .gen__s { box-shadow: inset 0 0 0 1px #E7E4F0; }
+  .gen__s .gen__dot { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .fig.gen { break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 860px) { .gen.in .gen__ans::before { animation: genDrop 1s linear infinite; } }
+@keyframes genDrop { to { background-position: 0 10px; } }
+/* Fig. 3.2: tonos por tipo de fuente (contraste AA en el número de cita) */
+.gen { --g1: #6D4ABE; --g1t: #FFFFFF; --g2: #9C87E8; --g2t: #1B1D2E; --g3: #C0B0F4; --g3t: #1B1D2E; }
+[data-theme="dark"] .gen { --g1: #C0B0F4; --g1t: #1B1D2E; --g2: #8E79D6; --g2t: #1B1D2E; --g3: #6B6F94; --g3t: #FFFFFF; }
+.gen .gen__s[data-src="1"] .gen__dot, .gen .gen__cites [data-cite="1"] { background: var(--g1); color: var(--g1t); }
+.gen .gen__s[data-src="2"] .gen__dot, .gen .gen__cites [data-cite="2"] { background: var(--g2); color: var(--g2t); }
+.gen .gen__s[data-src="3"] .gen__dot, .gen .gen__cites [data-cite="3"] { background: var(--g3); color: var(--g3t); }
+.gen .gen__cites li { width: 32px; height: 32px; font-size: 13px; }
+.gen[data-active] .gen__cites li { opacity: .25; transform: scale(.9); }
+.gen[data-active="1"] .gen__cites [data-cite="1"], .gen[data-active="2"] .gen__cites [data-cite="2"], .gen[data-active="3"] .gen__cites [data-cite="3"] { opacity: 1; transform: scale(1.18); box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--g1); }
+.gen[data-active="1"] .gen__txt i:nth-child(1), .gen[data-active="2"] .gen__txt i:nth-child(2), .gen[data-active="3"] .gen__txt i:nth-child(3) { background: var(--g2); opacity: .55; }
 
 /* ── PDF (A4 vertical, composición clara; todo el contenido interactivo visible) ── */
 @page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
@@ -1307,9 +1380,10 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
 @media print {
   .refs { break-before: page; padding-top: 0; }
   .refs__list { font-size: 9.5pt; }
-  sup.ref a { color: var(--purple); }
+  sup.cite a { color: var(--purple); }
 }
 @media print { #cierre .flow > .eyebrow { display: none; } #cierre .closing-h { break-before: page; } }
+@media print { .web-only { display: none !important; } }
 </style>
 
 <a class="sr-only" href="#introduccion">Saltar al contenido</a>
@@ -1413,7 +1487,7 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
         <h2 class="intro-h" id="t-intro">La credibilidad cambió de dirección</h2>
         <p>Durante décadas, la confianza fluyó de arriba hacia abajo. Las instituciones como los bancos, gobiernos, universidades, grandes corporaciones eran la fuente. Las personas, el destino. Bastaba con que una empresa tuviera un buen producto, un logo reconocido y un departamento de comunicaciones prolijo para que esa confianza institucional se transfiriera, casi por inercia, a quienes trabajaban ahí.</p>
         <p>Ese flujo se invirtió. Hoy la confianza corre de abajo hacia arriba. Primero se confía en una persona, y a través de esa persona, se confía o se desconfía en la institución que representa.</p>
-        <p>La consultora de comunicaciones, Edelman Trust Barometer lleva años documentando esta migración. Los ciudadanos confían más en los empleados de una empresa que en cualquier otra fuente corporativa, y ese mismo estudio revela que un empleado recibe el doble de confianza que un CEO cuando ambos hablan de la misma organización.<sup class="ref"><a href="#ref-1" aria-label="Referencia 1">1</a></sup></p>
+        <p>La consultora de comunicaciones, Edelman Trust Barometer lleva años documentando esta migración. Los ciudadanos confían más en los empleados de una empresa que en cualquier otra fuente corporativa, y ese mismo estudio revela que un empleado recibe el doble de confianza que un CEO cuando ambos hablan de la misma <span class="nw">organización.<sup class="cite"><a href="#ref-1" aria-label="Referencia 1">1</a></sup></span></p>
         <p class="statement">La confianza ya no vive en el membrete. <em>Vive en la persona.</em></p>
         <p>¿Por qué importa esto en 2026? Porque un nuevo actor entró a decidir qué historias se cuentan y a quién se cita cuando alguien pregunta por tu empresa: la inteligencia artificial generativa. Cuando alguien le pregunta a ChatGPT, Claude, Perplexity o Gemini “¿quién lidera la transformación digital en mi sector?” o “¿cuáles son las empresas más confiables para trabajar?”, esa IA no muestra diez enlaces azules. Construye una respuesta, con una narrativa propia, y decide a quién cita como fuente autorizada y a quién ignora.</p>
         <p>Esa decisión algorítmica se alimenta, en gran medida, de lo que las personas (no las instituciones) han publicado, dicho y demostrado en el ecosistema digital. Los modelos de lenguaje han aprendido a replicar la misma jerarquía de confianza que ya existía entre humanos. Es decir, dan más peso a las voces con expertise reconocido, a los testimonios de empleados y a los líderes que sostienen una narrativa coherente en el tiempo.</p>
@@ -1785,7 +1859,7 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
         <ol><li><a href="#c3-voces">Un ecosistema saturado</a></li><li><a href="#c3-algoritmos">Los algoritmos ya deciden qué historia se cuenta sobre tu empresa</a></li><li><a href="#c3-intimo">El uso más íntimo de la IA cambia también las reglas de la confianza</a></li></ol>
       </aside>
       <div class="flow">
-        <p>Las compañías ya lo asumieron. Según el informe 2026 AI and Digital Trends in B2B Journey Orchestration, de Adobe, “el 67% considera que las plataformas conversacionales impulsadas por IA son cruciales para mantener la relevancia de su marca”. El mismo informe señala que “el 61% afirma que las futuras experiencias de sus clientes deberán diseñarse como conversaciones”.<sup class="ref"><a href="#ref-2" aria-label="Referencia 2">2</a></sup></p>
+        <p>Las compañías ya lo asumieron. Según el informe 2026 AI and Digital Trends in B2B Journey Orchestration, de Adobe, “el 67% considera que las plataformas conversacionales impulsadas por IA son cruciales para mantener la relevancia de su marca”. El mismo informe señala que “el 61% afirma que las futuras experiencias de sus clientes deberán diseñarse como <span class="nw">conversaciones”.<sup class="cite"><a href="#ref-2" aria-label="Referencia 2">2</a></sup></span></p>
         <div class="stats rv" role="group" aria-label="Cifras del informe de Adobe">
           <div class="stat stat--dark"><b class="num">67<small>%</small></b><span>considera que las plataformas conversacionales impulsadas por IA son cruciales para mantener la relevancia de su marca</span></div>
           <div class="stat"><b class="num">61<small>%</small></b><span>afirma que las futuras experiencias de sus clientes deberán diseñarse como conversaciones</span></div>
@@ -1797,7 +1871,7 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
         <p>En ese contexto, el valor de una voz humana reconocible, coherente y verificable no disminuye, por el contrario, se dispara.</p>
         <p class="statement">Y aquí es clave <em>la trayectoria</em>, la experiencia, las historias que ese directivo ha acumulado en su camino de aprendizaje.</p>
         <p>Ese historial es lo que hace más valorado su contenido.</p>
-        <p>El informe 2024 B2B Thought Leadership Impact Report, elaborado por Edelman y LinkedIn, indica que “solo el 15% de los decisores considera que el contenido de liderazgo de pensamiento que consume es muy bueno o excelente”.<sup class="ref"><a href="#ref-3" aria-label="Referencia 3">3</a></sup></p>
+        <p>El informe 2024 B2B Thought Leadership Impact Report, elaborado por Edelman y LinkedIn, indica que “solo el 15% de los decisores considera que el contenido de liderazgo de pensamiento que consume es muy bueno o <span class="nw">excelente”.<sup class="cite"><a href="#ref-3" aria-label="Referencia 3">3</a></sup></span></p>
         <figure class="fig rv">
           <figcaption class="fig__cap"><span class="fig__n">Fig. 3.1</span><span class="fig__t">Decisores que consideran muy bueno o excelente el contenido de liderazgo de pensamiento que consumen<small>De cada 100 decisores. Cada punto representa a 1 %.</small></span></figcaption>
           <div class="wf-solo"><div class="wf wf--key" role="img" aria-label="15 de cada 100 decisores"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div><p class="wf-num num">15<span>%</span></p><p class="wf-lab">de los decisores considera que el contenido de liderazgo de pensamiento que consume es muy bueno o excelente</p></div></div>
@@ -1807,24 +1881,35 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
 
         <h3 id="c3-algoritmos">Los algoritmos ya deciden qué historia se cuenta sobre tu empresa</h3>
         <p>Conviene entender el mecanismo, cuando alguien consulta a una IA generativa sobre tu industria o directamente sobre tu empresa, el sistema recupera fuentes disponibles, las resume y las cita. No compites por el primer lugar de una lista de diez enlaces, compites por ser una de las tres o cuatro fuentes que sostienen una sola respuesta.</p>
-        <figure class="fig rv">
-          <figcaption class="fig__cap"><span class="fig__n">Fig. 3.2</span><span class="fig__t">Respuesta generativa<small>Las fuentes que el sistema recupera, resume y cita.</small></span></figcaption>
-          <div class="fn">
-            <ul class="fn__src">
-              <li><b>Fuentes que controlas</b><span>tu perfil, tu web, tus post</span></li>
-              <li><b>Fuentes que influyes</b><span>entrevista en medios, estudios sectoriales, papers</span></li>
-              <li><b>Fuentes que no controlas</b><span>foros, directorios, comentarios de terceros</span></li>
+        <figure class="fig gen rv" aria-labelledby="gen-t">
+          <figcaption class="fig__cap" id="gen-t"><span class="fig__n">Fig. 3.2</span><span class="fig__t">Cómo se arma una respuesta generativa<small>El sistema recupera fuentes disponibles, las resume y las cita.<span class="web-only"> Selecciona un tipo de fuente para ver su recorrido.</span></small></span></figcaption>
+          <div class="gen__map">
+            <ul class="gen__src" aria-label="Tipos de fuente">
+              <li><button type="button" class="gen__s" data-src="1" aria-pressed="false"><span class="gen__dot" aria-hidden="true"></span><b>Fuentes que controlas</b><span>tu perfil, tu web, tus post</span></button></li>
+              <li><button type="button" class="gen__s" data-src="2" aria-pressed="false"><span class="gen__dot" aria-hidden="true"></span><b>Fuentes que influyes</b><span>entrevista en medios, estudios sectoriales, papers</span></button></li>
+              <li><button type="button" class="gen__s" data-src="3" aria-pressed="false"><span class="gen__dot" aria-hidden="true"></span><b>Fuentes que no controlas</b><span>foros, directorios, comentarios de terceros</span></button></li>
             </ul>
-            <svg class="fn__lines" viewBox="0 0 600 72" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 40, 300 30, 300 72"/><path d="M300 0 L300 72"/><path d="M500 0 C500 40, 300 30, 300 72"/></svg>
-            <p class="fn__out"><span class="mod" aria-hidden="true"><i></i><i></i></span>Respuesta generativa</p>
+            <svg class="gen__lines" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true">
+              <path data-path="1" d="M0 50 C 110 50, 90 150, 200 150"/>
+              <path data-path="2" d="M0 150 L 200 150"/>
+              <path data-path="3" d="M0 250 C 110 250, 90 150, 200 150"/>
+            </svg>
+            <div class="gen__ans" role="img" aria-label="Respuesta generativa construida con tres o cuatro fuentes citadas, de los tres tipos de fuente.">
+              <p class="gen__ans-k"><span class="mod" aria-hidden="true"><i></i><i></i></span>Respuesta generativa</p>
+              <p class="gen__q">¿Quién lidera la transformación digital en mi sector?</p>
+              <div class="gen__txt" aria-hidden="true"><i style="width:94%"></i><i style="width:82%"></i><i style="width:88%"></i><i style="width:56%"></i></div>
+              <p class="gen__cites-k">Fuentes citadas</p>
+              <ul class="gen__cites" aria-hidden="true"><li data-cite="1">1</li><li data-cite="2">2</li><li data-cite="3">3</li></ul>
+            </div>
           </div>
+          <p class="src">No compites por el primer lugar de una lista de diez enlaces: compites por ser una de las tres o cuatro fuentes que sostienen una sola respuesta. Diagrama elaborado a partir del texto.</p>
         </figure>
         <p>Si la información disponible sobre tu organización se limita a una queja antigua en un foro, una noticia negativa de hace tiempo o el comentario aislado de un exempleado frustrado, esa será, literalmente, la historia que la IA cuente sin importar que la realidad actual sea distinta, si esa realidad nunca fue documentada digitalmente de forma sólida.</p>
         <p class="key">La IA no distingue entre lo que publicaste tú y lo que publicaron sobre ti. Si tu presencia digital es escasa o está desactualizada, la respuesta que arme va a reflejarlo.</p>
         <p class="key">Este fenómeno convierte la ausencia de una narrativa directiva sólida en un riesgo reputacional pasivo. No hace falta que ocurra una crisis para que la IA construya una imagen desactualizada o incompleta; basta con que nadie haya alimentado el ecosistema digital con una versión vigente, pública y verificable de la realidad.</p>
 
         <h3 id="c3-intimo">El uso más íntimo de la IA cambia también las reglas de la confianza</h3>
-        <p>Hay un dato que lo sugiere. Según el artículo <i>How People Are Really Using Gen AI in 2025</i>, publicado por Harvard Business Review en abril de ese año, a partir del análisis de conversaciones en foros públicos, el principal uso de la IA generativa ese fue la terapia y la compañía, seguido de organizar la vida propia.<sup class="ref"><a href="#ref-4" aria-label="Referencia 4">4</a></sup></p>
+        <p>Hay un dato que lo sugiere. Según el artículo <i>How People Are Really Using Gen AI in 2025</i>, publicado por Harvard Business Review en abril de ese año, a partir del análisis de conversaciones en foros públicos, el principal uso de la IA generativa ese fue la terapia y la compañía, seguido de organizar la vida <span class="nw">propia.<sup class="cite"><a href="#ref-4" aria-label="Referencia 4">4</a></sup></span></p>
         <p>No significa que la gente confíe plenamente en esas respuestas; pero revela que ya incorpora estas herramientas a conversaciones personales y reflexivas. En un entorno así, el liderazgo que se sostiene en criterio propio y no en un discurso corporativo impecable conserva una ventaja que ninguna optimización algorítmica replica.</p>
         <p class="statement">La visibilidad cambió de reglas. <em>La confianza sigue dependiendo de personas y de trayectorias que se pueden comprobar.</em></p>
       </div>
@@ -1850,7 +1935,7 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
         <ol><li><a href="#c4-estudio">El estudio de Harvard Business School</a></li><li><a href="#c4-proposito">El límite según el propósito</a></li><li><a href="#c4-eficiencia">La IA como una oportunidad de eficiencia</a></li><li><a href="#c4-preguntas">Tres preguntas antes de publicar</a></li></ol>
       </aside>
       <div class="flow">
-        <p id="c4-estudio">Un estudio de Harvard Business School (Choudhury, Vanneste y Zohrehvand, documento de trabajo 2025) entrenó una IA con las comunicaciones del CEO de una empresa tecnológica de más de 800 empleados. Los 105 empleados participantes identificaron el origen de la respuesta en el 59% de los casos, cerca del 50% del azar.<sup class="ref"><a href="#ref-5" aria-label="Referencia 5">5</a></sup></p>
+        <p id="c4-estudio">Un estudio de Harvard Business School (Choudhury, Vanneste y Zohrehvand, documento de trabajo 2025) entrenó una IA con las comunicaciones del CEO de una empresa tecnológica de más de 800 empleados. Los 105 empleados participantes identificaron el origen de la respuesta en el 59% de los casos, cerca del 50% del <span class="nw">azar.<sup class="cite"><a href="#ref-5" aria-label="Referencia 5">5</a></sup></span></p>
         <figure class="fig rv grow">
           <figcaption class="fig__cap"><span class="fig__n">Fig. 4.1</span><span class="fig__t">Aciertos al distinguir las respuestas del CEO de las del chatbot<small>105 trabajadores · escala de 0 a 100 %</small></span></figcaption>
           <div class="ref">
@@ -1873,7 +1958,7 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
           <div class="box__grid">
             <div class="stat"><b class="num">24<small>%</small></b><span>de la jornada de los directores ejecutivos ocupaba la comunicación electrónica</span><p class="src">Fuente: Michael Porter y Nitin Nohria, Harvard Business Review, 2018.</p></div>
             <div class="prose">
-              <p>El atractivo del gemelo digital es real. El estudio de Michael Porter y Nitin Nohria sobre el uso del tiempo de 27 directores ejecutivos, publicado en Harvard Business Review en 2018, encontró que la comunicación electrónica ocupaba el 24 % de su jornada.<sup class="ref"><a href="#ref-6" aria-label="Referencia 6">6</a></sup> Un sistema que ordene información, prepare borradores y resuelva preguntas rutinarias devuelve una porción de ese tiempo.</p>
+              <p>El atractivo del gemelo digital es real. El estudio de Michael Porter y Nitin Nohria sobre el uso del tiempo de 27 directores ejecutivos, publicado en Harvard Business Review en 2018, encontró que la comunicación electrónica ocupaba el 24 % de su <span class="nw">jornada.<sup class="cite"><a href="#ref-6" aria-label="Referencia 6">6</a></sup></span> Un sistema que ordene información, prepare borradores y resuelva preguntas rutinarias devuelve una porción de ese tiempo.</p>
               <p>Sin embargo, el error estratégico que vemos con más frecuencia es tratar a la IA como un sustituto de presencia: “si publico con ayuda de IA, ya cumplí con estar activo digitalmente”. Es exactamente lo opuesto de lo que funciona. El uso correcto de la IA en la marca directiva es como amplificador del criterio del líder, no como su reemplazo:</p>
               <ul class="ticks">
                 <li><span class="mod" aria-hidden="true"><i></i><i></i></span><span>Ayuda a estructurar y editar ideas que el directivo ya tiene, pero no genera el punto de vista desde cero.</span></li>
@@ -1923,9 +2008,9 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
       <div class="flow">
         <div class="stats rv" role="group" aria-label="Cifra reportada por OpenAI">
           <div class="stat stat--dark stat--big"><b class="num">700<small>millones</small></b><span>de usuarios activos semanales alcanzó ChatGPT en 2025</span></div>
-          <p class="src"><b>Fuente:</b> OpenAI, 2025.<sup class="ref"><a href="#ref-7" aria-label="Referencia 7">7</a></sup></p>
+          <p class="src"><b>Fuente:</b> OpenAI, <span class="nw">2025.<sup class="cite"><a href="#ref-7" aria-label="Referencia 7">7</a></sup></span></p>
         </div>
-        <p class="key" id="c5-geo">A esta disciplina se le denomina Generative Engine Optimization o GEO: la optimización para motores generativos. El término fue formalizado por Aggarwal y colaboradores en 2024.<sup class="ref"><a href="#ref-8" aria-label="Referencia 8">8</a></sup> GEO no sustituye al SEO tradicional; lo extiende hacia un entorno en el que el usuario puede recibir una respuesta sintetizada sin visitar cada una de las páginas originales.</p>
+        <p class="key" id="c5-geo">A esta disciplina se le denomina Generative Engine Optimization o GEO: la optimización para motores generativos. El término fue formalizado por Aggarwal y colaboradores en <span class="nw">2024.<sup class="cite"><a href="#ref-8" aria-label="Referencia 8">8</a></sup></span> GEO no sustituye al SEO tradicional; lo extiende hacia un entorno en el que el usuario puede recibir una respuesta sintetizada sin visitar cada una de las páginas originales.</p>
 
         <h3 id="c5-diferencia">En qué se diferencia realmente el GEO del SEO</h3>
         <figure class="fig rv">
@@ -2309,6 +2394,21 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
         })
         .then(function () { a.removeAttribute('aria-busy'); });
     });
+  });
+
+
+  /* ---- Fig. 3.2: resaltar el recorrido de un tipo de fuente ---- */
+  document.querySelectorAll('.gen').forEach(function (fig) {
+    var btns = fig.querySelectorAll('.gen__s');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var on = b.getAttribute('aria-pressed') !== 'true';
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        if (on) { b.setAttribute('aria-pressed', 'true'); fig.setAttribute('data-active', b.dataset.src); } else { fig.removeAttribute('data-active'); }
+      });
+    });
+    if (!('IntersectionObserver' in window)) { fig.classList.add('in'); return; }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { fig.classList.toggle('in', e.isIntersecting); }); }).observe(fig);
   });
 
   /* ---- Índice desplegable ---- */

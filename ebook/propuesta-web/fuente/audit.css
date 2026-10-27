@@ -132,10 +132,10 @@
 .foot .foot__web:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
 
 /* Referencias numeradas */
-sup.ref { font-size: .62em; line-height: 0; margin-left: 2px; vertical-align: super; }
-sup.ref a { color: var(--purple); text-decoration: none; font-weight: 600; padding: 0 2px; }
-sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
-[data-theme="dark"] sup.ref a { color: var(--lavender); }
+sup.cite { font-size: .62em; line-height: 0; margin-left: 2px; vertical-align: super; }
+sup.cite a { color: var(--purple); text-decoration: none; font-weight: 600; padding: 0 2px; }
+sup.cite a:hover, sup.cite a:focus-visible { text-decoration: underline; }
+[data-theme="dark"] sup.cite a { color: var(--lavender); }
 .refs { padding-top: clamp(48px, 6vw, 80px); }
 .refs .read { padding-top: 0; }
 .refs__h { font-size: clamp(24px, 2.4vw, 30px); font-weight: 600; line-height: 1.2; }
@@ -200,3 +200,76 @@ sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
 .cta .quiz .quiz__privacy { font-size: 12px; color: var(--muted); }
 .cta .quiz .quiz__err { font-size: 13px; color: var(--err); }
 [data-theme="dark"] .cta .quiz .quiz__name, [data-theme="dark"] .cta .quiz .quiz__k { color: var(--lavender); }
+
+/* ── Fig. 3.2 · Respuesta generativa: fuentes → sinapsis → respuesta ── */
+.gen__map { display: grid; grid-template-columns: minmax(0, 5fr) minmax(48px, 2fr) minmax(0, 5fr); align-items: stretch; }
+.gen__src { list-style: none; padding: 0; display: grid; grid-template-rows: repeat(3, 1fr); gap: 10px; }
+.gen__s { width: 100%; height: 100%; display: grid; grid-template-columns: 14px minmax(0, 1fr); column-gap: 12px; align-content: center; text-align: left; padding: 14px 16px; border: 0; border-radius: var(--r-sm); background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font: inherit; cursor: pointer; transition: box-shadow .25s ease, background-color .25s ease, opacity .25s ease; }
+.gen__s b { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.gen__s span:not(.gen__dot) { grid-column: 2; font-size: 13px; line-height: 1.45; color: var(--muted); margin-top: 2px; }
+.gen__dot { grid-row: 1 / 3; align-self: start; margin-top: 4px; width: 12px; height: 12px; border-radius: 50%; }
+.gen__s[data-src="1"] .gen__dot, .gen__cites [data-cite="1"] { background: var(--purple); }
+.gen__s[data-src="2"] .gen__dot, .gen__cites [data-cite="2"] { background: #9C87E8; }
+.gen__s[data-src="3"] .gen__dot, .gen__cites [data-cite="3"] { background: var(--bar-25); }
+.gen__s:hover { box-shadow: inset 0 0 0 1.5px var(--purple); }
+.gen__s[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--purple); background: var(--tint); }
+.gen__lines { width: 100%; height: 100%; overflow: visible; }
+.gen__lines path { fill: none; stroke: var(--purple); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-dasharray: 2 9; opacity: .55; transition: opacity .25s ease, stroke-width .25s ease; }
+.gen__ans { align-self: center; display: grid; gap: 12px; padding: 22px; border-radius: var(--r-md); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line), 0 24px 48px -32px rgba(37, 40, 61, .45); }
+.gen__ans-k { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--ink); }
+.gen__ans-k .mod { color: var(--purple); }
+.gen__q { font-size: 13px; line-height: 1.45; color: var(--muted); padding: 8px 12px; border-radius: var(--r-sm); background: var(--tint); }
+.gen__txt { display: grid; gap: 8px; padding-top: 2px; }
+.gen__txt i { display: block; height: 8px; border-radius: 8px; background: var(--tint-2); }
+.gen__cites-k { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.gen__cites { list-style: none; padding: 0; display: flex; gap: 8px; }
+.gen__cites li { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 600; color: var(--white); transition: transform .25s var(--ease), box-shadow .25s ease, opacity .25s ease; }
+.gen__cites [data-cite="3"] { color: var(--navy-deep); }
+/* estado activo */
+.gen[data-active] .gen__s:not([aria-pressed="true"]) { opacity: .55; }
+.gen[data-active] .gen__lines path { opacity: .18; }
+.gen[data-active="1"] .gen__lines [data-path="1"], .gen[data-active="2"] .gen__lines [data-path="2"], .gen[data-active="3"] .gen__lines [data-path="3"] { opacity: 1; stroke-width: 3; }
+.gen[data-active] .gen__cites li { opacity: .35; }
+.gen[data-active="1"] [data-cite="1"], .gen[data-active="2"] [data-cite="2"], .gen[data-active="3"] [data-cite="3"] { opacity: 1; transform: scale(1.15); box-shadow: 0 0 0 4px var(--tint-2); }
+/* movimiento: la sinapsis fluye hacia la respuesta */
+@media (prefers-reduced-motion: no-preference) {
+  .gen.in .gen__lines path { animation: genFlow 1.6s linear infinite; }
+  .gen.in .gen__txt i { animation: genType .9s var(--ease) both; transform-origin: 0 50%; }
+  .gen.in .gen__txt i:nth-child(2) { animation-delay: .15s; } .gen.in .gen__txt i:nth-child(3) { animation-delay: .3s; } .gen.in .gen__txt i:nth-child(4) { animation-delay: .45s; }
+}
+@keyframes genFlow { to { stroke-dashoffset: -22; } }
+@keyframes genType { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+[data-theme="dark"] .gen__lines path { stroke: var(--lavender); }
+[data-theme="dark"] .gen__s[data-src="1"] .gen__dot, [data-theme="dark"] .gen__cites [data-cite="1"] { background: var(--lavender); color: var(--navy-deep); }
+[data-theme="dark"] .gen__s:hover, [data-theme="dark"] .gen__s[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--lavender); }
+[data-theme="dark"] .gen__ans { box-shadow: inset 0 0 0 1px var(--line), 0 24px 48px -32px rgba(0, 0, 0, .7); }
+[data-theme="dark"] .gen__ans-k .mod { color: var(--lavender); }
+@media screen and (max-width: 860px) {
+  .gen__map { grid-template-columns: minmax(0, 1fr); }
+  .gen__src { grid-template-rows: none; }
+  .gen__lines { display: none; }
+  .gen__ans { position: relative; margin-top: 48px; }
+  .gen__ans::before { content: ""; position: absolute; left: 50%; top: -40px; width: 2px; height: 32px; margin-left: -1px; background: repeating-linear-gradient(180deg, var(--purple) 0 3px, transparent 3px 10px); background-size: 2px 10px; }
+  [data-theme="dark"] .gen__ans::before { background-image: repeating-linear-gradient(180deg, var(--lavender) 0 3px, transparent 3px 10px); }
+}
+@media print {
+  .gen__map { grid-template-columns: minmax(0, 5fr) 18mm minmax(0, 5fr); }
+  .gen__lines path { animation: none !important; opacity: .6; stroke: #6D4ABE !important; }
+  .gen__txt i { animation: none !important; }
+  .gen__s { box-shadow: inset 0 0 0 1px #E7E4F0; }
+  .gen__s .gen__dot { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .fig.gen { break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 860px) { .gen.in .gen__ans::before { animation: genDrop 1s linear infinite; } }
+@keyframes genDrop { to { background-position: 0 10px; } }
+/* Fig. 3.2: tonos por tipo de fuente (contraste AA en el número de cita) */
+.gen { --g1: #6D4ABE; --g1t: #FFFFFF; --g2: #9C87E8; --g2t: #1B1D2E; --g3: #C0B0F4; --g3t: #1B1D2E; }
+[data-theme="dark"] .gen { --g1: #C0B0F4; --g1t: #1B1D2E; --g2: #8E79D6; --g2t: #1B1D2E; --g3: #6B6F94; --g3t: #FFFFFF; }
+.gen .gen__s[data-src="1"] .gen__dot, .gen .gen__cites [data-cite="1"] { background: var(--g1); color: var(--g1t); }
+.gen .gen__s[data-src="2"] .gen__dot, .gen .gen__cites [data-cite="2"] { background: var(--g2); color: var(--g2t); }
+.gen .gen__s[data-src="3"] .gen__dot, .gen .gen__cites [data-cite="3"] { background: var(--g3); color: var(--g3t); }
+.gen .gen__cites li { width: 32px; height: 32px; font-size: 13px; }
+.gen[data-active] .gen__cites li { opacity: .25; transform: scale(.9); }
+.gen[data-active="1"] .gen__cites [data-cite="1"], .gen[data-active="2"] .gen__cites [data-cite="2"], .gen[data-active="3"] .gen__cites [data-cite="3"] { opacity: 1; transform: scale(1.18); box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--g1); }
+.gen[data-active="1"] .gen__txt i:nth-child(1), .gen[data-active="2"] .gen__txt i:nth-child(2), .gen[data-active="3"] .gen__txt i:nth-child(3) { background: var(--g2); opacity: .55; }

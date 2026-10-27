@@ -180,6 +180,7 @@
 @media print {
   .refs { break-before: page; padding-top: 0; }
   .refs__list { font-size: 9.5pt; }
-  sup.ref a { color: var(--purple); }
+  sup.cite a { color: var(--purple); }
 }
 @media print { #cierre .flow > .eyebrow { display: none; } #cierre .closing-h { break-before: page; } }
+@media print { .web-only { display: none !important; } }

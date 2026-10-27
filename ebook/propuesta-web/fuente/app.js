@@ -106,6 +106,21 @@
     });
   });
 
+
+  /* ---- Fig. 3.2: resaltar el recorrido de un tipo de fuente ---- */
+  document.querySelectorAll('.gen').forEach(function (fig) {
+    var btns = fig.querySelectorAll('.gen__s');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var on = b.getAttribute('aria-pressed') !== 'true';
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        if (on) { b.setAttribute('aria-pressed', 'true'); fig.setAttribute('data-active', b.dataset.src); } else { fig.removeAttribute('data-active'); }
+      });
+    });
+    if (!('IntersectionObserver' in window)) { fig.classList.add('in'); return; }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { fig.classList.toggle('in', e.isIntersecting); }); }).observe(fig);
+  });
+
   /* ---- Índice desplegable ---- */
   var menuBtn = document.querySelector('.menu-btn');
   var menu = document.getElementById('menu');
