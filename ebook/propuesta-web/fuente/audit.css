@@ -130,3 +130,73 @@
 .foot .foot__web { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 400; color: var(--on-dark-2); text-decoration: underline; text-decoration-color: hsl(252 74% 82% / .5); text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
 .foot .foot__web:hover, .foot .foot__web:focus-visible { color: var(--lavender); text-decoration-color: var(--lavender); }
 .foot .foot__web:focus-visible { outline: 2px solid var(--lavender); outline-offset: 3px; }
+
+/* Referencias numeradas */
+sup.ref { font-size: .62em; line-height: 0; margin-left: 2px; vertical-align: super; }
+sup.ref a { color: var(--purple); text-decoration: none; font-weight: 600; padding: 0 2px; }
+sup.ref a:hover, sup.ref a:focus-visible { text-decoration: underline; }
+[data-theme="dark"] sup.ref a { color: var(--lavender); }
+.refs { padding-top: clamp(48px, 6vw, 80px); }
+.refs .read { padding-top: 0; }
+.refs__h { font-size: clamp(24px, 2.4vw, 30px); font-weight: 600; line-height: 1.2; }
+.refs__list { margin-top: 20px; padding-left: 1.6em; display: grid; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 20px; }
+.refs__list li { padding-left: 4px; scroll-margin-top: 96px; }
+.refs__list li::marker { color: var(--purple); font-weight: 600; }
+.refs__list li:target { color: var(--ink); }
+/* Fig. 1.1: dos barras grandes */
+.hb--big { gap: 26px; }
+.hb--big .hb__t { height: 18px; border-radius: 18px; }
+.hb--big .hb__f { border-radius: 18px; }
+.hb--big .hb__lab span { font-size: 15px; font-weight: 500; }
+.hb--big .hb__lab b { font-size: clamp(26px, 3vw, 36px); line-height: 1; }
+.hb--big li:not(.on) .hb__f { background: var(--dot-ink); }
+
+/* ── Test de arquetipos (lámina interna del CTA 4) ── */
+.quiz { grid-column: 1 / -1; margin-top: 8px; padding-top: 28px; border-top: 1px solid var(--line); }
+.quiz[hidden] { display: none; }
+.quiz__screen { display: grid; gap: 18px; max-width: 640px; }
+.quiz__screen[hidden] { display: none; }
+.quiz__screen.enter { animation: phIn .3s var(--ease) both; }
+.quiz__k { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--purple); }
+.quiz__lead { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.quiz .btn { justify-self: start; }
+.quiz__prog { display: grid; gap: 8px; }
+.quiz__bar { height: 6px; border-radius: 6px; background: var(--tint-2); overflow: hidden; }
+.quiz__bar i { display: block; height: 100%; width: 0; border-radius: 6px; background: var(--bar); transition: width .4s var(--ease); }
+.quiz__count { font-size: 13px; color: var(--muted); }
+.quiz__q { border: 0; padding: 0; margin: 0; min-width: 0; }
+.quiz__question { padding: 0; font-size: 20px; font-weight: 600; line-height: 1.35; color: var(--ink); margin-bottom: 16px; }
+.quiz__opts { display: grid; gap: 10px; }
+.quiz__opt { text-align: left; min-height: 56px; padding: 14px 20px; border-radius: var(--r-sm); border: 0; box-shadow: inset 0 0 0 1.5px var(--line); background: var(--surface); color: var(--ink); font: 400 15px/1.5 var(--font); cursor: pointer; transition: box-shadow .2s ease, background-color .2s ease, color .2s ease; }
+.quiz__opt:hover { box-shadow: inset 0 0 0 1.5px var(--purple); }
+.quiz__opt[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--purple); background: var(--tint-2); font-weight: 500; }
+.quiz__next:disabled { opacity: .45; cursor: not-allowed; filter: none; }
+.quiz__name { font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; line-height: 1.1; color: var(--purple); outline: none; }
+.quiz__gate .lead__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.quiz__privacy { font-size: 12px; line-height: 1.5; color: var(--muted); }
+.quiz__err { font-size: 13px; color: var(--err); min-height: 1.4em; }
+.quiz__pct, .quiz__mix { font-size: 14px; color: var(--muted); margin-top: -8px; }
+.quiz__desc { font-size: 16px; line-height: 1.65; color: var(--ink); }
+.quiz__risk { position: relative; padding: 2px 0 2px 22px; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.quiz__risk::before { content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 4px; background: var(--grad); }
+.quiz__ex { font-size: 14px; line-height: 1.55; color: var(--muted); }
+.quiz__end { display: grid; gap: 16px; padding-top: 22px; border-top: 1px solid var(--line); }
+.quiz__end p { font-size: 15px; color: var(--ink-2); }
+.quiz__acts { display: flex; flex-wrap: wrap; gap: 10px; }
+[data-theme="dark"] .quiz__k, [data-theme="dark"] .quiz__name { color: var(--lavender); }
+[data-theme="dark"] .quiz__opt:hover, [data-theme="dark"] .quiz__opt[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--lavender); }
+[data-theme="dark"] .quiz__risk::before { background: linear-gradient(180deg, var(--lavender), #7F5FD8); }
+@media screen and (max-width: 860px) { .quiz__gate .lead__grid { grid-template-columns: minmax(0, 1fr); } }
+@media screen and (max-width: 560px) { .quiz .btn, .quiz__acts .btn { width: 100%; justify-self: stretch; } .quiz__question { font-size: 18px; } }
+@media print { .quiz { display: none !important; } }
+.cta .quiz p { margin-top: 0; max-width: 62ch; }
+.cta .quiz .quiz__name { font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; line-height: 1.1; color: var(--purple); }
+.cta .quiz .quiz__k { font-size: 13px; font-weight: 500; color: var(--purple); }
+.cta .quiz .quiz__lead, .cta .quiz .quiz__desc { font-size: 16px; color: var(--ink); }
+.cta .quiz .quiz__lead { color: var(--ink-2); }
+.cta .quiz .quiz__pct, .cta .quiz .quiz__mix { font-size: 14px; color: var(--muted); margin-top: -8px; }
+.cta .quiz .quiz__risk { font-size: 15px; color: var(--ink-2); }
+.cta .quiz .quiz__ex, .cta .quiz .quiz__count { font-size: 14px; color: var(--muted); }
+.cta .quiz .quiz__privacy { font-size: 12px; color: var(--muted); }
+.cta .quiz .quiz__err { font-size: 13px; color: var(--err); }
+[data-theme="dark"] .cta .quiz .quiz__name, [data-theme="dark"] .cta .quiz .quiz__k { color: var(--lavender); }

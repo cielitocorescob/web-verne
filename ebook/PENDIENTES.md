@@ -21,6 +21,8 @@ Los botones y formularios están preparados, pero varios destinos aún no se han
 
 > **Estado en la propuesta web (revisión final).** Ningún botón queda inactivo: mientras no exista el destino definitivo, los CTA 3, 4, 5, 6, 7, 9 y 10 abren un correo a julio@verne.la con el asunto del pedido; los formularios 1, 2 y 8 validan y abren ese correo con los datos completos; «WhatsApp» abre wa.me/51966050678 (número del Word). Al completar `url` o `formEndpoint` en `CTA_CONFIG`, el destino definitivo reemplaza al correo. El QR sigue sin mostrarse hasta tener el calendario. El PDF descargable (`propuesta-web/marca-directiva-verne.pdf`) se regenera desde la propia página.
 
+> **Comentarios v2 (Ebook_Marca_Directiva_COMENTARIOS_v2_1.pdf).** Quedan 4 CTA: 1 («Quiero saberlo», formulario), 4 (test de arquetipos integrado en la página), 8 («Averigua si te citan», formulario) y 10 («Conoce su puntaje», formulario). Se eliminaron los CTA 2, 3, 5, 6, 7 y 9. Los formularios abren un correo a julio@verne.la con los datos hasta conectar el «formulario Verne» (`CTA_CONFIG.cta1/cta8/cta10.formEndpoint`). El test muestra el resultado tras validar nombre, correo y empresa, pero no envía los datos hasta configurar `TEST_ENDPOINT` en el script del test.
+
 ## Comportamiento actual de los formularios (CTA 1, 2 y 8)
 
 - Validan los cinco campos: nombre y cargo/empresa con al menos 2 caracteres, correo con formato válido y celular con 9 a 15 dígitos.

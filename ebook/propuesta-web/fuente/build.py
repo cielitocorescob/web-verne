@@ -38,7 +38,7 @@ body=body.replace('{{PHASES}}',ph)
 logos=re.search(r'<ul class="logos-grid w"[^>]*>(.*?)</ul>',main_eb,re.S).group(1).replace(' loading="eager"',' loading="lazy"')
 body=body.replace('{{LOGOS}}',logos)
 assert '{{' not in body, re.findall(r'\{\{[^}]*\}\}',body)[:5]
-js=open(S+'/app.js').read()
+js=open(S+'/app.js').read()+'\n'+open(S+'/quiz.js').read()
 out=head+css+body+'\n'+js
 open(E+'/propuesta-web/marca-directiva-web.html','w',encoding='utf8').write(out)
 print(len(out))
