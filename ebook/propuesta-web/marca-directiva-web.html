@@ -1262,6 +1262,61 @@ sup.cite { font-size: max(.7em, 11px); }
   .person img { width: 60px; height: 60px; }
 }
 
+/* ══════════ Refinamiento editorial móvil ══════════ */
+.top { transition: transform .3s var(--ease); }
+.top.is-away { transform: translateY(-100%); }
+@media (prefers-reduced-motion: reduce) { .top { transition: none; } }
+
+@media screen and (max-width: 560px) {
+  /* 1 · Cabecera compacta */
+  html { scroll-padding-top: 72px; }
+  .top .wrap { height: 56px; }
+  .top__logo { width: 64px; }
+  .menu { top: calc(100% + 6px); max-height: calc(100vh - 80px); }
+
+  /* 2 · Índice como lista compacta */
+  .toc { gap: 0; border-top: 1px solid var(--line); }
+  .toc a, .toc a:hover, .toc a:focus-visible { min-height: 0; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; padding: 16px 2px; border-radius: 0; background: transparent; box-shadow: none; transform: none; border-bottom: 1px solid var(--line); }
+  .toc__n { height: 28px; padding: 0 11px; font-size: 13px; }
+  .toc__t { font-size: 16px; line-height: 1.35; }
+  .toc__go { font-size: 0; gap: 0; }
+  .toc__go .btn-i { width: 22px; }
+
+  /* 3 · Mínimos de lectura */
+  .src, .fig__n, .tiny, .ar-note, .pf__k, .eyebrow, .lead__note, .quiz__privacy, .read__side .eyebrow { font-size: 13px !important; }
+  .fig__t small, .duo__t small, .card h3 small, .hb__lab small, .db__d b, .legend, .fq__x b, .fq__b b, .gen__s span:not(.gen__dot), .gen__q, .gen__cites-k, .ref__mark em, .case__k span, .case__k2 span, .facts span, .sc__big .of, .person__role, .contact__role { font-size: 13px !important; line-height: 1.45; }
+  .hb__lab, .pb__lab, .vs, .dt, .ph-meta dd, .pf__share p, .pf__posts li, .pf__role, .chip, .q3__a, .dn p { font-size: 14px !important; }
+  .mx li, .ticks li, .crit-panel li, .purp li { font-size: 15px !important; }
+  .pf__posts small { font-size: 13px !important; }
+  .fig__t { font-size: 17px; }
+
+  /* 4 · Ritmo editorial: pausas antes de cada subtítulo */
+  .flow > * + * { margin-top: 20px; }
+  .flow > h3 { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); position: relative; }
+  .flow > h3::before { content: ""; position: absolute; left: 0; top: -4px; width: 30px; height: 7px; border-radius: 7px; background: linear-gradient(90deg, var(--purple) 0 7px, transparent 7px 11px, var(--purple) 11px); }
+  [data-theme="dark"] .flow > h3::before { background: linear-gradient(90deg, var(--lavender) 0 7px, transparent 7px 11px, var(--lavender) 11px); }
+  .flow > p, .prose p { line-height: 1.75; }
+  .flow > .fig, .flow > .stats, .flow > .box, .flow > .cases { margin-top: 36px; }
+
+  /* 5 · Destacados más ligeros */
+  .key { font-size: 17px !important; font-weight: 500; line-height: 1.6 !important; padding-left: 20px; }
+  .statement { font-size: 22px !important; line-height: 1.3 !important; }
+
+  /* 6 · Navegación entre fases: botones completos y apilados */
+  .ph-nav { flex-direction: column; gap: 8px; }
+  .ph-nav .btn { width: 100%; flex: none; min-height: 48px; }
+  .ph-nav .btn[disabled] { display: none; }
+
+  /* 7 · Tarjetas de directivos */
+  .pf { padding: 18px 16px; gap: 14px; }
+  .pf__name { font-size: 17px; }
+  .pf__posts li { flex-wrap: wrap; row-gap: 2px; }
+}
+@media screen and (max-width: 360px) {
+  .toc__t { font-size: 15px; }
+  .statement { font-size: 21px !important; }
+}
+
 /* ── PDF (A4 vertical, composición clara; todo el contenido interactivo visible) ── */
 @page { size: A4 portrait; margin: 16mm 15mm 18mm; @bottom-right { content: counter(page); font-family: "Poppins", sans-serif; font-size: 8pt; color: #6D4ABE; } }
 @page :first { margin: 10mm; @bottom-right { content: none; } }
@@ -2482,6 +2537,19 @@ sup.cite { font-size: max(.7em, 11px); }
     if (!('IntersectionObserver' in window)) { fig.classList.add('in'); return; }
     new IntersectionObserver(function (es) { es.forEach(function (e) { fig.classList.toggle('in', e.isIntersecting); }); }).observe(fig);
   });
+
+
+  /* ---- Cabecera en móvil: se oculta al bajar y vuelve al subir ---- */
+  (function () {
+    var top = document.querySelector('.top'), lastY = scrollY, mq = window.matchMedia('(max-width: 560px)');
+    addEventListener('scroll', function () {
+      var y = scrollY, menuOpen = !document.getElementById('menu').hidden;
+      if (!mq.matches || menuOpen || top.contains(document.activeElement) || y < 120) { top.classList.remove('is-away'); lastY = y; return; }
+      if (Math.abs(y - lastY) < 8) return;
+      top.classList.toggle('is-away', y > lastY); lastY = y;
+    }, { passive: true });
+    top.addEventListener('focusin', function () { top.classList.remove('is-away'); });
+  })();
 
   /* ---- Índice desplegable ---- */
   var menuBtn = document.querySelector('.menu-btn');

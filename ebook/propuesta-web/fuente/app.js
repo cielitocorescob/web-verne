@@ -130,6 +130,19 @@
     new IntersectionObserver(function (es) { es.forEach(function (e) { fig.classList.toggle('in', e.isIntersecting); }); }).observe(fig);
   });
 
+
+  /* ---- Cabecera en móvil: se oculta al bajar y vuelve al subir ---- */
+  (function () {
+    var top = document.querySelector('.top'), lastY = scrollY, mq = window.matchMedia('(max-width: 560px)');
+    addEventListener('scroll', function () {
+      var y = scrollY, menuOpen = !document.getElementById('menu').hidden;
+      if (!mq.matches || menuOpen || top.contains(document.activeElement) || y < 120) { top.classList.remove('is-away'); lastY = y; return; }
+      if (Math.abs(y - lastY) < 8) return;
+      top.classList.toggle('is-away', y > lastY); lastY = y;
+    }, { passive: true });
+    top.addEventListener('focusin', function () { top.classList.remove('is-away'); });
+  })();
+
   /* ---- Índice desplegable ---- */
   var menuBtn = document.querySelector('.menu-btn');
   var menu = document.getElementById('menu');

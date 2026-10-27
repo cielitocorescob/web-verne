@@ -5,7 +5,7 @@ main_eb=open(E+'/marca-directiva.html',encoding='utf8').read()
 head=old[:old.index('<style>')]
 head=head.replace('<title>Marca Directiva · Verne</title>','<title>Marca Directiva · Verne</title>\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<meta name="color-scheme" content="light dark">\n<script>(function(){var t;try{t=localStorage.getItem("verne-ebook-tema")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)})();</script>')+'<style>'
 css_old=open(S+'/base.css').read()
-css=css_old+open(S+'/new.css').read()+open(S+'/theme.css').read()+open(S+'/audit.css').read()+open(S+'/print.css').read()+'</style>\n\n'
+css=css_old+open(S+'/new.css').read()+open(S+'/theme.css').read()+open(S+'/audit.css').read()+open(S+'/mobile.css').read()+open(S+'/print.css').read()+'</style>\n\n'
 body=open(S+'/body.html').read()
 MOD='<span class="mod" aria-hidden="true"><i></i><i></i></span>'
 BTNI='<svg class="btn-i" viewBox="0 0 26 14" aria-hidden="true"><circle class="d" cx="5" cy="7" r="3"/><rect class="c" x="11" y="4" width="12" height="6" rx="3"/><path class="h" d="M16.5 2.5 L21.5 7 L16.5 11.5"/></svg>'
