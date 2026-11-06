@@ -16,7 +16,6 @@
     --verde:     #bfd0b0;
     --crema:     #fffcf8;
     --crema-am:  #fde6bf;
-    --verde-txt: #94a883;
     --gris:      #5b5957;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,23 +39,10 @@
 
   /* Láminas de detalle: fotos sobre crema y un pie de foto */
   .pie { position: absolute; left: 90px; right: 90px; font-size: 32px; line-height: 1.42; color: var(--gris); }
-
-  .tabs { position: absolute; left: 52px; top: 746px; display: flex; }
-  .tabs i { display: block; width: 325px; height: 54px; border-radius: 24px 24px 0 0; }
-  .tabs i:nth-child(1) { background: var(--crema-am); }
-  .tabs i:nth-child(2) { background: var(--terracota); }
-  .tabs i:nth-child(3) { background: var(--teal); }
-  .panel { position: absolute; left: 0; right: 0; top: 800px; bottom: 0; padding: 90px 110px 0; }
-  .panel .h { font-size: 96px; }
-  .panel p { font-size: 36px; line-height: 1.38; margin-top: 26px; }
-  .on-color .h, .on-color p { color: #fff; }
-  .conf { position: absolute; inset: 0; width: 1080px; height: 1350px; color: #f3eee7; }
-  .arco { border-radius: 999px 999px 32px 32px; }
-  .circ { border-radius: 50%; }
-  .pie { position: absolute; left: 90px; right: 90px; font-size: 34px; line-height: 1.42; color: var(--gris); }
 </style>
 </head>
 <body>
+
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <symbol id="iso" viewBox="0 0 100 150">
@@ -91,24 +77,25 @@
   </defs>
 </svg>
 
-
-<!-- 1 · PORTADA: foto con velo crema, como "¿Qué es Integrio?" -->
+<!-- 1 · PORTADA -->
 <section class="slide">
-  <div class="ph full" style="background-image:url(fotos/08.jpg);--py:20%"></div>
-  <div class="abs" style="inset:0;background:linear-gradient(180deg, rgba(255,252,248,0) 40%, rgba(255,252,248,.85) 62%, var(--crema) 78%)"></div>
+  <div class="ph full" style="background-image:url(fotos/08.jpg);--py:30%"></div>
+  <div class="velo"></div>
   <svg class="iso" viewBox="0 0 100 150"><use href="#iso"/></svg>
-  <div class="abs" style="left:100px;right:100px;top:930px">
-    <div class="h" style="font-size:112px">El derecho<br><span style="color:var(--verde-txt)">al cuidado</span></div>
-    <p style="font-size:36px;margin-top:22px">Así lo vivimos en Integrio esta semana.</p>
+  <div class="cap">
+    <span class="pill">Semana de los derechos</span>
+    <div class="h" style="font-size:118px">El derecho<br>al cuidado</div>
+    <p>Así lo vivimos en Integrio.</p>
   </div>
 </section>
 
 <!-- 2 · MOMENTO 1 -->
 <section class="slide">
-  <div class="ph full" style="background-image:url(fotos/01.jpg);--py:25%;bottom:550px"></div>
+  <div class="ph full" style="background-image:url(fotos/01.jpg);--py:40%"></div>
+  <div class="velo"></div>
   <svg class="iso" viewBox="0 0 100 150"><use href="#iso"/></svg>
-  <div class="tabs"><i></i><i></i><i></i></div>
-  <div class="panel" style="background:var(--crema-am)">
+  <div class="cap">
+    <span class="pill">Momento 1</span>
     <div class="h">Cuido mi sonrisa</div>
     <p>La maestra prepara un mural con una boca de papel. Todos esperan su turno con atención.</p>
   </div>
@@ -116,77 +103,73 @@
 
 <!-- 3 · SECUENCIA CEPILLADO -->
 <section class="slide">
-  <svg class="conf"><use href="#confeti"/></svg>
-  <div class="abs ph arco" style="background-image:url(fotos/02.jpg);--px:45%;left:70px;top:120px;width:300px;height:820px"></div>
-  <div class="abs ph arco" style="background-image:url(fotos/03.jpg);--px:35%;left:390px;top:120px;width:300px;height:820px"></div>
-  <div class="abs ph arco" style="background-image:url(fotos/04.jpg);--px:40%;left:710px;top:120px;width:300px;height:820px"></div>
-  <p class="pie" style="top:1010px">Uno por uno, cada niño toma el cepillo y limpia los dientes del mural. Así el cuidado del cuerpo se vuelve un hábito propio.</p>
+  <div class="abs ph" style="background-image:url(fotos/02.jpg);--px:45%;--py:50%;left:60px;top:90px;width:308px;height:880px"></div>
+  <div class="abs ph" style="background-image:url(fotos/03.jpg);--px:35%;--py:45%;left:386px;top:90px;width:308px;height:880px"></div>
+  <div class="abs ph" style="background-image:url(fotos/04.jpg);--px:40%;--py:50%;left:712px;top:90px;width:308px;height:880px"></div>
+  <p class="pie" style="top:1040px">Uno por uno, cada niño toma el cepillo y limpia los dientes del mural. Así el cuidado del cuerpo se vuelve un hábito propio.</p>
 </section>
 
 <!-- 4 · MOMENTO 2 -->
-<section class="slide on-color">
-  <div class="ph full" style="background-image:url(fotos/07.jpg);--py:30%;bottom:550px"></div>
+<section class="slide">
+  <div class="ph full" style="background-image:url(fotos/07.jpg);--py:35%"></div>
+  <div class="velo"></div>
   <svg class="iso" viewBox="0 0 100 150"><use href="#iso"/></svg>
-  <div class="tabs"><i></i><i></i><i></i></div>
-  <div class="panel" style="background:var(--terracota)">
+  <div class="cap">
+    <span class="pill">Momento 2</span>
     <div class="h">Escucho cómo estás</div>
     <p>Con un estetoscopio de juguete, cada niño revisa a su muñeco.</p>
   </div>
 </section>
 
-<!-- 5 · DOCTOR: arco + círculo, como "Antes de aprender a escribir" -->
+<!-- 5 · DÍPTICO DOCTOR -->
 <section class="slide">
-  <svg class="conf"><use href="#confeti"/></svg>
-  <div class="abs circ" style="left:470px;top:430px;width:620px;height:620px;background:var(--crema-am)"></div>
-  <div class="abs ph arco" style="background-image:url(fotos/05.jpg);--py:35%;left:70px;top:110px;width:500px;height:860px"></div>
-  <div class="abs ph circ" style="background-image:url(fotos/06.jpg);--px:60%;--py:30%;left:560px;top:520px;width:450px;height:450px;border:10px solid var(--crema)"></div>
+  <div class="abs ph" style="background-image:url(fotos/05.jpg);--px:50%;--py:40%;left:60px;top:90px;width:470px;height:880px"></div>
+  <div class="abs ph" style="background-image:url(fotos/06.jpg);--px:55%;--py:40%;left:550px;top:90px;width:470px;height:880px"></div>
   <p class="pie" style="top:1040px">Al jugar a ser doctores, los niños entienden qué se siente cuando alguien se preocupa por su salud.</p>
 </section>
 
 <!-- 6 · MOMENTO 3 -->
-<section class="slide on-color">
-  <div class="ph full" style="background-image:url(fotos/10.jpg);--px:30%;--py:25%;bottom:550px"></div>
+<section class="slide">
+  <div class="ph full" style="background-image:url(fotos/10.jpg);--px:30%;--py:30%"></div>
+  <div class="velo"></div>
   <svg class="iso" viewBox="0 0 100 150"><use href="#iso"/></svg>
-  <div class="tabs"><i></i><i></i><i></i></div>
-  <div class="panel" style="background:var(--teal)">
+  <div class="cap">
+    <span class="pill">Momento 3</span>
     <div class="h">Te baño con cariño</div>
     <p>Al aire libre, con agua y espuma, los muñecos toman su baño.</p>
   </div>
 </section>
 
-<!-- 7 · BAÑO: foto grande + dos círculos -->
+<!-- 7 · MOSAICO BAÑO -->
 <section class="slide">
-  <svg class="conf"><use href="#confeti"/></svg>
-  <div class="abs circ" style="left:560px;top:250px;width:600px;height:600px;background:var(--crema-am)"></div>
-  <div class="abs ph" style="background-image:url(fotos/09.jpg);--px:55%;--py:40%;left:70px;top:110px;width:560px;height:860px;border-radius:280px 280px 32px 32px"></div>
-  <div class="abs ph circ" style="background-image:url(fotos/11.jpg);--px:0%;--py:0%;left:650px;top:150px;width:370px;height:370px;border:10px solid var(--crema)"></div>
-  <div class="abs ph circ" style="background-image:url(fotos/16.jpg);--px:60%;--py:30%;left:650px;top:560px;width:370px;height:370px;border:10px solid var(--crema)"></div>
+  <div class="abs ph" style="background-image:url(fotos/09.jpg);--px:55%;--py:45%;left:60px;top:90px;width:590px;height:880px"></div>
+  <div class="abs ph" style="background-image:url(fotos/11.jpg);--px:0%;--py:0%;left:670px;top:90px;width:350px;height:430px"></div>
+  <div class="abs ph" style="background-image:url(fotos/16.jpg);--px:60%;--py:30%;left:670px;top:540px;width:350px;height:430px"></div>
   <p class="pie" style="top:1040px">Llenar, verter y enjabonar. Cada movimiento de las manos pide cuidado y concentración.</p>
 </section>
 
 <!-- 8 · MOMENTO 4 -->
 <section class="slide">
-  <div class="ph full" style="background-image:url(fotos/14.jpg);--py:15%;bottom:550px"></div>
+  <div class="ph full" style="background-image:url(fotos/14.jpg);--py:30%"></div>
+  <div class="velo"></div>
   <svg class="iso" viewBox="0 0 100 150"><use href="#iso"/></svg>
-  <div class="tabs"><i></i><i></i><i></i></div>
-  <div class="panel" style="background:var(--crema-am)">
-    <div class="h">Te abrigo para que<br>no tengas frío</div>
-    <p>Después del baño, toca secar y envolver.</p>
+  <div class="cap">
+    <span class="pill">Momento 4</span>
+    <div class="h">Te abrigo para que no tengas frío</div>
+    <p>Después del baño, toca secar.</p>
   </div>
 </section>
 
-<!-- 9 · SECADO -->
+<!-- 9 · DÍPTICO SECADO -->
 <section class="slide">
-  <svg class="conf"><use href="#confeti"/></svg>
-  <div class="abs circ" style="left:-120px;top:430px;width:620px;height:620px;background:var(--verde);opacity:.7"></div>
-  <div class="abs ph circ" style="background-image:url(fotos/15.jpg);--px:50%;--py:30%;left:70px;top:520px;width:450px;height:450px;border:10px solid var(--crema)"></div>
-  <div class="abs ph arco" style="background-image:url(fotos/13.jpg);--px:40%;--py:35%;left:510px;top:110px;width:500px;height:860px"></div>
+  <div class="abs ph" style="background-image:url(fotos/15.jpg);--px:50%;--py:45%;left:60px;top:90px;width:470px;height:880px"></div>
+  <div class="abs ph" style="background-image:url(fotos/13.jpg);--px:40%;--py:40%;left:550px;top:90px;width:470px;height:880px"></div>
   <p class="pie" style="top:1040px">Secar, envolver y abrazar. Los niños repiten con sus muñecos los gestos de cuidado que reciben de los adultos que los quieren.</p>
 </section>
 
 <!-- 10 · CIERRE -->
 <section class="slide" style="background:var(--terracota)">
-  <svg class="conf" style="color:rgba(255,255,255,.08)"><use href="#confeti"/></svg>
+  <svg class="abs" style="inset:0;width:1080px;height:1350px;color:rgba(255,255,255,.08)"><use href="#confeti"/></svg>
   <div class="abs" style="left:110px;right:110px;top:400px;text-align:center">
     <div class="h" style="font-size:100px;color:#fff">Cuando un niño se siente cuidado, aprende a cuidar.</div>
     <p style="font-size:36px;line-height:1.4;color:#fff;margin:48px auto 0;width:780px">Cuidarlos es un derecho. Acompañarlos a cuidar también es parte de su aprendizaje.</p>
