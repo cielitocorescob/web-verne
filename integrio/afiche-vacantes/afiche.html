@@ -20,10 +20,10 @@
   .h { font-family: 'Andes Rounded', sans-serif; font-weight: 700; line-height: 1; color: var(--terracota); }
   .conf { position: absolute; inset: 0; width: 210mm; height: 297mm; }
 
-  .item { display: flex; gap: 5mm; align-items: flex-start; }
-  .ico { flex: none; width: 15mm; height: 15mm; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .item { display: flex; gap: 4mm; align-items: center; }
+  .ico { flex: none; width: 16mm; height: 16mm; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
   .ico svg { width: 8.5mm; height: 8.5mm; }
-  .item .h { font-size: 6mm; line-height: 1.1; margin-top: .8mm; }
+  .item .h { font-size: 7.2mm; line-height: 1.05; }
   .item p { font-size: 3.9mm; line-height: 1.4; margin-top: 1.4mm; }
 </style>
 </head>
@@ -53,71 +53,75 @@
 
   <!-- Logo -->
   <div class="abs" style="left:16mm;top:14mm;display:flex;align-items:center;gap:3mm">
-    <svg style="width:9mm;height:13.5mm" viewBox="0 0 100 150"><use href="#iso"/></svg>
+    <svg style="width:11mm;height:16.5mm" viewBox="0 0 100 150"><use href="#iso"/></svg>
     <div>
-      <div class="h" style="font-size:9.5mm">integrio</div>
-      <div style="font-size:2.8mm;color:var(--terracota);margin-top:.6mm">Creciendo juntos</div>
+      <div class="h" style="font-size:12mm">integrio</div>
+      <div style="font-size:3.6mm;color:var(--terracota);margin-top:.8mm">Creciendo juntos</div>
     </div>
   </div>
 
   <!-- Foto en arco con círculo detrás -->
-  <div class="abs" style="left:108mm;top:58mm;width:100mm;height:100mm;border-radius:50%;background:var(--crema-am)"></div>
-  <div class="abs" style="left:120mm;top:36mm;width:78.5mm;height:107.4mm;overflow:hidden;
+  <div class="abs" style="left:118mm;top:68mm;width:94mm;height:94mm;border-radius:50%;background:var(--crema-am)"></div>
+  <div class="abs" style="left:129mm;top:46mm;width:78.5mm;height:107.4mm;overflow:hidden;
        clip-path:polygon(22mm 0,78.5mm 0,78.5mm 107.4mm,0 107.4mm,0 18.6mm,17.6mm 18.6mm,17.6mm 6.9mm,22mm 6.9mm)">
     <img src="fotos/nino-recorte.png" style="position:absolute;width:154.5mm;left:-76mm;top:-50.9mm">
   </div>
 
   <!-- Titular -->
-  <div class="abs" style="left:16mm;top:40mm;width:104mm">
-    <span style="display:inline-block;background:var(--amarillo);color:#fff;font-weight:500;font-size:4.4mm;padding:1.4mm 5mm 1.2mm;border-radius:10mm">Nuevo</span>
-    <div class="h" style="font-size:17mm;margin-top:5mm">Aulas de<br>1, 2 y 3 años</div>
-    <div class="h" style="font-size:13mm;margin-top:4mm;color:var(--teal)">Vacantes 2027</div>
-    <p style="font-size:5mm;line-height:1.4;margin-top:7mm;width:92mm">Acompañamos sus primeros aprendizajes con respeto, juego y calidez.</p>
+  <div class="abs" style="left:16mm;top:42mm;width:112mm">
+    <span style="display:inline-block;background:var(--amarillo);color:#fff;font-weight:500;font-size:5.6mm;padding:1.6mm 6mm 1.4mm;border-radius:10mm">Nuevo</span>
+    <div class="h" style="font-size:19.5mm;margin-top:5mm">Aulas de<br>1, 2 y 3 años</div>
+    <div class="h" style="font-size:16mm;margin-top:4mm;color:var(--teal)">Vacantes 2027</div>
+    <p style="font-size:6mm;line-height:1.35;margin-top:7mm;width:100mm">Aprendizajes con respeto, juego y calidez.</p>
   </div>
 
   <!-- Pestañas y panel de beneficios -->
-  <div class="abs" style="left:12mm;top:160mm;display:flex">
+  <div class="abs" style="left:12mm;top:166mm;display:flex">
     <i style="display:block;width:62mm;height:7mm;border-radius:4mm 4mm 0 0;background:var(--crema-am)"></i>
     <i style="display:block;width:62mm;height:7mm;border-radius:4mm 4mm 0 0;background:var(--terracota)"></i>
     <i style="display:block;width:62mm;height:7mm;border-radius:4mm 4mm 0 0;background:var(--teal)"></i>
   </div>
-  <div class="abs" style="left:0;right:0;top:167mm;height:72mm;background:var(--crema-am);padding:11mm 16mm 0;display:grid;grid-template-columns:1fr 1fr;column-gap:10mm;row-gap:9mm">
+  <div class="abs" style="left:0;right:0;top:173mm;height:61mm;background:var(--crema-am);padding:0 16mm;align-content:center;display:grid;grid-template-columns:1fr 1fr;column-gap:8mm;row-gap:8mm;align-items:center">
     <div class="item">
       <div class="ico" style="background:var(--terracota)"><svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="7" r="3.2"/><circle cx="5" cy="9" r="2.4"/><circle cx="19" cy="9" r="2.4"/><path d="M6.5 20a5.5 5.5 0 0 1 11 0z"/><path d="M0.8 19a4.2 4.2 0 0 1 6.4-3.6A7 7 0 0 0 5.4 19z"/><path d="M23.2 19a4.2 4.2 0 0 0-6.4-3.6 7 7 0 0 1 1.8 3.6z"/></svg></div>
-      <div><div class="h">Grupos reducidos</div><p>Para una atención cercana y personalizada.</p></div>
+      <div class="h">Grupos reducidos</div>
     </div>
     <div class="item">
       <div class="ico" style="background:var(--verde-txt)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 5-14 15-15-1 10-6 15-15 15z"/><path d="M5 20l8-8"/></svg></div>
-      <div><div class="h">Patio con grass natural</div><p>Para explorar y disfrutar al aire libre.</p></div>
+      <div class="h">Patio con grass natural</div>
     </div>
     <div class="item">
       <div class="ico" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="8" rx="2"/><path d="M16 9l5-2v8l-5-2"/><path d="M7 14v4H4"/></svg></div>
-      <div><div class="h">Cámaras de seguridad</div><p>Para mayor tranquilidad de las familias.</p></div>
+      <div class="h">Cámaras de seguridad</div>
     </div>
     <div class="item">
       <div class="ico" style="background:var(--amarillo)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg></div>
-      <div><div class="h">Acompañamiento respetuoso</div><p>Con un equipo especializado en primera infancia.</p></div>
+      <div class="h">Acompañamiento respetuoso</div>
     </div>
   </div>
 
   <!-- Franja de contacto -->
-  <div class="abs" style="left:0;right:0;top:239mm;bottom:0;background:var(--terracota);color:#fff">
-    <svg class="conf" viewBox="0 0 210 58" style="height:58mm;color:rgba(255,255,255,.08)">
+  <div class="abs" style="left:0;right:0;top:234mm;bottom:0;background:var(--terracota);color:#fff">
+    <svg class="conf" viewBox="0 0 210 68" style="height:68mm;color:rgba(255,255,255,.08)">
       <g fill="currentColor">
         <circle cx="196" cy="12" r="6"/><rect x="176" y="38" width="16" height="6" rx="1" transform="rotate(-16 184 41)"/>
         <path d="M150 6l7 12h-14z"/><rect x="200" y="30" width="7" height="7" rx="1"/>
       </g>
     </svg>
-    <div class="abs" style="left:16mm;top:10mm">
-      <div style="font-size:4.6mm">Informes y matrícula</div>
+    <div class="abs" style="left:16mm;top:8mm">
+      <div style="font-size:6mm">Informes y matrícula</div>
       <div style="display:flex;align-items:center;gap:4mm;margin-top:2mm">
-        <svg style="width:11mm;height:11mm" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.3-1.6-2.3-1.2-1 .9a4.6 4.6 0 0 1-2.6-2.6l.9-1-1.2-2.3z" fill="#fff" stroke="none"/></svg>
-        <div class="h" style="color:#fff;font-size:15mm">910 639 776</div>
+        <svg style="width:13mm;height:13mm" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.3-1.6-2.3-1.2-1 .9a4.6 4.6 0 0 1-2.6-2.6l.9-1-1.2-2.3z" fill="#fff" stroke="none"/></svg>
+        <div class="h" style="color:#fff;font-size:18mm">910 639 776</div>
       </div>
     </div>
-    <div class="abs" style="left:16mm;top:38mm;display:flex;align-items:flex-start;gap:3mm">
+    <div class="abs" style="left:16mm;top:42mm;display:flex;align-items:flex-start;gap:3mm">
       <svg style="width:6mm;height:6mm;margin-top:.3mm" viewBox="0 0 24 24" fill="#fff"><path d="M12 22s-7-7.3-7-12.5a7 7 0 0 1 14 0C19 14.7 12 22 12 22zm0-9.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-      <div style="font-size:4.2mm;line-height:1.4"><span style="font-weight:500">Lambayeque</span><br>Urb. Guardia Republicana Mz F Lotes 12 y 13</div>
+      <div style="font-size:5mm;line-height:1.35"><span style="font-weight:500">Lambayeque</span><br>Urb. Guardia Republicana Mz F Lotes 12 y 13</div>
+    </div>
+    <div class="abs" style="right:14mm;top:7mm;width:40mm;text-align:center">
+      <div style="background:#fff;border-radius:5mm;padding:3.5mm"><img src="qr-instagram.svg" style="display:block;width:33mm;height:33mm"></div>
+      <div style="font-size:4.2mm;line-height:1.25;margin-top:2mm">Conócenos en<br>Instagram</div>
     </div>
   </div>
 
