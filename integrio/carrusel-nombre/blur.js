@@ -19,10 +19,10 @@ const R = {
       const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
       const x = c.getContext('2d'); x.drawImage(img, 0, 0);
       const bl = document.createElement('canvas'); bl.width = c.width; bl.height = c.height;
-      const bx = bl.getContext('2d'); bx.filter = 'blur(24px)'; bx.drawImage(img, -70, -70, c.width + 140, c.height + 140);
+      const bx = bl.getContext('2d'); bx.filter = 'blur(11px)'; bx.drawImage(img, -70, -70, c.width + 140, c.height + 140);
       const m = document.createElement('canvas'); m.width = c.width; m.height = c.height;
-      const mx = m.getContext('2d'); mx.filter = 'blur(30px)'; mx.fillStyle = '#000';
-      for (const [rx, ry, rw, rh] of regs) { mx.beginPath(); mx.roundRect(rx - 40, ry - 40, rw + 80, rh + 80, 70); mx.fill(); }
+      const mx = m.getContext('2d'); mx.filter = 'blur(16px)'; mx.fillStyle = '#000';
+      for (const [rx, ry, rw, rh] of regs) { mx.beginPath(); mx.roundRect(rx - 15, ry - 15, rw + 30, rh + 30, 50); mx.fill(); }
       bx.filter = 'none'; bx.globalCompositeOperation = 'destination-in'; bx.drawImage(m, 0, 0);
       if (regs.length) x.drawImage(bl, 0, 0);
       return c.toDataURL('image/jpeg', .92);
