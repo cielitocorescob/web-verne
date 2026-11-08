@@ -18,9 +18,13 @@
   .p { font-size: 18px; line-height: 1.55; }
   figure { position: absolute; }
   figure img { display: block; width: 100%; object-fit: cover; border-radius: 16px; }
-  figcaption { font-size: 14.5px; line-height: 1.4; margin-top: 10px; }
+  figcaption { font-size: 13.5px; line-height: 1.38; margin-top: 10px; }
   figcaption b { font-weight: 500; color: var(--terracota); }
   .nombre { background: #fbe9dd; border-radius: 4px; padding: 0 3px; }
+  .apr { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .apr li { font-size: 15px; line-height: 1.3; white-space: nowrap; padding-left: 22px; position: relative; }
+  .apr li::before { content: ''; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--amarillo); }
+  .apr b { font-weight: 500; color: var(--terracota); }
 </style>
 </head>
 <body>
@@ -38,7 +42,7 @@
       <span style="font-weight:500;font-size:16px;color:var(--terracota)">Documentación pedagógica, aula de 2 a 3 años</span>
     </div>
     <div class="h" style="font-size:54px;margin-top:14px">Pequeñas manos, <span style="color:var(--gris-osc)">grandes descubrimientos</span></div>
-    <p class="p" style="margin-top:16px;font-size:17px">En el patio, sobre mesas bajas de madera, los niños se encontraron con arándanos, tablas y cuchillos de plástico. Sin indicaciones previas, cada uno decidió cómo acercarse: tomar el fruto con los dedos, sostener el cuchillo, presionar, cortar y volver a intentar. Con cada corte descubrieron el interior del arándano, su textura suave y el color que dejaba sobre la madera.</p>
+    <p class="p" style="margin-top:16px;font-size:17px">Inspirados en el enfoque Reggio Emilia, preparamos el patio como un ambiente que invita a explorar: mesas bajas de madera, arándanos, tablas y cuchillos de plástico. Sin indicaciones previas, cada niño fue protagonista de su experiencia y decidió cómo acercarse: tomar el fruto, sostener el cuchillo, presionar, cortar y volver a intentar. Con cada corte descubrieron el interior del arándano, su textura y el color que dejaba sobre la madera.</p>
   </div>
   <figure style="left:1126px;top:50px;width:405px">
     <img src="fotos/04.jpg" style="height:290px;object-position:50% 55%">
@@ -47,45 +51,53 @@
   <!-- Fila 1 -->
   <figure style="left:56px;top:378px;width:272px">
     <img src="fotos/01.jpg" style="height:280px;object-position:50% 70%">
-    <figcaption><b class="nombre">[Nombre]</b> sostiene el arándano y presiona el cuchillo. Observa cómo el jugo tiñe la tabla.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> sostiene el arándano con pinza digital mientras presiona el cuchillo. Observa cómo el jugo tiñe la tabla: causa y efecto.</figcaption>
   </figure>
   <figure style="left:360px;top:378px;width:272px">
     <img src="fotos/02.jpg" style="height:280px;object-position:50% 60%">
-    <figcaption><b class="nombre">[Nombre]</b> sujeta el fruto con los dedos y desliza el cuchillo con cuidado.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> sujeta el fruto y desliza el cuchillo con cuidado. Coordina ambas manos con una función distinta para cada una.</figcaption>
   </figure>
   <figure style="left:664px;top:378px;width:272px">
     <img src="fotos/09.jpg" style="height:280px;object-position:50% 55%">
-    <figcaption><b class="nombre">[Nombre]</b> presiona hasta que el arándano se abre y deja su color en la madera.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> regula la fuerza hasta que el arándano se abre y explora el color que deja en la madera.</figcaption>
   </figure>
   <figure style="left:968px;top:378px;width:272px">
     <img src="fotos/03.jpg" style="height:280px;object-position:45% 55%">
-    <figcaption><b class="nombre">[Nombre]</b> apoya el cuchillo sobre el fruto y busca la fuerza justa para cortarlo.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> apoya el cuchillo sobre el fruto y prueba distintas presiones. Ensayo y error para resolver un pequeño desafío.</figcaption>
   </figure>
   <figure style="left:1272px;top:378px;width:259px">
     <img src="fotos/07.jpg" style="height:280px;object-position:50% 60%">
-    <figcaption><b class="nombre">[Nombre]</b> separa las mitades y descubre el interior del arándano.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> separa las mitades y descubre el interior del arándano. Observa, compara y construye sus propias hipótesis.</figcaption>
   </figure>
 
   <!-- Fila 2 -->
-  <div class="abs" style="left:56px;top:790px;width:420px">
-    <div class="h" style="font-size:30px;color:var(--gris-osc)">Cada niño, su propio camino</div>
-    <p class="p" style="margin-top:14px;font-size:17px">Algunos cortaron con precisión, otros prefirieron ordenar los frutos o probarlos. Al compartir la mesa, se observaron entre ellos e imitaron gestos. Así, una fruta pequeña se convirtió en una experiencia de concentración, coordinación y autonomía.</p>
+  <div class="abs" style="left:56px;top:770px;width:420px">
+    <div class="h" style="font-size:28px;color:var(--gris-osc)">Aprendizajes que observamos</div>
+    <ul class="apr">
+      <li><b>Motricidad fina:</b> pinza digital y control del cuchillo.</li>
+      <li><b>Coordinación óculo-manual:</b> la mirada guía el corte.</li>
+      <li><b>Regulación de la fuerza:</b> presionar lo justo.</li>
+      <li><b>Exploración sensorial:</b> textura, color y sabor.</li>
+      <li><b>Pensamiento lógico:</b> ordenar y clasificar.</li>
+      <li><b>Autonomía:</b> cada uno elige cómo hacerlo.</li>
+      <li><b>Aprendizaje entre pares:</b> observar e imitar.</li>
+    </ul>
   </div>
   <figure style="left:512px;top:770px;width:236px">
     <img src="fotos/06.jpg" style="height:232px;object-position:50% 60%">
-    <figcaption><b class="nombre">[Nombre]</b> coloca el cuchillo en vertical y corta con concentración.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> coloca el cuchillo en vertical y corta con atención sostenida. Su mirada guía el movimiento de la mano.</figcaption>
   </figure>
   <figure style="left:776px;top:770px;width:236px">
     <img src="fotos/08.jpg" style="height:232px;object-position:50% 55%">
-    <figcaption><b class="nombre">[Nombre]</b> ordena los arándanos sobre la tabla antes de cortarlos.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> ordena los arándanos sobre la tabla antes de cortarlos. Clasifica y organiza: primeras nociones lógico-matemáticas.</figcaption>
   </figure>
   <figure style="left:1040px;top:770px;width:236px">
     <img src="fotos/10.jpg" style="height:232px;object-position:50% 40%">
-    <figcaption><b class="nombre">[Nombre]</b> observa el cuchillo entre sus manos antes de empezar.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> observa el cuchillo entre sus manos antes de empezar. Se toma su tiempo: respetamos su ritmo.</figcaption>
   </figure>
   <figure style="left:1304px;top:770px;width:227px">
     <img src="fotos/11.jpg" style="height:232px;object-position:40% 45%">
-    <figcaption><b class="nombre">[Nombre]</b> prueba el sabor de su trabajo con una gran sonrisa.</figcaption>
+    <figcaption><b class="nombre">[Nombre]</b> prueba el sabor de su trabajo con una gran sonrisa. La experiencia sensorial se completa con el gusto.</figcaption>
   </figure>
 </div>
 </body>
