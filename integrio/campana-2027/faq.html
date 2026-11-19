@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Integrio — Preguntas frecuentes y historias por aula</title>
+<style>
+  @font-face { font-family: 'Andes Rounded'; font-weight: 900; src: url(../fonts-marca/AndesRounded-Black.otf) format('opentype'); }
+  @font-face { font-family: 'Poppins'; font-weight: 400; src: url(fonts/Poppins-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 500; src: url(fonts/Poppins-500.woff2) format('woff2'); }
+  :root { --terracota:#c07a5a; --amarillo:#f5bb4d; --teal:#538797; --verde:#bfd0b0; --crema:#fffcf8; --crema-am:#fde6bf; --gris:#5b5957; --gris-osc:#3f3b38; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e9e4de; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+  .pieza { position: relative; overflow: hidden; background: var(--crema); color: var(--gris); font-family: 'Poppins', sans-serif; }
+  .faq { width: 1080px; height: 1350px; }
+  .story { width: 1080px; height: 1920px; }
+  .abs { position: absolute; }
+  .h { font-family: 'Andes Rounded', sans-serif; font-weight: 900; line-height: 1; color: var(--terracota); }
+  .ph { position: absolute; background-size: cover; background-repeat: no-repeat; }
+  .conf { position: absolute; inset: 0; width: 100%; height: 100%; color: #f3eee7; }
+  .iso { position: absolute; width: 50px; }
+  .pill { display: inline-block; color: #fff; font-weight: 500; border-radius: 40px; }
+
+  .q { position: absolute; left: 100px; right: 100px; top: 210px; }
+  .q .tag { font-weight: 500; font-size: 28px; color: var(--terracota); }
+  .q .h { font-size: 96px; margin-top: 18px; }
+  .a { position: absolute; left: 100px; right: 100px; }
+  .a p { font-size: 34px; line-height: 1.45; }
+  .fila { display: flex; align-items: center; justify-content: space-between; padding: 30px 36px; border-radius: 26px; color: #fff; }
+  .fila .h { color: #fff; }
+  .paso { display: flex; gap: 30px; align-items: flex-start; }
+  .paso .n { flex: none; width: 84px; height: 84px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; }
+  .paso .h { font-size: 44px; }
+  .paso p { font-size: 29px; line-height: 1.4; margin-top: 8px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="iso" viewBox="0 0 100 150">
+    <circle cx="50" cy="21" r="20" fill="#f5bb4d"/><rect x="6" y="50" width="88" height="27" rx="3" fill="#bfd0b0"/>
+    <path d="M9 84h82a3 3 0 0 1 3 3v61H74a24 24 0 0 0-48 0H6V87a3 3 0 0 1 3-3z" fill="#538797"/>
+  </symbol>
+  <symbol id="wa" viewBox="0 0 24 24">
+    <path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.3-1.6-2.3-1.2-1 .9a4.6 4.6 0 0 1-2.6-2.6l.9-1-1.2-2.3z" fill="currentColor"/>
+  </symbol>
+  <symbol id="confeti" viewBox="0 0 1080 1350"><g fill="currentColor">
+    <path d="M30 80l110 40-90 90z"/><rect x="300" y="60" width="78" height="78" rx="6"/><circle cx="820" cy="40" r="22"/>
+    <rect x="960" y="250" width="110" height="46" rx="6" transform="rotate(-20 1015 273)"/><circle cx="40" cy="380" r="58"/>
+    <rect x="1000" y="610" width="70" height="140" rx="6" transform="rotate(-24 1035 680)"/><circle cx="70" cy="960" r="30"/>
+    <rect x="20" y="1210" width="140" height="56" rx="6"/><rect x="900" y="1180" width="100" height="100" rx="6" transform="rotate(-14 950 1230)"/>
+  </g></symbol>
+</defs></svg>
+
+<!-- FAQ 1 · PORTADA -->
+<section class="pieza faq" id="faq-01">
+  <div class="ph" style="left:0;top:0;width:1080px;height:820px;background-image:url(fotos/patio-aulas.jpg);background-position:50% 35%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:820px;background:linear-gradient(180deg, rgba(255,252,248,0) 70%, var(--crema) 100%)"></div>
+  <svg class="iso" style="right:64px;top:56px" viewBox="0 0 100 150"><use href="#iso"/></svg>
+  <div class="abs" style="left:100px;right:100px;top:830px">
+    <span class="pill" style="background:var(--amarillo);font-size:26px;padding:8px 26px 7px">Vacantes 2027</span>
+    <div class="h" style="font-size:104px;margin-top:22px">Preguntas<br><span style="color:var(--gris-osc)">frecuentes</span></div>
+    <p style="font-size:32px;line-height:1.4;margin-top:22px">Lo que más nos preguntan las familias<br>antes de matricular.</p>
+  </div>
+</section>
+
+<!-- FAQ 2 · EDAD -->
+<section class="pieza faq" id="faq-02">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="q"><div class="tag">Pregunta 1</div><div class="h">¿A qué aula<br><span style="color:var(--gris-osc)">va mi hijo?</span></div></div>
+  <div class="a" style="top:560px">
+    <p>Ubicamos a cada niño según la edad que tiene cumplida al 31 de marzo de 2027.</p>
+    <div style="display:flex;flex-direction:column;gap:18px;margin-top:44px">
+      <div class="fila" style="background:var(--amarillo)"><div class="h" style="font-size:54px">1 año</div><span style="font-size:28px">cumplido al 31 de marzo</span></div>
+      <div class="fila" style="background:var(--terracota)"><div class="h" style="font-size:54px">2 años</div><span style="font-size:28px">cumplidos al 31 de marzo</span></div>
+      <div class="fila" style="background:var(--teal)"><div class="h" style="font-size:54px">3 años</div><span style="font-size:28px">cumplidos al 31 de marzo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ 3 · HORARIO -->
+<section class="pieza faq" id="faq-03">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="q"><div class="tag">Pregunta 2</div><div class="h">¿Cuál es<br><span style="color:var(--gris-osc)">el horario?</span></div></div>
+  <div class="a" style="top:560px">
+    <p>Cada aula tiene un horario pensado para la edad y el ritmo de los niños.</p>
+    <div style="display:flex;flex-direction:column;gap:18px;margin-top:44px">
+      <div class="fila" style="background:var(--amarillo)"><div class="h" style="font-size:54px">1 año</div><span style="font-size:32px;font-weight:500">8:30 a. m. a 12:00 p. m.</span></div>
+      <div class="fila" style="background:var(--terracota)"><div class="h" style="font-size:54px">2 años</div><span style="font-size:32px;font-weight:500">8:30 a. m. a 12:15 p. m.</span></div>
+      <div class="fila" style="background:var(--teal)"><div class="h" style="font-size:54px">3 años</div><span style="font-size:32px;font-weight:500">8:20 a. m. a 12:45 p. m.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ 4 · NIÑOS POR AULA -->
+<section class="pieza faq" id="faq-04">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="q"><div class="tag">Pregunta 3</div><div class="h">¿Cuántos niños<br><span style="color:var(--gris-osc)">hay por aula?</span></div></div>
+  <div class="a" style="top:560px">
+    <p>Trabajamos con grupos reducidos para acompañar a cada niño de cerca.</p>
+    <div style="display:flex;gap:24px;margin-top:50px">
+      <div style="flex:1;background:var(--crema-am);border-radius:28px;padding:36px 34px">
+        <div class="h" style="font-size:40px">Aula de 1 año</div>
+        <div class="h" style="font-size:96px;color:var(--gris-osc);margin-top:14px">10</div>
+        <p style="font-size:26px;line-height:1.4;margin-top:10px">niños como máximo, con 1 maestra y auxiliar.*</p>
+      </div>
+      <div style="flex:1;background:var(--crema-am);border-radius:28px;padding:36px 34px">
+        <div class="h" style="font-size:40px">Aulas de 2 y 3 años</div>
+        <div class="h" style="font-size:96px;color:var(--gris-osc);margin-top:14px">12</div>
+        <p style="font-size:26px;line-height:1.4;margin-top:10px">niños como máximo, con profesora y auxiliar.</p>
+      </div>
+    </div>
+    <p style="font-size:23px;margin-top:26px">*Al completar 10 niños se incorpora una segunda auxiliar.</p>
+  </div>
+</section>
+
+<!-- FAQ 5 · PROCESO -->
+<section class="pieza faq" id="faq-05">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="q"><div class="tag">Pregunta 4</div><div class="h">¿Cómo es<br><span style="color:var(--gris-osc)">el proceso?</span></div></div>
+  <div class="a" style="top:560px;display:flex;flex-direction:column;gap:46px">
+    <div class="paso"><div class="n h" style="background:var(--amarillo);font-size:44px;color:#fff">1</div><div><div class="h">Agenda tu visita</div><p>Recorres el centro, conoces nuestra metodología y resolvemos tus dudas.</p></div></div>
+    <div class="paso"><div class="n h" style="background:var(--terracota);font-size:44px;color:#fff">2</div><div><div class="h">Entrevista con psicología</div><p>Nos ayuda a conocer a tu hijo y acompañar mejor su adaptación.</p></div></div>
+    <div class="paso"><div class="n h" style="background:var(--teal);font-size:44px;color:#fff">3</div><div><div class="h">Matrícula</div><p>Separas su vacante y nos preparamos para recibirlo.</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ 6 · COSTOS -->
+<section class="pieza faq" id="faq-06">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="q"><div class="tag">Pregunta 5</div><div class="h">¿Cuál es<br><span style="color:var(--gris-osc)">la inversión?</span></div></div>
+  <div class="a" style="top:560px">
+    <p>Los costos son los mismos para las<br><span style="white-space:nowrap">aulas de 1, 2 y 3 años.</span></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px">
+      <div style="background:var(--crema-am);border-radius:26px;padding:30px 32px"><div style="font-size:26px">Inscripción</div><div class="h" style="font-size:72px;margin-top:8px">S/ 200</div><div style="font-size:22px;margin-top:6px">Pago único</div></div>
+      <div style="background:var(--crema-am);border-radius:26px;padding:30px 32px"><div style="font-size:26px">Matrícula</div><div class="h" style="font-size:72px;margin-top:8px">S/ 300</div><div style="font-size:22px;margin-top:6px">Pago único</div></div>
+      <div style="background:var(--crema-am);border-radius:26px;padding:30px 32px"><div style="font-size:26px">Materiales y útiles</div><div class="h" style="font-size:72px;margin-top:8px">S/ 350</div><div style="font-size:22px;margin-top:6px">Pago único</div></div>
+      <div style="background:var(--terracota);border-radius:26px;padding:30px 32px;color:#fff"><div style="font-size:26px">Pensión mensual</div><div class="h" style="font-size:72px;margin-top:8px;color:#fff">S/ 400</div><div style="font-size:22px;margin-top:6px">Cada mes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ 7 · CIERRE -->
+<section class="pieza faq" id="faq-07" style="background:var(--terracota)">
+  <svg class="conf" style="color:rgba(255,255,255,.08)"><use href="#confeti"/></svg>
+  <div class="abs" style="left:100px;right:100px;top:350px;text-align:center;color:#fff">
+    <div class="h" style="font-size:100px;color:#fff">¿Tienes otra<br>pregunta?</div>
+    <p style="font-size:34px;line-height:1.45;margin:40px auto 0">Escríbenos o ven a conocernos.<br>Con gusto te acompañamos.</p>
+    <div style="display:inline-flex;align-items:center;gap:18px;margin-top:60px;background:#fff;color:var(--terracota);border-radius:60px;padding:22px 44px;font-weight:500;font-size:40px">
+      <svg width="50" height="50"><use href="#wa"/></svg>910 639 776
+    </div>
+    <p style="font-size:29px;line-height:1.35;margin-top:40px;opacity:.95">Urb. Guardia Republicana Mz F Lotes 12 y 13,<br>Lambayeque</p>
+  </div>
+</section>
+
+<!-- HISTORIAS POR AULA (9:16) -->
+<section class="pieza story" id="historia-1-ano">
+  <div class="ph" style="left:0;top:0;width:1080px;height:1100px;background-image:url(fotos/psicomotricidad.jpg);background-position:50% 50%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:1100px;background:linear-gradient(180deg, rgba(255,252,248,0) 65%, var(--crema) 100%)"></div>
+  <svg class="iso" style="left:80px;top:140px;width:56px" viewBox="0 0 100 150"><use href="#iso"/></svg>
+  <div class="abs" style="left:80px;right:80px;top:960px">
+    <span class="pill" style="background:var(--amarillo);font-size:30px;padding:9px 30px 8px">Vacantes 2027</span>
+    <div class="h" style="font-size:132px;margin-top:24px">Aula de<br><span style="color:var(--gris-osc)">1 año</span></div>
+    <p style="font-size:36px;line-height:1.4;margin-top:24px">Primeros descubrimientos con respeto,<br>juego y calidez.</p>
+    <p style="font-size:32px;margin-top:22px;font-weight:500;color:var(--terracota)">8:30 a. m. a 12:00 p. m. · Máximo 10 niños</p>
+  </div>
+  <div class="abs" style="left:0;right:0;bottom:250px;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:18px;background:var(--terracota);color:#fff;border-radius:60px;padding:24px 46px;font-weight:500;font-size:42px"><svg width="52" height="52"><use href="#wa"/></svg>Agenda tu visita</div>
+  </div>
+</section>
+
+<section class="pieza story" id="historia-2-anos">
+  <div class="ph" style="left:0;top:0;width:1080px;height:1100px;background-image:url(fotos/aula.jpg);background-position:50% 55%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:1100px;background:linear-gradient(180deg, rgba(255,252,248,0) 65%, var(--crema) 100%)"></div>
+  <svg class="iso" style="left:80px;top:140px;width:56px" viewBox="0 0 100 150"><use href="#iso"/></svg>
+  <div class="abs" style="left:80px;right:80px;top:960px">
+    <span class="pill" style="background:var(--terracota);font-size:30px;padding:9px 30px 8px">Vacantes 2027</span>
+    <div class="h" style="font-size:132px;margin-top:24px">Aula de<br><span style="color:var(--gris-osc)">2 años</span></div>
+    <p style="font-size:36px;line-height:1.4;margin-top:24px">Exploramos, descubrimos y crecemos<br>a través del juego y la experiencia.</p>
+    <p style="font-size:32px;margin-top:22px;font-weight:500;color:var(--terracota)">8:30 a. m. a 12:15 p. m. · Máximo 12 niños</p>
+  </div>
+  <div class="abs" style="left:0;right:0;bottom:250px;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:18px;background:var(--terracota);color:#fff;border-radius:60px;padding:24px 46px;font-weight:500;font-size:42px"><svg width="52" height="52"><use href="#wa"/></svg>Agenda tu visita</div>
+  </div>
+</section>
+
+<section class="pieza story" id="historia-3-anos">
+  <div class="ph" style="left:0;top:0;width:1080px;height:1100px;background-image:url(fotos/patio.jpg);background-position:45% 40%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:1100px;background:linear-gradient(180deg, rgba(255,252,248,0) 65%, var(--crema) 100%)"></div>
+  <svg class="iso" style="left:80px;top:140px;width:56px" viewBox="0 0 100 150"><use href="#iso"/></svg>
+  <div class="abs" style="left:80px;right:80px;top:960px">
+    <span class="pill" style="background:var(--teal);font-size:30px;padding:9px 30px 8px">Vacantes 2027</span>
+    <div class="h" style="font-size:132px;margin-top:24px">Aula de<br><span style="color:var(--gris-osc)">3 años</span></div>
+    <p style="font-size:36px;line-height:1.4;margin-top:24px">Aprendizajes con respeto, juego y calidez.<br>Inglés con profesora especialista.</p>
+    <p style="font-size:32px;margin-top:22px;font-weight:500;color:var(--terracota)">8:20 a. m. a 12:45 p. m. · Máximo 12 niños</p>
+  </div>
+  <div class="abs" style="left:0;right:0;bottom:250px;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:18px;background:var(--terracota);color:#fff;border-radius:60px;padding:24px 46px;font-weight:500;font-size:42px"><svg width="52" height="52"><use href="#wa"/></svg>Agenda tu visita</div>
+  </div>
+</section>
+</body>
+</html>
