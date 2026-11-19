@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Integrio — Lo que nos inspira: los cien lenguajes</title>
+<style>
+  @font-face { font-family: 'Andes Rounded'; font-weight: 900; src: url(../fonts-marca/AndesRounded-Black.otf) format('opentype'); }
+  @font-face { font-family: 'Poppins'; font-weight: 400; src: url(fonts/Poppins-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Poppins'; font-weight: 500; src: url(fonts/Poppins-500.woff2) format('woff2'); }
+  :root { --terracota:#c07a5a; --amarillo:#f5bb4d; --teal:#538797; --verde:#bfd0b0; --crema:#fffcf8; --crema-am:#fde6bf; --gris:#5b5957; --gris-osc:#3f3b38; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e9e4de; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0; }
+  .pieza { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--crema); color: var(--gris); font-family: 'Poppins', sans-serif; }
+  .abs { position: absolute; }
+  .h { font-family: 'Andes Rounded', sans-serif; font-weight: 900; line-height: 1; color: var(--terracota); }
+  .ph { position: absolute; background-size: cover; background-repeat: no-repeat; }
+  .conf { position: absolute; inset: 0; width: 1080px; height: 1350px; color: #f3eee7; }
+  .iso { position: absolute; width: 50px; }
+  .serie { font-weight: 500; font-size: 26px; color: var(--terracota); display: flex; align-items: center; gap: 14px; }
+  .p { font-size: 34px; line-height: 1.45; }
+  .tile { position: relative; }
+  .tile div { width: 100%; height: 100%; border-radius: 26px; background-size: cover; background-position: center; }
+  .tile span { position: absolute; left: 18px; bottom: 18px; background: var(--crema); color: var(--terracota); font-weight: 500; font-size: 24px; padding: 7px 20px 6px; border-radius: 30px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="iso" viewBox="0 0 100 150">
+    <circle cx="50" cy="21" r="20" fill="#f5bb4d"/><rect x="6" y="50" width="88" height="27" rx="3" fill="#bfd0b0"/>
+    <path d="M9 84h82a3 3 0 0 1 3 3v61H74a24 24 0 0 0-48 0H6V87a3 3 0 0 1 3-3z" fill="#538797"/>
+  </symbol>
+  <symbol id="iso-w" viewBox="0 0 100 150"><g fill="#fff">
+    <circle cx="50" cy="21" r="20"/><rect x="6" y="50" width="88" height="27" rx="3"/>
+    <path d="M9 84h82a3 3 0 0 1 3 3v61H74a24 24 0 0 0-48 0H6V87a3 3 0 0 1 3-3z"/></g>
+  </symbol>
+  <symbol id="confeti" viewBox="0 0 1080 1350"><g fill="currentColor">
+    <path d="M30 80l110 40-90 90z"/><rect x="300" y="60" width="78" height="78" rx="6"/><circle cx="820" cy="40" r="22"/>
+    <rect x="960" y="250" width="110" height="46" rx="6" transform="rotate(-20 1015 273)"/><circle cx="40" cy="380" r="58"/>
+    <rect x="1000" y="610" width="70" height="140" rx="6" transform="rotate(-24 1035 680)"/><circle cx="70" cy="960" r="30"/>
+    <rect x="20" y="1210" width="140" height="56" rx="6"/><rect x="900" y="1180" width="100" height="100" rx="6" transform="rotate(-14 950 1230)"/>
+  </g></symbol>
+</defs></svg>
+
+<!-- 1 · PORTADA -->
+<section class="pieza" id="inspira-01">
+  <div class="ph" style="left:0;top:0;width:1080px;height:860px;background-image:url(fotos/portada.jpg);background-position:50% 28%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:860px;background:linear-gradient(180deg, rgba(255,252,248,0) 68%, var(--crema) 100%)"></div>
+  <svg class="iso" style="right:64px;top:56px" viewBox="0 0 100 150"><use href="#iso"/></svg>
+  <div class="abs" style="left:100px;right:100px;top:840px">
+    <span style="display:inline-block;background:var(--amarillo);color:#fff;font-weight:500;font-size:26px;padding:8px 26px 7px;border-radius:40px">Lo que nos inspira</span>
+    <div class="h" style="font-size:100px;margin-top:22px">Los cien lenguajes<br><span style="color:var(--gris-osc)">de la infancia</span></div>
+    <p style="font-size:30px;line-height:1.4;margin-top:22px">Una idea de Loris Malaguzzi que guía<br>nuestra forma de acompañar.</p>
+  </div>
+</section>
+
+<!-- 2 · ¿QUIÉN FUE? -->
+<section class="pieza" id="inspira-02">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="abs" style="left:100px;right:100px;top:200px">
+    <div class="serie"><svg width="22" height="33" viewBox="0 0 100 150"><use href="#iso"/></svg>Lo que nos inspira</div>
+    <div class="h" style="font-size:96px;margin-top:30px">¿Quién fue<br><span style="color:var(--gris-osc)">Loris Malaguzzi?</span></div>
+    <p class="p" style="margin-top:46px">Fue un pedagogo italiano que, junto a familias y maestras, dio vida a las escuelas infantiles de Reggio Emilia, en Italia.</p>
+    <p class="p" style="margin-top:30px">Creía en un niño capaz, curioso y lleno de preguntas, protagonista de su propio aprendizaje.</p>
+  </div>
+  <div class="abs" style="left:100px;bottom:130px;display:flex;gap:14px">
+    <i style="width:70px;height:12px;border-radius:6px;background:var(--amarillo)"></i>
+    <i style="width:36px;height:12px;border-radius:6px;background:var(--terracota)"></i>
+    <i style="width:22px;height:12px;border-radius:6px;background:var(--teal)"></i>
+  </div>
+</section>
+
+<!-- 3 · LA FRASE -->
+<section class="pieza" id="inspira-03" style="background:var(--crema-am)">
+  <div class="abs" style="left:100px;right:100px;top:330px">
+    <div class="h" style="font-size:200px;line-height:.6;color:var(--terracota)">“</div>
+    <div class="h" style="font-size:78px;line-height:1.08;margin-top:10px;color:var(--gris-osc)">El niño está hecho de cien. El niño tiene cien lenguas, cien manos, cien pensamientos, cien maneras de pensar, de jugar y de hablar.</div>
+    <p style="font-size:30px;margin-top:50px;color:var(--terracota);font-weight:500">Loris Malaguzzi</p>
+    <p style="font-size:24px;margin-top:6px">Fragmento del poema «Los cien lenguajes del niño»</p>
+  </div>
+</section>
+
+<!-- 4 · ¿QUÉ SIGNIFICA? -->
+<section class="pieza" id="inspira-04">
+  <div class="ph" style="left:0;top:0;width:1080px;height:640px;background-image:url(fotos/arbol.jpg);background-position:50% 30%"></div>
+  <div class="abs" style="left:0;top:0;width:1080px;height:640px;background:linear-gradient(180deg, rgba(255,252,248,0) 70%, var(--crema) 100%)"></div>
+  <div class="abs" style="left:100px;right:100px;top:690px">
+    <div class="h" style="font-size:88px">¿Qué<br><span style="color:var(--gris-osc)">significa?</span></div>
+    <p class="p" style="margin-top:34px">Cada niño se expresa y aprende de muchas formas: con sus manos, su cuerpo, el color, el juego, los materiales y la palabra.</p>
+    <p class="p" style="margin-top:24px">Las palabras son solo uno de sus lenguajes.</p>
+  </div>
+</section>
+
+<!-- 5 · ASÍ LO VIVIMOS -->
+<section class="pieza" id="inspira-05">
+  <div class="abs" style="left:70px;right:70px;top:80px">
+    <div class="h" style="font-size:72px">Así lo vivimos<br><span style="color:var(--gris-osc)">en Integrio</span></div>
+  </div>
+  <div class="abs" style="left:70px;right:70px;top:290px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:470px 470px;gap:18px">
+    <div class="tile"><div style="background-image:url(fotos/manos.jpg);background-position:50% 55%"></div><span>Con las manos</span></div>
+    <div class="tile"><div style="background-image:url(fotos/cuerpo.jpg);background-position:60% 60%"></div><span>Con el cuerpo</span></div>
+    <div class="tile"><div style="background-image:url(fotos/trazo.jpg);background-position:40% 55%"></div><span>Con el trazo</span></div>
+    <div class="tile"><div style="background-image:url(fotos/sentidos.jpg);background-position:40% 45%"></div><span>Con los sentidos</span></div>
+    <div class="tile"><div style="background-image:url(fotos/otros.jpg);background-position:45% 35%"></div><span>Con los otros</span></div>
+    <div class="tile"><div style="background-image:url(fotos/naturaleza.jpg);background-position:40% 40%"></div><span>Con la naturaleza</span></div>
+  </div>
+</section>
+
+<!-- 6 · PARA CASA -->
+<section class="pieza" id="inspira-06">
+  <svg class="conf"><use href="#confeti"/></svg>
+  <div class="abs" style="left:100px;right:100px;top:190px">
+    <span style="display:inline-block;background:var(--teal);color:#fff;font-weight:500;font-size:26px;padding:8px 26px 7px;border-radius:40px">Para casa</span>
+    <div class="h" style="font-size:88px;margin-top:24px">Escucha sus<br><span style="color:var(--gris-osc)">cien lenguajes</span></div>
+    <div style="display:flex;flex-direction:column;gap:34px;margin-top:56px">
+      <div style="display:flex;gap:24px;align-items:flex-start"><i style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--amarillo);margin-top:14px"></i><p class="p">Observa antes de intervenir. Su forma de jugar también te está contando algo.</p></div>
+      <div style="display:flex;gap:24px;align-items:flex-start"><i style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--terracota);margin-top:14px"></i><p class="p">Valora el proceso más que el resultado. Un garabato también es una idea.</p></div>
+      <div style="display:flex;gap:24px;align-items:flex-start"><i style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--teal);margin-top:14px"></i><p class="p">Ofrece materiales sencillos: hojas, agua, arena, cajas. Ellos harán el resto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · CIERRE -->
+<section class="pieza" id="inspira-07" style="background:var(--terracota)">
+  <svg class="conf" style="color:rgba(255,255,255,.08)"><use href="#confeti"/></svg>
+  <div class="abs" style="left:110px;right:110px;top:360px;text-align:center">
+    <div class="h" style="font-size:96px;color:#fff;line-height:1.05">Cada niño tiene<br>su propia forma<br>de descubrir<br>el mundo.</div>
+    <p style="font-size:32px;line-height:1.45;color:#fff;margin-top:44px">En Integrio, la escuchamos.</p>
+  </div>
+  <svg class="abs" style="left:504px;bottom:90px" width="72" height="108" viewBox="0 0 100 150"><use href="#iso-w"/></svg>
+</section>
+</body>
+</html>
