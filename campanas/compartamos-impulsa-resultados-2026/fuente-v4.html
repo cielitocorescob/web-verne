@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Compartamos Impulsa · Resultados 2026</title>
+<link rel="stylesheet" href="fonts/local.css">
+<style>
+  :root{
+    --font:'Bree','Baloo 2',sans-serif;
+    --magenta:#d50158; --deep:#9c0340; --pink:#ff4f93; --tint:#fde3ee; --tint-2:#f7c3d8;
+    --yellow:#ffc928; --ink:#3a2a33; --muted:#6e5a64;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1350px;overflow:hidden;background:#fff}
+  body{font-family:var(--font);color:var(--ink);position:relative}
+  .abs{position:absolute}
+
+  .logo{left:44px;top:36px;width:240px}
+  .tag{right:44px;top:40px;background:var(--yellow);color:var(--deep);font-weight:800;font-size:30px;line-height:1;
+    padding:14px 24px 8px;border-radius:14px;transform:rotate(-4deg);box-shadow:6px 6px 0 var(--deep);z-index:2}
+  h1{left:40px;top:116px;font-weight:800;font-size:96px;line-height:.86;letter-spacing:-2px;color:var(--deep)}
+  h1 span{color:var(--magenta)}
+  .intro{left:44px;top:292px;width:590px;font-size:21px;line-height:1.28;font-weight:500;padding-left:18px;border-left:5px solid var(--yellow)}
+  .hero{left:628px;top:112px;width:430px}
+  .kicker{left:44px;top:398px;display:flex;align-items:center;gap:16px;width:992px}
+  .kicker h2{font-weight:800;font-size:36px;line-height:1;color:var(--deep);white-space:nowrap}
+  .kicker i{flex:1;height:3px;background:var(--tint-2);border-radius:2px}
+
+  .card{position:absolute;border-radius:30px;padding:22px 26px 20px;overflow:hidden;display:flex;flex-direction:column}
+  .card .ill{position:absolute}
+  .hd{display:flex;align-items:flex-start;gap:12px;position:relative}
+  .badge{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;font-weight:800;font-size:21px;line-height:1;padding-top:3px}
+  .card h3{font-weight:800;font-size:27px;line-height:1;padding-top:4px}
+  .card p{font-size:17px;line-height:1.24;font-weight:500;margin-top:10px;position:relative}
+  .stat{margin-top:auto;display:flex;align-items:flex-end;gap:14px;position:relative}
+  .num{font-weight:800;line-height:.85;letter-spacing:-1.5px}
+  .lbl{font-weight:600;font-size:19px;line-height:1.1}
+
+  .c1{left:44px;top:462px;width:530px;height:262px;background:var(--magenta);color:#fff;border-radius:30px 30px 30px 90px}
+  .c1 .ill{right:20px;top:22px;width:160px}
+  .c1 .badge{background:#fff;color:var(--magenta)}
+  .c1 h3{width:260px}
+  .c1 p{color:#ffe0ec;width:300px}
+  .c1 .num{font-size:88px;color:var(--yellow)}
+  .c1 .lbl{padding-bottom:6px}
+
+  .c2{left:590px;top:462px;width:446px;height:262px;background:var(--yellow);color:var(--deep)}
+  .c2 .ill{right:18px;top:16px;width:84px}
+  .c2 .badge{background:var(--deep);color:var(--yellow)}
+  .c2 h3{width:290px}
+  .c2 p{color:#5e2a3e;width:300px}
+  .c2 .num{font-size:66px;color:var(--deep)}
+
+  .c3{left:44px;top:740px;width:400px;height:248px;background:var(--tint);border:2px solid var(--tint-2);color:var(--deep)}
+  .c3 .ill{right:12px;top:16px;width:128px}
+  .c3 .badge{background:var(--magenta);color:#fff}
+  .c3 h3{width:190px}
+  .c3 p{color:var(--muted);width:228px}
+  .c3 .num{font-size:66px;color:var(--magenta)}
+
+  .c4{left:460px;top:740px;width:576px;height:248px;background:var(--deep);color:#fff;border-radius:30px 90px 30px 30px}
+  .c4 .ill{right:26px;top:58px;width:142px}
+  .c4 .badge{background:var(--yellow);color:var(--deep)}
+  .c4 h3{width:420px}
+  .c4 p{color:#f6d7e4;width:360px}
+  .c4 .num{font-size:66px;color:var(--yellow)}
+
+  .c5{left:44px;top:1004px;width:488px;height:262px;background:#fff;border:3px solid var(--magenta);color:var(--deep)}
+  .c5 .ill{right:16px;top:18px;width:150px}
+  .c5 .badge{background:var(--magenta);color:#fff}
+  .c5 p{color:var(--muted);width:280px}
+  .c6{left:548px;top:1004px;width:488px;height:262px;background:var(--magenta);color:#fff;border-radius:30px 30px 90px 30px}
+  .c6 .ill{right:18px;top:18px;width:130px}
+  .c6 .badge{background:var(--yellow);color:var(--deep)}
+  .c6 h3{width:290px}
+  .c6 p{color:#ffe0ec;width:296px}
+  .trio{margin-top:auto;display:flex;gap:10px;position:relative}
+  .trio div{flex:1}
+  .trio .num{font-size:38px;display:block;letter-spacing:-1px;white-space:nowrap}
+  .trio .lbl{font-size:16px;display:block;margin-top:4px}
+  .c5 .trio .num{color:var(--magenta)}
+  .c6 .trio .num{color:var(--yellow)}
+  .trio div + div{border-left:2px dashed;padding-left:12px}
+  .c5 .trio div + div{border-color:var(--tint-2)}
+  .c6 .trio div + div{border-color:rgba(255,255,255,.35)}
+
+  .close{left:0;width:1080px;top:1288px;text-align:center;font-weight:800;font-style:italic;font-size:48px;line-height:1;color:var(--deep)}
+  .close b{color:var(--deep);background:var(--yellow);padding:6px 16px 0;border-radius:12px;display:inline-block;transform:rotate(-3deg);margin:0 4px}
+</style>
+</head>
+<body>
+
+<img class="abs logo" src="logo_compartamos.png" alt="Compartamos Banco">
+<img class="abs hero" src="ilustraciones/hero.png" alt="">
+<div class="abs tag">Resultados 2026</div>
+<h1 class="abs">Compartamos<br><span>Impulsa</span></h1>
+<p class="abs intro">Durante este año, acercamos conocimientos, impulsamos emprendimientos y generamos nuevas oportunidades para más personas y comunidades.</p>
+
+<div class="abs kicker"><h2>Nuestras iniciativas</h2><i></i></div>
+
+<div class="card c1"><img class="ill" src="ilustraciones/c1.png" alt="">
+  <div class="hd"><span class="badge">1</span><h3>Tu Educación Financiera</h3></div>
+  <p>Compartimos conocimientos financieros a través de videos educativos en YouTube.</p>
+  <div class="stat"><span class="num">+700 mil</span><span class="lbl">visualizaciones</span></div>
+</div>
+
+<div class="card c2"><img class="ill" src="ilustraciones/c2.png" alt="">
+  <div class="hd"><span class="badge">2</span><h3>Concurso Nacional de Emprendimiento Escolar</h3></div>
+  <p>Impulsamos ideas de negocio de estudiantes mediante formación, mentoría y capital semilla.</p>
+  <div class="stat"><span class="num">3,576</span><span class="lbl">estudiantes<br>impactados</span></div>
+</div>
+
+<div class="card c3"><img class="ill" src="ilustraciones/c3.png" alt="">
+  <div class="hd"><span class="badge">3</span><h3>Creadoras del Futuro</h3></div>
+  <p>Fortalecemos el liderazgo y empoderamiento de adolescentes mujeres.</p>
+  <div class="stat"><span class="num">457</span><span class="lbl">adolescentes<br>beneficiadas</span></div>
+</div>
+
+<div class="card c4"><img class="ill" src="ilustraciones/c4.png" alt="">
+  <div class="hd"><span class="badge">4</span><h3>Jóvenes que Emprenden y Transforman</h3></div>
+  <p>Desarrollamos las habilidades emprendedoras de jóvenes de CETPRO y apoyamos sus planes de negocio.</p>
+  <div class="stat"><span class="num">600</span><span class="lbl">emprendedores<br>beneficiados</span></div>
+</div>
+
+<div class="card c5"><img class="ill" src="ilustraciones/c5.png" alt="">
+  <div class="hd"><span class="badge">5</span><h3>Aula Magenta</h3></div>
+  <p>Acercamos la educación financiera a más comunidades del país mediante un aula itinerante.</p>
+  <div class="trio">
+    <div><span class="num">3,407</span><span class="lbl">personas capacitadas</span></div>
+    <div><span class="num">6</span><span class="lbl">regiones alcanzadas</span></div>
+    <div><span class="num">152</span><span class="lbl">talleres dictados</span></div>
+  </div>
+</div>
+
+<div class="card c6"><img class="ill" src="ilustraciones/c6.png" alt="">
+  <div class="hd"><span class="badge">6</span><h3>Impulsa tu Money</h3></div>
+  <p>Compartimos consejos financieros de forma entretenida y cercana a través de transmisiones en vivo.</p>
+  <div class="trio">
+    <div><span class="num">5</span><span class="lbl">transmisiones en vivo</span></div>
+    <div><span class="num">+475 mil</span><span class="lbl">visualizaciones</span></div>
+    <div><span class="num">+543 mil</span><span class="lbl">interacciones</span></div>
+  </div>
+</div>
+
+<div class="abs close">¡Vamos por un <b>2027</b> extraordinario!</div>
+</body>
+</html>

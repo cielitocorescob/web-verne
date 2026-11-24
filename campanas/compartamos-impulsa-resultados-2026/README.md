@@ -10,5 +10,5 @@ Notas:
 - Tipografías sustitutas (Baloo 2 + Asap) en lugar de Bree, la tipografía comercial de la marca. Para usar Bree, cambia `font-family` en el CSS.
 - El logo se recortó de la pieza de referencia; conviene reemplazarlo por el PNG oficial.
 
-## Versión final
-`compartamos-impulsa-resultados-2026.jpg` (2160×2700). Fuente de edición: `fuente-v3.html` (`node render.js fuente-v3.html salida.png 1080 1350 2`).
+## Versión final (LinkedIn)
+`compartamos-impulsa-resultados-2026-linkedin-1200x1500.jpg` (1200×1500, 4:5). Ilustraciones recortadas de la versión del cliente en `ilustraciones/`. Fuente: `fuente-v4.html` (`node render.js fuente-v4.html salida.png 1080 1350 1.1111112`).
