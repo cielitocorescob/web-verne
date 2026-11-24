@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Compartamos Impulsa · Resultados 2026</title>
+<link rel="stylesheet" href="fonts/local.css">
+<style>
+  :root{
+    --magenta:#d50158; --magenta-deep:#9c0340; --pink:#ff4f93;
+    --tint:#fdeaf2; --tint-2:#fbd5e5; --yellow:#ffc928; --ink:#3a2a33; --muted:#6b5862;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1350px;background:#fff;overflow:hidden}
+  body{font-family:'Asap',sans-serif;color:var(--ink);position:relative}
+  .display{font-family:'Baloo 2',sans-serif}
+
+  /* ---------- HEADER ---------- */
+  header{position:relative;height:292px;padding:44px 56px 0}
+  header::before{ /* soft pink arc, brand warmth */
+    content:"";position:absolute;right:-180px;top:-260px;width:620px;height:620px;border-radius:50%;
+    background:var(--tint);z-index:0}
+  .top{position:relative;z-index:1;display:flex;align-items:center;gap:28px}
+  .logo{width:300px}
+  .vbar{width:3px;height:96px;background:var(--magenta);border-radius:2px}
+  .title h1{font-family:'Baloo 2';font-weight:800;font-size:60px;line-height:.95;color:var(--magenta-deep);letter-spacing:-.5px}
+  .title h1 span{color:var(--magenta)}
+  .pill{display:inline-flex;align-items:center;gap:10px;margin-top:10px;background:var(--magenta);color:#fff;
+    font-family:'Baloo 2';font-weight:700;font-size:28px;line-height:1;padding:10px 22px 6px;border-radius:999px}
+  .pill b{color:var(--yellow);font-weight:800}
+  .intro{position:relative;z-index:1;margin-top:34px;max-width:880px;font-size:24px;line-height:1.35;font-weight:500;color:var(--ink);
+    padding-left:22px;border-left:5px solid var(--yellow)}
+  .intro strong{color:var(--magenta);font-weight:700}
+
+  /* ---------- SECTION LABEL ---------- */
+  .label{display:flex;align-items:center;gap:18px;padding:0 56px;margin-top:-6px}
+  .label h2{font-family:'Baloo 2';font-weight:800;font-size:34px;color:var(--magenta-deep);white-space:nowrap;line-height:1}
+  .label i{flex:1;height:3px;background:linear-gradient(90deg,var(--tint-2),transparent);border-radius:2px}
+
+  /* ---------- GRID ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 22px;padding:20px 56px 0}
+  .card{position:relative;background:#fff;border:2px solid var(--tint-2);border-radius:26px;padding:20px 22px 18px;
+    height:262px;display:flex;flex-direction:column;overflow:hidden}
+  .card .n{position:absolute;right:18px;top:10px;font-family:'Baloo 2';font-weight:800;font-size:44px;color:var(--tint);line-height:1}
+  .head{display:flex;align-items:center;gap:14px;position:relative}
+  .ico{flex:none;width:58px;height:58px;border-radius:50%;background:var(--magenta);display:grid;place-items:center}
+  .ico svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .head h3{font-family:'Baloo 2';font-weight:800;font-size:24px;line-height:1.02;color:var(--magenta-deep);padding-right:40px;padding-top:4px}
+  .card p{margin-top:10px;font-size:17px;line-height:1.3;color:var(--muted);font-weight:500}
+  .stat{margin-top:auto;background:var(--tint);border-radius:16px;display:flex;align-items:center;gap:14px;padding:6px 18px 4px}
+  .stat .num{font-family:'Baloo 2';font-weight:800;font-size:46px;line-height:1.05;color:var(--magenta)}
+  .stat .lbl{font-size:18px;line-height:1.15;font-weight:600;color:var(--ink)}
+  .stat.multi{display:flex;align-items:flex-start;justify-content:space-around;gap:0;padding:6px 4px}
+  .stat.multi > div{text-align:center;position:relative;flex:1}
+  .stat.multi > div + div::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:2px;background:var(--tint-2)}
+  .stat.multi .num{font-size:31px;white-space:nowrap;line-height:1.05}
+  .stat.multi .lbl{font-size:14.5px;font-weight:600;line-height:1.1;display:block}
+
+  /* ---------- FOOTER ---------- */
+  footer{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center}
+  .band{position:relative;background:var(--magenta);color:#fff;border-radius:999px;padding:16px 64px 10px;
+    font-family:'Baloo 2';font-weight:800;font-style:italic;font-size:44px;line-height:1;box-shadow:12px 10px 0 var(--yellow)}
+  .band b{color:var(--yellow)}
+
+  /* fish motif from the brand logo */
+  .fish{position:absolute}
+  .fish path{fill:currentColor}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="fish" viewBox="0 0 100 44">
+      <path fill="currentColor" d="M8 22 C24 4 58 2 78 18 L98 6 L92 22 L98 38 L78 26 C58 42 24 40 8 22 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="top">
+    <img class="logo" src="logo_compartamos.png" alt="Compartamos Banco">
+    <div class="vbar"></div>
+    <div class="title">
+      <h1>Compartamos <span>Impulsa</span></h1>
+      <div class="pill">Resultados <b>2026</b></div>
+    </div>
+  </div>
+  <p class="intro">Durante este año, <strong>acercamos conocimientos</strong>, <strong>impulsamos emprendimientos</strong> y <strong>generamos nuevas oportunidades</strong> para más personas y comunidades.</p>
+
+  <svg class="fish" style="right:70px;top:226px;width:64px;color:var(--yellow);transform:scaleX(-1) rotate(8deg)"><use href="#fish"/></svg>
+  <svg class="fish" style="right:150px;top:250px;width:40px;color:var(--pink);transform:scaleX(-1) rotate(-6deg)"><use href="#fish"/></svg>
+</header>
+
+<div class="label"><h2>Nuestras iniciativas</h2><i></i></div>
+
+<section class="grid">
+
+  <article class="card"><span class="n">01</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M10 8.2v5.6l4.6-2.8z"/><path d="M8 20.5h8"/></svg></div>
+      <h3>Tu Educación<br>Financiera</h3>
+    </div>
+    <p>Compartimos conocimientos financieros a través de videos educativos en YouTube.</p>
+    <div class="stat"><span class="num">+700 mil</span><span class="lbl">visualizaciones</span></div>
+  </article>
+
+  <article class="card"><span class="n">02</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.6 2.7 3 6 3s6-1.4 6-3v-5"/><path d="M22 9v5"/></svg></div>
+      <h3>Concurso Nacional de<br>Emprendimiento Escolar</h3>
+    </div>
+    <p>Impulsamos ideas de negocio de estudiantes mediante formación, mentoría y capital semilla.</p>
+    <div class="stat"><span class="num">3,576</span><span class="lbl">estudiantes<br>impactados</span></div>
+  </article>
+
+  <article class="card"><span class="n">03</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.6"/><path d="M3.5 20.5c.6-3.9 3.2-6 6.5-6 1.4 0 2.6.4 3.6 1"/><path d="M18 13.2l1.1 2.2 2.4.3-1.8 1.7.5 2.4-2.2-1.2-2.2 1.2.5-2.4-1.8-1.7 2.4-.3z"/></svg></div>
+      <h3>Creadoras<br>del Futuro</h3>
+    </div>
+    <p>Fortalecemos el liderazgo y empoderamiento de adolescentes mujeres.</p>
+    <div class="stat"><span class="num">457</span><span class="lbl">adolescentes<br>beneficiadas</span></div>
+  </article>
+
+  <article class="card"><span class="n">04</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M3.5 9.5L5 4h14l1.5 5.5"/><path d="M3.5 9.5c0 1.4 1.1 2.4 2.4 2.4s2.4-1 2.4-2.4c0 1.4 1.1 2.4 2.4 2.4h.6c1.3 0 2.4-1 2.4-2.4 0 1.4 1.1 2.4 2.4 2.4s2.4-1 2.4-2.4"/><path d="M5 12v8.5h14V12"/><path d="M10 20.5v-5h4v5"/></svg></div>
+      <h3>Jóvenes que Emprenden<br>y Transforman</h3>
+    </div>
+    <p>Desarrollamos las habilidades emprendedoras de jóvenes de CETPRO y apoyamos sus planes de negocio.</p>
+    <div class="stat"><span class="num">600</span><span class="lbl">emprendedores<br>beneficiados</span></div>
+  </article>
+
+  <article class="card"><span class="n">05</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M2 6h12v10H2z"/><path d="M14 9h4.2l3.3 3.6V16H14"/><circle cx="6" cy="17.5" r="1.9"/><circle cx="17.5" cy="17.5" r="1.9"/><path d="M5 9.5h6M5 12.5h4"/></svg></div>
+      <h3>Aula<br>Magenta</h3>
+    </div>
+    <p>Acercamos la educación financiera a más comunidades del país mediante un aula itinerante.</p>
+    <div class="stat multi">
+      <div><span class="num">3,407</span><span class="lbl">personas<br>capacitadas</span></div>
+      <div><span class="num">6</span><span class="lbl">regiones<br>alcanzadas</span></div>
+      <div><span class="num">152</span><span class="lbl">talleres<br>dictados</span></div>
+    </div>
+  </article>
+
+  <article class="card"><span class="n">06</span>
+    <div class="head">
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 4.9a10 10 0 0 0 0 14.2M19.1 4.9a10 10 0 0 1 0 14.2"/></svg></div>
+      <h3>Impulsa<br>tu Money</h3>
+    </div>
+    <p>Compartimos consejos financieros de forma entretenida y cercana a través de transmisiones en vivo.</p>
+    <div class="stat multi">
+      <div><span class="num">5</span><span class="lbl">transmisiones<br>en vivo</span></div>
+      <div><span class="num">+475 mil</span><span class="lbl">visualizaciones</span></div>
+      <div><span class="num">+543 mil</span><span class="lbl">interacciones</span></div>
+    </div>
+  </article>
+
+</section>
+
+<footer>
+  <div class="band">¡Vamos por un <b>2027</b> extraordinario!</div>
+</footer>
+<svg class="fish" style="left:64px;bottom:66px;width:54px;color:var(--yellow)"><use href="#fish"/></svg>
+<svg class="fish" style="right:58px;bottom:96px;width:46px;color:var(--pink);transform:scaleX(-1)"><use href="#fish"/></svg>
+
+</body>
+</html>
