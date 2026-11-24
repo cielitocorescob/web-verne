@@ -10,6 +10,5 @@ Notas:
 - Tipografías sustitutas (Baloo 2 + Asap) en lugar de Bree, la tipografía comercial de la marca. Para usar Bree, cambia `font-family` en el CSS.
 - El logo se recortó de la pieza de referencia; conviene reemplazarlo por el PNG oficial.
 
-## v2 (`infografia-v2.html` → `infografia-v2-1080x1350.png`)
-Composición editorial en vez de cuadrícula: titular grande, cifras héroe (totales calculados: 3,576 + 3,407 + 600 + 457 = 8,040 personas; 700 mil + 475 mil = +1.17 millones de visualizaciones; validar con el cliente), barras proporcionales para los programas presenciales y panel oscuro para los digitales. Una sola familia tipográfica: toma Bree si está disponible y, si no, Baloo 2.
-Re-render: `node render.js infografia-v2.html infografia-v2-1080x1350.png 1080 1350 2`
+## Versión final
+`compartamos-impulsa-resultados-2026.jpg` (2160×2700). Fuente de edición: `fuente-v3.html` (`node render.js fuente-v3.html salida.png 1080 1350 2`).
