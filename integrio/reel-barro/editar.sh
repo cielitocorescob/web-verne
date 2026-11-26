@@ -2,6 +2,7 @@
 # Arma el reel "Manos en la tierra" desde el video original.
 # Uso: ./editar.sh ruta/al/video.mp4
 set -e
+# Textos: se renderizan antes con "node textos.js $PWD" (PNG transparentes en out/txt)
 V="$1"; F=../fonts-marca/AndesRounded-Black.otf; O=out
 mkdir -p $O textos
 # toma: inicio fin texto
@@ -30,10 +31,10 @@ P
 : > $O/lista.txt
 while read i a b; do
   dur=$(python3 -c "print(($b-$a)*2.6)")
-  ffmpeg -nostdin -v error -y -ss $a -to $b -i "$V" -an -vf "setpts=2.6*PTS,minterpolate=fps=30:mi_mode=blend,scale=720:1280,\
-drawtext=fontfile=$F:textfile=textos/t$i.txt:fontsize=50:fontcolor=0xc07a5a:line_spacing=8:\
-box=1:boxcolor=0xfffcf8@0.94:boxborderw=26:x=(w-text_w)/2:y=h*0.74:\
-alpha='if(lt(t,0.25),t/0.25,if(gt(t,$dur-0.25),($dur-t)/0.25,1))'" \
+  ffmpeg -nostdin -v error -y -ss $a -to $b -i "$V" -loop 1 -i $O/txt/t$i.png -an -filter_complex \
+"[0:v]setpts=2.6*PTS,minterpolate=fps=30:mi_mode=blend,scale=720:1280[v];\
+[1:v]format=rgba,fade=in:st=0.1:d=0.4:alpha=1,fade=out:st=$(python3 -c "print($dur-0.45)"):d=0.35:alpha=1[t];\
+[v][t]overlay=0:0:shortest=1" \
     -c:v libx264 -pix_fmt yuv420p -r 30 -crf 18 $O/s$i.mp4
   echo "file 's$i.mp4'" >> $O/lista.txt
 done < tomas.list
